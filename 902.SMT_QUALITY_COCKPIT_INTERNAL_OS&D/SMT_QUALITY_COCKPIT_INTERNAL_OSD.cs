@@ -13,30 +13,32 @@ using System.Linq;
 
 namespace FORM
 {
-    public partial class SMT_QUALITY_COCKPIT_BONDING : Form
+    public partial class SMT_QUALITY_COCKPIT_INTERNAL_OSD : Form
     {
-        public SMT_QUALITY_COCKPIT_BONDING()
+        public SMT_QUALITY_COCKPIT_INTERNAL_OSD()
         {
             InitializeComponent();
             lblHeader.Text = _strHeader;
         }
-        private readonly string _strHeader = "       Bonding Gap";
+        private readonly string _strHeader = "       Internal OS&&D";
         //  private UC.UC_COMPARE_WEEK uc_compare_week = new UC.UC_COMPARE_WEEK();
         string _strType = "Q";
-        string _plant = ComVar.Var._strValue1;  // "";// 
-        string _line = ComVar.Var._strValue2;  //"";//
+        string _plant = ComVar.Var._strValue1;  
+        string _line = ComVar.Var._strValue2; 
         int _time = 0;
 
-        private void SetData(string arg_type,string plant, string line, bool arg_load = true)
+        private void SetData(string arg_type, string plant, string line, bool arg_load = true)
         {
             try
             {
                 this.Cursor = Cursors.WaitCursor;
+
                 plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString();
                 line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
+
                 chartControl1.DataSource = null;
                 grdBase.DataSource = null;
-               DataSet ds = Data_Select(arg_type, plant, line);
+                DataSet ds = Data_Select(arg_type, plant, line);
                 if (ds == null || ds.Tables.Count == 0) return;
                 DataTable dtSource = ds.Tables[0];
                 DataTable dtChart = ds.Tables[1];
@@ -79,12 +81,12 @@ namespace FORM
                     }
                 }
 
-                chartControl1.DataSource = dtChart;              
+                chartControl1.DataSource = dtChart;
                 chartControl1.Series[0].ArgumentDataMember = "YMD";
                 chartControl1.Series[0].ValueDataMembers.AddRange(new string[] { "BOND_QTY" });
                 chartControl1.Series[1].ArgumentDataMember = "YMD";
                 chartControl1.Series[1].ValueDataMembers.AddRange(new string[] { "RATE" });
-             
+
             }
             catch (Exception ex)
             {
@@ -233,8 +235,8 @@ namespace FORM
         {
             dtpDateF.EditValue = DateTime.Now.AddDays(-6).ToString(); ;// DateTime.Now.ToString("yyyy/MM/dd");
             dtpDateT.EditValue = DateTime.Now.ToString("yyyy/MM/dd");
-            _plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString(); // ComVar.Var._strValue1; 
-            _line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString(); // ComVar.Var._strValue2;  
+            _plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString(); 
+            _line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
             SetData(_strType, _plant, _line);           
             GET_COMBO_DATA("CPLANT", "");          
 
@@ -268,8 +270,8 @@ namespace FORM
             MyOraDB.Parameter_Values[0] = argType;
             MyOraDB.Parameter_Values[1] = dtpDateF.DateTime.ToString("yyyyMMdd");
             MyOraDB.Parameter_Values[2] = dtpDateT.DateTime.ToString("yyyyMMdd");
-            MyOraDB.Parameter_Values[3] = plant;// 
-            MyOraDB.Parameter_Values[4] = line;//cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
+            MyOraDB.Parameter_Values[3] = plant;
+            MyOraDB.Parameter_Values[4] = line;
             MyOraDB.Parameter_Values[5] = "";
             MyOraDB.Parameter_Values[6] = "";
 
@@ -375,15 +377,15 @@ namespace FORM
 
             }
             catch { }
+            
         }
 
-        private void SMT_QUALITY_COCKPIT_BONDING_VisibleChanged(object sender, EventArgs e)
+        private void SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
             {              
                 timer1.Start();
                 _strType = "Q";
-
                 LoadForm();
             }
             else

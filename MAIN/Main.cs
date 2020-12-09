@@ -126,9 +126,9 @@ namespace MAIN
 
         private void runSingleForm()
         {
-            Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\DLL\SMT_QUALITY_COCKPIT_BONDING.DLL");
-            Type type = assembly.GetType("FORM.SMT_QUALITY_COCKPIT_BONDING");
-            _dt = SEL_GET_FORM_DLL("SMT_QUALITY_COCKPIT_BONDING");
+            Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\DLL\SMT_QUALITY_COCKPIT_INTERNAL_OSD.DLL");
+            Type type = assembly.GetType("FORM.SMT_QUALITY_COCKPIT_INTERNAL_OSD");
+            _dt = SEL_GET_FORM_DLL("SMT_QUALITY_COCKPIT_INTERNAL_OSD");
 
             //add Event Call Form
             ComVar.Var.ValueChanged += new ComVar.Var.ValueChangedEventHandler(callForm);

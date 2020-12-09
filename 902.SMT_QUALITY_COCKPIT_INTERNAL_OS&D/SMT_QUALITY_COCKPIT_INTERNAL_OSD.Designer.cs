@@ -1,6 +1,6 @@
 ﻿namespace FORM
 {
-    partial class SMT_QUALITY_COCKPIT_BONDING
+    partial class SMT_QUALITY_COCKPIT_INTERNAL_OSD
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel1 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram4 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY4 = new DevExpress.XtraCharts.SecondaryAxisY();
+            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel4 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel4 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView4 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_BONDING));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_INTERNAL_OSD));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -58,9 +58,9 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.pnControl = new System.Windows.Forms.Panel();
             this.dtpDateF = new DevExpress.XtraEditors.DateEdit();
@@ -118,13 +118,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).BeginInit();
             this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDateF.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDateF.Properties)).BeginInit();
@@ -149,27 +149,27 @@
             this.chartControl1.AppearanceNameSerializable = "Chameleon";
             this.chartControl1.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chartControl1.DataBindings = null;
-            xyDiagram1.AxisX.Label.Angle = -45;
-            xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisX.Title.Text = "Date";
-            xyDiagram1.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisY.Title.Text = "Bonding Q\'ty (Pairs)";
-            xyDiagram1.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            secondaryAxisY1.AxisID = 0;
-            secondaryAxisY1.Name = "Secondary AxisY 1";
-            secondaryAxisY1.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            secondaryAxisY1.Title.Text = "Bonding Rate (%)";
-            secondaryAxisY1.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            secondaryAxisY1.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            secondaryAxisY1.VisibleInPanesSerializable = "-1";
-            xyDiagram1.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
-            secondaryAxisY1});
-            this.chartControl1.Diagram = xyDiagram1;
+            xyDiagram4.AxisX.Label.Angle = -45;
+            xyDiagram4.AxisX.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram4.AxisX.Title.Text = "Date";
+            xyDiagram4.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            xyDiagram4.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram4.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram4.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram4.AxisY.Title.Text = "Bonding Q\'ty (Pairs)";
+            xyDiagram4.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            xyDiagram4.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram4.AxisY.VisibleInPanesSerializable = "-1";
+            secondaryAxisY4.AxisID = 0;
+            secondaryAxisY4.Name = "Secondary AxisY 1";
+            secondaryAxisY4.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            secondaryAxisY4.Title.Text = "Bonding Rate (%)";
+            secondaryAxisY4.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            secondaryAxisY4.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            secondaryAxisY4.VisibleInPanesSerializable = "-1";
+            xyDiagram4.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
+            secondaryAxisY4});
+            this.chartControl1.Diagram = xyDiagram4;
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Left;
             this.chartControl1.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
@@ -181,27 +181,27 @@
             this.chartControl1.Location = new System.Drawing.Point(0, 0);
             this.chartControl1.Name = "chartControl1";
             this.chartControl1.PaletteName = "Marquee";
-            sideBySideBarSeriesLabel1.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Center;
-            series1.Label = sideBySideBarSeriesLabel1;
-            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "Bonding";
-            pointSeriesLabel1.TextPattern = "{V:#.#}%";
-            series2.Label = pointSeriesLabel1;
-            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series2.Name = "Rate";
-            lineSeriesView1.AxisYName = "Secondary AxisY 1";
-            series2.View = lineSeriesView1;
+            sideBySideBarSeriesLabel4.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
+            series7.Label = sideBySideBarSeriesLabel4;
+            series7.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series7.Name = "Bonding";
+            pointSeriesLabel4.TextPattern = "{V:#.#}%";
+            series8.Label = pointSeriesLabel4;
+            series8.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series8.Name = "Rate";
+            lineSeriesView4.AxisYName = "Secondary AxisY 1";
+            series8.View = lineSeriesView4;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1,
-        series2};
+        series7,
+        series8};
             this.chartControl1.SeriesTemplate.LegendName = "Default Legend";
             this.chartControl1.Size = new System.Drawing.Size(1888, 548);
             this.chartControl1.TabIndex = 12;
-            chartTitle1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle1.Text = "Bonding Gap";
-            chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            chartTitle4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle4.Text = "Bonding Gap";
+            chartTitle4.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
+            chartTitle4});
             // 
             // pnControl
             // 
@@ -628,9 +628,9 @@
             // 
             this.grdBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdBase.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.grdBase.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.grdBase.Location = new System.Drawing.Point(0, 0);
             this.grdBase.MainView = this.gvwBase;
             this.grdBase.Name = "grdBase";
@@ -672,9 +672,9 @@
             // grdExportDetail
             // 
             this.grdExportDetail.Font = new System.Drawing.Font("Calibri", 12.75F);
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode3.RelationName = "Level1";
             this.grdExportDetail.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode3});
             this.grdExportDetail.Location = new System.Drawing.Point(35, 6);
             this.grdExportDetail.MainView = this.grvExportDetail;
             this.grdExportDetail.Name = "grdExportDetail";
@@ -883,9 +883,9 @@
             // grdExportIssue
             // 
             this.grdExportIssue.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode3.RelationName = "Level1";
+            gridLevelNode4.RelationName = "Level1";
             this.grdExportIssue.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode3});
+            gridLevelNode4});
             this.grdExportIssue.Location = new System.Drawing.Point(306, 0);
             this.grdExportIssue.MainView = this.grvExportIssue;
             this.grdExportIssue.Name = "grdExportIssue";
@@ -1079,23 +1079,23 @@
             this.label7.Text = "Rate > 3";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // SMT_QUALITY_COCKPIT_BONDING
+            // SMT_QUALITY_COCKPIT_INTERNAL_OSD
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1888, 1042);
             this.Controls.Add(this.pnBody1);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnTop);
-            this.Name = "SMT_QUALITY_COCKPIT_BONDING";
-            this.Text = "SMT_SCADA_COCKPIT_FORM2";
-            this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_BONDING_VisibleChanged);
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            this.Name = "SMT_QUALITY_COCKPIT_INTERNAL_OSD";
+            this.Text = "SMT_QUALITY_COCKPIT_INTERNAL_OSD";
+            this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged);
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.pnControl.ResumeLayout(false);
             this.pnControl.PerformLayout();
