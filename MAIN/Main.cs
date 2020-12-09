@@ -36,12 +36,12 @@ namespace MAIN
                 
                 
                 /// Run 1 form using Test
-               runSingleForm();
+              // runSingleForm();
 
                 ///Run Group form by Config file
 
                 
-             //   runGroupForm();
+                runGroupForm();
                 
                 
 
@@ -289,6 +289,7 @@ namespace MAIN
             if (arg_Form_Name == ComVar.Var._Frm_Curr) return; 
 
             try
+
             {
                 //search form in exist in pnMain if don't have then add form
                 ctr = pnMain.Controls.Find(arg_Form_Name, false).FirstOrDefault();
@@ -496,7 +497,8 @@ namespace MAIN
         {
             try
             {
-                // Need to call on the thread that launched this splash       
+                // Need to call on the thread that launched this splash  
+                if (_splashForm == null) return;
                 if (_splashForm.InvokeRequired)
                     _splashForm.Invoke(new MethodInvoker(CloseSplash));
                 else
