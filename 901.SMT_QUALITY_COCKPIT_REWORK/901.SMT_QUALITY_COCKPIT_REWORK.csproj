@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FORM</RootNamespace>
-    <AssemblyName>SMT_QUALITY_COCKPIT_FORM1</AssemblyName>
+    <AssemblyName>SMT_QUALITY_COCKPIT_REWORK</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

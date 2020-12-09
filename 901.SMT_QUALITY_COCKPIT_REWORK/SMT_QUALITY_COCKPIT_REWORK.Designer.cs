@@ -567,16 +567,17 @@
             this.label5.Text = "Rate <=3%";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // SMT_QUALITY_COCKPIT_FORM1
+            // SMT_QUALITY_COCKPIT_REWORK
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1888, 1042);
             this.Controls.Add(this.pnBody1);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnTop);
-            this.Name = "SMT_QUALITY_COCKPIT_FORM1";
+            this.Name = "SMT_QUALITY_COCKPIT_REWORK";
             this.Text = "SMT_SCADA_COCKPIT_FORM2";
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_FORM1_Load);
+            this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_REWORK_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();

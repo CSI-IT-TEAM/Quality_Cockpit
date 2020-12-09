@@ -90,33 +90,8 @@ namespace FORM
                 gvwView.Columns.RemoveAt(0);
             }
         }
-      
-
-        
-        private void LoadForm()
-        {
-            // load_combo();
-
-            //SetButtonClick(_strType);
-            //SetHeader(_strType);
-            
-            //SetData(_strType);
-
-        
-
-        }
-
-
-      
-      
        
         #region DATABASE
-
-
-
-
-
-
         private DataTable Data_Select_Combo(string argType, string argPlant, string argLine )
         {
             COM.OraDB MyOraDB = new COM.OraDB();
@@ -242,90 +217,7 @@ namespace FORM
                 return null;
             }
         }
-        private DataSet Data_Select(string argType, string argDate = "")
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-
-            MyOraDB.ReDim_Parameter(4);
-            MyOraDB.Process_Name = "MES.PKG_SMT_SCADA_COCKPIT.PM_SELECT";
-
-            MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
-            MyOraDB.Parameter_Name[1] = "ARG_DATE";
-            MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
-            MyOraDB.Parameter_Name[3] = "OUT_CURSOR2";
-
-            MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
-            MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
-
-            MyOraDB.Parameter_Values[0] = argType;
-            MyOraDB.Parameter_Values[1] = argDate;
-            MyOraDB.Parameter_Values[2] = "";
-            MyOraDB.Parameter_Values[3] = "";
-
-            MyOraDB.Add_Select_Parameter(true);
-            DataSet retDS = MyOraDB.Exe_Select_Procedure();
-            if (retDS == null) return null;
-
-            return retDS;
-        }
-
-
-        private DataTable Data_Select_Machine(string argType, string argMachine)
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-
-            MyOraDB.ReDim_Parameter(3);
-            MyOraDB.Process_Name = "MES.PKG_SMT_SCADA_COCKPIT.PM_SELECT_MACHINE";
-
-            MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
-            MyOraDB.Parameter_Name[1] = "ARG_MACHINE";
-            MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
-
-            MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
-
-            MyOraDB.Parameter_Values[0] = argType;
-            MyOraDB.Parameter_Values[1] = argMachine;
-            MyOraDB.Parameter_Values[2] = "";
-
-            MyOraDB.Add_Select_Parameter(true);
-            DataSet retDS = MyOraDB.Exe_Select_Procedure();
-            if (retDS == null) return null;
-
-            return retDS.Tables[0];
-        }
-
-        private DataSet Data_Select_Compare(string argType, string argDate = "")
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-
-            MyOraDB.ReDim_Parameter(4);
-            MyOraDB.Process_Name = "MES.PKG_SMT_SCADA_COCKPIT.PM_SELECT_COMPARE";
-
-            MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
-            MyOraDB.Parameter_Name[1] = "ARG_DATE";
-            MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
-            MyOraDB.Parameter_Name[3] = "OUT_CURSOR2";
-
-            MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
-            MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
-
-            MyOraDB.Parameter_Values[0] = argType;
-            MyOraDB.Parameter_Values[1] = argDate;
-            MyOraDB.Parameter_Values[2] = "";
-            MyOraDB.Parameter_Values[3] = "";
-
-            MyOraDB.Add_Select_Parameter(true);
-            DataSet retDS = MyOraDB.Exe_Select_Procedure();
-            if (retDS == null) return null;
-
-            return retDS;
-        }
+   
 
         #endregion DB
 
@@ -578,6 +470,11 @@ namespace FORM
 
             
         }
-      
+
+        private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
+        {
+            cboPlant.SelectedValue = ComVar.Var._strValue1;
+            cboLine.SelectedValue = ComVar.Var._strValue1;
+        }
     }
 }

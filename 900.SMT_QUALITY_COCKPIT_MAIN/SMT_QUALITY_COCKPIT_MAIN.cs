@@ -484,7 +484,6 @@ namespace FORM
         #endregion Set Data
 
         #region Button Line Click
-
         private void Button_Line_Click(object sender, EventArgs e)
         {
             Control ctr = (Control)sender;
@@ -492,51 +491,80 @@ namespace FORM
 
             if (strArr[strArr.Length -1] == "LNM")
             {
-                //current nos K using code 017
-                string line_cd = strArr[1] == "017" ? "009" : strArr[1];
-
-                //if NOSL line 5,6,7,8 
-                if (strArr.Length == 4 && line_cd == "018")
-                {
-                    ComVar.Var._Area = "NOS_L2.";
-                }
-                else
-                {
-                    ComVar.Var._Area = "NOS.";
-                }
-
-                //setting call form
-                ComVar.Var._IsBack = true;
-                ComVar.Var._Frm_Back = "900";
-                ComVar.Var._strValue1 = line_cd;
-
-                //Using for NOS N
-                if (line_cd == "099")
-                {
-                    ComVar.Var.callForm = "140";
-                }
-
-                //Using for F1
-                else if (line_cd == "F1")
-                {
-                    ComVar.Var.callForm = "245";
-                }
-
-                //Using for NOS have 4 line FGA
-                else
-                {
-                    ComVar.Var.callForm = "69";
-                }
-                
-
-
+                CallDigitalShopFloor(strArr);
+            }
+            else if (strArr[strArr.Length - 1] == "STA")
+            {
+                CallForm(strArr);
             }
         }
+
+        private void CallForm(string[] argLine)
+        {
+            ComVar.Var._IsBack = true;
+            ComVar.Var._strValue1 = argLine[1];
+            ComVar.Var._strValue2 = argLine[2];
+            switch (argLine[argLine.Length - 2])
+            {
+                case "NPI":
+                    ComVar.Var.callForm = "904";
+                    break;
+                case "REW":
+                    ComVar.Var.callForm = "901";
+                    break;
+                case "OSD":
+                    ComVar.Var.callForm = "902";
+                    break;
+                case "BON":                   
+                    ComVar.Var.callForm = "903";
+                    break;
+            }
+        }
+
+        private void CallDigitalShopFloor(string[] argLineCd)
+        {
+            //current nos K using code 017
+            string line_cd = argLineCd[1] == "017" ? "009" : argLineCd[1];
+
+            //if NOSL line 5,6,7,8 
+            if (argLineCd.Length == 4 && line_cd == "018")
+            {
+                ComVar.Var._Area = "NOS_L2.";
+            }
+            else
+            {
+                ComVar.Var._Area = "NOS.";
+            }
+
+            //setting call form
+            ComVar.Var._IsBack = true;
+            ComVar.Var._Frm_Back = "900";
+            ComVar.Var._strValue1 = line_cd;
+
+            //Using for NOS N
+            if (line_cd == "099")
+            {
+                ComVar.Var.callForm = "140";
+            }
+
+            //Using for F1
+            else if (line_cd == "001"|| line_cd == "002" || line_cd == "003" || line_cd == "004" || line_cd == "005" || line_cd == "006")
+            {
+                ComVar.Var.callForm = "245";
+            }
+
+            //Using for NOS have 4 line FGA
+            else
+            {
+                ComVar.Var.callForm = "69";
+            }
+        }
+
         #endregion Button Line Click
 
         #region DB
 
-        
+
 
 
         private async Task <DataTable> Master_Select(string argType)
@@ -624,16 +652,15 @@ namespace FORM
 
         #endregion DB
 
-
-
+        #region Event
         private void tmrTime_Tick(object sender, EventArgs e)
         {
-            lblDate.Text= string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
-            _iReload ++;
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            _iReload++;
             if (_iReload >= 20)
             {
                 _iReload = 0;
-               // setDataTest();
+                // setDataTest();
                 setData();
 
                 //uC_Chart_Donut1.setColor("Red");
@@ -654,16 +681,10 @@ namespace FORM
             Application.Exit();
         }
 
-        private void cmdPm1_Click(object sender, EventArgs e)
-        {
-            ComVar.Var._IsBack = true;
-            ComVar.Var.callForm = "617";
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-           // ComVar.Var._IsBack = true;
-           // ComVar.Var.callForm = "617";
+            // ComVar.Var._IsBack = true;
+            // ComVar.Var.callForm = "617";
             //string Path = @"vnc\013.vnc";
             ////string path2 = @"C:\Program Files\RealVNC\VNC Viewer\vncviewer.exe";
 
@@ -733,6 +754,12 @@ namespace FORM
             ComVar.Var._IsBack = true;
             ComVar.Var.callForm = "682";
         }
+        #endregion
+
+
+
+
+
     }
 
 
