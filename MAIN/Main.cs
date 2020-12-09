@@ -36,12 +36,12 @@ namespace MAIN
                 
                 
                 /// Run 1 form using Test
-             //  runSingleForm();
+               runSingleForm();
 
                 ///Run Group form by Config file
 
                 
-                runGroupForm();
+             //   runGroupForm();
                 
                 
 
@@ -126,9 +126,9 @@ namespace MAIN
 
         private void runSingleForm()
         {
-            Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\DLL\FORM_TO_PO.DLL");
-            Type type = assembly.GetType("FORM.FORM_TO_PO_WEEK");
-            _dt = SEL_GET_FORM_DLL("FORM_TO_PO");
+            Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\DLL\SMT_QUALITY_COCKPIT_BONDING.DLL");
+            Type type = assembly.GetType("FORM.SMT_QUALITY_COCKPIT_BONDING");
+            _dt = SEL_GET_FORM_DLL("SMT_QUALITY_COCKPIT_BONDING");
 
             //add Event Call Form
             ComVar.Var.ValueChanged += new ComVar.Var.ValueChangedEventHandler(callForm);
