@@ -23,8 +23,8 @@ namespace FORM
         private readonly string _strHeader = "       Internal OS&&D";
         //  private UC.UC_COMPARE_WEEK uc_compare_week = new UC.UC_COMPARE_WEEK();
         string _strType = "Q";
-        string _plant = ComVar.Var._strValue1;  
-        string _line = ComVar.Var._strValue2; 
+        string _plant = ComVar.Var._strValue1;  // "";// 
+        string _line = ComVar.Var._strValue2;  //"";//
         int _time = 0;
 
         private void SetData(string arg_type, string plant, string line, bool arg_load = true)
@@ -32,10 +32,6 @@ namespace FORM
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-
-                plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString();
-                line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
-
                 chartControl1.DataSource = null;
                 grdBase.DataSource = null;
                 DataSet ds = Data_Select(arg_type, plant, line);
@@ -226,19 +222,26 @@ namespace FORM
                 cbo_line.DataSource = dt;
                 cbo_line.DisplayMember = "NAME";
                 cbo_line.ValueMember = "CODE";
-               // cbo_line.SelectedIndex = 1;
+                cbo_line.SelectedIndex = 0;
             }
 
         }       
 
         private void LoadForm()
         {
-            dtpDateF.EditValue = DateTime.Now.AddDays(-6).ToString(); ;// DateTime.Now.ToString("yyyy/MM/dd");
+            dtpDateF.EditValue = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd"); ;// DateTime.Now.ToString("yyyy/MM/dd");
             dtpDateT.EditValue = DateTime.Now.ToString("yyyy/MM/dd");
-            _plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString(); 
-            _line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
-            SetData(_strType, _plant, _line);           
-            GET_COMBO_DATA("CPLANT", "");          
+       
+                   
+            GET_COMBO_DATA("CPLANT", "");
+
+            cbo_Plant.SelectedValue = ComVar.Var._strValue1;
+            cbo_line.SelectedValue = ComVar.Var._strValue2;
+
+            _plant = cbo_Plant.SelectedValue.ToString(); //
+            _line = cbo_line.SelectedValue.ToString(); //  
+
+           // SetData(_strType, _plant, _line);
 
         }
        
@@ -270,8 +273,8 @@ namespace FORM
             MyOraDB.Parameter_Values[0] = argType;
             MyOraDB.Parameter_Values[1] = dtpDateF.DateTime.ToString("yyyyMMdd");
             MyOraDB.Parameter_Values[2] = dtpDateT.DateTime.ToString("yyyyMMdd");
-            MyOraDB.Parameter_Values[3] = plant;
-            MyOraDB.Parameter_Values[4] = line;
+            MyOraDB.Parameter_Values[3] = plant;// 
+            MyOraDB.Parameter_Values[4] = line;//cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
             MyOraDB.Parameter_Values[5] = "";
             MyOraDB.Parameter_Values[6] = "";
 
@@ -332,8 +335,7 @@ namespace FORM
             _time++;
             if(_time >=30)
             {
-                _time = 0;
-             
+                _time = 0;             
                 SetData(_strType,_plant, _line, false);
             }
             
@@ -377,7 +379,6 @@ namespace FORM
 
             }
             catch { }
-            
         }
 
         private void SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged(object sender, EventArgs e)
@@ -386,6 +387,7 @@ namespace FORM
             {              
                 timer1.Start();
                 _strType = "Q";
+              
                 LoadForm();
             }
             else
@@ -395,9 +397,7 @@ namespace FORM
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
-          //  _plant =cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString();
-         //   _line =cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString(); 
+        {        
             SetData(_strType, _plant, _line);
             
 
@@ -409,6 +409,7 @@ namespace FORM
             {
                 if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
+                    if (e.CellValue == DBNull.Value) return;
                     e.DisplayText = double.Parse(e.CellValue.ToString()).ToString("0.##") + "%";
 
                 }
@@ -424,7 +425,7 @@ namespace FORM
                 {
                     double rate = double.Parse(e.CellValue.ToString());
                     if (rate <= 2)
-                        e.Appearance.BackColor = Color.LimeGreen;
+                        e.Appearance.BackColor = Color.Green;
                     else if (rate > 3)
                         e.Appearance.BackColor = Color.Red;
                     else
@@ -432,6 +433,20 @@ namespace FORM
 
                 }
             }
+        }
+
+        private void cbo_Plant_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbo_Plant.SelectedValue.ToString() != null)
+                    GET_COMBO_DATA("CLINE", cbo_Plant.SelectedValue.ToString());
+
+                else
+                    return;
+
+            }
+            catch { }
         }
     }
 }

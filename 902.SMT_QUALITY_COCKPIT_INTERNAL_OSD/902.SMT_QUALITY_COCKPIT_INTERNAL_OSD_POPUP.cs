@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace FORM
 {
-    public partial class SMT_QUALITY_COCKPIT_INTERNAL_POPUP : Form
+    public partial class SMT_QUALITY_COCKPIT_POPUP : Form
     {
-        public SMT_QUALITY_COCKPIT_INTERNAL_POPUP()
+        public SMT_QUALITY_COCKPIT_POPUP()
         {
             InitializeComponent();
         }
