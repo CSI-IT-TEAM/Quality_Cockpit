@@ -15,73 +15,10 @@ namespace FORM
             lblHeader.Text = _strHeader;
         }
         private readonly string _strHeader = "       Daily Rework";
-        private UC.UC_COMPARE_WEEK uc_compare_week = new UC.UC_COMPARE_WEEK();
-        string _strType = "D";
         int _time = 0;
-
-        //private void SetData(string arg_type, bool arg_load = true)
-        //{
-        //    try
-        //    {
-        //        if(arg_load)
-        //        {
-                  
-        //            pnBody2.Visible = false;
-        //            pnBody1.Visible = true;
-        //        }
-                
-                
-
-        //        chartControl1.DataSource = null;
-        //        DataSet ds = Data_Select(arg_type);
-        //        if (ds == null || ds.Tables.Count == 0) return;
-        //        DataTable dtData = ds.Tables[0];
-        //        DataTable dtDate = ds.Tables[1];
-
-
-
-        //        chartControl1.DataSource = dtData;
-        //        chartControl1.Series[0].ArgumentDataMember = "MACHINE_CD";
-        //        chartControl1.Series[0].ValueDataMembers.AddRange(new string[] { "OCR_TIME" });
-        //        gridControl1.DataSource = dtData;
-
-
-        //        for (int i = 0; i < gridView1.Columns.Count; i++)
-        //        {
-
-        //            gridView1.Columns[i].OptionsColumn.ReadOnly = true;
-        //            gridView1.Columns[i].OptionsColumn.AllowEdit = false;
-        //            if (i <= 4)
-        //            {
-        //                gridView1.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-        //                gridView1.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-        //            }
-        //            //  gridView1.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-        //            // gridView1.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-
-        //            //if (i <= 2)
-        //            //    gridView1.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
-        //            //else
-        //            //    gridView1.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-
-        //            if (i == 4)
-        //                gridView1.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-
-        //            if (i == gridView1.Columns.Count - 1)
-        //                gridView1.Columns[i].AppearanceCell.Font = new Font("Calibri", 16, FontStyle.Bold);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine(ex.ToString());
-        //        throw;
-        //    }
-
-        //}
 
         private void SMT_QUALITY_COCKPIT_FORM1_Load(object sender, EventArgs e)
         {
-
             load_combo("DATE");
             load_combo("COMBO_PLANT");
             load_combo("COMBO_LINE");
@@ -226,21 +163,21 @@ namespace FORM
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
-            //_time++;
-            //if (_time >= 30)
-            //{
-            //    _time = 0;
-            //    //SetData(_strType, false);
-            //}
-
-            if (_time < 2)
-                _time++;
-            if (_time == 2)
+            _time++;
+            if (_time >= 30)
             {
-                _time++;
+                _time = 0;
+                btnSearch_Click(null, null);
+                //SetData(_strType, false);
+            }
+
+            //if (_time < 2)
+            //    _time++;
+            //if (_time == 2)
+            //{
+            //    _time++;
             //    if (!flag)
             //        load_combo();
-            }
 
            
             
@@ -250,11 +187,6 @@ namespace FORM
         {
             ComVar.Var.callForm = "back";
         }
-
-    
-
-
-
 
         private void lblDate_DoubleClick(object sender, EventArgs e)
         {
@@ -311,64 +243,75 @@ namespace FORM
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string YMDF,YMDT,PLANT_CD, LINE_CD;
-            int total=0;
-            double PER = 0;
-            YMDF=dtpYMD.DateTime.ToString("yyyyMMdd") ;
-            YMDT=dtpYMDT.DateTime.ToString("yyyyMMdd") ;
-            PLANT_CD=cboPlant.SelectedValue.ToString().Trim();
-            LINE_CD=cboLine.SelectedValue.ToString().Trim();
-
-
-            while (gvwView.Columns.Count > 0)
+            try
             {
-                gvwView.Columns.RemoveAt(0);
-            }
-
-           DataTable dt = sbGetRework("Q", YMDF, YMDT, PLANT_CD, LINE_CD);
-
-           if (dt.Rows.Count > 2)
-           {
-               //TINH TOTAL
-               for (int i = 0; i <= dt.Rows.Count - 2; i++)
-               {
-                   for (int j = 3; j <= dt.Columns.Count - 1; j++)
-                   {
-                       total = total + int.Parse(dt.Rows[i][j].ToString());
-                   }
-                   dt.Rows[i]["TOTAL"] = total;
-                   total = 0;
-               }
-
-               if (int.Parse(dt.Rows[0]["TOTAL"].ToString()) > 0)
-               {
-                   PER = (double.Parse(dt.Rows[1]["TOTAL"].ToString()) / double.Parse(dt.Rows[0]["TOTAL"].ToString())) * 100;
-
-                   dt.Rows[2]["TOTAL"] = Math.Round(PER, 2);
-               }
-               else
-               {
-                   dt.Rows[2]["TOTAL"] = 0;
-               }
-
-           }
-              grdView.DataSource = dt;
-
-              Format_Grid();
+                Cursor.Current = Cursors.WaitCursor;
+                string YMDF, YMDT, PLANT_CD, LINE_CD;
+                int total = 0;
+                double PER = 0;
+                YMDF = dtpYMD.DateTime.ToString("yyyyMMdd");
+                YMDT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+                PLANT_CD = cboPlant.SelectedValue.ToString().Trim();
+                LINE_CD = cboLine.SelectedValue.ToString().Trim();
 
 
-            //---chart---//
-              DataTable dtchart = sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
+                while (gvwView.Columns.Count > 0)
+                {
+                    gvwView.Columns.RemoveAt(0);
+                }
 
-             
+                DataTable dt = sbGetRework("Q", YMDF, YMDT, PLANT_CD, LINE_CD);
+
+                if (dt.Rows.Count > 2)
+                {
+                    //TINH TOTAL
+                    int iQty;
+                    for (int i = 0; i <= dt.Rows.Count - 2; i++)
+                    {
+                        for (int j = 3; j <= dt.Columns.Count - 1; j++)
+                        {
+                            int.TryParse(dt.Rows[i][j].ToString(), out iQty);
+                            total = total + iQty;
+                        }
+                        dt.Rows[i]["TOTAL"] = total;
+                        total = 0;
+                    }
+
+                    if (int.Parse(dt.Rows[0]["TOTAL"].ToString()) > 0)
+                    {
+                        PER = (double.Parse(dt.Rows[1]["TOTAL"].ToString()) / double.Parse(dt.Rows[0]["TOTAL"].ToString())) * 100;
+
+                        dt.Rows[2]["TOTAL"] = Math.Round(PER, 2);
+                    }
+                    else
+                    {
+                        dt.Rows[2]["TOTAL"] = 0;
+                    }
+
+                }
+                grdView.DataSource = dt;
+
+                Format_Grid();
+
+
+                //---chart---//
+                DataTable dtchart = sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
+
+
                 chartControl1.DataSource = dtchart;
                 chartControl1.Series[0].ArgumentDataMember = "YMD";
                 chartControl1.Series[0].ValueDataMembers.AddRange(new string[] { "REWORK" });
                 chartControl1.Series[1].ArgumentDataMember = "YMD";
                 chartControl1.Series[1].ValueDataMembers.AddRange(new string[] { "RATE" });
-               
-
-
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }       
         }
 
 
@@ -376,25 +319,19 @@ namespace FORM
         {
             gvwView.BeginUpdate();
 
-
-           
+            gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             for (int i = 0; i < gvwView.Columns.Count; i++)
             {
-
-
-
                 if (gvwView.GetRowCellValue(0, gvwView.Columns[i].FieldName).ToString() == "ITEM")
                 {
                     gvwView.SetRowCellValue(0, gvwView.Columns[i].FieldName, "Item");
                 }
 
-
                 if (gvwView.GetRowCellValue(0, gvwView.Columns[i].FieldName).ToString() == "TOTAL")
                 {
                     gvwView.SetRowCellValue(0, gvwView.Columns[i].FieldName, "Total");
                 }
-                        
-
+                gvwView.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
 
 
                 gvwView.Columns[i].AppearanceCell.Options.UseTextOptions = true;
@@ -410,20 +347,13 @@ namespace FORM
                 //gvwView.Columns[i].AppearanceHeader.Fonts
 
                 gvwView.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-                gvwView.Columns[i].Width = 100;
+              //  gvwView.Columns[i].Width = 100;
                    
                 gvwView.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
                 gvwView.Columns[i].DisplayFormat.FormatString = "#,###.##";
-              
-
-
-               // gvwView.Columns[1].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-               // gvwView.Columns[i].Caption = gvwView.Columns[i].FieldName.ToString().Replace("'", "");
-
-
             }
            
-            gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular);
+            
             gvwView.BestFitColumns();
 
             // gvwView.OptionsView.ColumnAutoWidth = false;
@@ -432,49 +362,44 @@ namespace FORM
 
         private void gvwView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
-                double temp = 0.0;
-
-                if (e.Column.AbsoluteIndex >= 1 && e.CellValue != null)
+            double temp = 0.0;
+            
+            if (e.Column.AbsoluteIndex >= 1 && e.CellValue != null)
+            {
+                if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["ITEM"]).ToString() == "Rate")
                 {
-                   
-
-                    if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["ITEM"]).ToString() == "Rate")
+                    double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
+                    if (temp > 6)
                     {
-                        double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
-
-
-
-                        if (temp > 6)
-                        {
-                            e.Appearance.BackColor = Color.Red;
-                            e.Appearance.ForeColor = Color.White;
-                        }
-                        else if (temp > 3 && temp <= 6)
-                        {
-
-                            e.Appearance.BackColor = Color.Yellow;
-                            e.Appearance.ForeColor = Color.Black;
-                        }
-                        else if (temp <= 3)
-                        {
-
-                            e.Appearance.BackColor = Color.LightGreen;
-                            e.Appearance.ForeColor = Color.Black;
-                        }
+                        e.Appearance.BackColor = Color.Red;
+                        e.Appearance.ForeColor = Color.White;
                     }
-                    if (e.Column.FieldName.Contains("TOTAL"))
+                    else if (temp > 3 && temp <= 6)
                     {
-                        e.Appearance.ForeColor = Color.Blue;
+
+                        e.Appearance.BackColor = Color.Yellow;
+                        e.Appearance.ForeColor = Color.Black;
+                    }
+                    else if (temp <= 3)
+                    {
+
+                        e.Appearance.BackColor = Color.Green;
+                        e.Appearance.ForeColor = Color.White;
                     }
                 }
+                if (e.Column.FieldName.Contains("TOTAL") && e.RowHandle != gvwView.RowCount -1)
+                {
+                    e.Appearance.ForeColor = Color.Blue;
+                }
+            }
 
-            
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
         {
             cboPlant.SelectedValue = ComVar.Var._strValue1;
-            cboLine.SelectedValue = ComVar.Var._strValue1;
+            cboLine.SelectedValue = ComVar.Var._strValue2;
+            _time = 29;
         }
     }
 }
