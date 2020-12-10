@@ -170,17 +170,6 @@ namespace FORM
                 btnSearch_Click(null, null);
                 //SetData(_strType, false);
             }
-
-            //if (_time < 2)
-            //    _time++;
-            //if (_time == 2)
-            //{
-            //    _time++;
-            //    if (!flag)
-            //        load_combo();
-
-           
-            
         }
 
         private void cmdBack_Click(object sender, EventArgs e)
@@ -319,7 +308,7 @@ namespace FORM
         {
             gvwView.BeginUpdate();
 
-            gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
+            gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             for (int i = 0; i < gvwView.Columns.Count; i++)
             {
                 if (gvwView.GetRowCellValue(0, gvwView.Columns[i].FieldName).ToString() == "ITEM")

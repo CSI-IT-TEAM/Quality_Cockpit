@@ -243,7 +243,7 @@ namespace FORM
             _plant = cbo_Plant.SelectedValue.ToString(); //
             _line = cbo_line.SelectedValue.ToString(); //  
 
-            SetData(_strType, _plant, _line);
+            //SetData(_strType, _plant, _line);
 
         }
        
@@ -387,11 +387,14 @@ namespace FORM
         private void SMT_QUALITY_COCKPIT_BONDING_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
-            {              
-                timer1.Start();
+            {
+                _time = 29;
                 _strType = "Q";
+
+                timer1.Start();
+                
               
-                LoadForm();
+                
             }
             else
             {
@@ -450,6 +453,11 @@ namespace FORM
 
             }
             catch { }
+        }
+
+        private void SMT_QUALITY_COCKPIT_BONDING_Load(object sender, EventArgs e)
+        {
+            LoadForm();
         }
     }
 }
