@@ -150,23 +150,23 @@
             this.chartControl1.DataBindings = null;
             xyDiagram2.AxisX.Label.Angle = -45;
             xyDiagram2.AxisX.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram2.AxisX.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram2.AxisX.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
             xyDiagram2.AxisX.Title.Text = "Date";
             xyDiagram2.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram2.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram2.AxisY.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram2.AxisY.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram2.AxisY.Title.Text = "Bonding Q\'ty (Pairs)";
+            xyDiagram2.AxisY.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            xyDiagram2.AxisY.Title.Text = "OS&D Q\'ty (Pairs)";
             xyDiagram2.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram2.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
             secondaryAxisY2.AxisID = 0;
             secondaryAxisY2.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             secondaryAxisY2.Name = "Secondary AxisY 1";
-            secondaryAxisY2.Title.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            secondaryAxisY2.Title.Text = "Bonding Rate (%)";
-            secondaryAxisY2.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            secondaryAxisY2.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            secondaryAxisY2.Title.Text = "OS&D Rate (%)";
+            secondaryAxisY2.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             secondaryAxisY2.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY2.VisibleInPanesSerializable = "-1";
             xyDiagram2.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
@@ -669,7 +669,6 @@
             this.gvwBase.OptionsView.ShowGroupPanel = false;
             this.gvwBase.OptionsView.ShowIndicator = false;
             this.gvwBase.RowHeight = 50;
-            this.gvwBase.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwBase_CustomDrawCell);
             this.gvwBase.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwBase_RowCellStyle);
             // 
             // gridBand1
@@ -1054,7 +1053,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 40);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Rate > 3";
+            this.label7.Text = "Rate > 2";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -1066,7 +1065,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(161, 40);
             this.label6.TabIndex = 8;
-            this.label6.Text = "2 > Rate <= 3";
+            this.label6.Text = "1 > Rate <= 2";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -1078,7 +1077,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 40);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Rate <=2";
+            this.label5.Text = "Rate <= 1";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SMT_QUALITY_COCKPIT_INTERNAL_OSD
@@ -1090,6 +1089,7 @@
             this.Controls.Add(this.pnTop);
             this.Name = "SMT_QUALITY_COCKPIT_INTERNAL_OSD";
             this.Text = "SMT_QUALITY_COCKPIT_INTERNAL_OSD";
+            this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_INTERNAL_OSD_Load);
             this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();

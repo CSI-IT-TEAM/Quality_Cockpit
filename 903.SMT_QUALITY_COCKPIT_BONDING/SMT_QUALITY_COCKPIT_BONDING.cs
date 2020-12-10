@@ -118,7 +118,7 @@ namespace FORM
                 column_Band1.FieldName = "ITEM";
                 column_Band1.Name = "ITEM";
                 column_Band1.Visible = true;
-                column_Band1.Width = 120;
+                 column_Band1.Width = 120;
                 column_Band1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
 
                 gridBand1.Columns.Add(column_Band1);  
@@ -237,7 +237,11 @@ namespace FORM
                    
             GET_COMBO_DATA("CPLANT", "");
 
-            
+            cbo_Plant.SelectedValue = ComVar.Var._strValue1;
+            cbo_line.SelectedValue = ComVar.Var._strValue2;
+
+            _plant = cbo_Plant.SelectedValue.ToString(); //
+            _line = cbo_line.SelectedValue.ToString(); //  
 
             //SetData(_strType, _plant, _line);
 
@@ -387,12 +391,6 @@ namespace FORM
                 _time = 29;
                 _strType = "Q";
 
-                cbo_Plant.SelectedValue = ComVar.Var._strValue1;
-                cbo_line.SelectedValue = ComVar.Var._strValue2;
-
-                _plant = cbo_Plant.SelectedValue.ToString(); //
-                _line = cbo_line.SelectedValue.ToString(); //  
-
                 timer1.Start();
                 
               
@@ -433,25 +431,12 @@ namespace FORM
                 {
                     double rate = double.Parse(e.CellValue.ToString());
                     if (rate <= 2)
-                    {
                         e.Appearance.BackColor = Color.Green;
-                        e.Appearance.ForeColor = Color.White;
-                    }    
                     else if (rate > 3)
-                    {
                         e.Appearance.BackColor = Color.Red;
-                        e.Appearance.ForeColor = Color.White;
-                    }
-                        
                     else
-                    {
                         e.Appearance.BackColor = Color.Yellow;
-                        e.Appearance.ForeColor = Color.Black;
-                    }
-                }
-                if (e.Column.FieldName.ToUpper().Contains("TOTAL") && e.RowHandle != gvwBase.RowCount - 1)
-                {
-                    e.Appearance.ForeColor = Color.Blue;
+
                 }
             }
         }

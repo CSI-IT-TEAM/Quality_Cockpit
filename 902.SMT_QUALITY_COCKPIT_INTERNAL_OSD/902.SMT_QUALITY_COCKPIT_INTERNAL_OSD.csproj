@@ -126,17 +126,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="902.SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs">
+    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="902.SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.Designer.cs">
-      <DependentUpon>902.SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs</DependentUpon>
+    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.Designer.cs">
+      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs</DependentUpon>
     </Compile>
-    <Compile Include="902.SMT_QUALITY_COCKPIT_INTERNAL_OSD.cs">
+    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="902.SMT_QUALITY_COCKPIT_INTERNAL_OSD.Designer.cs">
-      <DependentUpon>902.SMT_QUALITY_COCKPIT_INTERNAL_OSD.cs</DependentUpon>
+    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD.Designer.cs">
+      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD.cs</DependentUpon>
     </Compile>
     <Compile Include="UC\UC_COMPARE_DAY_MONTH.cs">
       <SubType>UserControl</SubType>
@@ -181,11 +181,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="902.SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.resx">
-      <DependentUpon>902.SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs</DependentUpon>
+    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.resx">
+      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="902.SMT_QUALITY_COCKPIT_INTERNAL_OSD.resx">
-      <DependentUpon>902.SMT_QUALITY_COCKPIT_INTERNAL_OSD.cs</DependentUpon>
+    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD.resx">
+      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_COMPARE_DAY_MONTH.resx">
       <DependentUpon>UC_COMPARE_DAY_MONTH.cs</DependentUpon>
