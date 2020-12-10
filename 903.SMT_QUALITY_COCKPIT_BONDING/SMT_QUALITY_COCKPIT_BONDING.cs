@@ -32,8 +32,8 @@ namespace FORM
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString();
-                line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
+              //  plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString();
+              //  line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
                 chartControl1.DataSource = null;
                 grdBase.DataSource = null;
                DataSet ds = Data_Select(arg_type, plant, line);
@@ -224,19 +224,26 @@ namespace FORM
                 cbo_line.DataSource = dt;
                 cbo_line.DisplayMember = "NAME";
                 cbo_line.ValueMember = "CODE";
-               // cbo_line.SelectedIndex = 1;
+                cbo_line.SelectedIndex = 0;
             }
 
         }       
 
         private void LoadForm()
         {
-            dtpDateF.EditValue = DateTime.Now.AddDays(-6).ToString(); ;// DateTime.Now.ToString("yyyy/MM/dd");
+            dtpDateF.EditValue = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd"); ;// DateTime.Now.ToString("yyyy/MM/dd");
             dtpDateT.EditValue = DateTime.Now.ToString("yyyy/MM/dd");
-            _plant = cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString(); // ComVar.Var._strValue1; 
-            _line = cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString(); // ComVar.Var._strValue2;  
-            SetData(_strType, _plant, _line);           
-            GET_COMBO_DATA("CPLANT", "");          
+       
+                   
+            GET_COMBO_DATA("CPLANT", "");
+
+            cbo_Plant.SelectedValue = ComVar.Var._strValue1;
+            cbo_line.SelectedValue = ComVar.Var._strValue2;
+
+            _plant = cbo_Plant.SelectedValue.ToString(); //
+            _line = cbo_line.SelectedValue.ToString(); //  
+
+            SetData(_strType, _plant, _line);
 
         }
        
@@ -383,7 +390,7 @@ namespace FORM
             {              
                 timer1.Start();
                 _strType = "Q";
-
+              
                 LoadForm();
             }
             else
@@ -393,9 +400,7 @@ namespace FORM
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
-          //  _plant =cbo_Plant.SelectedValue == null ? "" : cbo_Plant.SelectedValue.ToString();
-         //   _line =cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString(); 
+        {        
             SetData(_strType, _plant, _line);
             
 
@@ -407,6 +412,7 @@ namespace FORM
             {
                 if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
+                    if (e.CellValue == DBNull.Value) return;
                     e.DisplayText = double.Parse(e.CellValue.ToString()).ToString("0.##") + "%";
 
                 }
@@ -422,7 +428,7 @@ namespace FORM
                 {
                     double rate = double.Parse(e.CellValue.ToString());
                     if (rate <= 2)
-                        e.Appearance.BackColor = Color.LimeGreen;
+                        e.Appearance.BackColor = Color.Green;
                     else if (rate > 3)
                         e.Appearance.BackColor = Color.Red;
                     else
@@ -430,6 +436,20 @@ namespace FORM
 
                 }
             }
+        }
+
+        private void cbo_Plant_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbo_Plant.SelectedValue.ToString() != null)
+                    GET_COMBO_DATA("CLINE", cbo_Plant.SelectedValue.ToString());
+
+                else
+                    return;
+
+            }
+            catch { }
         }
     }
 }
