@@ -503,7 +503,20 @@ namespace FORM
         {
             ComVar.Var._IsBack = true;
             ComVar.Var._strValue1 = argLine[1];
-            ComVar.Var._strValue2 = argLine[2];
+            if (ComVar.Var._strValue1 == "001" || 
+                ComVar.Var._strValue1 == "002" || 
+                ComVar.Var._strValue1 == "003" || 
+                ComVar.Var._strValue1 == "004" || 
+                ComVar.Var._strValue1 == "005" || 
+                ComVar.Var._strValue1 == "006")
+            {
+                ComVar.Var._strValue2 = ComVar.Var._strValue1;
+            }              
+            else
+            {
+                ComVar.Var._strValue2 = argLine[2];
+            }
+
             switch (argLine[argLine.Length - 2])
             {
                 case "NPI":
