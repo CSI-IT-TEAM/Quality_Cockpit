@@ -338,7 +338,7 @@ namespace FORM
             if(_time >=30)
             {
                 _time = 0;
-             
+              
                 SetData(_strType,_plant, _line, false);
             }
             
@@ -390,7 +390,7 @@ namespace FORM
             {
                 _time = 29;
                 _strType = "Q";
-
+                LoadForm();
                 timer1.Start();
                 
               
@@ -431,9 +431,17 @@ namespace FORM
                 {
                     double rate = double.Parse(e.CellValue.ToString());
                     if (rate <= 2)
+                    {
+                        e.Appearance.ForeColor = Color.White;
                         e.Appearance.BackColor = Color.Green;
+                    }
+                       
                     else if (rate > 3)
+                    {
+                        e.Appearance.ForeColor = Color.White;
                         e.Appearance.BackColor = Color.Red;
+                    }
+                        
                     else
                         e.Appearance.BackColor = Color.Yellow;
 
@@ -457,7 +465,7 @@ namespace FORM
 
         private void SMT_QUALITY_COCKPIT_BONDING_Load(object sender, EventArgs e)
         {
-            LoadForm();
+           // LoadForm();
         }
     }
 }

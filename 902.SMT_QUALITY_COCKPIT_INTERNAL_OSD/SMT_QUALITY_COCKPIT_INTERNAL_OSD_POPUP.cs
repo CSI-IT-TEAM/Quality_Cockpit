@@ -7,11 +7,22 @@ using System.Windows.Forms;
 
 namespace FORM
 {
-    public partial class SMT_QUALITY_COCKPIT_POPUP : Form
+    public partial class SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP : Form
     {
-        public SMT_QUALITY_COCKPIT_POPUP()
+
+
+        string _date,  _plant_code, _line_code;
+
+        public SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP()
         {
             InitializeComponent();
+        }
+        public SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(string date, string plant, string line )
+        {
+            InitializeComponent();
+            _date = date; 
+            _plant_code = plant;
+            _line_code = line;
         }
         public DataTable _dtData = null;
 
@@ -19,28 +30,48 @@ namespace FORM
         {
             try
             {
-                gridControl1.DataSource = _dtData;
+                this.Cursor = Cursors.WaitCursor;
 
-                for (int i = 0; i < gridView1.Columns.Count; i++)
+                grdBase.DataSource = null;
+                DataSet ds = Data_Select("POP");
+                if (ds == null || ds.Tables.Count == 0) return;
+                _dtData = ds.Tables[0];
+                grdBase.DataSource = _dtData;
+                if (_dtData != null)
                 {
+                    gvwBase.RowHeight = 50;
 
-                    gridView1.Columns[i].OptionsColumn.ReadOnly = true;
-                    gridView1.Columns[i].OptionsColumn.AllowEdit = false;
-                    if (i <= 4)
+                    for (int i = 0; i < gvwBase.Columns.Count; i++)
                     {
-                        gridView1.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                        gridView1.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                        if (i <= 2)
+                            gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+                        else
+                            gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+                        gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+                        if (i == 3 || i == 6 || i == 7 || i == 5)
+                        {
+                            gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+                        }
+                        if (i == 10 || i == 11)
+                        {
+                            gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                            gvwBase.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                            gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                        }
                     }
-                    if (i == 4)
-                        gridView1.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-    
                 }
             }
             catch (Exception ex)
             {
+                this.Cursor = Cursors.Default;
                 Debug.WriteLine(ex.ToString());
                 throw;
-            }           
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }         
         }
 
         #region DB
@@ -48,23 +79,32 @@ namespace FORM
         {
             COM.OraDB MyOraDB = new COM.OraDB();
 
-            MyOraDB.ReDim_Parameter(4);
-            MyOraDB.Process_Name = "MES.PKG_SMT_SCADA_COCKPIT.PM_SELECT";
+            MyOraDB.ReDim_Parameter(7);
+            MyOraDB.Process_Name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_INTERNAL_OSD";//
 
-            MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
-            MyOraDB.Parameter_Name[1] = "ARG_DATE";
-            MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
-            MyOraDB.Parameter_Name[3] = "OUT_CURSOR2";
+            MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+            MyOraDB.Parameter_Name[1] = "V_P_DATEF";
+            MyOraDB.Parameter_Name[2] = "V_P_DATET";
+            MyOraDB.Parameter_Name[3] = "V_P_PLANT";
+            MyOraDB.Parameter_Name[4] = "V_P_LINE";
+            MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+            MyOraDB.Parameter_Name[6] = "OUT_CURSOR2";
 
             MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
             MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
-            MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
+            MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+            MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+            MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
+            MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+            MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
 
             MyOraDB.Parameter_Values[0] = argType;
-            MyOraDB.Parameter_Values[1] = "";
+            MyOraDB.Parameter_Values[1] = _date;
             MyOraDB.Parameter_Values[2] = "";
-            MyOraDB.Parameter_Values[3] = "";
+            MyOraDB.Parameter_Values[3] = _plant_code;// 
+            MyOraDB.Parameter_Values[4] = _line_code;//cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
+            MyOraDB.Parameter_Values[5] = "";
+            MyOraDB.Parameter_Values[6] = "";
 
             MyOraDB.Add_Select_Parameter(true);
             DataSet retDS = MyOraDB.Exe_Select_Procedure();
@@ -76,7 +116,7 @@ namespace FORM
         #endregion DB
 
 
-        private void SMT_SCADA_COCKPIT_FORM2_VisibleChanged(object sender, EventArgs e)
+        private void SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
             {
@@ -88,14 +128,88 @@ namespace FORM
             }
         }
 
-        private void gridView1_MouseDown(object sender, MouseEventArgs e)
+        private void gvwBase_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (!gvwBase.GetRowCellValue(e.RowHandle, "MLINE_CD").Equals("TOTAL") || !gvwBase.GetRowCellValue(e.RowHandle, "MLINE_CD").Equals("G-TOTAL"))
             {
-                
-            }    
-            
+                if (gvwBase.Columns[e.Column.ColumnHandle].FieldName.Contains("Qty"))
+                {
+                    if (!gvwBase.GetRowCellValue(e.RowHandle, "C_Qty").Equals(gvwBase.GetRowCellValue(e.RowHandle, "Re_Qty")))
+                    {
+                        e.Appearance.BackColor = Color.Red;
+                        e.Appearance.ForeColor = Color.White;
+                    }
+
+                }
+            }
+            if (gvwBase.GetRowCellValue(e.RowHandle, "MLINE_CD").Equals("TOTAL") && e.Column.ColumnHandle > 0)
+            {
+                e.Appearance.BackColor = Color.LightYellow;
+                e.Appearance.ForeColor = Color.Black;
+            }
+            if (gvwBase.GetRowCellValue(e.RowHandle, "Line_Name").Equals("G-TOTAL"))
+            {
+                e.Appearance.BackColor = Color.LightSalmon;
+                e.Appearance.ForeColor = Color.Black;
+            }
         }
+
+        private void gvwBase_CellMerge(object sender, DevExpress.XtraGrid.Views.Grid.CellMergeEventArgs e)
+        {
+            if (e.Column.FieldName == "LINE_NAME")
+            {
+                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Line_Name").Trim();
+                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Line_Name").Trim();
+
+                if (line1 == line2)
+                {
+                    e.Merge = true;
+                }
+                else
+                {
+                    e.Merge = false;
+                }
+            }
+
+            if (e.Column.FieldName == "MLINE_CD")
+            {
+                string Mline1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "MLINE_CD").Trim();
+                string Mline2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "MLINE_CD").Trim();
+
+                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Line_Name").Trim();
+                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Line_Name").Trim();
+                if (Mline1 == Mline2 && line1 == line2)
+                {
+                    e.Merge = true;
+                }
+                else
+                {
+                    e.Merge = false;
+                }
+            }
+            if (e.Column.FieldName == "Model_Name")
+            {
+                string Mline1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "MLINE_CD").Trim();
+                string Mline2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "MLINE_CD").Trim();
+
+                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Line_Name").Trim();
+                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Line_Name").Trim();
+
+                string style_nm1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Model_Name").Trim();
+                string style_nm2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Model_Name").Trim();
+
+                if (Mline1 == Mline2 && line1 == line2 && style_nm1 == style_nm2)
+                {
+                    e.Merge = true;
+                }
+                else
+                {
+                    e.Merge = false;
+                }
+            }
+        }
+
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -105,7 +219,7 @@ namespace FORM
                 SaveDlg.Filter = "Excel Files (*.xlsx)|*.xlsx";
                 if (SaveDlg.ShowDialog() == DialogResult.OK)
                 {
-                    gridView1.ExportToXlsx(SaveDlg.FileName);
+                    gvwBase.ExportToXlsx(SaveDlg.FileName);
                 }
 
 
