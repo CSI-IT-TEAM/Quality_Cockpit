@@ -28,14 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel1 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_BONDING));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -60,16 +52,19 @@
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel1 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             this.pnControl = new System.Windows.Forms.Panel();
             this.dtpDateF = new DevExpress.XtraEditors.DateEdit();
             this.dtpDateT = new DevExpress.XtraEditors.DateEdit();
-            this.rdTop20 = new System.Windows.Forms.RadioButton();
-            this.rdByDay = new System.Windows.Forms.RadioButton();
-            this.chkCompare = new System.Windows.Forms.CheckBox();
-            this.cmdWeek = new System.Windows.Forms.Button();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.cmdDay = new System.Windows.Forms.Button();
             this.cbo_line = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbo_Plant = new System.Windows.Forms.ComboBox();
@@ -82,8 +77,6 @@
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
             this.pnExport = new System.Windows.Forms.Panel();
             this.pnBody2 = new System.Windows.Forms.Panel();
-            this.cmdExportDetail = new System.Windows.Forms.Button();
-            this.cmdExportIssue = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
@@ -116,14 +109,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
+            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDateF.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDateF.Properties)).BeginInit();
@@ -140,82 +126,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdExportIssue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvExportIssue)).BeginInit();
             this.pnC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // chartControl1
-            // 
-            this.chartControl1.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnLoad;
-            this.chartControl1.AppearanceNameSerializable = "Chameleon";
-            this.chartControl1.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chartControl1.DataBindings = null;
-            xyDiagram1.AxisX.Label.Angle = -45;
-            xyDiagram1.AxisX.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisX.Title.Text = "Date";
-            xyDiagram1.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram1.AxisY.Title.Text = "Bonding Q\'ty (Pairs)";
-            xyDiagram1.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            secondaryAxisY1.AxisID = 0;
-            secondaryAxisY1.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            secondaryAxisY1.Name = "Secondary AxisY 1";
-            secondaryAxisY1.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            secondaryAxisY1.Title.Text = "Bonding Rate (%)";
-            secondaryAxisY1.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            secondaryAxisY1.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            secondaryAxisY1.VisibleInPanesSerializable = "-1";
-            xyDiagram1.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
-            secondaryAxisY1});
-            this.chartControl1.Diagram = xyDiagram1;
-            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Left;
-            this.chartControl1.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
-            this.chartControl1.Legend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.chartControl1.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
-            this.chartControl1.Legend.Font = new System.Drawing.Font("Tahoma", 18F);
-            this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Location = new System.Drawing.Point(0, 0);
-            this.chartControl1.Name = "chartControl1";
-            this.chartControl1.PaletteName = "Marquee";
-            sideBySideBarSeriesLabel1.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Center;
-            series1.Label = sideBySideBarSeriesLabel1;
-            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "Bonding";
-            pointSeriesLabel1.TextPattern = "{V:#.#}%";
-            series2.Label = pointSeriesLabel1;
-            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series2.Name = "Rate";
-            lineSeriesView1.AxisYName = "Secondary AxisY 1";
-            series2.View = lineSeriesView1;
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1,
-        series2};
-            this.chartControl1.SeriesTemplate.LegendName = "Default Legend";
-            this.chartControl1.Size = new System.Drawing.Size(1924, 548);
-            this.chartControl1.TabIndex = 12;
-            chartTitle1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle1.Text = "Bonding Gap";
-            chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
             // 
             // pnControl
             // 
             this.pnControl.BackColor = System.Drawing.Color.Transparent;
             this.pnControl.Controls.Add(this.dtpDateF);
             this.pnControl.Controls.Add(this.dtpDateT);
-            this.pnControl.Controls.Add(this.rdTop20);
-            this.pnControl.Controls.Add(this.rdByDay);
-            this.pnControl.Controls.Add(this.chkCompare);
-            this.pnControl.Controls.Add(this.cmdWeek);
             this.pnControl.Controls.Add(this.btn_Search);
-            this.pnControl.Controls.Add(this.cmdDay);
             this.pnControl.Controls.Add(this.cbo_line);
             this.pnControl.Controls.Add(this.label2);
             this.pnControl.Controls.Add(this.cbo_Plant);
@@ -364,56 +291,6 @@
             this.dtpDateT.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.dtpDateT.ToolTipTitle = "Click vào để chọn ngày";
             // 
-            // rdTop20
-            // 
-            this.rdTop20.AutoSize = true;
-            this.rdTop20.Checked = true;
-            this.rdTop20.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.rdTop20.Location = new System.Drawing.Point(1628, 13);
-            this.rdTop20.Name = "rdTop20";
-            this.rdTop20.Size = new System.Drawing.Size(203, 33);
-            this.rdTop20.TabIndex = 18;
-            this.rdTop20.TabStop = true;
-            this.rdTop20.Text = "Issue By Machine";
-            this.rdTop20.UseVisualStyleBackColor = true;
-            this.rdTop20.Visible = false;
-            // 
-            // rdByDay
-            // 
-            this.rdByDay.AutoSize = true;
-            this.rdByDay.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.rdByDay.Location = new System.Drawing.Point(1542, 8);
-            this.rdByDay.Name = "rdByDay";
-            this.rdByDay.Size = new System.Drawing.Size(239, 33);
-            this.rdByDay.TabIndex = 17;
-            this.rdByDay.Text = "Issue Average By Day";
-            this.rdByDay.UseVisualStyleBackColor = true;
-            this.rdByDay.Visible = false;
-            this.rdByDay.CheckedChanged += new System.EventHandler(this.rdByDay_CheckedChanged);
-            // 
-            // chkCompare
-            // 
-            this.chkCompare.AutoSize = true;
-            this.chkCompare.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.chkCompare.Location = new System.Drawing.Point(1554, 6);
-            this.chkCompare.Name = "chkCompare";
-            this.chkCompare.Size = new System.Drawing.Size(124, 33);
-            this.chkCompare.TabIndex = 16;
-            this.chkCompare.Text = "Compare";
-            this.chkCompare.UseVisualStyleBackColor = true;
-            this.chkCompare.Visible = false;
-            // 
-            // cmdWeek
-            // 
-            this.cmdWeek.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdWeek.Location = new System.Drawing.Point(1600, 4);
-            this.cmdWeek.Name = "cmdWeek";
-            this.cmdWeek.Size = new System.Drawing.Size(137, 44);
-            this.cmdWeek.TabIndex = 7;
-            this.cmdWeek.Text = "Weekly";
-            this.cmdWeek.UseVisualStyleBackColor = true;
-            this.cmdWeek.Visible = false;
-            // 
             // btn_Search
             // 
             this.btn_Search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Search.BackgroundImage")));
@@ -427,17 +304,6 @@
             this.btn_Search.TabIndex = 6;
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // cmdDay
-            // 
-            this.cmdDay.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDay.Location = new System.Drawing.Point(1464, 4);
-            this.cmdDay.Name = "cmdDay";
-            this.cmdDay.Size = new System.Drawing.Size(137, 44);
-            this.cmdDay.TabIndex = 5;
-            this.cmdDay.Text = "Daily";
-            this.cmdDay.UseVisualStyleBackColor = true;
-            this.cmdDay.Visible = false;
             // 
             // cbo_line
             // 
@@ -583,30 +449,6 @@
             this.pnBody2.TabIndex = 4;
             this.pnBody2.Visible = false;
             // 
-            // cmdExportDetail
-            // 
-            this.cmdExportDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdExportDetail.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            this.cmdExportDetail.Location = new System.Drawing.Point(856, 5);
-            this.cmdExportDetail.Name = "cmdExportDetail";
-            this.cmdExportDetail.Size = new System.Drawing.Size(207, 40);
-            this.cmdExportDetail.TabIndex = 7;
-            this.cmdExportDetail.Text = "Further information";
-            this.cmdExportDetail.UseVisualStyleBackColor = true;
-            this.cmdExportDetail.Visible = false;
-            // 
-            // cmdExportIssue
-            // 
-            this.cmdExportIssue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdExportIssue.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            this.cmdExportIssue.Location = new System.Drawing.Point(651, 3);
-            this.cmdExportIssue.Name = "cmdExportIssue";
-            this.cmdExportIssue.Size = new System.Drawing.Size(199, 40);
-            this.cmdExportIssue.TabIndex = 6;
-            this.cmdExportIssue.Text = "Top 20 information";
-            this.cmdExportIssue.UseVisualStyleBackColor = true;
-            this.cmdExportIssue.Visible = false;
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
@@ -620,7 +462,7 @@
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBody1.Location = new System.Drawing.Point(0, 126);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1924, 916);
+            this.pnBody1.Size = new System.Drawing.Size(1924, 936);
             this.pnBody1.TabIndex = 3;
             // 
             // pnGrid
@@ -631,7 +473,7 @@
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnGrid.Location = new System.Drawing.Point(0, 599);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(1924, 317);
+            this.pnGrid.Size = new System.Drawing.Size(1924, 337);
             this.pnGrid.TabIndex = 78;
             // 
             // grdBase
@@ -644,7 +486,7 @@
             this.grdBase.Location = new System.Drawing.Point(0, 0);
             this.grdBase.MainView = this.gvwBase;
             this.grdBase.Name = "grdBase";
-            this.grdBase.Size = new System.Drawing.Size(1924, 317);
+            this.grdBase.Size = new System.Drawing.Size(1924, 337);
             this.grdBase.TabIndex = 8;
             this.grdBase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwBase});
@@ -669,6 +511,7 @@
             this.gvwBase.OptionsView.ShowGroupPanel = false;
             this.gvwBase.OptionsView.ShowIndicator = false;
             this.gvwBase.RowHeight = 50;
+            this.gvwBase.CustomDrawBandHeader += new DevExpress.XtraGrid.Views.BandedGrid.BandHeaderCustomDrawEventHandler(this.gvwBase_CustomDrawBandHeader);
             this.gvwBase.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwBase_CustomDrawCell);
             this.gvwBase.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwBase_RowCellStyle);
             // 
@@ -1037,8 +880,6 @@
             this.pnC.Controls.Add(this.label8);
             this.pnC.Controls.Add(this.label9);
             this.pnC.Controls.Add(this.label10);
-            this.pnC.Controls.Add(this.cmdExportDetail);
-            this.pnC.Controls.Add(this.cmdExportIssue);
             this.pnC.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnC.Location = new System.Drawing.Point(0, 548);
             this.pnC.Name = "pnC";
@@ -1055,7 +896,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(163, 39);
             this.label8.TabIndex = 424;
-            this.label8.Text = "Rate <=3%";
+            this.label8.Text = "Rate >3%";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -1084,10 +925,78 @@
             this.label10.Text = "Rate <=2%";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // chartControl1
+            // 
+            this.chartControl1.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
+            this.chartControl1.AppearanceNameSerializable = "Chameleon";
+            this.chartControl1.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            this.chartControl1.DataBindings = null;
+            xyDiagram1.AxisX.Label.Angle = -45;
+            xyDiagram1.AxisX.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram1.AxisX.Title.Text = "Date";
+            xyDiagram1.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram1.AxisY.Title.Text = "Bonding Q\'ty (Pairs)";
+            xyDiagram1.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            secondaryAxisY1.AxisID = 0;
+            secondaryAxisY1.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            secondaryAxisY1.Name = "Secondary AxisY 1";
+            secondaryAxisY1.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            secondaryAxisY1.Title.Text = "Bonding Rate (%)";
+            secondaryAxisY1.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            secondaryAxisY1.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            secondaryAxisY1.VisibleInPanesSerializable = "-1";
+            xyDiagram1.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
+            secondaryAxisY1});
+            this.chartControl1.Diagram = xyDiagram1;
+            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
+            this.chartControl1.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
+            this.chartControl1.Legend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.chartControl1.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
+            this.chartControl1.Legend.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.chartControl1.Legend.Name = "Default Legend";
+            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chartControl1.Location = new System.Drawing.Point(0, 0);
+            this.chartControl1.Name = "chartControl1";
+            this.chartControl1.PaletteName = "Marquee";
+            sideBySideBarSeriesLabel1.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Center;
+            series1.Label = sideBySideBarSeriesLabel1;
+            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series1.Name = "Bonding";
+            sideBySideBarSeriesView1.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
+            series1.View = sideBySideBarSeriesView1;
+            pointSeriesLabel1.TextPattern = "{V:0.##}%";
+            series2.Label = pointSeriesLabel1;
+            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series2.Name = "Rate";
+            lineSeriesView1.AxisYName = "Secondary AxisY 1";
+            lineSeriesView1.Color = System.Drawing.Color.Blue;
+            lineSeriesView1.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series2.View = lineSeriesView1;
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1,
+        series2};
+            this.chartControl1.SeriesTemplate.LegendName = "Default Legend";
+            this.chartControl1.Size = new System.Drawing.Size(1924, 548);
+            this.chartControl1.TabIndex = 12;
+            chartTitle1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartTitle1.Text = "Bonding Gap";
+            chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
+            this.chartControl1.CustomDrawSeriesPoint += new DevExpress.XtraCharts.CustomDrawSeriesPointEventHandler(this.chartControl1_CustomDrawSeriesPoint);
+            // 
             // SMT_QUALITY_COCKPIT_BONDING
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1924, 1042);
+            this.ClientSize = new System.Drawing.Size(1924, 1062);
             this.Controls.Add(this.pnBody1);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnTop);
@@ -1095,16 +1004,7 @@
             this.Text = "SMT_SCADA_COCKPIT_FORM2";
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_BONDING_Load);
             this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_BONDING_VisibleChanged);
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.pnControl.ResumeLayout(false);
-            this.pnControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDateF.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDateF.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDateT.Properties.CalendarTimeProperties)).EndInit();
@@ -1120,15 +1020,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdExportIssue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvExportIssue)).EndInit();
             this.pnC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel pnControl;
-        private System.Windows.Forms.Button cmdWeek;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.Button cmdDay;
         private System.Windows.Forms.ComboBox cbo_Plant;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnTop;
@@ -1136,10 +1043,7 @@
         private System.Windows.Forms.Label lblDate;
         private DevExpress.XtraEditors.LabelControl lblHeader;
         private System.Windows.Forms.Timer timer1;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
         private System.Windows.Forms.Panel pnExport;
-        private System.Windows.Forms.Button cmdExportDetail;
-        private System.Windows.Forms.Button cmdExportIssue;
         private System.Windows.Forms.Panel pnBody1;
         private System.Windows.Forms.Panel pnC;
         private System.Windows.Forms.Panel pnGrid;
@@ -1166,10 +1070,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
-        private System.Windows.Forms.CheckBox chkCompare;
         private System.Windows.Forms.Panel pnBody2;
-        private System.Windows.Forms.RadioButton rdTop20;
-        private System.Windows.Forms.RadioButton rdByDay;
         private System.Windows.Forms.ComboBox cbo_line;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -1181,5 +1082,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private DevExpress.XtraCharts.ChartControl chartControl1;
     }
 }

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DevExpress.XtraCharts;
+using System;
 using System.Data;
 using System.Data.OracleClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FORM
@@ -16,6 +18,7 @@ namespace FORM
         }
         private readonly string _strHeader = "       Daily Rework";
         int _time = 0;
+        string _CurrentDay = DateTime.Now.ToString("MMM - dd");
 
         private void SMT_QUALITY_COCKPIT_FORM1_Load(object sender, EventArgs e)
         {
@@ -30,7 +33,7 @@ namespace FORM
        
         #region DATABASE
         private DataTable Data_Select_Combo(string argType, string argPlant, string argLine )
-        {
+        {           
             COM.OraDB MyOraDB = new COM.OraDB();
             DataSet ds_ret;
             try
@@ -65,94 +68,99 @@ namespace FORM
             {
                 return null;
             }
+            
         }
 
-        public DataTable sbGetRework(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
+        public async Task<DataTable> sbGetRework(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
         {
-            COM.OraDB MyOraDB = new COM.OraDB();
-            DataSet ds_ret;
-            try
-            {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK";
+            return await Task.Run(() => {
+                COM.OraDB MyOraDB = new COM.OraDB();
+                DataSet ds_ret;
+                try
+                {
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK";
 
-                MyOraDB.ReDim_Parameter(6);
-                MyOraDB.Process_Name = process_name;
+                    MyOraDB.ReDim_Parameter(6);
+                    MyOraDB.Process_Name = process_name;
 
-                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                MyOraDB.Parameter_Name[1] = "V_P_DATEF";
-                MyOraDB.Parameter_Name[2] = "V_P_DATET";
-                MyOraDB.Parameter_Name[3] = "V_P_PLANT";
-                MyOraDB.Parameter_Name[4] = "V_P_LINE";
-                MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                    MyOraDB.Parameter_Name[1] = "V_P_DATEF";
+                    MyOraDB.Parameter_Name[2] = "V_P_DATET";
+                    MyOraDB.Parameter_Name[3] = "V_P_PLANT";
+                    MyOraDB.Parameter_Name[4] = "V_P_LINE";
+                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
 
-                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
 
-                MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                MyOraDB.Parameter_Values[1] = ARG_YMDF;
-                MyOraDB.Parameter_Values[2] = ARG_YMDT;
-                MyOraDB.Parameter_Values[3] = ARG_PLANT;
-                MyOraDB.Parameter_Values[4] = ARG_LINE;
-                MyOraDB.Parameter_Values[5] = "";
+                    MyOraDB.Parameter_Values[0] = ARG_QTYPE;
+                    MyOraDB.Parameter_Values[1] = ARG_YMDF;
+                    MyOraDB.Parameter_Values[2] = ARG_YMDT;
+                    MyOraDB.Parameter_Values[3] = ARG_PLANT;
+                    MyOraDB.Parameter_Values[4] = ARG_LINE;
+                    MyOraDB.Parameter_Values[5] = "";
 
-                MyOraDB.Add_Select_Parameter(true);
-                ds_ret = MyOraDB.Exe_Select_Procedure();
+                    MyOraDB.Add_Select_Parameter(true);
+                    ds_ret = MyOraDB.Exe_Select_Procedure();
 
-                if (ds_ret == null) return null;
-                return ds_ret.Tables[process_name];
-            }
-            catch
-            {
-                return null;
-            }
+                    if (ds_ret == null) return null;
+                    return ds_ret.Tables[process_name];
+                }
+                catch
+                {
+                    return null;
+                }
+            });
         }
 
-        public DataTable sbGetRework_Chart(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
+        public async Task<DataTable> sbGetRework_Chart(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
         {
-            COM.OraDB MyOraDB = new COM.OraDB();
-            DataSet ds_ret;
-            try
-            {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK_CHART";
+            return await Task.Run(() => {
+                COM.OraDB MyOraDB = new COM.OraDB();
+                DataSet ds_ret;
+                try
+                {
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK_CHART";
 
-                MyOraDB.ReDim_Parameter(6);
-                MyOraDB.Process_Name = process_name;
+                    MyOraDB.ReDim_Parameter(6);
+                    MyOraDB.Process_Name = process_name;
 
-                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                MyOraDB.Parameter_Name[1] = "V_P_DATEF";
-                MyOraDB.Parameter_Name[2] = "V_P_DATET";
-                MyOraDB.Parameter_Name[3] = "V_P_PLANT";
-                MyOraDB.Parameter_Name[4] = "V_P_LINE";
-                MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                    MyOraDB.Parameter_Name[1] = "V_P_DATEF";
+                    MyOraDB.Parameter_Name[2] = "V_P_DATET";
+                    MyOraDB.Parameter_Name[3] = "V_P_PLANT";
+                    MyOraDB.Parameter_Name[4] = "V_P_LINE";
+                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
 
-                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
 
-                MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                MyOraDB.Parameter_Values[1] = ARG_YMDF;
-                MyOraDB.Parameter_Values[2] = ARG_YMDT;
-                MyOraDB.Parameter_Values[3] = ARG_PLANT;
-                MyOraDB.Parameter_Values[4] = ARG_LINE;
-                MyOraDB.Parameter_Values[5] = "";
+                    MyOraDB.Parameter_Values[0] = ARG_QTYPE;
+                    MyOraDB.Parameter_Values[1] = ARG_YMDF;
+                    MyOraDB.Parameter_Values[2] = ARG_YMDT;
+                    MyOraDB.Parameter_Values[3] = ARG_PLANT;
+                    MyOraDB.Parameter_Values[4] = ARG_LINE;
+                    MyOraDB.Parameter_Values[5] = "";
 
-                MyOraDB.Add_Select_Parameter(true);
-                ds_ret = MyOraDB.Exe_Select_Procedure();
+                    MyOraDB.Add_Select_Parameter(true);
+                    ds_ret = MyOraDB.Exe_Select_Procedure();
 
-                if (ds_ret == null) return null;
-                return ds_ret.Tables[process_name];
-            }
-            catch
-            {
-                return null;
-            }
+                    if (ds_ret == null) return null;
+                    return ds_ret.Tables[process_name];
+                }
+                catch
+                {
+                    return null;
+                }
+            });
         }
    
 
@@ -230,7 +238,7 @@ namespace FORM
             load_combo("COMBO_LINE");
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
@@ -249,9 +257,9 @@ namespace FORM
                     gvwView.Columns.RemoveAt(0);
                 }
 
-                DataTable dt = sbGetRework("Q", YMDF, YMDT, PLANT_CD, LINE_CD);
+                DataTable dt = await sbGetRework("Q", YMDF, YMDT, PLANT_CD, LINE_CD);
 
-                if (dt.Rows.Count > 2)
+                if (dt != null && dt.Rows.Count > 2)
                 {
                     //TINH TOTAL
                     int iQty;
@@ -278,20 +286,13 @@ namespace FORM
                     }
 
                 }
-                grdView.DataSource = dt;
+                
 
-                Format_Grid();
-
+                SetGrid(dt);
 
                 //---chart---//
-                DataTable dtchart = sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
-
-
-                chartControl1.DataSource = dtchart;
-                chartControl1.Series[0].ArgumentDataMember = "YMD";
-                chartControl1.Series[0].ValueDataMembers.AddRange(new string[] { "REWORK" });
-                chartControl1.Series[1].ArgumentDataMember = "YMD";
-                chartControl1.Series[1].ValueDataMembers.AddRange(new string[] { "RATE" });
+                DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
+                SetChart(dtchart);
             }
             catch (Exception ex)
             {
@@ -303,50 +304,85 @@ namespace FORM
             }       
         }
 
-
-        private void Format_Grid()
+        private void SetChart(DataTable argData)
         {
-            gvwView.BeginUpdate();
-
-            gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            for (int i = 0; i < gvwView.Columns.Count; i++)
+            chartControl1.Series[0].Points.Clear();
+            chartControl1.Series[1].Points.Clear();
+            chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chartControl1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+            if (argData == null) return;
+            for (int i = 0; i <= argData.Rows.Count - 1; i++)
             {
-                if (gvwView.GetRowCellValue(0, gvwView.Columns[i].FieldName).ToString() == "ITEM")
+                chartControl1.Series[0].Points.Add(new SeriesPoint(argData.Rows[i]["YMD"].ToString(), argData.Rows[i]["REWORK"]));
+                chartControl1.Series[1].Points.Add(new SeriesPoint(argData.Rows[i]["YMD"].ToString(), argData.Rows[i]["RATE"]));
+
+                double rate;
+                double.TryParse(argData.Rows[i]["RATE"].ToString(), out rate); //out
+
+                if (rate > 6)
                 {
-                    gvwView.SetRowCellValue(0, gvwView.Columns[i].FieldName, "Item");
+                    chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-
-                if (gvwView.GetRowCellValue(0, gvwView.Columns[i].FieldName).ToString() == "TOTAL")
+                else if (rate > 3)
                 {
-                    gvwView.SetRowCellValue(0, gvwView.Columns[i].FieldName, "Total");
+                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
-                gvwView.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
-
-
-                gvwView.Columns[i].AppearanceCell.Options.UseTextOptions = true;
-                gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                gvwView.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
-                gvwView.Columns[i].OptionsFilter.AllowFilter = false;
-                gvwView.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-                gvwView.Columns[i].OptionsColumn.AllowEdit = false;
-                gvwView.Columns[i].OptionsColumn.ReadOnly = true;
-                gvwView.ColumnPanelRowHeight = 50;
-                gvwView.RowHeight = 50;
-                gvwView.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                //gvwView.Columns[i].AppearanceHeader.Fonts
-
-                gvwView.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-              //  gvwView.Columns[i].Width = 100;
-                   
-                gvwView.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                gvwView.Columns[i].DisplayFormat.FormatString = "#,###.##";
+                else 
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                }
             }
-           
-            
-            gvwView.BestFitColumns();
+        }
 
-            // gvwView.OptionsView.ColumnAutoWidth = false;
-            gvwView.EndUpdate();
+
+        private void SetGrid(DataTable argDt)
+        {
+            try
+            {
+                gvwView.BeginUpdate();
+                grdView.DataSource = argDt;
+                gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
+
+                gvwView.Columns[0].Caption = " ";
+                gvwView.Columns[1].Caption = "Total";
+
+                for (int i = 0; i < gvwView.Columns.Count; i++)
+                {
+
+                    gvwView.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
+
+
+                    gvwView.Columns[i].AppearanceCell.Options.UseTextOptions = true;
+                    gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                    gvwView.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+                    gvwView.Columns[i].OptionsFilter.AllowFilter = false;
+                    gvwView.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+                    gvwView.Columns[i].OptionsColumn.AllowEdit = false;
+                    gvwView.Columns[i].OptionsColumn.ReadOnly = true;
+                    gvwView.ColumnPanelRowHeight = 50;
+                    gvwView.RowHeight = 50;
+                    gvwView.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                    //gvwView.Columns[i].AppearanceHeader.Fonts
+
+                    gvwView.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+                    //  
+
+                    gvwView.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                    gvwView.Columns[i].DisplayFormat.FormatString = "#,###.##";
+                }
+
+
+                gvwView.BestFitColumns();
+                gvwView.Columns[0].Width = 150;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                gvwView.EndUpdate();
+            }
         }
 
         private void gvwView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
@@ -386,9 +422,103 @@ namespace FORM
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
         {
-            cboPlant.SelectedValue = ComVar.Var._strValue1;
-            cboLine.SelectedValue = ComVar.Var._strValue2;
-            _time = 29;
+            if( Visible)
+            {
+                cboPlant.SelectedValue = ComVar.Var._strValue1;
+                cboLine.SelectedValue = ComVar.Var._strValue2;
+                chartControl1.Series[0].Points.Clear();
+                chartControl1.Series[1].Points.Clear();
+                grdView.DataSource = null;
+                _time = 0;
+                btnSearch_Click(null, null);
+                
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
+            }
+            
+        }
+
+        private void gvwView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            try
+            {
+                if (e.Column.FieldName == _CurrentDay)
+                {
+                    //return;
+                    Rectangle rect = e.Bounds;
+                    rect.Inflate(new Size(1, 1));
+
+                    Brush brush = new SolidBrush(e.Appearance.BackColor);
+                    e.Graphics.FillRectangle(brush, rect);
+                    Pen pen_horizental = new Pen(Color.Blue, 3F);
+                    Pen pen_vertical = new Pen(Color.Blue, 4F);
+
+                    ////draw bottom
+                    //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+                    //// draw top
+                    //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+
+                    //if (e.RowHandle == 0)
+                    //{
+                    //    e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+                    //}
+                    //else 
+                    if (e.RowHandle == gvwView.RowCount - 1)
+                    {
+                        e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+                    }
+                    // draw right
+                    e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
+
+
+                    // draw left
+                    e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X, rect.Y + rect.Height);
+
+                    string[] ls = e.DisplayText.Split('\n');
+
+                    e.Graphics.DrawString(ls[0], e.Appearance.Font, new SolidBrush(e.Appearance.ForeColor), rect, e.Appearance.GetStringFormat());
+
+                    e.Handled = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+        }
+
+        private void gvwView_CustomDrawColumnHeader(object sender, DevExpress.XtraGrid.Views.Grid.ColumnHeaderCustomDrawEventArgs e)
+        {
+            if (e.Column == null) return;
+            if (e.Column.FieldName == _CurrentDay)
+            {
+                Rectangle rect = e.Bounds;
+                rect.Inflate(new Size(1, 1));
+
+                Brush brush = new SolidBrush(Color.DodgerBlue);
+                e.Graphics.FillRectangle(brush, rect);
+
+                ////draw bottom
+                //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+                //// draw top
+               // e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+
+                // draw right
+               // e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
+
+
+                // draw left
+                //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X, rect.Y + rect.Height);
+
+                string text = e.Column.Caption == "" ? e.Column.FieldName : e.Column.Caption;
+                e.Graphics.DrawString(text, e.Appearance.Font, new SolidBrush(Color.White), rect, e.Appearance.GetStringFormat());
+
+                e.Handled = true;
+            }
         }
     }
 }
