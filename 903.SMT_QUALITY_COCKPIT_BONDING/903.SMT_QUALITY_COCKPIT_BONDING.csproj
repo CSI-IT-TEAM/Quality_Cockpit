@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FORM</RootNamespace>
     <AssemblyName>SMT_QUALITY_COCKPIT_BONDING</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,6 +25,7 @@
     <DocumentationFile>
     </DocumentationFile>
     <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="COM, Version=1.0.7630.19971, Culture=neutral, processorArchitecture=MSIL">
@@ -126,12 +129,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_POPUP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_POPUP.Designer.cs">
-      <DependentUpon>SMT_QUALITY_COCKPIT_POPUP.cs</DependentUpon>
-    </Compile>
     <Compile Include="SMT_QUALITY_COCKPIT_BONDING.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,9 +177,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_POPUP.resx">
-      <DependentUpon>SMT_QUALITY_COCKPIT_POPUP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SMT_QUALITY_COCKPIT_BONDING.resx">
       <DependentUpon>SMT_QUALITY_COCKPIT_BONDING.cs</DependentUpon>
