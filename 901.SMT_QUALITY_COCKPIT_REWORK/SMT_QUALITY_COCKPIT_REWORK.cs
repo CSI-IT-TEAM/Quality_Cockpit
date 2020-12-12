@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.OracleClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,18 +21,113 @@ namespace FORM
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
 
+        #region Load-Visible Change-Timer
         private void SMT_QUALITY_COCKPIT_FORM1_Load(object sender, EventArgs e)
         {
-            load_combo("DATE");
-            load_combo("COMBO_PLANT");
-            load_combo("COMBO_LINE");
-            while (gvwView.Columns.Count > 0)
+            LoadCombo("DATE");
+            LoadCombo("COMBO_PLANT");
+            LoadCombo("COMBO_LINE");
+        }
+
+        private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
             {
-                gvwView.Columns.RemoveAt(0);
+                cboPlant.SelectedValue = ComVar.Var._strValue1;
+                cboLine.SelectedValue = ComVar.Var._strValue2;
+                chartControl1.Series[0].Points.Clear();
+                chartControl1.Series[1].Points.Clear();
+                grdView.DataSource = null;
+                _time = 0;
+                btnSearch_Click(null, null);
+
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
+            }
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            _time++;
+            if (_time >= 30)
+            {
+                _time = 0;
+                btnSearch_Click(null, null);
+
             }
         }
-       
-        #region DATABASE
+
+        #endregion
+
+        #region Combo
+        private void LoadCombo(string arg_type)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                if (arg_type == "DATE")
+                {
+                    DataTable dtDATE = Data_Select_Combo(arg_type, "", "");
+
+                    dtpYMD.EditValue = dtDATE.Rows[0]["PREV_DAY"];
+                    dtpYMDT.EditValue = dtDATE.Rows[0]["TODAY"];
+                }
+                if (arg_type == "COMBO_PLANT")
+                {
+                    DataTable dt = Data_Select_Combo(arg_type, "", "");
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        cboPlant.DataSource = dt;
+                        cboPlant.DisplayMember = "NAME";
+                        cboPlant.ValueMember = "CODE";
+                    }
+                }
+                if (arg_type == "COMBO_LINE")
+                {
+                    DataTable dt1 = Data_Select_Combo(arg_type, cboPlant.SelectedValue.ToString().Trim(), "");
+                    if (dt1 != null && dt1.Rows.Count > 0)
+                    {
+                        cboLine.DataSource = dt1;
+                        cboLine.DisplayMember = "NAME";
+                        cboLine.ValueMember = "CODE";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally { this.Cursor = Cursors.Default; }
+        }
+
+        private void cboPlant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCombo("COMBO_LINE");
+        }
+        #endregion
+
+
+        #region
+
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "back";
+        }
+
+        private void lblDate_DoubleClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        #endregion
+
+
+        #region Database
         private DataTable Data_Select_Combo(string argType, string argPlant, string argLine )
         {           
             COM.OraDB MyOraDB = new COM.OraDB();
@@ -167,82 +263,70 @@ namespace FORM
         #endregion DB
 
 
+        
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
-            _time++;
-            if (_time >= 30)
-            {
-                _time = 0;
-                btnSearch_Click(null, null);
-                //SetData(_strType, false);
-            }
-        }
-
-        private void cmdBack_Click(object sender, EventArgs e)
-        {
-            ComVar.Var.callForm = "back";
-        }
-
-        private void lblDate_DoubleClick(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-       
-        private void load_combo(string arg_type)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                if (arg_type == "DATE")
-                {
-                    DataTable dtDATE = Data_Select_Combo(arg_type, "", "");
-
-                    dtpYMD.EditValue = dtDATE.Rows[0]["PREV_DAY"];
-                    dtpYMDT.EditValue = dtDATE.Rows[0]["TODAY"];
-                }
-                if (arg_type == "COMBO_PLANT")
-                {
-                    DataTable dt = Data_Select_Combo(arg_type, "", "");
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        cboPlant.DataSource = dt;
-                        cboPlant.DisplayMember = "NAME";
-                        cboPlant.ValueMember = "CODE";
-                    }
-                }
-                if (arg_type == "COMBO_LINE") 
-                {
-                    DataTable dt1 = Data_Select_Combo(arg_type, cboPlant.SelectedValue.ToString().Trim(), "");
-                    if (dt1 != null && dt1.Rows.Count > 0)
-                    {
-                        cboLine.DataSource = dt1;
-                        cboLine.DisplayMember = "NAME";
-                        cboLine.ValueMember = "CODE";
-
-                    }
-                }
-
-            }
-            catch
-            {
-
-            }
-            finally { this.Cursor = Cursors.Default; }
-        }
-
-        private void cboPlant_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            load_combo("COMBO_LINE");
-        }
-
-        private async void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
+                SetGrid();
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }       
+        }
+
+        private async void SetChart()
+        {
+            string YMDF, YMDT, PLANT_CD, LINE_CD;
+            YMDF = dtpYMD.DateTime.ToString("yyyyMMdd");
+            YMDT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+            PLANT_CD = cboPlant.SelectedValue.ToString().Trim();
+            LINE_CD = cboLine.SelectedValue.ToString().Trim();
+
+            DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
+
+            chartControl1.Series[0].Points.Clear();
+            chartControl1.Series[1].Points.Clear();
+            chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chartControl1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+            if (dtchart == null) return;
+            for (int i = 0; i <= dtchart.Rows.Count - 1; i++)
+            {
+                chartControl1.Series[0].Points.Add(new SeriesPoint(dtchart.Rows[i]["YMD"].ToString(), dtchart.Rows[i]["REWORK"]));
+                chartControl1.Series[1].Points.Add(new SeriesPoint(dtchart.Rows[i]["YMD"].ToString(), dtchart.Rows[i]["RATE"]));
+
+                double rate;
+                double.TryParse(dtchart.Rows[i]["RATE"].ToString(), out rate); //out
+
+                if (rate > 6)
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.Red;
+                }
+                else if (rate > 3)
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
+                }
+                else 
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                }
+            }
+        }
+
+
+        private async void SetGrid()
+        {
+            try
+            {
+                gvwView.BeginUpdate();
                 string YMDF, YMDT, PLANT_CD, LINE_CD;
                 int total = 0;
                 double PER = 0;
@@ -250,7 +334,6 @@ namespace FORM
                 YMDT = dtpYMDT.DateTime.ToString("yyyyMMdd");
                 PLANT_CD = cboPlant.SelectedValue.ToString().Trim();
                 LINE_CD = cboLine.SelectedValue.ToString().Trim();
-
 
                 while (gvwView.Columns.Count > 0)
                 {
@@ -272,75 +355,22 @@ namespace FORM
                         }
                         dt.Rows[i]["TOTAL"] = total;
                         total = 0;
+                        dt.Rows[i]["ITEM"] = dt.Rows[i]["ITEM"].ToString() + "(Prs)";
                     }
 
                     if (int.Parse(dt.Rows[0]["TOTAL"].ToString()) > 0)
                     {
                         PER = (double.Parse(dt.Rows[1]["TOTAL"].ToString()) / double.Parse(dt.Rows[0]["TOTAL"].ToString())) * 100;
-
                         dt.Rows[2]["TOTAL"] = Math.Round(PER, 2);
                     }
                     else
                     {
                         dt.Rows[2]["TOTAL"] = 0;
                     }
-
+                    dt.Rows[2]["ITEM"] = dt.Rows[2]["ITEM"].ToString() + "(%)";
                 }
-                
 
-                SetGrid(dt);
-
-                //---chart---//
-                DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
-                SetChart(dtchart);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }       
-        }
-
-        private void SetChart(DataTable argData)
-        {
-            chartControl1.Series[0].Points.Clear();
-            chartControl1.Series[1].Points.Clear();
-            chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
-            chartControl1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
-            if (argData == null) return;
-            for (int i = 0; i <= argData.Rows.Count - 1; i++)
-            {
-                chartControl1.Series[0].Points.Add(new SeriesPoint(argData.Rows[i]["YMD"].ToString(), argData.Rows[i]["REWORK"]));
-                chartControl1.Series[1].Points.Add(new SeriesPoint(argData.Rows[i]["YMD"].ToString(), argData.Rows[i]["RATE"]));
-
-                double rate;
-                double.TryParse(argData.Rows[i]["RATE"].ToString(), out rate); //out
-
-                if (rate > 6)
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.Red;
-                }
-                else if (rate > 3)
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
-                }
-                else 
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.Green;
-                }
-            }
-        }
-
-
-        private void SetGrid(DataTable argDt)
-        {
-            try
-            {
-                gvwView.BeginUpdate();
-                grdView.DataSource = argDt;
+                grdView.DataSource = dt;
                 gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
 
                 gvwView.Columns[0].Caption = " ";
@@ -353,7 +383,17 @@ namespace FORM
 
 
                     gvwView.Columns[i].AppearanceCell.Options.UseTextOptions = true;
-                    gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+                    if (i==0)
+                    {
+                        gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+                    }
+                    else
+                    {
+                        gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                    }
+                    
+
                     gvwView.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
                     gvwView.Columns[i].OptionsFilter.AllowFilter = false;
                     gvwView.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
@@ -374,6 +414,8 @@ namespace FORM
 
                 gvwView.BestFitColumns();
                 gvwView.Columns[0].Width = 150;
+
+                SetChart();
             }
             catch (Exception ex)
             {
@@ -391,7 +433,7 @@ namespace FORM
             
             if (e.Column.AbsoluteIndex >= 1 && e.CellValue != null)
             {
-                if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["ITEM"]).ToString() == "Rate")
+                if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
                     double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
                     if (temp > 6)
@@ -420,26 +462,7 @@ namespace FORM
 
         }
 
-        private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
-        {
-            if( Visible)
-            {
-                cboPlant.SelectedValue = ComVar.Var._strValue1;
-                cboLine.SelectedValue = ComVar.Var._strValue2;
-                chartControl1.Series[0].Points.Clear();
-                chartControl1.Series[1].Points.Clear();
-                grdView.DataSource = null;
-                _time = 0;
-                btnSearch_Click(null, null);
-                
-                timer1.Start();
-            }
-            else
-            {
-                timer1.Stop();
-            }
-            
-        }
+        
 
         private void gvwView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
@@ -449,7 +472,8 @@ namespace FORM
                 {
                     //return;
                     Rectangle rect = e.Bounds;
-                    rect.Inflate(new Size(1, 1));
+                   // rect.Inflate(new Size(1, 1));
+                   // rect.p
 
                     Brush brush = new SolidBrush(e.Appearance.BackColor);
                     e.Graphics.FillRectangle(brush, rect);

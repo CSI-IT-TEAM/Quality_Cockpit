@@ -206,12 +206,19 @@ namespace FORM
                 int.TryParse(row["NUM_FGA"].ToString(), out iNumLine);
                 lineCd = row["LINE_CD"].ToString();
 
+                
+
                 int iStart = lineCd == "018_1" ? 4 : 0;
                 //lineCd = lineCd.Replace("_1", "");
                 for (int iLine = iStart + 1; iLine <= iStart + iNumLine; iLine++)
                 {
                     string lineAndMline = lineCd.Replace("_1","") + "_" + iLine.ToString("000");
-                    if (factory == "F1") lineAndMline = iLine.ToString("000") + "_000";
+                    if (factory == "F1")
+                    {
+                        
+                        lineAndMline = iLine ==2 ? "003_000" : iLine == 3 ? "002_000" : iLine.ToString("000") + "_000";
+                    }
+                        
 
                     buttonLoc = new Point(locX, locY);
                     dicValue["NAME"] = "cmd_" + lineAndMline + "_" + "MNM";
@@ -503,15 +510,21 @@ namespace FORM
         {
             ComVar.Var._IsBack = true;
             ComVar.Var._strValue1 = argLine[1];
-            if (ComVar.Var._strValue1 == "001" || 
-                ComVar.Var._strValue1 == "002" || 
-                ComVar.Var._strValue1 == "003" || 
-                ComVar.Var._strValue1 == "004" || 
-                ComVar.Var._strValue1 == "005" || 
+            if (ComVar.Var._strValue1 == "001" ||
+                ComVar.Var._strValue1 == "004" ||
+                ComVar.Var._strValue1 == "005" ||
                 ComVar.Var._strValue1 == "006")
             {
                 ComVar.Var._strValue2 = ComVar.Var._strValue1;
-            }              
+            }
+            else if (ComVar.Var._strValue1 == "002")
+            {
+                ComVar.Var._strValue2 = "003";
+            }
+            else if (ComVar.Var._strValue1 == "003")
+            {
+                ComVar.Var._strValue2 = "002";
+            }    
             else
             {
                 ComVar.Var._strValue2 = argLine[2];
@@ -767,12 +780,16 @@ namespace FORM
             ComVar.Var._IsBack = true;
             ComVar.Var.callForm = "682";
         }
+
+
+
+
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
-
-
-
+        }
     }
 
 
