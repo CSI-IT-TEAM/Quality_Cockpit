@@ -160,114 +160,12 @@ namespace FORM
 
                 string[] fieldName = { "PLANT_NM", "LINE_CD", "CATEGORY_NAME", "TD_CODE", "STYLE_CODE", "MODEL_NAME", "PROD_DATE" };
                 string[] caption = { "Plant", "Line", "Category", "TD Code", "Style Code", "Model Name","Prod Date" };
+                int[] size = { 70, 50, 150, 90, 120, 200, 120 };
 
                 for (int i =0;i <fieldName.Length;i++)
                 {
-                    Sp_AddBandFixed(fieldName[i], caption[i]);
+                    Sp_AddBandFixed(fieldName[i], caption[i], size[i]);
                 }
-                
-
-                /*
-                GridBand gridBand1 = new GridBand();
-                GridBand gridBand2 = new GridBand();
-                GridBand gridBand3 = new GridBand();
-                GridBand gridBand4 = new GridBand();
-                GridBand gridBand5 = new GridBand();
-                GridBand gridBand6 = new GridBand();
-                GridBand gridBand7 = new GridBand();
-
-                BandedGridColumn column_Band1 = new BandedGridColumn();
-                BandedGridColumn column_Band2 = new BandedGridColumn();
-                BandedGridColumn column_Band3 = new BandedGridColumn();
-                BandedGridColumn column_Band4 = new BandedGridColumn();
-                BandedGridColumn column_Band5 = new BandedGridColumn();
-                BandedGridColumn column_Band6 = new BandedGridColumn();
-                BandedGridColumn column_Band7 = new BandedGridColumn();
-               // column_Band1.Caption = "PLANT";
-                column_Band1.FieldName = "PLANT_NM";
-                column_Band1.Name = "PLANT_NM";
-                column_Band1.Visible = true;
-
-                column_Band2.Caption = "LINE";
-                column_Band2.FieldName = "LINE_CD";
-                column_Band2.Name = "LINE_CD";
-                column_Band2.Visible = true;
-
-                column_Band3.Caption = "CATEGORY";
-                column_Band3.FieldName = "CATEGORY_NAME";
-                column_Band3.Name = "CATEGORY_NAME";
-                column_Band3.Visible = true;
-                column_Band3.Width = 130;
-
-                column_Band4.Caption = "TD_CODE";
-                column_Band4.FieldName = "TD_CODE";
-                column_Band4.Name = "TD_CODE";
-                column_Band4.Visible = true;
-
-                column_Band5.Caption = "STYLE_CODE";
-                column_Band5.FieldName = "STYLE_CODE";
-                column_Band5.Name = "STYLE_CODE";
-                column_Band5.Visible = true;
-
-                column_Band6.Caption = "MODEL_NAME";
-                column_Band6.FieldName = "MODEL_NAME";
-                column_Band6.Name = "MODEL_NAME";
-                column_Band6.Visible = true;
-                column_Band6.Width = 150;
-
-                column_Band7.Caption = "PROD_DATE";
-                column_Band7.FieldName = "PROD_DATE";
-                column_Band7.Name = "PROD_DATE";
-                column_Band7.Visible = true;
-
-                //6 Fixed band
-                gridBand1.Caption = "Plant";
-             //   gridBand1.Name = "gridBand1";
-                gridBand1.VisibleIndex = 0;
-                gridBand1.Columns.Add(column_Band1);
-                gridBand1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-                gridBand1.AppearanceHeader.Options.UseTextOptions = true;
-                gridBand1.AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
-
-                gridBand2.Caption = "Line";
-                gridBand2.Name = "gridBand2";
-                gridBand2.VisibleIndex = 1;
-                gridBand2.Columns.Add(column_Band2);
-                gridBand2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-
-                gridBand3.Caption = "Category";
-                gridBand3.Name = "gridBand3";
-                gridBand3.VisibleIndex = 2;
-                gridBand3.Columns.Add(column_Band3);
-                gridBand3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-
-                gridBand4.Caption = "TD Code";
-                gridBand4.Name = "gridBand4";
-                gridBand4.VisibleIndex = 3;
-                gridBand4.Columns.Add(column_Band4);
-                gridBand4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-
-                gridBand5.Caption = "Style Code";
-                gridBand5.Name = "gridBand5";
-                gridBand5.VisibleIndex = 4;
-                gridBand5.Columns.Add(column_Band5);
-                gridBand5.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-
-                gridBand6.Caption = "Model Name";
-                gridBand6.Name = "gridBand6";
-                gridBand6.VisibleIndex = 5;
-                gridBand6.Columns.Add(column_Band6);
-                gridBand6.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-
-                gridBand7.Caption = "Prod Date";
-                gridBand7.Name = "gridBand7";
-                gridBand7.VisibleIndex = 6;
-                gridBand7.Columns.Add(column_Band7);
-                gridBand7.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-
-                grdView.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] { column_Band1, column_Band2, column_Band3, column_Band4, column_Band5, column_Band6, column_Band7 });
-                grdView.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] { gridBand1, gridBand2, gridBand3, gridBand4, gridBand5, gridBand6, gridBand7 });
-               */
 
                 for (int i = 0; i < dtData.Rows.Count; i++)
                 {
@@ -288,7 +186,9 @@ namespace FORM
                     second_Band.AppearanceHeader.Options.UseTextOptions = true;
                     second_Band.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     second_Band.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                    second_Band.AppearanceHeader.Font =  new Font("Calibri", 16, FontStyle.Bold);
                     second_Band.VisibleIndex = i;
+                    second_Band.RowCount = 2;
                     third_Band.Caption = dtData.Rows[i]["NPI_NAME"].ToString();
                     third_Band.Name = string.Concat("third_Band", i);
                     third_Band.VisibleIndex = i;
@@ -296,7 +196,7 @@ namespace FORM
                     third_Band.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
                     third_Band.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     third_Band.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                    third_Band.RowCount = 6;
+                    third_Band.RowCount = 10;
                     third_Band.VisibleIndex = i;
 
                     column_Band.Caption = dtData.Rows[i]["NPI_CODE"].ToString();
@@ -306,21 +206,27 @@ namespace FORM
                     column_Band.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     column_Band.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     column_Band.Visible = true;
-                    column_Band.Width = 90;
+                    column_Band.Width = 150;
                     third_Band.Columns.Add(column_Band);
                     grdView.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] { column_Band });
                     //first_Band.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] { second_Band });
                     second_Band.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] { third_Band });
                     grdView.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] { second_Band });
-                    grdView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+                    //grdView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
                 }
 
-                //for (int i = 0; i < grdView.Columns.Count; i++)
-                //{
-                //    grdView.Columns[i].AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);                   
-                //    grdView.Columns[i].AppearanceCell.Options.UseTextOptions = true;
-                //    grdView.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                //}
+                for (int i = 0; i < grdView.Columns.Count; i++)
+                {
+                    if (i >= 7)
+                    {
+                        grdView.Columns[i].OwnerBand.ParentBand.AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
+                    }
+                    grdView.Columns[i].AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
+                    grdView.Columns[i].OwnerBand.AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
+                    grdView.Columns[i].AppearanceCell.Font = new Font("Calibri", 16);
+                    grdView.Columns[i].AppearanceCell.Options.UseTextOptions = true;
+                    grdView.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                }
 
             }
             catch (Exception ex)
@@ -329,7 +235,7 @@ namespace FORM
             }
         }
 
-        private void Sp_AddBandFixed(string argFieldName, string argCaption)
+        private void Sp_AddBandFixed(string argFieldName, string argCaption, int argSize)
         {
             GridBand gridBand1 = new GridBand();
             BandedGridColumn column_Band1 = new BandedGridColumn();
@@ -337,12 +243,14 @@ namespace FORM
             column_Band1.FieldName = argFieldName;
             column_Band1.Name = argFieldName;
             column_Band1.Visible = true;
+            column_Band1.Width = argSize;
             gridBand1.Caption = argCaption;
             gridBand1.VisibleIndex = 0;
             gridBand1.Columns.Add(column_Band1);
             gridBand1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             gridBand1.AppearanceHeader.Options.UseTextOptions = true;
             gridBand1.AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
+           // column_Band1.AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
             grdView.Columns.AddRange(new BandedGridColumn[] { column_Band1});
             grdView.Bands.AddRange(new GridBand[] { gridBand1 });
 
