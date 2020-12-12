@@ -84,12 +84,9 @@ namespace FORM
                             gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.#";
                         }
                      //   gvwBase.Columns[i].Caption = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(gvwBase.Columns[i].GetCaption().Replace("-", " ").Replace("'", " ").ToLower()).Split(',')[0];
-
-
+                     
                     }
-                }
-
-             
+                }             
 
             }
             catch (Exception ex)
@@ -340,7 +337,6 @@ namespace FORM
             GET_COMBO_DATA("DATE", "");
         }
 
-
         #region DB
         private DataSet Data_Select(string argType, string plant, string line)
         {
@@ -421,8 +417,6 @@ namespace FORM
         }
 
         #endregion DB
-
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -516,7 +510,7 @@ namespace FORM
                         e.DisplayText = double.Parse(e.CellValue.ToString()).ToString("0.0#");
                     }
 
-                    if (e.Column.FieldName == _CurrentDay)
+                    if (gvwBase.Columns[e.Column.FieldName].OwnerBand.Caption == _CurrentDay)
                     {
                         //return;
                         Rectangle rect = e.Bounds;
