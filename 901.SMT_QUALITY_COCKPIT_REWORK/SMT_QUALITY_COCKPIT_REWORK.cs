@@ -387,9 +387,11 @@ namespace FORM
                     if (i==0)
                     {
                         gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+                        gvwView.Columns[i].Width = 150;
                     }
                     else
                     {
+                        gvwView.Columns[i].Width = 100;
                         gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
                     }
                     
@@ -412,8 +414,8 @@ namespace FORM
                 }
 
 
-                gvwView.BestFitColumns();
-                gvwView.Columns[0].Width = 150;
+               // gvwView.BestFitColumns();
+                
 
                 SetChart();
             }

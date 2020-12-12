@@ -66,15 +66,23 @@ namespace FORM
 
                         //Data
                         gvwBase.Columns[i].AppearanceCell.Font = new Font("Calibri", 16, FontStyle.Bold);
-                        gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+                        if (i==0)
+                        {
+                            gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Near;
+                        }
+                        else
+                        {
+                            gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Far;
+                        }
+                        
                         gvwBase.Columns[i].AppearanceCell.TextOptions.VAlignment = VertAlignment.Center;
 
                         if (i == 0)
-                            gvwBase.Columns[i].OwnerBand.Width = 150;
+                            gvwBase.Columns[i].OwnerBand.Width = 100;
 
                         if (i > 0)
                         {
-                            gvwBase.Columns[i].OwnerBand.Width = 100;
+                           // gvwBase.Columns[i].OwnerBand.Width = 80;
                             gvwBase.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
                             gvwBase.Columns[i].DisplayFormat.FormatString = "#,#.#";
                         }
@@ -155,7 +163,7 @@ namespace FORM
                 column_Band1.FieldName = "ITEM";
                 column_Band1.Name = "ITEM";
                 column_Band1.Visible = true;
-                column_Band1.Width = 120;
+                column_Band1.Width = 150;
                 column_Band1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
 
                 gridBand1.Columns.Add(column_Band1);  
@@ -184,7 +192,7 @@ namespace FORM
                         column_Band.FieldName = distinctValues.Rows[i]["MON"].ToString();
                         column_Band.Name = distinctValues.Rows[i]["MON"].ToString();
                         column_Band.Visible = true;
-                        column_Band.Width = 120;
+                        column_Band.Width = 100;
 
                         gridBand.Columns.Add(column_Band);
                         gvwBase.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] { column_Band });
