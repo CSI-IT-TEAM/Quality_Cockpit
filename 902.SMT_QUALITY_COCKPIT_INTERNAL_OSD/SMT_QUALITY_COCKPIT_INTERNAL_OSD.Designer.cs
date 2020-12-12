@@ -187,7 +187,7 @@
             series1.Label = sideBySideBarSeriesLabel1;
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series1.Name = "Bonding";
-            pointSeriesLabel1.TextPattern = "{V:#.#}%";
+            pointSeriesLabel1.TextPattern = "{V:0.##}%";
             series2.Label = pointSeriesLabel1;
             series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series2.Name = "Rate";
@@ -550,7 +550,6 @@
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "2020-07-22\r\n10:00:00";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-           // this.lblDate.DoubleClick += new System.EventHandler(this.lblDate_DoubleClick_1);
             // 
             // lblHeader
             // 
@@ -669,6 +668,7 @@
             this.gvwBase.OptionsView.ShowGroupPanel = false;
             this.gvwBase.OptionsView.ShowIndicator = false;
             this.gvwBase.RowHeight = 50;
+            this.gvwBase.CustomDrawBandHeader += new DevExpress.XtraGrid.Views.BandedGrid.BandHeaderCustomDrawEventHandler(this.gvwBase_CustomDrawBandHeader);
             this.gvwBase.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvwBase_RowCellClick);
             this.gvwBase.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwBase_CustomDrawCell);
             this.gvwBase.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwBase_RowCellStyle);
@@ -1049,7 +1049,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Red;
-            this.label7.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(1740, 5);
             this.label7.Name = "label7";
@@ -1061,7 +1061,8 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Yellow;
-            this.label6.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(1577, 5);
             this.label6.Name = "label6";
@@ -1073,7 +1074,8 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Green;
-            this.label5.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(1438, 5);
             this.label5.Name = "label5";
