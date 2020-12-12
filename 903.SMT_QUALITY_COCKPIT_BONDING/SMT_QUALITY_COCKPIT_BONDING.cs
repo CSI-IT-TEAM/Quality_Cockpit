@@ -28,7 +28,7 @@ namespace FORM
         string _plant = ComVar.Var._strValue1;  // "";// 
         string _line = ComVar.Var._strValue2;  //"";//
         int _time = 0;
-        string _CurrentDay = DateTime.Now.ToString("MMM - dd");
+        string _CurrentDay = "";// DateTime.Now.ToString("MMM - dd");
         private async void SetData(string arg_type,string plant, string line, bool arg_load = true)
         {
             try
@@ -275,15 +275,24 @@ namespace FORM
                 cbo_line.ValueMember = "CODE";
                 cbo_line.SelectedIndex = 0;
             }
+            if (type == "DATE")
+            {
+                DataTable dt = LOAD_COMBO_V2(type, "", "");
+                _CurrentDay = dt.Rows[0]["CURRENTDAY"].ToString();
+                dtpDateT.EditValue = dt.Rows[0]["TODAY"];
+                dtpDateF.EditValue = dt.Rows[0]["PREV_DAY"];
+
+            }
 
         }       
 
         private void LoadForm()
         {
-            dtpDateF.EditValue = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd"); ;// DateTime.Now.ToString("yyyy/MM/dd");
-            dtpDateT.EditValue = DateTime.Now.ToString("yyyy/MM/dd");
+           // dtpDateF.EditValue = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd"); ;// DateTime.Now.ToString("yyyy/MM/dd");
+          //  dtpDateT.EditValue = DateTime.Now.ToString("yyyy/MM/dd");
 
             GET_COMBO_DATA("CPLANT", "");
+            GET_COMBO_DATA("DATE", "");
             //SetData(_strType, _plant, _line);
 
         }

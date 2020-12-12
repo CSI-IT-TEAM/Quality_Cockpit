@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -84,7 +85,7 @@
             this.pnBody2 = new System.Windows.Forms.Panel();
             this.cmdExportDetail = new System.Windows.Forms.Button();
             this.cmdExportIssue = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdBase = new DevExpress.XtraGrid.GridControl();
@@ -187,11 +188,15 @@
             series1.Label = sideBySideBarSeriesLabel1;
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series1.Name = "Bonding";
+            pointSeriesLabel1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(192)))));
             pointSeriesLabel1.TextPattern = "{V:0.##}%";
             series2.Label = pointSeriesLabel1;
             series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series2.Name = "Rate";
             lineSeriesView1.AxisYName = "Secondary AxisY 1";
+            lineSeriesView1.Color = System.Drawing.Color.Blue;
+            lineSeriesView1.LineMarkerOptions.Color = System.Drawing.Color.Blue;
+            lineSeriesView1.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
             series2.View = lineSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,
