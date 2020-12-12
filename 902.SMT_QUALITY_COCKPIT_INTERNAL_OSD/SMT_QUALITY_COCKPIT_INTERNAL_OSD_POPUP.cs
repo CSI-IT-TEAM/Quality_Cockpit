@@ -132,9 +132,9 @@ namespace FORM
         {
             if (!gvwBase.GetRowCellValue(e.RowHandle, "MLINE_CD").Equals("TOTAL") || !gvwBase.GetRowCellValue(e.RowHandle, "MLINE_CD").Equals("G-TOTAL"))
             {
-                if (gvwBase.Columns[e.Column.ColumnHandle].FieldName.Contains("Qty"))
+                if (gvwBase.Columns[e.Column.ColumnHandle].FieldName.ToUpper().Contains("QTY"))
                 {
-                    if (!gvwBase.GetRowCellValue(e.RowHandle, "C_Qty").Equals(gvwBase.GetRowCellValue(e.RowHandle, "Re_Qty")))
+                    if (!gvwBase.GetRowCellValue(e.RowHandle, "C_QTY").Equals(gvwBase.GetRowCellValue(e.RowHandle, "RE_QTY")))
                     {
                         e.Appearance.BackColor = Color.Red;
                         e.Appearance.ForeColor = Color.White;
@@ -147,19 +147,19 @@ namespace FORM
                 e.Appearance.BackColor = Color.LightYellow;
                 e.Appearance.ForeColor = Color.Black;
             }
-            if (gvwBase.GetRowCellValue(e.RowHandle, "Line_Name").Equals("G-TOTAL"))
-            {
-                e.Appearance.BackColor = Color.LightSalmon;
-                e.Appearance.ForeColor = Color.Black;
-            }
+            //if (gvwBase.GetRowCellValue(e.RowHandle, "LINE_NAME").Equals("G-TOTAL"))
+            //{
+            //    e.Appearance.BackColor = Color.LightSalmon;
+            //    e.Appearance.ForeColor = Color.Black;
+            //}
         }
 
         private void gvwBase_CellMerge(object sender, DevExpress.XtraGrid.Views.Grid.CellMergeEventArgs e)
         {
             if (e.Column.FieldName == "LINE_NAME")
             {
-                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Line_Name").Trim();
-                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Line_Name").Trim();
+                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "LINE_NAME").Trim();
+                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "LINE_NAME").Trim();
 
                 if (line1 == line2)
                 {
@@ -176,8 +176,8 @@ namespace FORM
                 string Mline1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "MLINE_CD").Trim();
                 string Mline2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "MLINE_CD").Trim();
 
-                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Line_Name").Trim();
-                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Line_Name").Trim();
+                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "LINE_NAME").Trim();
+                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "LINE_NAME").Trim();
                 if (Mline1 == Mline2 && line1 == line2)
                 {
                     e.Merge = true;
@@ -187,16 +187,16 @@ namespace FORM
                     e.Merge = false;
                 }
             }
-            if (e.Column.FieldName == "Model_Name")
+            if (e.Column.FieldName == "MODEL_NAME")
             {
                 string Mline1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "MLINE_CD").Trim();
                 string Mline2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "MLINE_CD").Trim();
 
-                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Line_Name").Trim();
-                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Line_Name").Trim();
+                string line1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "LINE_NAME").Trim();
+                string line2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "LINE_NAME").Trim();
 
-                string style_nm1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "Model_Name").Trim();
-                string style_nm2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "Model_Name").Trim();
+                string style_nm1 = gvwBase.GetRowCellDisplayText(e.RowHandle1, "MODEL_NAME").Trim();
+                string style_nm2 = gvwBase.GetRowCellDisplayText(e.RowHandle2, "MODEL_NAME").Trim();
 
                 if (Mline1 == Mline2 && line1 == line2 && style_nm1 == style_nm2)
                 {

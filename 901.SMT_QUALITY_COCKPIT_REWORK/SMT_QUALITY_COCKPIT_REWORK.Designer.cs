@@ -491,7 +491,7 @@
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBody1.Location = new System.Drawing.Point(0, 126);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1924, 936);
+            this.pnBody1.Size = new System.Drawing.Size(1924, 935);
             this.pnBody1.TabIndex = 3;
             // 
             // pnGrid
@@ -500,7 +500,7 @@
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnGrid.Location = new System.Drawing.Point(0, 670);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(1924, 266);
+            this.pnGrid.Size = new System.Drawing.Size(1924, 265);
             this.pnGrid.TabIndex = 78;
             // 
             // grdView
@@ -513,7 +513,7 @@
             this.grdView.Location = new System.Drawing.Point(0, 0);
             this.grdView.MainView = this.gvwView;
             this.grdView.Name = "grdView";
-            this.grdView.Size = new System.Drawing.Size(1924, 266);
+            this.grdView.Size = new System.Drawing.Size(1924, 265);
             this.grdView.TabIndex = 8;
             this.grdView.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwView});
@@ -593,7 +593,7 @@
             // SMT_QUALITY_COCKPIT_REWORK
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1924, 1062);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.pnBody1);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnTop);
