@@ -167,7 +167,7 @@ namespace FORM
             
         }
 
-        public async Task<DataTable> sbGetRework(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
+        public async Task<DataSet> sbGetRework(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
         {
             return await Task.Run(() => {
                 COM.OraDB MyOraDB = new COM.OraDB();
@@ -176,7 +176,7 @@ namespace FORM
                 {
                     string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK";
 
-                    MyOraDB.ReDim_Parameter(6);
+                    MyOraDB.ReDim_Parameter(7);
                     MyOraDB.Process_Name = process_name;
 
                     MyOraDB.Parameter_Name[0] = "V_P_TYPE";
@@ -185,6 +185,7 @@ namespace FORM
                     MyOraDB.Parameter_Name[3] = "V_P_PLANT";
                     MyOraDB.Parameter_Name[4] = "V_P_LINE";
                     MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[6] = "OUT_CURSOR2";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
@@ -192,6 +193,7 @@ namespace FORM
                     MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
 
                     MyOraDB.Parameter_Values[0] = ARG_QTYPE;
                     MyOraDB.Parameter_Values[1] = ARG_YMDF;
@@ -199,12 +201,13 @@ namespace FORM
                     MyOraDB.Parameter_Values[3] = ARG_PLANT;
                     MyOraDB.Parameter_Values[4] = ARG_LINE;
                     MyOraDB.Parameter_Values[5] = "";
+                    MyOraDB.Parameter_Values[6] = "";
 
                     MyOraDB.Add_Select_Parameter(true);
                     ds_ret = MyOraDB.Exe_Select_Procedure();
 
                     if (ds_ret == null) return null;
-                    return ds_ret.Tables[process_name];
+                    return ds_ret;
                 }
                 catch
                 {
@@ -270,7 +273,7 @@ namespace FORM
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                SetGrid();
+                SetData();
                 
             }
             catch (Exception ex)
@@ -283,7 +286,7 @@ namespace FORM
             }       
         }
 
-        private async void SetChart()
+        private void SetChart(DataTable argDtChart)
         {
             string YMDF, YMDT, PLANT_CD, LINE_CD;
             YMDF = dtpYMD.DateTime.ToString("yyyyMMdd");
@@ -291,20 +294,20 @@ namespace FORM
             PLANT_CD = cboPlant.SelectedValue.ToString().Trim();
             LINE_CD = cboLine.SelectedValue.ToString().Trim();
 
-            DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
+            //DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
 
             chartControl1.Series[0].Points.Clear();
             chartControl1.Series[1].Points.Clear();
             chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
             chartControl1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
-            if (dtchart == null) return;
-            for (int i = 0; i <= dtchart.Rows.Count - 1; i++)
+            if (argDtChart == null) return;
+            for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
-                chartControl1.Series[0].Points.Add(new SeriesPoint(dtchart.Rows[i]["YMD"].ToString(), dtchart.Rows[i]["REWORK"]));
-                chartControl1.Series[1].Points.Add(new SeriesPoint(dtchart.Rows[i]["YMD"].ToString(), dtchart.Rows[i]["RATE"]));
+                chartControl1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["REWORK"]));
+                chartControl1.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["RATE"]));
 
                 double rate;
-                double.TryParse(dtchart.Rows[i]["RATE"].ToString(), out rate); //out
+                double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
                 if (rate > 6)
                 {
@@ -314,7 +317,7 @@ namespace FORM
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
-                else 
+                else
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Green;
                 }
@@ -322,7 +325,7 @@ namespace FORM
         }
 
 
-        private async void SetGrid()
+        private async void SetData()
         {
             try
             {
@@ -339,38 +342,40 @@ namespace FORM
                 {
                     gvwView.Columns.RemoveAt(0);
                 }
+                DataSet dsData = await sbGetRework("Q", YMDF, YMDT, PLANT_CD, LINE_CD);
 
-                DataTable dt = await sbGetRework("Q", YMDF, YMDT, PLANT_CD, LINE_CD);
+                DataTable dtGrid = dsData.Tables[0];
+                DataTable dtChart = dsData.Tables[1];
 
-                if (dt != null && dt.Rows.Count > 2)
+                if (dtGrid != null && dtGrid.Rows.Count > 2)
                 {
                     //TINH TOTAL
                     int iQty;
-                    for (int i = 0; i <= dt.Rows.Count - 2; i++)
+                    for (int i = 0; i <= dtGrid.Rows.Count - 2; i++)
                     {
-                        for (int j = 3; j <= dt.Columns.Count - 1; j++)
+                        for (int j = 3; j <= dtGrid.Columns.Count - 1; j++)
                         {
-                            int.TryParse(dt.Rows[i][j].ToString(), out iQty);
+                            int.TryParse(dtGrid.Rows[i][j].ToString(), out iQty);
                             total = total + iQty;
                         }
-                        dt.Rows[i]["TOTAL"] = total;
+                        dtGrid.Rows[i]["TOTAL"] = total;
                         total = 0;
-                        dt.Rows[i]["ITEM"] = dt.Rows[i]["ITEM"].ToString() + "(Prs)";
+                        dtGrid.Rows[i]["ITEM"] = dtGrid.Rows[i]["ITEM"].ToString() + "(Prs)";
                     }
 
-                    if (int.Parse(dt.Rows[0]["TOTAL"].ToString()) > 0)
+                    if (int.Parse(dtGrid.Rows[0]["TOTAL"].ToString()) > 0)
                     {
-                        PER = (double.Parse(dt.Rows[1]["TOTAL"].ToString()) / double.Parse(dt.Rows[0]["TOTAL"].ToString())) * 100;
-                        dt.Rows[2]["TOTAL"] = Math.Round(PER, 2);
+                        PER = (double.Parse(dtGrid.Rows[1]["TOTAL"].ToString()) / double.Parse(dtGrid.Rows[0]["TOTAL"].ToString())) * 100;
+                        dtGrid.Rows[2]["TOTAL"] = Math.Round(PER, 2);
                     }
                     else
                     {
-                        dt.Rows[2]["TOTAL"] = 0;
+                        dtGrid.Rows[2]["TOTAL"] = 0;
                     }
-                    dt.Rows[2]["ITEM"] = dt.Rows[2]["ITEM"].ToString() + "(%)";
+                    dtGrid.Rows[2]["ITEM"] = dtGrid.Rows[2]["ITEM"].ToString() + "(%)";
                 }
 
-                grdView.DataSource = dt;
+                grdView.DataSource = dtGrid;
                 gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
 
                 gvwView.Columns[0].Caption = " ";
@@ -417,7 +422,7 @@ namespace FORM
                // gvwView.BestFitColumns();
                 
 
-                SetChart();
+                SetChart(dtChart);
             }
             catch (Exception ex)
             {

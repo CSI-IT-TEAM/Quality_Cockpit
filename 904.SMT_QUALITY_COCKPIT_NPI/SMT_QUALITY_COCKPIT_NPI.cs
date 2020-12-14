@@ -151,8 +151,9 @@ namespace FORM
                 string line = cboLine.SelectedValue.ToString();
                 string frDate = dtpYMD.DateTime.ToString("yyyyMMdd");
                 string toDate = dtpYMDT.DateTime.ToString("yyyyMMdd");
-
+                    
                 DataTable dtData = await Fn_SelectDataGrid("H", plant, line , frDate, toDate) ;
+                
                 if (dtData == null || dtData.Rows.Count == 0) return;
 
                 grdView.Bands.Clear();
@@ -266,7 +267,10 @@ namespace FORM
                 string frDate = dtpYMD.DateTime.ToString("yyyyMMdd");
                 string toDate = dtpYMDT.DateTime.ToString("yyyyMMdd");
                 DataTable dt = await Fn_SelectDataGrid("Q", plant, line, frDate, toDate);
-                DataTable dtPivot = Pivot(dt, dt.Columns["NPI_CODE"], dt.Columns["VALUE1"]);
+                DataTable dtData = dt.Select($"LINE_CD = '{line}'").CopyToDataTable();
+                if (dtData == null || dtData.Rows.Count == 0) return;
+
+                DataTable dtPivot = Pivot(dtData, dtData.Columns["NPI_CODE"], dtData.Columns["VALUE1"]);
                 grdBase.DataSource = dtPivot.Copy();
 
                 for (int i = 0; i < grdView.Columns.Count; i++)
