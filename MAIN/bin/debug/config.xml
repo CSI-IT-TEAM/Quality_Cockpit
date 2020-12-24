@@ -7,7 +7,10 @@
 		<AREA>NOS</AREA>
 		<SCREEN>2</SCREEN>
 	</MAIN>
-  
+  	<GMES>
+		<PROCESS_NAME>JBrowser6</PROCESS_NAME>
+		<PATH>C:\JihooSoft\JBrowser6_GMES\JBrowser6.exe</PATH>
+	</GMES>
 	<Auto_Download>
 		<grpForm>QUALITY_COCKPIT</grpForm>
 	</Auto_Download>

@@ -12,6 +12,8 @@ using System.Data.OleDb;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
+using System.IO;
 //using JPlatform.Client.Controls;
 
 
@@ -23,14 +25,24 @@ namespace FORM
         {            
             InitializeComponent();
             initForm();
+            
         }
 
-
+        private const int SW_MAXIMIZE = 3;
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         int _iReload = 0;
         DataTable _dtMasterLine;
+        DataTable _dtGMES;
        // Dictionary<string, UC.UC_Chart_Donut> _dicLocation = new Dictionary<string, UC.UC_Chart_Donut>();
         Dictionary<string, Button_Status> _dicLine = new Dictionary<string, Button_Status>();
         Dictionary<string, UC.UC_Factory> _dicFac = new Dictionary<string, UC.UC_Factory>();
+
+        private void SMT_QUALITY_COCKPIT_MAIN_Load(object sender, EventArgs e)
+        {
+            _dtGMES = ComVar.Func.ReadXML(Application.StartupPath + @"\Config.xml", "GMES");
+        }
+
         private void SMT_SCADA_COCKPIT_MENU_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
@@ -413,6 +425,7 @@ namespace FORM
             DataRow[] dr;
             Dictionary<string, string> dicStatus = new Dictionary<string,string>();
             string location;
+            if (_dtMasterLine == null) return;
             foreach (DataRow row in dt.Rows)
             {
                 try
@@ -781,15 +794,73 @@ namespace FORM
             ComVar.Var.callForm = "682";
         }
 
+        #region QMS Click
+
+        private void cmd_QMS_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = _dtGMES.Rows[0]["path"].ToString();
+                string str_ProcessName = _dtGMES.Rows[0]["PROCESS_NAME"].ToString();
+
+                if (!ProgramIsRunning(path))
+                //Process.Start(patch);
+                {
+                    Process p = Process.Start(path);
+                    p.WaitForInputIdle();
+                    Thread.Sleep(2000);
+                    SendKeys.SendWait("1{enter}"); //VJIT{tab}
+                    
+                }
+                else
+                {
+                    var ipex = Process.GetProcesses().Where(pr => pr.ProcessName == str_ProcessName);
+                    foreach (var process in ipex)
+                    {
+                        //process.Kill();
+                        var p = System.Diagnostics.Process.GetProcessesByName(str_ProcessName).FirstOrDefault();
+                        ShowWindow(p.MainWindowHandle, SW_MAXIMIZE);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ComVar.Var.writeToLog(this.GetType().Name + "-->FORM_MAIN-Load-->Err: " + ex.ToString());
+            }
+        }
+
+        private bool ProgramIsRunning(string FullPath)
+        {
+            string FilePath = Path.GetDirectoryName(FullPath);
+            string FileName = Path.GetFileNameWithoutExtension(FullPath).ToLower();
+            bool isRunning = false;
+
+            Process[] pList = Process.GetProcessesByName(FileName);
+            foreach (Process p in pList)
+                if (p.MainModule.FileName.StartsWith(FilePath, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    isRunning = true;
+                    break;
+                }
+
+            return isRunning;
+        }
+        #endregion
+
 
 
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CmdDasboard_Click(object sender, EventArgs e)
         {
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "905";
 
         }
+
+       
+
     }
 
 

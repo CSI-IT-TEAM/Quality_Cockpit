@@ -135,6 +135,12 @@
     <Compile Include="SMT_QUALITY_COCKPIT_DASBOARD.Designer.cs">
       <DependentUpon>SMT_QUALITY_COCKPIT_DASBOARD.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\UCTitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UCTitle.Designer.cs">
+      <DependentUpon>UCTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\UC_COMPARE_DAY_MONTH.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SMT_QUALITY_COCKPIT_DASBOARD.resx">
       <DependentUpon>SMT_QUALITY_COCKPIT_DASBOARD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UCTitle.resx">
+      <DependentUpon>UCTitle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_COMPARE_DAY_MONTH.resx">
       <DependentUpon>UC_COMPARE_DAY_MONTH.cs</DependentUpon>
