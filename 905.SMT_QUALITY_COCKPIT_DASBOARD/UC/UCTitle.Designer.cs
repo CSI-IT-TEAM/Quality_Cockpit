@@ -38,7 +38,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.72072F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.27928F));
             this.tableLayoutPanel1.Controls.Add(this.cmdText, 0, 0);
@@ -58,9 +58,9 @@
             this.cmdText.FlatAppearance.BorderSize = 0;
             this.cmdText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdText.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Italic);
-            this.cmdText.Location = new System.Drawing.Point(420, 3);
+            this.cmdText.Location = new System.Drawing.Point(408, 3);
             this.cmdText.Name = "cmdText";
-            this.cmdText.Size = new System.Drawing.Size(212, 43);
+            this.cmdText.Size = new System.Drawing.Size(224, 43);
             this.cmdText.TabIndex = 3;
             this.cmdText.Text = "*P-BOM, SB, CFM Shoe\r\n&& Lab Test";
             this.cmdText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -72,9 +72,9 @@
             this.cmdTitle.FlatAppearance.BorderSize = 0;
             this.cmdTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdTitle.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            this.cmdTitle.Location = new System.Drawing.Point(83, 3);
+            this.cmdTitle.Location = new System.Drawing.Point(53, 3);
             this.cmdTitle.Name = "cmdTitle";
-            this.cmdTitle.Size = new System.Drawing.Size(331, 43);
+            this.cmdTitle.Size = new System.Drawing.Size(349, 43);
             this.cmdTitle.TabIndex = 2;
             this.cmdTitle.Text = "New Colorway Readliness";
             this.cmdTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -88,7 +88,7 @@
             this.cmdStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdStatus.Location = new System.Drawing.Point(3, 3);
             this.cmdStatus.Name = "cmdStatus";
-            this.cmdStatus.Size = new System.Drawing.Size(74, 43);
+            this.cmdStatus.Size = new System.Drawing.Size(44, 43);
             this.cmdStatus.TabIndex = 1;
             this.cmdStatus.UseVisualStyleBackColor = false;
             // 
