@@ -26,15 +26,15 @@ namespace FORM
 
         enum Grp
         {
-            MrIssues,
-            Overall,
+            MR,
+            OVERALL,
             MI,
-            NewColor,
-            ExtOsd,
-            Inbound,
-            RampUp,
-            MoldRepair,
-            DrFcpp
+            NEW_COLOR,
+            EXT_OSD,
+            INBOUND,
+            RAMP_UP,
+            MOLD_REPAIR,
+            DR_FCPP
         }
 
         #region Event
@@ -95,24 +95,76 @@ namespace FORM
         #region AddUc
         private void AddUc()
         {
-            AddUcToPanelTitle(pnTitle_MrIssues, Grp.MrIssues, "MR Issues", "*Upper/Bottom" );
-            AddUcToPanelTitle(pnTitle_Overall, Grp.Overall, "Overal Defective", "*PPM");
+            AddUcToPanelTitle(pnTitle_MrIssues, Grp.MR, "MR Issues", "*Upper/Bottom" );
+            AddUcToPanelTitle(pnTitle_Overall, Grp.OVERALL, "Overal Defective", "*PPM");
             AddUcToPanelTitle(pnTitle_MI, Grp.MI, "MI(Quality)", "*MI Gold(Inbound, FCPP, Bonding)");
-            AddUcToPanelTitle(pnTitle_NewColor, Grp.NewColor, "New Colorway Readiness", "*P-BOM, SB, CFM Shoe\n && Lab Test");
-            AddUcToPanelTitle(pnTitle_ExtOsd, Grp.ExtOsd, "External OS&&D", "*Upper & Bottoms");
-            AddUcToPanelTitle(pnTitle_Inbound, Grp.Inbound, "Inbound", "*Inbound(%)");
-            AddUcToPanelTitle(pnTitle_RampUp, Grp.RampUp, "Ramp up", "*Days");
-            AddUcToPanelTitle(pnTitle_MoldRepair, Grp.MoldRepair, "Mold Repair", "*Bottoms");
-            AddUcToPanelTitle(pnTitle_DrFcpp, Grp.DrFcpp, "DR/FCPP", "*DR(%)/FCPP($)");
+            AddUcToPanelTitle(pnTitle_NewColor, Grp.NEW_COLOR, "New Colorway Readiness", "*P-BOM, SB, CFM Shoe\n && Lab Test");
+            AddUcToPanelTitle(pnTitle_ExtOsd, Grp.EXT_OSD, "External OS&&D", "*Upper & Bottoms");
+            AddUcToPanelTitle(pnTitle_Inbound, Grp.INBOUND, "Inbound", "*Inbound(%)");
+            AddUcToPanelTitle(pnTitle_RampUp, Grp.RAMP_UP, "Ramp up", "*Days");
+            AddUcToPanelTitle(pnTitle_MoldRepair, Grp.MOLD_REPAIR, "Mold Repair", "*Bottoms");
+            AddUcToPanelTitle(pnTitle_DrFcpp, Grp.DR_FCPP, "DR/FCPP", "*DR(%)/FCPP($)");
         }
 
         private void AddUcToPanelTitle(Panel argPanel, Grp argName, string argTitle, string argText)
         {
             UC.UCTitle Uc = new UC.UCTitle();
+
+            if(argPanel.Tag.ToString() == "MONTH")
+            {
+                Uc._typeDisplay = UC.UCTitle.TypeDisplay.MONTH;
+            }
+            else if (argPanel.Tag.ToString() == "SEASON")
+            {
+                Uc._typeDisplay = UC.UCTitle.TypeDisplay.SEASON;
+            }
+            Uc.setDisplay();
             Uc.SetTitle(argTitle);
             Uc.SetText(argText);
+            Uc.Tag = argName.ToString();
+            Uc.ValueChangeEvent += Uc_ValueChangeEvent;
             argPanel.Controls.Add(Uc);
             _dntTitle.Add(argName, Uc);
+        }
+
+        private void Uc_ValueChangeEvent(object sender, EventArgs e)
+        {
+            UC.UCTitle uc = (UC.UCTitle)sender;
+            //MessageBox.Show(uc.Tag +": " + uc.GetValue());
+
+            if (uc.Tag.ToString() == Grp.MR.ToString())
+            {
+                SetChart_MRIssues();
+            }
+            else if (uc.Tag.ToString() == Grp.RAMP_UP.ToString())
+            {
+                SetChart_RamUp();
+            }
+            else if (uc.Tag.ToString() == Grp.OVERALL.ToString())
+            {
+                SetChart_Overall();
+            }
+            else if (uc.Tag.ToString() == Grp.INBOUND.ToString())
+            {
+                SetChart_Inbound();
+            }
+            else if (uc.Tag.ToString() == Grp.DR_FCPP.ToString())
+            {
+                SetChart_DrFcpp();
+            }
+            else if (uc.Tag.ToString() == Grp.MOLD_REPAIR.ToString())
+            {
+                SetChart_MoldRepair();
+            }
+            else if (uc.Tag.ToString() == Grp.MI.ToString())
+            {
+                SetChart_MI();
+            }
+            else if (uc.Tag.ToString() == Grp.EXT_OSD.ToString())
+            {
+                SetChart_ExtOsd();
+            }
+
         }
         #endregion
 
@@ -121,7 +173,9 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("MR");
+                this.Cursor = Cursors.WaitCursor;
+
+                DataTable dtData = await Fn_SelectDataChart(Grp.MR.ToString(), _dntTitle[Grp.MR].GetValue());
 
                 chtMrIssues.Series[0].Points.Clear();
                 chtMrIssues.Series[0].ArgumentScaleType = ScaleType.Qualitative;
@@ -158,6 +212,10 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
             }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
         private string addBlank(int arg_i)
@@ -170,6 +228,15 @@ namespace FORM
             return str;
         }
 
+        private void chtMrIssues_CustomDrawAxisLabel(object sender, CustomDrawAxisLabelEventArgs e)
+        {
+            if (e.Item.Axis is AxisX)
+            {
+                string[] str = e.Item.Text.Split('_');
+                if (str.Length >= 2)
+                    e.Item.Text = str[0];
+            }
+        }
         #endregion
 
         #region Chart Ramp up issues
@@ -177,7 +244,8 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("RAMP_UP");
+                this.Cursor = Cursors.WaitCursor;
+                DataTable dtData = await Fn_SelectDataChart(Grp.RAMP_UP.ToString(), _dntTitle[Grp.RAMP_UP].GetValue());
 
                 chtRampUp.DataSource = dtData;
                 chtRampUp.Series[0].ArgumentDataMember = "YMD";
@@ -186,6 +254,10 @@ namespace FORM
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
             }
         }
 
@@ -196,7 +268,8 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("OVERALL");
+                this.Cursor = Cursors.WaitCursor;
+                DataTable dtData = await Fn_SelectDataChart(Grp.OVERALL.ToString(), _dntTitle[Grp.OVERALL].GetValue());
 
                 chtOverall.DataSource = dtData;
                 chtOverall.Series[0].ArgumentDataMember = "MON";
@@ -212,6 +285,10 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
             }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
         #endregion
@@ -221,7 +298,8 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("INBOUND");
+                this.Cursor = Cursors.WaitCursor;
+                DataTable dtData = await Fn_SelectDataChart(Grp.INBOUND.ToString(), _dntTitle[Grp.INBOUND].GetValue());
 
                 chtInbound.DataSource = dtData;
                 chtInbound.Series[0].ArgumentDataMember = "MON";
@@ -231,16 +309,20 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
             }
-            
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
         #endregion
 
-        #region Chart Inbound
+        #region Chart Dr FCPP
         private async void SetChart_DrFcpp()
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("DR_FCPP");
+                this.Cursor = Cursors.WaitCursor;
+                DataTable dtData = await Fn_SelectDataChart(Grp.DR_FCPP.ToString(), _dntTitle[Grp.DR_FCPP].GetValue());
 
                 chtDrFcpp.DataSource = dtData;
                 chtDrFcpp.Series[0].ArgumentDataMember = "MON";
@@ -252,6 +334,10 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
             }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
         #endregion
 
@@ -260,7 +346,8 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("NEW_COLOR");
+                this.Cursor = Cursors.WaitCursor;
+                DataTable dtData = await Fn_SelectDataChart(Grp.NEW_COLOR.ToString(), _dntTitle[Grp.NEW_COLOR].GetValue());
 
                 double green, yellow;
                 double.TryParse(dtData.Rows[0]["GREEN"].ToString(), out green);
@@ -285,6 +372,10 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
             }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
         #endregion
 
@@ -293,15 +384,27 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("MOLD");
+                this.Cursor = Cursors.WaitCursor;
+                
+                DataTable dtData = await Fn_SelectDataChart(Grp.MOLD_REPAIR.ToString(), _dntTitle[Grp.MOLD_REPAIR].GetValue());
 
                 chtMoldRepair.DataSource = dtData;
-                chtMoldRepair.Series[0].ArgumentDataMember = "MON";
-                chtMoldRepair.Series[0].ValueDataMembers.AddRange(new string[] { "CNT" });
+
+                string[] column = { "OUTSOLE", "PHYLON", "PU", "IP", "DMP" };
+
+                for(int i=0; i <column.Length;i++)
+                {
+                    chtMoldRepair.Series[i].ArgumentDataMember = "MON";
+                    chtMoldRepair.Series[i].ValueDataMembers.AddRange(new string[] { column[i] });
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
             }
         }
         #endregion
@@ -311,7 +414,8 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("MI");
+                this.Cursor = Cursors.WaitCursor;
+                DataTable dtData = await Fn_SelectDataChart(Grp.MI.ToString(), _dntTitle[Grp.MI].GetValue());
                 chtMI.Series[0].Points.Clear();
                 chtMI.Series[1].Points.Clear();
                 chtMI.Series[2].Points.Clear();
@@ -327,12 +431,17 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
             }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
         private void ChtMI_AddDataPoint(DataTable argData, int argSeries)
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 for (int i = 0; i < argData.Rows.Count; i++)
                 {
                     string lable = argData.Rows[i]["MON"].ToString();
@@ -346,6 +455,10 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
             }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
         #endregion
@@ -355,7 +468,8 @@ namespace FORM
         {
             try
             {
-                DataTable dtData = await Fn_SelectDataChart("EXT_OSD");
+                this.Cursor = Cursors.WaitCursor;
+                DataTable dtData = await Fn_SelectDataChart(Grp.EXT_OSD.ToString(), _dntTitle[Grp.EXT_OSD].GetValue());
                 chtExtOsd.Series[0].Points.Clear();
                 chtExtOsd.Series[1].Points.Clear();
                 chtExtOsd.Series[0].ArgumentScaleType = ScaleType.Qualitative;
@@ -368,6 +482,10 @@ namespace FORM
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
             }
         }
         private void ChtExOsd_AddDataPoint(DataTable argData, int argSeries)
@@ -393,7 +511,7 @@ namespace FORM
 
         #region Database
 
-        public async Task<DataTable> Fn_SelectDataChart(string argType)
+        public async Task<DataTable> Fn_SelectDataChart(string argType, string argYm)
         {
             return await Task.Run(() => {
                 COM.OraDB MyOraDB = new COM.OraDB();
@@ -401,22 +519,25 @@ namespace FORM
                 MyOraDB.ShowErr = true;
                 try
                 {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_02.DASBOARD_DATA_SELECT";
+                    string process_name = "PKG_SMT_QUALITY_COCKPIT_02.DASBOARD_DATA_SELECT";
 
-                    MyOraDB.ReDim_Parameter(3);
+                    MyOraDB.ReDim_Parameter(4);
                     MyOraDB.Process_Name = process_name;
 
-                    MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                    MyOraDB.Parameter_Name[1] = "V_P_FACTORY";
-                    MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[0] = "ARG_TYPE";
+                    MyOraDB.Parameter_Name[1] = "ARG_FACTORY";
+                    MyOraDB.Parameter_Name[2] = "ARG_YM";
+                    MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
 
                     MyOraDB.Parameter_Values[0] = argType;
                     MyOraDB.Parameter_Values[1] = "2110";
-                    MyOraDB.Parameter_Values[2] = "";
+                    MyOraDB.Parameter_Values[2] = argYm;
+                    MyOraDB.Parameter_Values[3] = "";
 
                     MyOraDB.Add_Select_Parameter(true);
                     ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -433,14 +554,6 @@ namespace FORM
         }
 
         #endregion DB
-        private void chtMrIssues_CustomDrawAxisLabel(object sender, CustomDrawAxisLabelEventArgs e)
-        {
-            if (e.Item.Axis is AxisX)
-            {
-                string[] str = e.Item.Text.Split('_');
-                if (str.Length >=2)
-                    e.Item.Text = str[0];
-            }
-        }
+        
     }
 }

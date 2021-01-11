@@ -147,7 +147,7 @@
             this.Controls.Add(this.btnPrevYear);
             this.Controls.Add(this.label1);
             this.Name = "UC_MONTH_SELECTION";
-            this.Size = new System.Drawing.Size(472, 46);
+            this.Size = new System.Drawing.Size(493, 46);
             this.ResumeLayout(false);
 
         }
