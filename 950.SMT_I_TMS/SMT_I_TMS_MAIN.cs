@@ -69,10 +69,7 @@ namespace FORM
         {
             try
             {
-
-               
                // aPn3.Visible = false;
-
                // picSCADA.BackgroundImage = Image.FromFile(Application.StartupPath + @"\img\Start_up.png");
 
 
@@ -110,12 +107,15 @@ namespace FORM
                 dtFactory = _dtMasterLine.Select("FACTORY = 'F5'").CopyToDataTable();
                 create_Line(pnF5, dtFactory, x, y);
 
+                dtFactory = _dtMasterLine.Select("FACTORY = 'LD'").CopyToDataTable();
+                create_Line(pnLD, dtFactory, x, y);
+
                 create_Factory(gpExF1, "F1");
                 create_Factory(gpExF2, "F2");
                 create_Factory(gpExF3, "F3");
                 create_Factory(gpExF4, "F4");
-                create_Factory(gpExF5, "F5");             
-
+                create_Factory(gpExF5, "F5");
+                create_Factory(gpExLD, "LD");
                 //setData();
 
                 //initAPanel(gpF1, "F1", dt);
@@ -124,11 +124,11 @@ namespace FORM
                 //initAPanel(gpF4, "F4", dt);
                 //initAPanel(gpF5, "F5", dt);
 
-               // tmrBlink.Start();
-                
+                // tmrBlink.Start();
 
 
-                
+
+
             }
             catch (Exception ex)
             {
@@ -344,7 +344,7 @@ namespace FORM
 
         private void create_Factory(GroupBoxEx gpEx, string factory)
         {
-            int iStartX = 32, iStartY = 49;
+            int iStartX = 10, iStartY = 49;
             int iLocX = iStartX, iLocY = iStartY;
             int iSizeW = 95, iSizeH = 93;
             string[] area = { "GREEN", "YELLOW", "RED" };
@@ -860,11 +860,60 @@ namespace FORM
 
         }
 
-       
+        private void cmdEMD_Click(object sender, EventArgs e)
+        {
+            //Call EMD Cockpit
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "1";
+        }
 
+        private void cmdSCADA_Click(object sender, EventArgs e)
+        {
+            //Call SCADA Cockpit
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "610";
+        }
+
+        private void cmdQMS_Click(object sender, EventArgs e)
+        {
+            //Call QMS Cockpit
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "900";
+        }
+
+        private void btnTMS_Click(object sender, EventArgs e)
+        {
+            //Call TMS HOME
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "342";
+        }
+
+        private void cmdTMSPrefit_Click(object sender, EventArgs e)
+        {
+            //Call TMS PREFIT
+            ComVar.Var._Frm_Back = null;
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "600";
+        }
+
+        private void cmdEMD_MouseEnter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cmd_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            btn.BackgroundImage = Properties.Resources.FtyButtonHover;
+           
+        }
+
+        private void cmd_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            btn.BackgroundImage = Properties.Resources.FtyButton;
+        }
     }
-
-
 
     public class Button_Status
     {

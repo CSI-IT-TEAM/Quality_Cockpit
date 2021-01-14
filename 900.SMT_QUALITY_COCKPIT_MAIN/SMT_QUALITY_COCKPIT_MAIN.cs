@@ -40,7 +40,9 @@ namespace FORM
 
         private void SMT_QUALITY_COCKPIT_MAIN_Load(object sender, EventArgs e)
         {
+            cmdBack.Visible = ComVar.Var._IsBack;
             _dtGMES = ComVar.Func.ReadXML(Application.StartupPath + @"\Config.xml", "GMES");
+           
         }
 
         private void SMT_SCADA_COCKPIT_MENU_VisibleChanged(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace FORM
             {
                 //_dtTest = await GetDataAsync();
                 // DataTable dt = Data_Select("");
-                cmdBack.Visible = ComVar.Var._IsBack;
+                
                 _iReload = 29;
                 tmrTime.Start();
                 
@@ -859,11 +861,11 @@ namespace FORM
 
         }
 
-       
-
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "back";
+        }
     }
-
-
 
     public class Button_Status
     {
