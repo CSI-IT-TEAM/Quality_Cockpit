@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_BONDING));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -78,7 +79,7 @@
             this.pnExport = new System.Windows.Forms.Panel();
             this.pnBody2 = new System.Windows.Forms.Panel();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdBase = new DevExpress.XtraGrid.GridControl();
@@ -964,7 +965,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(163, 39);
             this.label8.TabIndex = 424;
-            this.label8.Text = "Rate >3%";
+            this.label8.Text = "Rate >2%";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -977,7 +978,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(183, 39);
             this.label9.TabIndex = 423;
-            this.label9.Text = "2% < Rate <=3%";
+            this.label9.Text = "1% < Rate <=2%";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -990,7 +991,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(177, 39);
             this.label10.TabIndex = 422;
-            this.label10.Text = "Rate <=2%";
+            this.label10.Text = "Rate <=1%";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SMT_QUALITY_COCKPIT_BONDING

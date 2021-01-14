@@ -129,11 +129,11 @@ namespace FORM
                 double rate;
                 double.TryParse(argData.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 3)
+                if (rate > 2)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate > 2)
+                else if (rate > 1)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
@@ -533,12 +533,12 @@ namespace FORM
                 if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
                     double rate = double.Parse(e.CellValue.ToString());
-                    if (rate <= 2)
+                    if (rate <= 1)
                     {
                         e.Appearance.BackColor = Color.Green;
                         e.Appearance.ForeColor = Color.White;
                     }    
-                    else if (rate > 3)
+                    else if (rate > 2)
                     {
                         e.Appearance.BackColor = Color.Red;
                         e.Appearance.ForeColor = Color.White;
