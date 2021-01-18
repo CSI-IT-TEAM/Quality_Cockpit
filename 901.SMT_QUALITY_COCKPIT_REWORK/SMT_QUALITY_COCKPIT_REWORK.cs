@@ -751,7 +751,7 @@ namespace FORM
         {
             if (cboLine.Text != "")
             {
-                SetData();
+               // SetData();
                 SetData_Detail(DateTime.Now.ToString("yyyyMMdd"), cboPlant.SelectedValue.ToString(), cboLine.SelectedValue.ToString());
             }
         }

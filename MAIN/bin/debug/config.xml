@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Base>
 	<MAIN>
-		<grpForm>SMT_I_TMS</grpForm>
+		<grpForm>QUALITY_COCKPIT</grpForm>
 		<FlashScreen>true</FlashScreen>
 		<Auto_Download>false</Auto_Download>
 		<AREA>NOS</AREA>
@@ -12,7 +12,7 @@
 		<PATH>C:\JihooSoft\JBrowser6_GMES\JBrowser6.exe</PATH>
 	</GMES>
 	<Auto_Download>
-		<grpForm>SMT_I_TMS</grpForm>
+		<grpForm>QUALITY_COCKPIT</grpForm>
 	</Auto_Download>
 	
 </Base>
