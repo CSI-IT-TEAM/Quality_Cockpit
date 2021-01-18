@@ -289,7 +289,6 @@ namespace MAIN
             if (arg_Form_Name == ComVar.Var._Frm_Curr) return; 
 
             try
-
             {
                 //search form in exist in pnMain if don't have then add form
                 ctr = pnMain.Controls.Find(arg_Form_Name, false).FirstOrDefault();
