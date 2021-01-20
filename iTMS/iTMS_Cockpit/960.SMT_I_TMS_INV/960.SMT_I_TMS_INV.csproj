@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FORM</RootNamespace>
     <AssemblyName>SMT_I_TMS_INV</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -138,6 +138,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UC\UC_BOX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_BOX.Designer.cs">
+      <DependentUpon>UC_BOX.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\UC_Chart_Bar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +190,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_BOX.resx">
+      <DependentUpon>UC_BOX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_Chart_Bar.resx">
       <DependentUpon>UC_Chart_Bar.cs</DependentUpon>

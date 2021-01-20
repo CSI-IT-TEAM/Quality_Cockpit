@@ -10,3 +10,6 @@ D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.csproj.CoreCompileInputs.cache
 D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.csproj.CopyComplete
 D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\Main_Quality.exe
 D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\Main_Quality.pdb
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\MAIN\bin\Debug\Main_Quality.exe.config
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\MAIN\obj\Debug\Main_Quality.exe
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\MAIN\obj\Debug\Main_Quality.pdb

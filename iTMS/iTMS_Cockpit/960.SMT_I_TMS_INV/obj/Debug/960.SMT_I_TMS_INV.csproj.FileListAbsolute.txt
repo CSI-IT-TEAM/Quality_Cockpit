@@ -16,3 +16,22 @@ D:\Working\See Sharp\Cockpit\i-TMS\960.SMT_I_TMS_INV\obj\Debug\960.SMT_I_TMS_INV
 D:\Working\See Sharp\Cockpit\i-TMS\960.SMT_I_TMS_INV\obj\Debug\960.SMT_I_TMS_INV.csproj.CopyComplete
 D:\Working\See Sharp\Cockpit\i-TMS\960.SMT_I_TMS_INV\obj\Debug\SMT_I_TMS_INV.dll
 D:\Working\See Sharp\Cockpit\i-TMS\960.SMT_I_TMS_INV\obj\Debug\SMT_I_TMS_INV.pdb
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\960.SMT_I_TMS_INV.csprojAssemblyReference.cache
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\960.SMT_I_TMS_INV.csproj.ResolveComReference.cache
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.SMT_I_TMS_INV.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.Properties.Resources.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.UC.UC_BOX.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.UC.UC_Chart_Bar.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.UC.UC_Factory.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.UC.UC_DWMY.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.UC.UC_Chart_Donut.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.UC.UC_MONTH_SELECTION.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\FORM.UC.UC_YEAR_SELECTION.resources
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\960.SMT_I_TMS_INV.csproj.GenerateResource.cache
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\SMT_I_TMS_INV.dll.licenses
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\960.SMT_I_TMS_INV.csproj.CoreCompileInputs.cache
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\SMT_I_TMS_INV.dll
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\SMT_I_TMS_INV.pdb
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\MAIN\bin\Debug\DLL\SMT_I_TMS_INV.dll
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\MAIN\bin\Debug\DLL\SMT_I_TMS_INV.pdb
+D:\Program\C# Source\GITHUD MAPPING\Quality_Cockpit\iTMS\iTMS_Cockpit\960.SMT_I_TMS_INV\obj\Debug\960.SMT_I_TMS_INV.csproj.CopyComplete
