@@ -14,7 +14,7 @@ namespace MAIN
         [STAThread]
         static void Main()
         {
-            if(Process.GetProcessesByName("Main_Quality").Length ==1)
+            if(Process.GetProcessesByName("Main_Quality").Length <=1)
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

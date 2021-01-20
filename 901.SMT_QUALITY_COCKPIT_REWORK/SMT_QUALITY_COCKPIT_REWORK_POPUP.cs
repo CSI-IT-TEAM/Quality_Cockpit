@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FORM
 {
-    public partial class SMT_QUALITY_COCKPIT_REWORK : Form
+    public partial class SMT_QUALITY_COCKPIT_REWORK_POPUP : Form
     {
-        public SMT_QUALITY_COCKPIT_REWORK()
+        public SMT_QUALITY_COCKPIT_REWORK_POPUP()
         {
             InitializeComponent();
             lblHeader.Text = _strHeader;
@@ -29,37 +29,15 @@ namespace FORM
             LoadCombo("COMBO_LINE");
         }
 
-        private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
+        private void SMT_QUALITY_COCKPIT_REWORK_POPUP_VisibleChanged(object sender, EventArgs e)
         {
-            if (Visible)
-            {
-                cboPlant.SelectedValue = ComVar.Var._strValue1;
-                cboLine.SelectedValue = ComVar.Var._strValue2;
-                chartControl1.Series[0].Points.Clear();
-                chartControl1.Series[1].Points.Clear();
-                grdView.DataSource = null;
-                _time = 0;
-                btnSearch_Click(null, null);
-
-                timer1.Start();
-            }
-            else
-            {
-                timer1.Stop();
-            }
+            
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
-            _time++;
-            if (_time >= 30)
-            {
-                _time = 0;
-                btnSearch_Click(null, null);
-
-            }
+           
         }
 
         #endregion
@@ -674,8 +652,6 @@ namespace FORM
             {
                 Cursor.Current = Cursors.WaitCursor;
                 SetData_Detail (strdate,strplant,strline);
-                SMT_QUALITY_COCKPIT_REWORK_POP view = new SMT_QUALITY_COCKPIT_REWORK_POP(strdate, strplant, strline);
-                view.ShowDialog();
 
             }
             catch (Exception ex)
