@@ -1,0 +1,12 @@
+D:\Working\See Sharp\Cockpit\MAIN\bin\Debug\Main_Quality.exe.config
+D:\Working\See Sharp\Cockpit\MAIN\bin\Debug\Main_Quality.exe
+D:\Working\See Sharp\Cockpit\MAIN\bin\Debug\Main_Quality.pdb
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.csprojAssemblyReference.cache
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.FormFlash.resources
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.Main.resources
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.Properties.Resources.resources
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.csproj.GenerateResource.cache
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.csproj.CoreCompileInputs.cache
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\MAIN.csproj.CopyComplete
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\Main_Quality.exe
+D:\Working\See Sharp\Cockpit\MAIN\obj\Debug\Main_Quality.pdb
