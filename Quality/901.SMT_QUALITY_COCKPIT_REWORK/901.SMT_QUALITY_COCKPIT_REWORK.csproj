@@ -129,17 +129,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_REWORK_POP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_REWORK_POP.Designer.cs">
-      <DependentUpon>SMT_QUALITY_COCKPIT_REWORK_POP.cs</DependentUpon>
-    </Compile>
     <Compile Include="SMT_QUALITY_COCKPIT_REWORK.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SMT_QUALITY_COCKPIT_REWORK.Designer.cs">
       <DependentUpon>SMT_QUALITY_COCKPIT_REWORK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SMT_QUALITY_COCKPIT_REWORK_POP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SMT_QUALITY_COCKPIT_REWORK_POP.Designer.cs">
+      <DependentUpon>SMT_QUALITY_COCKPIT_REWORK_POP.cs</DependentUpon>
     </Compile>
     <Compile Include="UC\UC_COMPARE_DAY_MONTH.cs">
       <SubType>UserControl</SubType>
@@ -184,11 +184,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_REWORK_POP.resx">
-      <DependentUpon>SMT_QUALITY_COCKPIT_REWORK_POP.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SMT_QUALITY_COCKPIT_REWORK.resx">
       <DependentUpon>SMT_QUALITY_COCKPIT_REWORK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_REWORK_POP.resx">
+      <DependentUpon>SMT_QUALITY_COCKPIT_REWORK_POP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_COMPARE_DAY_MONTH.resx">
       <DependentUpon>UC_COMPARE_DAY_MONTH.cs</DependentUpon>

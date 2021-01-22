@@ -674,6 +674,8 @@ namespace FORM
             {
                 Cursor.Current = Cursors.WaitCursor;
                 SetData_Detail (strdate,strplant,strline);
+                SMT_QUALITY_COCKPIT_REWORK_POP view = new SMT_QUALITY_COCKPIT_REWORK_POP(strdate, strplant, strline);
+                view.ShowDialog();
 
             }
             catch (Exception ex)
@@ -751,7 +753,7 @@ namespace FORM
         {
             if (cboLine.Text != "")
             {
-               // SetData();
+                SetData();
                 SetData_Detail(DateTime.Now.ToString("yyyyMMdd"), cboPlant.SelectedValue.ToString(), cboLine.SelectedValue.ToString());
             }
         }
