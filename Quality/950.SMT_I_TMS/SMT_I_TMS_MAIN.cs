@@ -27,7 +27,7 @@ namespace FORM
             initForm();
             
         }
-
+          
         private const int SW_MAXIMIZE = 3;
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
