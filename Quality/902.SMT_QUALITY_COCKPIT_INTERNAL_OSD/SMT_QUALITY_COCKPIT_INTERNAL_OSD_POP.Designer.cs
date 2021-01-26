@@ -1,6 +1,6 @@
 ﻿namespace FORM
 {
-    partial class SMT_QUALITY_COCKPIT_REWORK_POP
+    partial class SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_REWORK_POP));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP));
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.ConstantLine constantLine1 = new DevExpress.XtraCharts.ConstantLine();
             DevExpress.XtraCharts.ConstantLine constantLine2 = new DevExpress.XtraCharts.ConstantLine();
@@ -41,18 +41,19 @@
             this.pnTop = new System.Windows.Forms.Panel();
             this.cmdPm1 = new System.Windows.Forms.Button();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
-            this.timer1 = new System.Windows.Forms.Timer();
-            this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.pnBody1 = new System.Windows.Forms.Panel();
+            this.pnExport = new System.Windows.Forms.Panel();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.timer1 = new System.Windows.Forms.Timer();
+            this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnTop.SuspendLayout();
-            this.pnBody1.SuspendLayout();
+            this.pnExport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(splineSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(splineSeriesView2)).BeginInit();
+            this.pnBody1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTop
@@ -62,7 +63,7 @@
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1254, 76);
+            this.pnTop.Size = new System.Drawing.Size(1351, 76);
             this.pnTop.TabIndex = 2;
             // 
             // cmdPm1
@@ -94,27 +95,16 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1622, 76);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "        Daily Rework";
+            this.lblHeader.Text = "        Daily Internal OSD";
             // 
-            // timer1
+            // pnExport
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // gridBand13
-            // 
-            this.gridBand13.Name = "gridBand13";
-            this.gridBand13.VisibleIndex = -1;
-            // 
-            // pnBody1
-            // 
-            this.pnBody1.Controls.Add(this.chartControl1);
-            this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody1.Location = new System.Drawing.Point(0, 76);
-            this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1254, 477);
-            this.pnBody1.TabIndex = 3;
+            this.pnExport.Controls.Add(this.chartControl1);
+            this.pnExport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnExport.Location = new System.Drawing.Point(0, 0);
+            this.pnExport.Name = "pnExport";
+            this.pnExport.Size = new System.Drawing.Size(1351, 548);
+            this.pnExport.TabIndex = 77;
             // 
             // chartControl1
             // 
@@ -150,7 +140,7 @@
             xyDiagram1.AxisY.NumericScaleOptions.AutoGrid = false;
             xyDiagram1.AxisY.NumericScaleOptions.GridSpacing = 2D;
             xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            xyDiagram1.AxisY.Title.Text = "Rework  (%)";
+            xyDiagram1.AxisY.Title.Text = "Internal (%)";
             xyDiagram1.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
@@ -186,31 +176,46 @@
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
             this.chartControl1.SeriesTemplate.View = splineSeriesView2;
-            this.chartControl1.Size = new System.Drawing.Size(1254, 477);
-            this.chartControl1.TabIndex = 13;
+            this.chartControl1.Size = new System.Drawing.Size(1351, 548);
+            this.chartControl1.TabIndex = 14;
             chartTitle1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartTitle1.Text = "SPC Chart";
             this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle1});
             // 
-            // SMT_QUALITY_COCKPIT_REWORK_POP
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pnBody1
+            // 
+            this.pnBody1.Controls.Add(this.pnExport);
+            this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnBody1.Location = new System.Drawing.Point(0, 76);
+            this.pnBody1.Name = "pnBody1";
+            this.pnBody1.Size = new System.Drawing.Size(1351, 550);
+            this.pnBody1.TabIndex = 3;
+            // 
+            // SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1254, 553);
+            this.ClientSize = new System.Drawing.Size(1351, 626);
             this.Controls.Add(this.pnBody1);
             this.Controls.Add(this.pnTop);
-            this.Name = "SMT_QUALITY_COCKPIT_REWORK_POP";
-            this.Text = "Rework Detail";
-            this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_FORM1_Load);
-            this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_REWORK_POP_VisibleChanged);
+            this.Name = "SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP";
+            this.Text = "SMT_QUALITY_COCKPIT_INTERNAL_OSD";
+            this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_INTERNAL_OSD_Load);
+            this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged);
             this.pnTop.ResumeLayout(false);
-            this.pnBody1.ResumeLayout(false);
+            this.pnExport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(splineSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(splineSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            this.pnBody1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -220,7 +225,7 @@
         public System.Windows.Forms.Button cmdPm1;
         private DevExpress.XtraEditors.LabelControl lblHeader;
         private System.Windows.Forms.Timer timer1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand13;
+        private System.Windows.Forms.Panel pnExport;
         private System.Windows.Forms.Panel pnBody1;
         private DevExpress.XtraCharts.ChartControl chartControl1;
     }

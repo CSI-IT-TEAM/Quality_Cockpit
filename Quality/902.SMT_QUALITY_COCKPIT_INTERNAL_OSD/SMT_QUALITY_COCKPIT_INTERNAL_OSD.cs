@@ -610,27 +610,49 @@ namespace FORM
             LoadForm();
         }
 
-        private void gvwBase_RowCellClick(object sender, RowCellClickEventArgs e)
+        private void gvwBase_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            if (e.Clicks < 2) return;
-            if (e.CellValue == DBNull.Value) return;
-            if (e.Column.ColumnHandle > 2 && gvwBase.GetRowCellValue(e.RowHandle, "ITEM").ToString().ToUpper().Equals("OS&D RATE (%)"))
+
+            if (e.CellValue == null) return;
+            if (e.Column.AbsoluteIndex < 2) return;
+
+            string strdate = gvwBase.Columns[e.Column.ColumnHandle - 1].FieldName.ToString();
+            string strplant = cbo_Plant.SelectedValue.ToString();
+            string strline = cbo_line.SelectedValue.ToString();
+
+            try
             {
-                double rate = double.Parse(e.CellValue.ToString());
-
-                string date = e.Column.FieldName.ToString();
-                string plant = cbo_Plant.SelectedValue.ToString();
-                string line = cbo_line.SelectedValue.ToString();
-
-
-                if (rate > 0)
+                if (e.Column.ColumnHandle > 2)
                 {
-                    SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP view = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(date, plant, line);
-                    view.ShowDialog();
+                    if (gvwBase.GetRowCellValue(e.RowHandle, "ITEM").ToString().ToUpper().Equals("OS&D RATE (%)"))
+                    {
+                        double rate = double.Parse(e.CellValue.ToString());
+                        string date = e.Column.FieldName.ToString();
+                        string plant = cbo_Plant.SelectedValue.ToString();
+                        string line = cbo_line.SelectedValue.ToString();
+                        if (rate > 0)
+                        {
+                            SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(date, plant, line);
+                            view1.ShowDialog();
+                        }
+                    }
+
+                    else
+                    {
+                        Cursor.Current = Cursors.WaitCursor;
+                        SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP(strdate, strplant, strline);
+                        view.ShowDialog();
+                    }
                 }
-                else
-                    return;
-                
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
             }
 
 

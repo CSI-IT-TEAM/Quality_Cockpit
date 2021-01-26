@@ -129,6 +129,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SMT_QUALITY_COCKPIT_BONDING_POPUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SMT_QUALITY_COCKPIT_BONDING_POPUP.Designer.cs">
+      <DependentUpon>SMT_QUALITY_COCKPIT_BONDING_POPUP.cs</DependentUpon>
+    </Compile>
     <Compile Include="SMT_QUALITY_COCKPIT_BONDING.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_BONDING_POPUP.resx">
+      <DependentUpon>SMT_QUALITY_COCKPIT_BONDING_POPUP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SMT_QUALITY_COCKPIT_BONDING.resx">
       <DependentUpon>SMT_QUALITY_COCKPIT_BONDING.cs</DependentUpon>

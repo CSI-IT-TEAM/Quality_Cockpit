@@ -181,14 +181,14 @@ namespace FORM
                         GridBand gridBand = new GridBand();
                         BandedGridColumn column_Band = new BandedGridColumn();
 
-                        gridBand.Caption = distinctValues.Rows[i]["MON"].ToString();
+                        gridBand.Caption = distinctValues.Rows[i]["MON"].ToString().Split(new char[] { '\n' })[0];
                         gridBand.Name = string.Concat("MON", i);
                         gridBand.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                         gridBand.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 
                         gridBand.VisibleIndex = i;
 
-                        column_Band.Caption = distinctValues.Rows[i]["MON"].ToString();
+                        column_Band.Caption = distinctValues.Rows[i]["MON"].ToString().Split(new char[] { '\n' })[0];
                         column_Band.FieldName = distinctValues.Rows[i]["MON"].ToString();
                         column_Band.Name = distinctValues.Rows[i]["MON"].ToString();
                         column_Band.Visible = true;
@@ -656,6 +656,34 @@ namespace FORM
             {
                 Debug.WriteLine(ex);
                
+            }
+        }
+
+        private void gvwBase_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.CellValue == null) return;
+
+            if (e.Column.AbsoluteIndex < 2) return;
+
+            string strdate = gvwBase.Columns[e.Column.ColumnHandle].FieldName.ToString().Split(new char[] { '\n' })[1];
+            string strplant = cbo_Plant.SelectedValue.ToString();
+            string strline = cbo_line.SelectedValue.ToString();
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                //SetData_Detail(strdate, strplant, strline);
+                SMT_QUALITY_COCKPIT_BONDING_POPUP view = new SMT_QUALITY_COCKPIT_BONDING_POPUP(strdate, strplant, strline);
+
+                view.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
             }
         }
     }
