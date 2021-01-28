@@ -364,12 +364,12 @@ namespace FORM
                             e.Appearance.ForeColor = Color.Red;
                             break;
                         case "S":
+                            e.Appearance.BackColor = Color.SkyBlue;
+                            e.Appearance.ForeColor = Color.SkyBlue;
+                            break;
+                        case "C":
                             e.Appearance.BackColor = Color.Silver;
                             e.Appearance.ForeColor = Color.Silver;
-                            break;
-                        case "B":
-                            e.Appearance.BackColor = Color.Black;
-                            e.Appearance.ForeColor = Color.Black;
                             break;
                         default:
                             break;
@@ -474,14 +474,13 @@ namespace FORM
             });
         }
 
+
+
+
+
+
+
+
         #endregion DB
-
-
-       
-
-
-        
-
-        
     }
 }
