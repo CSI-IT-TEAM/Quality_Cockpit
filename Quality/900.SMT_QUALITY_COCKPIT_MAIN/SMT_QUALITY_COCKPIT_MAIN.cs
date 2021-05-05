@@ -85,7 +85,7 @@ namespace FORM
 
                 //create_Line_F1(dtFactory);
 
-                int x = 64, y = 50;
+                int x = 45, y = 50;
                 dtFactory = _dtMasterLine.Select("FACTORY = 'F1'").CopyToDataTable();
                 create_Line(pnF1, dtFactory, x, y);
                 // create_Line_F1(pnF1, dtFactory, x, ref y, "FGA");
@@ -112,11 +112,15 @@ namespace FORM
                 dtFactory = _dtMasterLine.Select("FACTORY = 'F5'").CopyToDataTable();
                 create_Line(pnF5, dtFactory, x, y);
 
+                dtFactory = _dtMasterLine.Select("FACTORY = 'LT'").CopyToDataTable();
+                create_Line(pnLT, dtFactory, x, y);
+
                 create_Factory(gpExF1, "F1");
                 create_Factory(gpExF2, "F2");
                 create_Factory(gpExF3, "F3");
                 create_Factory(gpExF4, "F4");
                 create_Factory(gpExF5, "F5");             
+                create_Factory(gpExLT, "LT");
 
                 //setData();
 
@@ -126,11 +130,11 @@ namespace FORM
                 //initAPanel(gpF4, "F4", dt);
                 //initAPanel(gpF5, "F5", dt);
 
-               // tmrBlink.Start();
-                
+                // tmrBlink.Start();
 
 
-                
+
+
             }
             catch (Exception ex)
             {
@@ -145,7 +149,7 @@ namespace FORM
         private void create_Line(Panel pnControl, DataTable argDt, int locStartX, int locStartY)
         {
             int locX = locStartX, locY = locStartY;
-            Font lineTextButtonFont = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            Font lineTextButtonFont = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold);
             Font buttonMlineFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             Font buttonLineFont = new System.Drawing.Font("Calibri", 40F, System.Drawing.FontStyle.Bold);
             Font buttonLineFont2 = new System.Drawing.Font("Calibri", 32F, System.Drawing.FontStyle.Bold);
@@ -153,11 +157,11 @@ namespace FORM
             Size buttonSize;
             Size lineTextButtonSize ;
             Size lineButtonSize = new System.Drawing.Size(40, 27);
-            Size buttonStatusSize = new System.Drawing.Size(67, 27);
+            Size buttonStatusSize = new System.Drawing.Size(55, 27);
             Dictionary<string, string> dicValue = new Dictionary<string, string>();
             string lineCd, factory = argDt.Rows[0]["FACTORY"].ToString();
             int iNumLine;
-            const int sizeTextHead = 50;
+            const int sizeTextHead = 40;
 
             dicValue.Add("NAME", "");
             dicValue.Add("TEXT", "");
@@ -285,7 +289,7 @@ namespace FORM
 
                 //Lean Name
                 buttonLoc = new Point(3, locStartY);
-                buttonSize = new System.Drawing.Size(60, locY - locStartY - 3);
+                buttonSize = new System.Drawing.Size(40, locY - locStartY - 3);
                 dicValue["NAME"] = "cmd_" + lineCd + "_" + "LNM"; ;
                 dicValue["TEXT"] = row["LINE_NM"].ToString();
                 dicValue["BACK_COLOR"] = "BLACK";
@@ -345,7 +349,7 @@ namespace FORM
 
         private void create_Factory(GroupBoxEx gpEx, string factory)
         {
-            int iStartX = 32, iStartY = 49;
+            int iStartX = 12, iStartY = 49;
             int iLocX = iStartX, iLocY = iStartY;
             int iSizeW = 95, iSizeH = 93;
             string[] area = { "GREEN", "YELLOW", "RED" };

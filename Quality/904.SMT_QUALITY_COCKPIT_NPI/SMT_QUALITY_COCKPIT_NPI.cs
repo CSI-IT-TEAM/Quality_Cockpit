@@ -269,7 +269,7 @@ namespace FORM
                 DataTable dt = await Fn_SelectDataGrid("Q", plant, line, frDate, toDate);
                 DataTable dtData = dt.Select($"LINE_CD = '{line}'").CopyToDataTable();
                 if (dtData == null || dtData.Rows.Count == 0) return;
-
+                
                 DataTable dtPivot = Pivot(dtData, dtData.Columns["NPI_CODE"], dtData.Columns["VALUE1"]);
                 grdBase.DataSource = dtPivot.Copy();
 
@@ -482,5 +482,17 @@ namespace FORM
 
 
         #endregion DB
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (grdView.Columns.Count > 0)
+            {
+                grdView.LeftCoord = (int)(
+                          (grdView.Columns.Count)
+                          *
+                          (120.0 + (1.0 * hScrollBar1.LargeChange / hScrollBar1.Maximum)) * hScrollBar1.Value / hScrollBar1.Maximum
+                         );
+            }
+        }
     }
 }
