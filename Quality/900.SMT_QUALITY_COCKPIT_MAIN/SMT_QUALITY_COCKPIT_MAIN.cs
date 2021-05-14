@@ -226,7 +226,7 @@ namespace FORM
 
                 
 
-                int iStart = lineCd == "018_1" ? 4 : 0;
+                int iStart = lineCd == "018_1" ? 0 : 4;
                 //lineCd = lineCd.Replace("_1", "");
                 for (int iLine = iStart + 1; iLine <= iStart + iNumLine; iLine++)
                 {
@@ -587,7 +587,7 @@ namespace FORM
             ComVar.Var._strValue1 = line_cd;
 
             //Using for NOS N
-            if (line_cd == "099")
+            if (line_cd == "099" || line_cd =="202")
             {
                 ComVar.Var.callForm = "140";
             }
