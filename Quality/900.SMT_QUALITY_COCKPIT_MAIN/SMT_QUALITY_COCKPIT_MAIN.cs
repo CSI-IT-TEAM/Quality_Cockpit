@@ -226,7 +226,7 @@ namespace FORM
 
                 
 
-                int iStart = lineCd == "018_1" ? 0 : 4;
+                int iStart = lineCd == "018" ? 4 : 0;
                 //lineCd = lineCd.Replace("_1", "");
                 for (int iLine = iStart + 1; iLine <= iStart + iNumLine; iLine++)
                 {

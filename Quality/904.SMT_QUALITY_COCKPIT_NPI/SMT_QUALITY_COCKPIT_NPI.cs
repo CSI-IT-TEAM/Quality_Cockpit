@@ -35,6 +35,7 @@ namespace FORM
         {
             if (Visible)
             {
+                grdView.LeftCoord = 0;
                 cboPlant.SelectedValue = ComVar.Var._strValue1;
                 cboLine.SelectedValue = ComVar.Var._strValue2;
                 grdBase.DataSource = null;
@@ -47,6 +48,7 @@ namespace FORM
             }
             else
             {
+                
                 tmrTime.Stop();
             }
 
@@ -267,7 +269,11 @@ namespace FORM
                 string frDate = dtpYMD.DateTime.ToString("yyyyMMdd");
                 string toDate = dtpYMDT.DateTime.ToString("yyyyMMdd");
                 DataTable dt = await Fn_SelectDataGrid("Q", plant, line, frDate, toDate);
-                DataTable dtData = dt.Select($"LINE_CD = '{line}'").CopyToDataTable();
+                DataTable dtData = null;
+                if (plant == line)
+                    dtData = dt.Select($"PLANT = '{line}'").CopyToDataTable();
+                else
+                    dtData = dt.Select($"LINE_CD = '{line}'").CopyToDataTable();
                 if (dtData == null || dtData.Rows.Count == 0) return;
                 
                 DataTable dtPivot = Pivot(dtData, dtData.Columns["NPI_CODE"], dtData.Columns["VALUE1"]);
