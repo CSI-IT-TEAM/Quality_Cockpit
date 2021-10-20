@@ -87,36 +87,36 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.grdDetail = new DevExpress.XtraGrid.GridControl();
             this.gvwDetail = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this._011 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._010 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._008 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._001 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._006 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._007 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._004 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._002 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._005 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._009 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._012 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._Total = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._011 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._010 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._008 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand11 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._001 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand12 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._006 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._007 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._004 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand14 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._002 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._005 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand15 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand16 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._009 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand17 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._012 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.Total = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._Total = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
@@ -601,7 +601,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 39);
             this.label7.TabIndex = 421;
-            this.label7.Text = "Rate >6%";
+            this.label7.Text = "Rate >4%";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -614,7 +614,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 39);
             this.label1.TabIndex = 420;
-            this.label1.Text = "3% > Rate <=6%";
+            this.label1.Text = "3% > Rate <=4%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -720,107 +720,6 @@
             this.gvwDetail.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwDetail_CustomDrawCell);
             this.gvwDetail.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwDetail_RowCellStyle);
             // 
-            // _011
-            // 
-            this._011.Caption = "chi thua";
-            this._011.FieldName = "011";
-            this._011.Name = "_011";
-            this._011.Visible = true;
-            this._011.Width = 121;
-            // 
-            // _010
-            // 
-            this._010.Caption = "do upper";
-            this._010.FieldName = "010";
-            this._010.Name = "_010";
-            this._010.Visible = true;
-            this._010.Width = 120;
-            // 
-            // _008
-            // 
-            this._008.Caption = "nhan upper";
-            this._008.FieldName = "008";
-            this._008.Name = "_008";
-            this._008.Visible = true;
-            this._008.Width = 153;
-            // 
-            // _001
-            // 
-            this._001.Caption = "ho keo cb";
-            this._001.FieldName = "001";
-            this._001.Name = "_001";
-            this._001.Visible = true;
-            this._001.Width = 225;
-            // 
-            // _006
-            // 
-            this._006.Caption = "do os - de giua";
-            this._006.FieldName = "006";
-            this._006.Name = "_006";
-            this._006.Visible = true;
-            this._006.Width = 220;
-            // 
-            // _007
-            // 
-            this._007.Caption = "nhan de";
-            this._007.FieldName = "007";
-            this._007.Name = "_007";
-            this._007.Visible = true;
-            this._007.Width = 168;
-            // 
-            // _004
-            // 
-            this._004.Caption = "trai phai ko deu";
-            this._004.FieldName = "004";
-            this._004.Name = "_004";
-            this._004.Visible = true;
-            this._004.Width = 183;
-            // 
-            // _002
-            // 
-            this._002.Caption = "ho keo lap rap";
-            this._002.FieldName = "002";
-            this._002.Name = "_002";
-            this._002.Visible = true;
-            this._002.Width = 247;
-            // 
-            // _005
-            // 
-            this._005.Caption = "cao keo";
-            this._005.FieldName = "005";
-            this._005.Name = "_005";
-            this._005.Visible = true;
-            this._005.Width = 136;
-            // 
-            // _009
-            // 
-            this._009.Caption = "day do";
-            this._009.FieldName = "009";
-            this._009.Name = "_009";
-            this._009.Visible = true;
-            this._009.Width = 157;
-            // 
-            // _012
-            // 
-            this._012.Caption = "loi khac";
-            this._012.FieldName = "012";
-            this._012.Name = "_012";
-            this._012.Visible = true;
-            this._012.Width = 72;
-            // 
-            // _Total
-            // 
-            this._Total.Caption = "Total";
-            this._Total.FieldName = "Total";
-            this._Total.Name = "_Total";
-            this._Total.Visible = true;
-            this._Total.Width = 100;
-            // 
-            // gridBand13
-            // 
-            this.gridBand13.Name = "gridBand13";
-            this.gridBand13.VisibleIndex = -1;
-            // 
             // gridBand1
             // 
             this.gridBand1.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -844,6 +743,14 @@
             this.gridBand2.VisibleIndex = 0;
             this.gridBand2.Width = 121;
             // 
+            // _011
+            // 
+            this._011.Caption = "chi thua";
+            this._011.FieldName = "011";
+            this._011.Name = "_011";
+            this._011.Visible = true;
+            this._011.Width = 121;
+            // 
             // gridBand8
             // 
             this.gridBand8.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -854,6 +761,14 @@
             this.gridBand8.VisibleIndex = 1;
             this.gridBand8.Width = 120;
             // 
+            // _010
+            // 
+            this._010.Caption = "do upper";
+            this._010.FieldName = "010";
+            this._010.Name = "_010";
+            this._010.Visible = true;
+            this._010.Width = 120;
+            // 
             // gridBand9
             // 
             this.gridBand9.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -863,6 +778,14 @@
             this.gridBand9.Name = "gridBand9";
             this.gridBand9.VisibleIndex = 2;
             this.gridBand9.Width = 153;
+            // 
+            // _008
+            // 
+            this._008.Caption = "nhan upper";
+            this._008.FieldName = "008";
+            this._008.Name = "_008";
+            this._008.Visible = true;
+            this._008.Width = 153;
             // 
             // gridBand10
             // 
@@ -886,6 +809,14 @@
             this.gridBand11.VisibleIndex = 0;
             this.gridBand11.Width = 225;
             // 
+            // _001
+            // 
+            this._001.Caption = "ho keo cb";
+            this._001.FieldName = "001";
+            this._001.Name = "_001";
+            this._001.Visible = true;
+            this._001.Width = 225;
+            // 
             // gridBand12
             // 
             this.gridBand12.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -895,6 +826,14 @@
             this.gridBand12.Name = "gridBand12";
             this.gridBand12.VisibleIndex = 1;
             this.gridBand12.Width = 220;
+            // 
+            // _006
+            // 
+            this._006.Caption = "do os - de giua";
+            this._006.FieldName = "006";
+            this._006.Name = "_006";
+            this._006.Visible = true;
+            this._006.Width = 220;
             // 
             // gridBand3
             // 
@@ -918,6 +857,14 @@
             this.gridBand4.VisibleIndex = 0;
             this.gridBand4.Width = 168;
             // 
+            // _007
+            // 
+            this._007.Caption = "nhan de";
+            this._007.FieldName = "007";
+            this._007.Name = "_007";
+            this._007.Visible = true;
+            this._007.Width = 168;
+            // 
             // gridBand7
             // 
             this.gridBand7.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -927,6 +874,14 @@
             this.gridBand7.Name = "gridBand7";
             this.gridBand7.VisibleIndex = 1;
             this.gridBand7.Width = 183;
+            // 
+            // _004
+            // 
+            this._004.Caption = "trai phai ko deu";
+            this._004.FieldName = "004";
+            this._004.Name = "_004";
+            this._004.Visible = true;
+            this._004.Width = 183;
             // 
             // gridBand14
             // 
@@ -950,6 +905,14 @@
             this.gridBand5.VisibleIndex = 0;
             this.gridBand5.Width = 247;
             // 
+            // _002
+            // 
+            this._002.Caption = "ho keo lap rap";
+            this._002.FieldName = "002";
+            this._002.Name = "_002";
+            this._002.Visible = true;
+            this._002.Width = 247;
+            // 
             // gridBand6
             // 
             this.gridBand6.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -959,6 +922,14 @@
             this.gridBand6.Name = "gridBand6";
             this.gridBand6.VisibleIndex = 1;
             this.gridBand6.Width = 136;
+            // 
+            // _005
+            // 
+            this._005.Caption = "cao keo";
+            this._005.FieldName = "005";
+            this._005.Name = "_005";
+            this._005.Visible = true;
+            this._005.Width = 136;
             // 
             // gridBand15
             // 
@@ -982,6 +953,14 @@
             this.gridBand16.VisibleIndex = 0;
             this.gridBand16.Width = 157;
             // 
+            // _009
+            // 
+            this._009.Caption = "day do";
+            this._009.FieldName = "009";
+            this._009.Name = "_009";
+            this._009.Visible = true;
+            this._009.Width = 157;
+            // 
             // gridBand17
             // 
             this.gridBand17.AppearanceHeader.BackColor2 = System.Drawing.Color.White;
@@ -992,6 +971,14 @@
             this.gridBand17.Name = "gridBand17";
             this.gridBand17.VisibleIndex = 1;
             this.gridBand17.Width = 72;
+            // 
+            // _012
+            // 
+            this._012.Caption = "loi khac";
+            this._012.FieldName = "012";
+            this._012.Name = "_012";
+            this._012.Visible = true;
+            this._012.Width = 72;
             // 
             // Total
             // 
@@ -1006,6 +993,19 @@
             this.Total.Name = "Total";
             this.Total.VisibleIndex = 5;
             this.Total.Width = 100;
+            // 
+            // _Total
+            // 
+            this._Total.Caption = "Total";
+            this._Total.FieldName = "Total";
+            this._Total.Name = "_Total";
+            this._Total.Visible = true;
+            this._Total.Width = 100;
+            // 
+            // gridBand13
+            // 
+            this.gridBand13.Name = "gridBand13";
+            this.gridBand13.VisibleIndex = -1;
             // 
             // SMT_QUALITY_COCKPIT_REWORK
             // 

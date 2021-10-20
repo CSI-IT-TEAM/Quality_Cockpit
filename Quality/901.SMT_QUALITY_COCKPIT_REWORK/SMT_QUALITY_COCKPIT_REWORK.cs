@@ -360,7 +360,7 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 6)
+                if (rate > 4)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
@@ -495,12 +495,12 @@ namespace FORM
                 if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
                     double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
-                    if (temp > 6)
+                    if (temp > 4)
                     {
                         e.Appearance.BackColor = Color.Red;
                         e.Appearance.ForeColor = Color.White;
                     }
-                    else if (temp > 3 && temp <= 6)
+                    else if (temp > 3 && temp <= 4)
                     {
 
                         e.Appearance.BackColor = Color.Yellow;
