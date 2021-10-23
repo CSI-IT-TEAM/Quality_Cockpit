@@ -87,36 +87,46 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.grdDetail = new DevExpress.XtraGrid.GridControl();
             this.gvwDetail = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._011 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._010 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._008 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand11 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._014 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this._001 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand12 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._006 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._007 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._004 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand14 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._017 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this._016 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this._015 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this._002 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._005 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand15 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand16 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._013 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this._009 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand17 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._012 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Total = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._Total = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand18 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand11 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand12 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand19 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand20 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand21 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand14 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand22 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand15 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand16 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand17 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.Total = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
@@ -699,7 +709,12 @@
             this._009,
             this._012,
             this._Total,
-            this._011});
+            this._011,
+            this._014,
+            this._015,
+            this._016,
+            this._017,
+            this._013});
             this.gvwDetail.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.None;
             this.gvwDetail.GridControl = this.grdDetail;
             this.gvwDetail.Name = "gvwDetail";
@@ -720,6 +735,147 @@
             this.gvwDetail.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwDetail_CustomDrawCell);
             this.gvwDetail.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwDetail_RowCellStyle);
             // 
+            // _011
+            // 
+            this._011.Caption = "chi thua";
+            this._011.FieldName = "011";
+            this._011.Name = "_011";
+            this._011.Visible = true;
+            this._011.Width = 128;
+            // 
+            // _010
+            // 
+            this._010.Caption = "do upper";
+            this._010.FieldName = "010";
+            this._010.Name = "_010";
+            this._010.Visible = true;
+            this._010.Width = 133;
+            // 
+            // _008
+            // 
+            this._008.Caption = "nhan upper";
+            this._008.FieldName = "008";
+            this._008.Name = "_008";
+            this._008.Visible = true;
+            this._008.Width = 167;
+            // 
+            // _014
+            // 
+            this._014.Caption = "cach mep";
+            this._014.FieldName = "_014";
+            this._014.Name = "_014";
+            this._014.Visible = true;
+            this._014.Width = 221;
+            // 
+            // _001
+            // 
+            this._001.Caption = "ho keo cb";
+            this._001.FieldName = "001";
+            this._001.Name = "_001";
+            this._001.Visible = true;
+            this._001.Width = 225;
+            // 
+            // _006
+            // 
+            this._006.Caption = "do os - de giua";
+            this._006.FieldName = "006";
+            this._006.Name = "_006";
+            this._006.Visible = true;
+            this._006.Width = 189;
+            // 
+            // _007
+            // 
+            this._007.Caption = "nhan de";
+            this._007.FieldName = "007";
+            this._007.Name = "_007";
+            this._007.Visible = true;
+            this._007.Width = 168;
+            // 
+            // _004
+            // 
+            this._004.Caption = "trai phai ko deu";
+            this._004.FieldName = "004";
+            this._004.Name = "_004";
+            this._004.Visible = true;
+            this._004.Width = 183;
+            // 
+            // _017
+            // 
+            this._017.Caption = "Meo mui got";
+            this._017.FieldName = "_017";
+            this._017.Name = "_017";
+            this._017.Visible = true;
+            this._017.Width = 257;
+            // 
+            // _016
+            // 
+            this._016.Caption = "Hong lon nho";
+            this._016.FieldName = "_016";
+            this._016.Name = "_016";
+            this._016.Visible = true;
+            this._016.Width = 230;
+            // 
+            // _015
+            // 
+            this._015.Caption = "Mui got cao thap";
+            this._015.FieldName = "_015";
+            this._015.Name = "_015";
+            this._015.Visible = true;
+            this._015.Width = 220;
+            // 
+            // _002
+            // 
+            this._002.Caption = "ho keo lap rap";
+            this._002.FieldName = "002";
+            this._002.Name = "_002";
+            this._002.Visible = true;
+            this._002.Width = 256;
+            // 
+            // _005
+            // 
+            this._005.Caption = "cao keo";
+            this._005.FieldName = "005";
+            this._005.Name = "_005";
+            this._005.Visible = true;
+            this._005.Width = 153;
+            // 
+            // _013
+            // 
+            this._013.Caption = "Dan xau";
+            this._013.FieldName = "_013";
+            this._013.Name = "_013";
+            this._013.Visible = true;
+            this._013.Width = 196;
+            // 
+            // _009
+            // 
+            this._009.Caption = "day do";
+            this._009.FieldName = "009";
+            this._009.Name = "_009";
+            this._009.Visible = true;
+            this._009.Width = 157;
+            // 
+            // _012
+            // 
+            this._012.Caption = "loi khac";
+            this._012.FieldName = "012";
+            this._012.Name = "_012";
+            this._012.Visible = true;
+            this._012.Width = 72;
+            // 
+            // _Total
+            // 
+            this._Total.Caption = "Total";
+            this._Total.FieldName = "Total";
+            this._Total.Name = "_Total";
+            this._Total.Visible = true;
+            this._Total.Width = 100;
+            // 
+            // gridBand13
+            // 
+            this.gridBand13.Name = "gridBand13";
+            this.gridBand13.VisibleIndex = -1;
+            // 
             // gridBand1
             // 
             this.gridBand1.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -728,10 +884,11 @@
             this.gridBand1.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand2,
             this.gridBand8,
-            this.gridBand9});
+            this.gridBand9,
+            this.gridBand18});
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 394;
+            this.gridBand1.Width = 649;
             // 
             // gridBand2
             // 
@@ -741,15 +898,7 @@
             this.gridBand2.Columns.Add(this._011);
             this.gridBand2.Name = "gridBand2";
             this.gridBand2.VisibleIndex = 0;
-            this.gridBand2.Width = 121;
-            // 
-            // _011
-            // 
-            this._011.Caption = "chi thua";
-            this._011.FieldName = "011";
-            this._011.Name = "_011";
-            this._011.Visible = true;
-            this._011.Width = 121;
+            this.gridBand2.Width = 128;
             // 
             // gridBand8
             // 
@@ -759,33 +908,27 @@
             this.gridBand8.Columns.Add(this._010);
             this.gridBand8.Name = "gridBand8";
             this.gridBand8.VisibleIndex = 1;
-            this.gridBand8.Width = 120;
-            // 
-            // _010
-            // 
-            this._010.Caption = "do upper";
-            this._010.FieldName = "010";
-            this._010.Name = "_010";
-            this._010.Visible = true;
-            this._010.Width = 120;
+            this.gridBand8.Width = 133;
             // 
             // gridBand9
             // 
             this.gridBand9.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
             this.gridBand9.AppearanceHeader.Options.UseFont = true;
-            this.gridBand9.Caption = "Upper Wrinkle";
+            this.gridBand9.Caption = "Wrinkle Upper";
             this.gridBand9.Columns.Add(this._008);
             this.gridBand9.Name = "gridBand9";
             this.gridBand9.VisibleIndex = 2;
-            this.gridBand9.Width = 153;
+            this.gridBand9.Width = 167;
             // 
-            // _008
+            // gridBand18
             // 
-            this._008.Caption = "nhan upper";
-            this._008.FieldName = "008";
-            this._008.Name = "_008";
-            this._008.Visible = true;
-            this._008.Width = 153;
+            this.gridBand18.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
+            this.gridBand18.AppearanceHeader.Options.UseFont = true;
+            this.gridBand18.Caption = "Stitching SPI & Margin";
+            this.gridBand18.Columns.Add(this._014);
+            this.gridBand18.Name = "gridBand18";
+            this.gridBand18.VisibleIndex = 3;
+            this.gridBand18.Width = 221;
             // 
             // gridBand10
             // 
@@ -797,7 +940,7 @@
             this.gridBand12});
             this.gridBand10.Name = "gridBand10";
             this.gridBand10.VisibleIndex = 1;
-            this.gridBand10.Width = 445;
+            this.gridBand10.Width = 414;
             // 
             // gridBand11
             // 
@@ -809,31 +952,15 @@
             this.gridBand11.VisibleIndex = 0;
             this.gridBand11.Width = 225;
             // 
-            // _001
-            // 
-            this._001.Caption = "ho keo cb";
-            this._001.FieldName = "001";
-            this._001.Name = "_001";
-            this._001.Visible = true;
-            this._001.Width = 225;
-            // 
             // gridBand12
             // 
             this.gridBand12.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
             this.gridBand12.AppearanceHeader.Options.UseFont = true;
-            this.gridBand12.Caption = "Outsole-Midsole Dirty";
+            this.gridBand12.Caption = "OS-Midsole Dirty";
             this.gridBand12.Columns.Add(this._006);
             this.gridBand12.Name = "gridBand12";
             this.gridBand12.VisibleIndex = 1;
-            this.gridBand12.Width = 220;
-            // 
-            // _006
-            // 
-            this._006.Caption = "do os - de giua";
-            this._006.FieldName = "006";
-            this._006.Name = "_006";
-            this._006.Visible = true;
-            this._006.Width = 220;
+            this.gridBand12.Width = 189;
             // 
             // gridBand3
             // 
@@ -842,10 +969,13 @@
             this.gridBand3.Caption = "Station 3";
             this.gridBand3.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand4,
-            this.gridBand7});
+            this.gridBand7,
+            this.gridBand19,
+            this.gridBand20,
+            this.gridBand21});
             this.gridBand3.Name = "gridBand3";
             this.gridBand3.VisibleIndex = 2;
-            this.gridBand3.Width = 351;
+            this.gridBand3.Width = 1058;
             // 
             // gridBand4
             // 
@@ -857,14 +987,6 @@
             this.gridBand4.VisibleIndex = 0;
             this.gridBand4.Width = 168;
             // 
-            // _007
-            // 
-            this._007.Caption = "nhan de";
-            this._007.FieldName = "007";
-            this._007.Name = "_007";
-            this._007.Visible = true;
-            this._007.Width = 168;
-            // 
             // gridBand7
             // 
             this.gridBand7.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -875,13 +997,35 @@
             this.gridBand7.VisibleIndex = 1;
             this.gridBand7.Width = 183;
             // 
-            // _004
+            // gridBand19
             // 
-            this._004.Caption = "trai phai ko deu";
-            this._004.FieldName = "004";
-            this._004.Name = "_004";
-            this._004.Visible = true;
-            this._004.Width = 183;
+            this.gridBand19.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
+            this.gridBand19.AppearanceHeader.Options.UseFont = true;
+            this.gridBand19.Caption = "High/Low on Heel/Tip";
+            this.gridBand19.Columns.Add(this._017);
+            this.gridBand19.Name = "gridBand19";
+            this.gridBand19.VisibleIndex = 2;
+            this.gridBand19.Width = 257;
+            // 
+            // gridBand20
+            // 
+            this.gridBand20.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
+            this.gridBand20.AppearanceHeader.Options.UseFont = true;
+            this.gridBand20.Caption = "Inconsistent On Q\'ter";
+            this.gridBand20.Columns.Add(this._016);
+            this.gridBand20.Name = "gridBand20";
+            this.gridBand20.VisibleIndex = 3;
+            this.gridBand20.Width = 230;
+            // 
+            // gridBand21
+            // 
+            this.gridBand21.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
+            this.gridBand21.AppearanceHeader.Options.UseFont = true;
+            this.gridBand21.Caption = "Crooked On Toe/Heel";
+            this.gridBand21.Columns.Add(this._015);
+            this.gridBand21.Name = "gridBand21";
+            this.gridBand21.VisibleIndex = 4;
+            this.gridBand21.Width = 220;
             // 
             // gridBand14
             // 
@@ -890,10 +1034,11 @@
             this.gridBand14.Caption = "Station 4";
             this.gridBand14.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand5,
-            this.gridBand6});
+            this.gridBand6,
+            this.gridBand22});
             this.gridBand14.Name = "gridBand14";
             this.gridBand14.VisibleIndex = 3;
-            this.gridBand14.Width = 383;
+            this.gridBand14.Width = 605;
             // 
             // gridBand5
             // 
@@ -903,15 +1048,7 @@
             this.gridBand5.Columns.Add(this._002);
             this.gridBand5.Name = "gridBand5";
             this.gridBand5.VisibleIndex = 0;
-            this.gridBand5.Width = 247;
-            // 
-            // _002
-            // 
-            this._002.Caption = "ho keo lap rap";
-            this._002.FieldName = "002";
-            this._002.Name = "_002";
-            this._002.Visible = true;
-            this._002.Width = 247;
+            this.gridBand5.Width = 256;
             // 
             // gridBand6
             // 
@@ -921,15 +1058,17 @@
             this.gridBand6.Columns.Add(this._005);
             this.gridBand6.Name = "gridBand6";
             this.gridBand6.VisibleIndex = 1;
-            this.gridBand6.Width = 136;
+            this.gridBand6.Width = 153;
             // 
-            // _005
+            // gridBand22
             // 
-            this._005.Caption = "cao keo";
-            this._005.FieldName = "005";
-            this._005.Name = "_005";
-            this._005.Visible = true;
-            this._005.Width = 136;
+            this.gridBand22.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
+            this.gridBand22.AppearanceHeader.Options.UseFont = true;
+            this.gridBand22.Caption = "Poor  Sole Laying";
+            this.gridBand22.Columns.Add(this._013);
+            this.gridBand22.Name = "gridBand22";
+            this.gridBand22.VisibleIndex = 2;
+            this.gridBand22.Width = 196;
             // 
             // gridBand15
             // 
@@ -953,14 +1092,6 @@
             this.gridBand16.VisibleIndex = 0;
             this.gridBand16.Width = 157;
             // 
-            // _009
-            // 
-            this._009.Caption = "day do";
-            this._009.FieldName = "009";
-            this._009.Name = "_009";
-            this._009.Visible = true;
-            this._009.Width = 157;
-            // 
             // gridBand17
             // 
             this.gridBand17.AppearanceHeader.BackColor2 = System.Drawing.Color.White;
@@ -971,14 +1102,6 @@
             this.gridBand17.Name = "gridBand17";
             this.gridBand17.VisibleIndex = 1;
             this.gridBand17.Width = 72;
-            // 
-            // _012
-            // 
-            this._012.Caption = "loi khac";
-            this._012.FieldName = "012";
-            this._012.Name = "_012";
-            this._012.Visible = true;
-            this._012.Width = 72;
             // 
             // Total
             // 
@@ -993,19 +1116,6 @@
             this.Total.Name = "Total";
             this.Total.VisibleIndex = 5;
             this.Total.Width = 100;
-            // 
-            // _Total
-            // 
-            this._Total.Caption = "Total";
-            this._Total.FieldName = "Total";
-            this._Total.Name = "_Total";
-            this._Total.Visible = true;
-            this._Total.Width = 100;
-            // 
-            // gridBand13
-            // 
-            this.gridBand13.Name = "gridBand13";
-            this.gridBand13.VisibleIndex = -1;
             // 
             // SMT_QUALITY_COCKPIT_REWORK
             // 
@@ -1087,19 +1197,29 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _012;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _Total;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand13;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _014;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _017;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _016;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _015;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _013;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand8;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand9;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand18;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand10;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand11;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand12;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand19;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand20;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand21;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand14;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand22;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand15;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand16;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand17;

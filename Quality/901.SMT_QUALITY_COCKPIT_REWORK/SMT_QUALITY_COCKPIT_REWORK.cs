@@ -405,7 +405,7 @@ namespace FORM
                     int iQty;
                     for (int i = 0; i <= dtGrid.Rows.Count - 2; i++)
                     {
-                        for (int j = 3; j <= dtGrid.Columns.Count - 1; j++)
+                        for (int j = 2; j <= dtGrid.Columns.Count - 1; j++)
                         {
                             int.TryParse(dtGrid.Rows[i][j].ToString(), out iQty);
                             total = total + iQty;
