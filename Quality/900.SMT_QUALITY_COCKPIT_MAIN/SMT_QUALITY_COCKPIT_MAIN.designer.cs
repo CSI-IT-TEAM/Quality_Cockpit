@@ -78,6 +78,7 @@
             this.pnVJ2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cmdDasboard = new System.Windows.Forms.Button();
+            this.cmdRework = new System.Windows.Forms.Button();
             this.tmrBlink = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labelComponent1)).BeginInit();
@@ -264,7 +265,6 @@
             // 
             // labelComponent1
             // 
-            this.labelComponent1.AcceptOrder = 1001;
             this.labelComponent1.AppearanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 44F);
             this.labelComponent1.AppearanceText.TextBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:DarkOrange");
             this.labelComponent1.Name = "circularGauge1_Label1";
@@ -274,7 +274,6 @@
             // 
             // arcScaleRangeBarComponent1
             // 
-            this.arcScaleRangeBarComponent1.AcceptOrder = 10;
             this.arcScaleRangeBarComponent1.EndOffset = 4F;
             this.arcScaleRangeBarComponent1.Name = "circularGauge1_RangeBar2";
             this.arcScaleRangeBarComponent1.RoundedCaps = true;
@@ -284,7 +283,6 @@
             // 
             // ascInv
             // 
-            this.ascInv.AcceptOrder = 0;
             this.ascInv.AppearanceMajorTickmark.BorderBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
             this.ascInv.AppearanceMajorTickmark.ContentBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
             this.ascInv.AppearanceMinorTickmark.BorderBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
@@ -738,6 +736,7 @@
             this.tableLayoutPanel3.Controls.Add(this.pnVJ, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.pnVJ2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.cmdDasboard, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cmdRework, 5, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -750,12 +749,12 @@
             // 
             this.cmd_QMS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmd_QMS.BackgroundImage")));
             this.cmd_QMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmd_QMS.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cmd_QMS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmd_QMS.FlatAppearance.BorderSize = 0;
             this.cmd_QMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmd_QMS.Location = new System.Drawing.Point(959, 3);
             this.cmd_QMS.Name = "cmd_QMS";
-            this.cmd_QMS.Size = new System.Drawing.Size(130, 128);
+            this.cmd_QMS.Size = new System.Drawing.Size(233, 128);
             this.cmd_QMS.TabIndex = 83;
             this.cmd_QMS.UseVisualStyleBackColor = true;
             this.cmd_QMS.Click += new System.EventHandler(this.cmd_QMS_Click);
@@ -843,6 +842,21 @@
             this.cmdDasboard.TabIndex = 82;
             this.cmdDasboard.UseVisualStyleBackColor = false;
             this.cmdDasboard.Click += new System.EventHandler(this.CmdDasboard_Click);
+            // 
+            // cmdRework
+            // 
+            this.cmdRework.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdRework.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdRework.BackgroundImage")));
+            this.cmdRework.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdRework.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdRework.FlatAppearance.BorderSize = 0;
+            this.cmdRework.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRework.Location = new System.Drawing.Point(1198, 3);
+            this.cmdRework.Name = "cmdRework";
+            this.cmdRework.Size = new System.Drawing.Size(233, 128);
+            this.cmdRework.TabIndex = 82;
+            this.cmdRework.UseVisualStyleBackColor = false;
+            this.cmdRework.Click += new System.EventHandler(this.cmdRework_Click);
             // 
             // tmrBlink
             // 
@@ -940,5 +954,6 @@
         private AdvancedPanel advancedPanel5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel pnLT;
+        private System.Windows.Forms.Button cmdRework;
     }
 }

@@ -638,6 +638,8 @@ namespace FORM
             });
         }
 
+
+
         private DataTable Data_Select(string argType)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
@@ -868,6 +870,12 @@ namespace FORM
         private void cmdBack_Click(object sender, EventArgs e)
         {
             ComVar.Var.callForm = "back";
+        }
+
+        private void cmdRework_Click(object sender, EventArgs e)
+        {
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "907";
         }
     }
 
