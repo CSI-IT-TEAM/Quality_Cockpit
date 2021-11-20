@@ -326,9 +326,9 @@ namespace FORM
 
                 chtDrFcpp.DataSource = dtData;
                 chtDrFcpp.Series[0].ArgumentDataMember = "MON";
-                chtDrFcpp.Series[0].ValueDataMembers.AddRange(new string[] { "FCPP_QTY" });
+                chtDrFcpp.Series[0].ValueDataMembers.AddRange(new string[] { "DR_QTY" });
                 chtDrFcpp.Series[1].ArgumentDataMember = "MON";
-                chtDrFcpp.Series[1].ValueDataMembers.AddRange(new string[] { "DR_QTY" });
+                chtDrFcpp.Series[1].ValueDataMembers.AddRange(new string[] { "FCPP_QTY" });
             }
             catch (Exception ex)
             {
