@@ -27,7 +27,7 @@ namespace FORM
         {         
             btnDay.Enabled = false;
            
-            btnWeek.Enabled = false;
+            btnWeek.Enabled = true;
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
         }
@@ -277,7 +277,7 @@ namespace FORM
         private void btnDay_Click(object sender, EventArgs e)
         {
             btnDay.Enabled = false;
-            btnWeek.Enabled = false;
+            btnWeek.Enabled = true;
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
             sDate = "DAY";
@@ -290,8 +290,8 @@ namespace FORM
         {
             btnDay.Enabled = true;
             btnWeek.Enabled = false;
-            btnMonth.Enabled = true;
-            btnYear.Enabled = true;
+            btnMonth.Enabled = false;
+            btnYear.Enabled = false;
             sDate = "WEEK";
             lblHeader.Text = "       Rework by week";
             clear_chart();

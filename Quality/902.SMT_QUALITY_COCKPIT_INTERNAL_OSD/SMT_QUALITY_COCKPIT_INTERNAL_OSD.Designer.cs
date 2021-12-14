@@ -187,7 +187,7 @@
             sideBySideBarSeriesLabel1.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Center;
             series1.Label = sideBySideBarSeriesLabel1;
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "Bonding";
+            series1.Name = "OS&D";
             pointSeriesLabel1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(192)))));
             pointSeriesLabel1.TextPattern = "{V:0.##}%";
             series2.Label = pointSeriesLabel1;

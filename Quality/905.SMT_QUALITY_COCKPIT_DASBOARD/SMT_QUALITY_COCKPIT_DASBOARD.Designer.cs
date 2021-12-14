@@ -87,6 +87,7 @@
             DevExpress.XtraCharts.StackedLineSeriesView stackedLineSeriesView3 = new DevExpress.XtraCharts.StackedLineSeriesView();
             DevExpress.XtraCharts.XYDiagram xyDiagram9 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series19 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel8 = new DevExpress.XtraCharts.PointSeriesLabel();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView10 = new DevExpress.XtraCharts.LineSeriesView();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.cmdBack = new System.Windows.Forms.Button();
@@ -199,6 +200,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chtMrIssues)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView10)).BeginInit();
             this.SuspendLayout();
             // 
@@ -946,7 +948,8 @@
             // 
             this.chtMrIssues.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
             this.chtMrIssues.DataBindings = null;
-            xyDiagram9.AxisX.Label.Font = new System.Drawing.Font("Calibri", 13.25F);
+            xyDiagram9.AxisX.Label.Angle = -45;
+            xyDiagram9.AxisX.Label.Font = new System.Drawing.Font("Calibri", 10F);
             xyDiagram9.AxisX.Label.ResolveOverlappingOptions.AllowHide = false;
             xyDiagram9.AxisX.Label.ResolveOverlappingOptions.AllowRotate = false;
             xyDiagram9.AxisX.Label.ResolveOverlappingOptions.AllowStagger = false;
@@ -979,6 +982,8 @@
             this.chtMrIssues.Location = new System.Drawing.Point(0, 49);
             this.chtMrIssues.Name = "chtMrIssues";
             this.chtMrIssues.PaletteName = "Marquee";
+            pointSeriesLabel8.TextPattern = "{S}{V}";
+            series19.Label = pointSeriesLabel8;
             series19.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series19.Name = "Rework Rate";
             lineSeriesView10.Color = System.Drawing.Color.Blue;
@@ -1087,6 +1092,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chtOverall)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chtMrIssues)).EndInit();
