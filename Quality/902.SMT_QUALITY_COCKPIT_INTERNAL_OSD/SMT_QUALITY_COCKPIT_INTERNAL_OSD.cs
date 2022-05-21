@@ -486,6 +486,7 @@ namespace FORM
             else
             {
                 timer1.Stop();
+                Dispose();
             }
         }
 
@@ -632,16 +633,22 @@ namespace FORM
                         string line = cbo_line.SelectedValue.ToString();
                         if (rate > 0)
                         {
-                            SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(date, plant, line);
-                            view1.ShowDialog();
+                            using (SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(date, plant, line))
+                            {
+                                
+                                view1.ShowDialog();
+                            }
                         }
                     }
 
                     else
                     {
                         Cursor.Current = Cursors.WaitCursor;
-                        SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP(strdate, strplant, strline);
-                        view.ShowDialog();
+                        using (SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP(strdate, strplant, strline))
+                        {
+                            view.ShowDialog();
+                        }
+                            
                     }
                 }
             }

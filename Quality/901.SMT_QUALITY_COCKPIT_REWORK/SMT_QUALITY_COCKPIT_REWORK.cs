@@ -46,6 +46,7 @@ namespace FORM
             else
             {
                 timer1.Stop();
+                Dispose();
             }
 
         }
