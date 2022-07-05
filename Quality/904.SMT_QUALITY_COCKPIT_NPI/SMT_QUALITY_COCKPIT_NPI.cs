@@ -81,7 +81,7 @@ namespace FORM
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                
+                fn_BindingData();
 
             }
             catch (Exception ex)
@@ -270,11 +270,18 @@ namespace FORM
                 string toDate = dtpYMDT.DateTime.ToString("yyyyMMdd");
                 DataTable dt = await Fn_SelectDataGrid("Q", plant, line, frDate, toDate);
                 DataTable dtData = null;
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    grdBase.DataSource = null;
+                    return;
+
+                }
+                    
                 if (plant == line)
                     dtData = dt.Select($"PLANT = '{line}'").CopyToDataTable();
                 else
                     dtData = dt.Select($"LINE_CD = '{line}'").CopyToDataTable();
-                if (dtData == null || dtData.Rows.Count == 0) return;
+              
                 
                 DataTable dtPivot = Pivot(dtData, dtData.Columns["NPI_CODE"], dtData.Columns["VALUE1"]);
                 grdBase.DataSource = dtPivot.Copy();
@@ -350,36 +357,65 @@ namespace FORM
             {
                 if (e.Column.AbsoluteIndex >= 7)
                 {
+                    if (grdView.GetRowCellValue(e.RowHandle, grdView.Columns[e.Column.FieldName]) == null) return;                
+
                     string ValueCell = grdView.GetRowCellValue(e.RowHandle, grdView.Columns[e.Column.FieldName]).ToString();
+                    
                     if (ValueCell.Length > 1)
                     {
-                        ValueCell = ValueCell.Substring(0, 1);
+                        ValueCell = ValueCell.Substring(1, 1);
                     }
-                    switch (ValueCell)
+                    if (e.CellValue.ToString().Contains("RED"))
                     {
-                        case "Y":
-                            e.Appearance.BackColor = Color.Yellow;
-                            e.Appearance.ForeColor = Color.Yellow;
-                            break;
-                        case "G":
-                            e.Appearance.BackColor = Color.Green;
-                            e.Appearance.ForeColor = Color.Green;
-                            break;
-                        case "R":
-                            e.Appearance.BackColor = Color.Red;
-                            e.Appearance.ForeColor = Color.Red;
-                            break;
-                        case "S":
-                            e.Appearance.BackColor = Color.SkyBlue;
-                            e.Appearance.ForeColor = Color.SkyBlue;
-                            break;
-                        case "C":
-                            e.Appearance.BackColor = Color.Silver;
-                            e.Appearance.ForeColor = Color.Silver;
-                            break;
-                        default:
-                            break;
+                        e.Appearance.BackColor = Color.Red;
+                        e.Appearance.ForeColor = Color.White;
                     }
+                    if (e.CellValue.ToString().Contains("YELLOW"))
+                    {
+                        e.Appearance.BackColor = Color.Yellow;
+                        e.Appearance.ForeColor = Color.Black;
+                    }
+                    if (e.CellValue.ToString().Contains("GREEN"))
+                    {
+                        e.Appearance.BackColor = Color.Green;
+                        e.Appearance.ForeColor = Color.White;
+                    }
+                    if (e.CellValue.ToString().Contains("BLUE"))
+                    {
+                        e.Appearance.BackColor = Color.SkyBlue;
+                        e.Appearance.ForeColor = Color.Black;
+
+                    }
+                    if (e.CellValue.ToString().Contains("GREY"))
+                    {
+                        e.Appearance.BackColor = Color.Silver;
+                        e.Appearance.ForeColor = Color.Black;
+                    }
+                    //    switch (ValueCell)
+                    //{
+                    //    case "Y":
+                    //        e.Appearance.BackColor = Color.Yellow;
+                    //        e.Appearance.ForeColor = Color.Yellow;
+                    //        break;
+                    //    case "G":
+                    //        e.Appearance.BackColor = Color.Green;
+                    //        e.Appearance.ForeColor = Color.Green;
+                    //        break;
+                    //    case "R":
+                    //        e.Appearance.BackColor = Color.Red;
+                    //        e.Appearance.ForeColor = Color.Red;
+                    //        break;
+                    //    case "S":
+                    //        e.Appearance.BackColor = Color.SkyBlue;
+                    //        e.Appearance.ForeColor = Color.SkyBlue;
+                    //        break;
+                    //    case "C":
+                    //        e.Appearance.BackColor = Color.Silver;
+                    //        e.Appearance.ForeColor = Color.Silver;
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
                 }
             }
             catch (Exception ex)
@@ -437,7 +473,7 @@ namespace FORM
                 MyOraDB.ShowErr = true;
                 try
                 {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_02.NPI_DATA_SELECT";
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_02.NPI_DATA_SELECT_V2";
 
                     MyOraDB.ReDim_Parameter(7);
                     MyOraDB.Process_Name = process_name;
