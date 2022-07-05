@@ -40,7 +40,7 @@ namespace FORM
 
         private void SMT_QUALITY_COCKPIT_MAIN_Load(object sender, EventArgs e)
         {
-            cmdBack.Visible = ComVar.Var._IsBack;
+            SetButtonBack();
             _dtGMES = ComVar.Func.ReadXML(Application.StartupPath + @"\Config.xml", "GMES");
            
         }
@@ -61,6 +61,24 @@ namespace FORM
             {
                 tmrTime.Stop();
                 tmrBlink.Stop();
+                Dispose();
+            }
+
+        }
+
+        private void SetButtonBack()
+        {
+            try
+            {
+                DataTable dtXML = ComVar.Func.ReadXML(Application.StartupPath + "\\Config.XML", "MAIN");
+                if (dtXML.Rows[0]["grpForm"].ToString() == "QUALITY_COCKPIT")
+                {
+                    cmdBack.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
             }
 
         }

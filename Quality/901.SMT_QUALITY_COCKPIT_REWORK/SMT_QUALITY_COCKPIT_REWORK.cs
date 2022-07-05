@@ -21,6 +21,8 @@ namespace FORM
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
 
+        bool _isLoad = true;
+
         #region Load-Visible Change-Timer
         private void SMT_QUALITY_COCKPIT_FORM1_Load(object sender, EventArgs e)
         {
@@ -42,10 +44,12 @@ namespace FORM
                 btnSearch_Click(null, null);
 
                 timer1.Start();
+                _isLoad = false;
             }
             else
             {
                 timer1.Stop();
+                Dispose();
             }
 
         }
@@ -751,7 +755,7 @@ namespace FORM
 
         private void cboLine_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboLine.Text != "")
+            if (cboLine.Text != "" && _isLoad == false)
             {
                 SetData();
                 SetData_Detail(DateTime.Now.ToString("yyyyMMdd"), cboPlant.SelectedValue.ToString(), cboLine.SelectedValue.ToString());

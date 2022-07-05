@@ -510,5 +510,57 @@ namespace MAIN
 
         #endregion 
 
+        private void Main_SizeChanged(object sender, EventArgs e)
+        {
+            if (pnMain.Controls.Count == 1)
+            {
+                foreach (Control ctr in pnMain.Controls)
+                    pnMain.Controls.Remove(ctr);
+
+                //string frmCurrent = ComVar.Var._Frm_Curr;
+                // ComVar.Var._Frm_Curr = "";
+                showFormCall2(ComVar.Var._Frm_Curr);
+                //pnMain.Controls.Add(ctrShow);
+                //pnMain.Controls[0].Show();
+            }
+
+        }
+
+        private void showFormCall2(string arg_Form_Name)
+        {
+            Control ctr = null;
+            if (arg_Form_Name == "") return;
+            // if (arg_Form_Name == ComVar.Var._Frm_Curr) return;
+
+            try
+            {
+                string[] str = arg_Form_Name.Split('.');
+                addForm(str[0], str[1]);
+                ctr = pnMain.Controls.Find(arg_Form_Name, false).FirstOrDefault();
+
+                //Show form call and then hide form current
+                ctr.Show();
+                //pnMain.Controls.Find(ComVar.Var._Frm_Curr.ToUpper(), false).FirstOrDefault().Hide();
+
+
+
+                //add list Back form
+                if (ComVar.Var._IsBack)
+                {
+                    ComVar.Var._List_Back.Add(Tuple.Create(arg_Form_Name, ComVar.Var._Frm_Curr));
+                    ComVar.Var._Frm_Back = ComVar.Var._Frm_Curr;
+                }
+                else
+                    ComVar.Var._List_Back.Add(Tuple.Create(arg_Form_Name, ComVar.Var._Frm_Back));
+
+                //add form current
+                ComVar.Var._Frm_Curr = arg_Form_Name;
+            }
+            catch (Exception ex)
+            {
+                ComVar.Var.writeToLog(this.Name + "-->Show_Form_Call-->Err:   " + ex.ToString());
+                return;
+            }
+        }
     }
 }

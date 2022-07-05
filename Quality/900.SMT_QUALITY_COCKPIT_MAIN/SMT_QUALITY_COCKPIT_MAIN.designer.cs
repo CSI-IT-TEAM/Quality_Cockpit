@@ -234,7 +234,6 @@
             this.cmdBack.Size = new System.Drawing.Size(108, 101);
             this.cmdBack.TabIndex = 67;
             this.cmdBack.UseVisualStyleBackColor = false;
-            this.cmdBack.Visible = false;
             this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // lblDate

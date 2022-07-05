@@ -50,6 +50,7 @@ namespace FORM
             {
                 
                 tmrTime.Stop();
+                Dispose();
             }
 
         }
