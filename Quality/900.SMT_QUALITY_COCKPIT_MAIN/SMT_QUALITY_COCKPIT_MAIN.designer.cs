@@ -70,6 +70,7 @@
             this.advancedPanel4 = new FORM.AdvancedPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmdHFPA = new System.Windows.Forms.Button();
             this.cmd_QMS = new System.Windows.Forms.Button();
             this.pnVJ3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -730,6 +731,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel3.Controls.Add(this.cmdHFPA, 6, 0);
             this.tableLayoutPanel3.Controls.Add(this.cmd_QMS, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.pnVJ3, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.pnVJ, 0, 0);
@@ -743,6 +745,21 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1914, 134);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // cmdHFPA
+            // 
+            this.cmdHFPA.BackColor = System.Drawing.SystemColors.Control;
+            this.cmdHFPA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdHFPA.BackgroundImage")));
+            this.cmdHFPA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdHFPA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdHFPA.FlatAppearance.BorderSize = 0;
+            this.cmdHFPA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdHFPA.Location = new System.Drawing.Point(1437, 3);
+            this.cmdHFPA.Name = "cmdHFPA";
+            this.cmdHFPA.Size = new System.Drawing.Size(233, 128);
+            this.cmdHFPA.TabIndex = 84;
+            this.cmdHFPA.UseVisualStyleBackColor = false;
+            this.cmdHFPA.Click += new System.EventHandler(this.cmdHFPA_Click_1);
             // 
             // cmd_QMS
             // 
@@ -954,5 +971,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel pnLT;
         private System.Windows.Forms.Button cmdRework;
+        private System.Windows.Forms.Button cmdHFPA;
     }
 }

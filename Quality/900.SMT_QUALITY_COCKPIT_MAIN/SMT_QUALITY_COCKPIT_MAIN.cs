@@ -895,6 +895,11 @@ namespace FORM
             ComVar.Var._IsBack = true;
             ComVar.Var.callForm = "907";
         }
+        private void cmdHFPA_Click_1(object sender, EventArgs e)
+        {
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "908";
+        }
     }
 
     public class Button_Status
