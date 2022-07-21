@@ -171,6 +171,12 @@
     <Compile Include="UC\UC_YEAR_SELECTION.Designer.cs">
       <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -199,6 +205,9 @@
     <EmbeddedResource Include="UC\UC_YEAR_SELECTION.resx">
       <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Back-Icon.png" />
@@ -219,6 +228,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

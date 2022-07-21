@@ -21,6 +21,7 @@ namespace FORM
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "DAY";
+        DataTable dtWeek = null;
 
         #region Load-Visible Change-Timer
         private void SMT_QUALITY_COCKPIT_FORM1_Load(object sender, EventArgs e)
@@ -101,27 +102,29 @@ namespace FORM
                 DataSet ds_ret;
                 try
                 {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_HFPA";
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_HFPA_V2";
 
-                    MyOraDB.ReDim_Parameter(4);
+                    MyOraDB.ReDim_Parameter(5);
                     MyOraDB.Process_Name = process_name;
 
                     MyOraDB.Parameter_Name[0] = "V_P_TYPE";
                     MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
                     MyOraDB.Parameter_Name[2] = "OUT_CURSOR2";
                     MyOraDB.Parameter_Name[3] = "OUT_CURSOR3";
+                    MyOraDB.Parameter_Name[4] = "OUT_CURSOR4";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[1] = (int)OracleType.Cursor;
                     MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
                     MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
-                   
+                    MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
+
 
                     MyOraDB.Parameter_Values[0] = ARG_QTYPE;
                     MyOraDB.Parameter_Values[1] = "";
                     MyOraDB.Parameter_Values[2] = "";
                     MyOraDB.Parameter_Values[3] = "";
-                   ;
+                    MyOraDB.Parameter_Values[4] = "";
 
                     MyOraDB.Add_Select_Parameter(true);
                     ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -214,9 +217,12 @@ namespace FORM
 
                 DataSet dsData = await sbGetHFPA(sDate);
                 if (dsData == null) return;               
-                DataTable dtChart = dsData.Tables[0];
+                DataTable dtChart  = dsData.Tables[0];
                 DataTable dtChart1 = dsData.Tables[1];
-                DataTable dtChart2 = dsData.Tables[2];               
+                DataTable dtChart2 = dsData.Tables[2];
+                dtWeek   = dsData.Tables[3];
+                if(sDate=="WEEK")
+                lblHeader.Text = string.Concat("       HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
 
                 SetChart(dtChart);
                 SetChart1(dtChart1);
@@ -264,9 +270,10 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
             sDate = "WEEK";
-            lblHeader.Text = "       HFPA by week";
+            //lblHeader.Text = "       HFPA by week";
             //clear_chart();
             SetData();
+            
         }
     }
 }

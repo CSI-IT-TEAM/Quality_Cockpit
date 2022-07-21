@@ -54,7 +54,6 @@
             this.Controls.Add(this.pnMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.Text = "DSF_Quality";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Main_SizeChanged);
             this.ResumeLayout(false);
