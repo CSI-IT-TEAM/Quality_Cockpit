@@ -17,7 +17,7 @@ namespace FORM
             InitializeComponent();
             lblHeader.Text = _strHeader;
         }
-        private readonly string _strHeader = "       HFPA by day";
+        private readonly string _strHeader = "HFPA by day";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "DAY";
@@ -53,8 +53,8 @@ namespace FORM
         }
         private void clear_chart()
         {
-            chartControl1.Series[0].Points.Clear();
-            chartControl1.Series[1].Points.Clear();
+            chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
             chartControl2.Series[0].Points.Clear();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -95,36 +95,39 @@ namespace FORM
         #region Database
        
 
-        public async Task<DataSet> sbGetHFPA(string ARG_QTYPE)
+        public async Task<DataSet> sbGetHFPA(string ARG_QTYPE, string ARG_LINE)
         {
             return await Task.Run(() => {
                 COM.OraDB MyOraDB = new COM.OraDB();
                 DataSet ds_ret;
                 try
                 {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_HFPA_V2";
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_HFPA_V3";
 
-                    MyOraDB.ReDim_Parameter(5);
+                    MyOraDB.ReDim_Parameter(6);
                     MyOraDB.Process_Name = process_name;
 
                     MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                    MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
-                    MyOraDB.Parameter_Name[2] = "OUT_CURSOR2";
-                    MyOraDB.Parameter_Name[3] = "OUT_CURSOR3";
-                    MyOraDB.Parameter_Name[4] = "OUT_CURSOR4";
+                    MyOraDB.Parameter_Name[1] = "V_P_LINE_CD";
+                    MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[3] = "OUT_CURSOR2";
+                    MyOraDB.Parameter_Name[4] = "OUT_CURSOR3";
+                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR4";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[1] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
                     MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
                     MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
 
 
                     MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                    MyOraDB.Parameter_Values[1] = "";
+                    MyOraDB.Parameter_Values[1] = ARG_LINE;
                     MyOraDB.Parameter_Values[2] = "";
                     MyOraDB.Parameter_Values[3] = "";
                     MyOraDB.Parameter_Values[4] = "";
+                    MyOraDB.Parameter_Values[5] = "";
 
                     MyOraDB.Add_Select_Parameter(true);
                     ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -149,9 +152,9 @@ namespace FORM
         {
 
             //DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
-            chartControl1.DataSource = null;
-            chartControl1.Series[0].Points.Clear();
-            chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chart1.DataSource = null;
+            chart1.Series[0].Points.Clear();
+            chart1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
             if (argDtChart == null) return;
             // XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
 
@@ -168,8 +171,9 @@ namespace FORM
 
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
-                chartControl1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["QTY"]));
+                chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["QTY"]));
             }
+            chart1.RuntimeHitTesting = true;
         }
 
         private void SetChart1(DataTable argDtChart)
@@ -206,7 +210,6 @@ namespace FORM
                 //chartControl3.DataSource = argDtChart;
                 //chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                 //chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-
             }
         }
 
@@ -215,14 +218,14 @@ namespace FORM
             try
             {               
 
-                DataSet dsData = await sbGetHFPA(sDate);
+                DataSet dsData = await sbGetHFPA(sDate,"ALL");
                 if (dsData == null) return;               
                 DataTable dtChart  = dsData.Tables[0];
                 DataTable dtChart1 = dsData.Tables[1];
                 DataTable dtChart2 = dsData.Tables[2];
                 dtWeek   = dsData.Tables[3];
                 if(sDate=="WEEK")
-                lblHeader.Text = string.Concat("       HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
+                lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
 
                 SetChart(dtChart);
                 SetChart1(dtChart1);
@@ -233,7 +236,7 @@ namespace FORM
                     chartControl3.DataSource = dtChart2;
                     chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                     chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-
+                    //
                 }
                 else
                 {
@@ -258,7 +261,7 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
             sDate = "DAY";
-            lblHeader.Text = "       HFPA by day";
+            lblHeader.Text = "HFPA by day";
             //clear_chart();
             SetData();
         }
@@ -274,6 +277,47 @@ namespace FORM
             //clear_chart();
             SetData();
             
+        }
+
+        private async void chartControl1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                ChartHitInfo hit = chart1.CalcHitInfo(e.Location);
+                SeriesPoint point = hit.SeriesPoint;
+                if (point != null)
+                {
+                    string sYM = point.Argument;
+                    
+                    DataSet dsData = await sbGetHFPA(sDate, sYM);
+                    if (dsData == null) return;
+                    DataTable dtChart = dsData.Tables[0];
+                    DataTable dtChart1 = dsData.Tables[1];
+                    DataTable dtChart2 = dsData.Tables[2];
+                    dtWeek = dsData.Tables[3];
+                    if (sDate == "WEEK")
+                        lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
+
+                    //SetChart(dtChart);
+                    //SetChart1(dtChart1);
+                    if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                    {
+                        DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+                        chartControl3.DataSource = dtChart2;
+                        chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+                        chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+                        //
+                    }
+                    else
+                    {
+                        chartControl3.DataSource = null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
