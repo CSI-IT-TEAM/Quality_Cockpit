@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cmdText = new System.Windows.Forms.Button();
             this.cmdTitle = new System.Windows.Forms.Button();
             this.cmdStatus = new System.Windows.Forms.Button();
+            this.cmdText = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblYear = new System.Windows.Forms.Label();
             this.btnNextYear = new System.Windows.Forms.Button();
             this.btnPrevYear = new System.Windows.Forms.Button();
-            this.lblYear = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,20 +59,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 49);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // cmdText
-            // 
-            this.cmdText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdText.FlatAppearance.BorderSize = 0;
-            this.cmdText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdText.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Italic);
-            this.cmdText.Location = new System.Drawing.Point(500, 3);
-            this.cmdText.Name = "cmdText";
-            this.cmdText.Size = new System.Drawing.Size(132, 43);
-            this.cmdText.TabIndex = 3;
-            this.cmdText.Text = "*P-BOM, SB, CFM Shoe\r\n&& Lab Test";
-            this.cmdText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdText.UseVisualStyleBackColor = true;
             // 
             // cmdTitle
             // 
@@ -100,6 +86,20 @@
             this.cmdStatus.TabIndex = 1;
             this.cmdStatus.UseVisualStyleBackColor = false;
             // 
+            // cmdText
+            // 
+            this.cmdText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdText.FlatAppearance.BorderSize = 0;
+            this.cmdText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdText.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Italic);
+            this.cmdText.Location = new System.Drawing.Point(500, 3);
+            this.cmdText.Name = "cmdText";
+            this.cmdText.Size = new System.Drawing.Size(132, 43);
+            this.cmdText.TabIndex = 3;
+            this.cmdText.Text = "*P-BOM, SB, CFM Shoe\r\n&& Lab Test";
+            this.cmdText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdText.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lblYear);
@@ -110,6 +110,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(207, 43);
             this.panel1.TabIndex = 4;
+            // 
+            // lblYear
+            // 
+            this.lblYear.BackColor = System.Drawing.Color.Silver;
+            this.lblYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblYear.Font = new System.Drawing.Font("Calibri", 18.25F, System.Drawing.FontStyle.Bold);
+            this.lblYear.ForeColor = System.Drawing.Color.Black;
+            this.lblYear.Location = new System.Drawing.Point(43, 1);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(122, 40);
+            this.lblYear.TabIndex = 7;
+            this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblYear.TextChanged += new System.EventHandler(this.lblYear_TextChanged);
             // 
             // btnNextYear
             // 
@@ -132,20 +145,6 @@
             this.btnPrevYear.Text = "<<";
             this.btnPrevYear.UseVisualStyleBackColor = true;
             this.btnPrevYear.Click += new System.EventHandler(this.btnPrevYear_Click);
-            // 
-            // lblYear
-            // 
-            this.lblYear.BackColor = System.Drawing.Color.Silver;
-            this.lblYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblYear.Font = new System.Drawing.Font("Calibri", 18.25F, System.Drawing.FontStyle.Bold);
-            this.lblYear.ForeColor = System.Drawing.Color.Black;
-            this.lblYear.Location = new System.Drawing.Point(43, 1);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(122, 40);
-            this.lblYear.TabIndex = 7;
-            this.lblYear.Text = "2018";
-            this.lblYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblYear.TextChanged += new System.EventHandler(this.lblYear_TextChanged);
             // 
             // UCTitle
             // 

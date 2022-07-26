@@ -42,6 +42,8 @@ namespace FORM.UC
         private string[] _arrSeasonValue = { "SP","SU", "FA", "HO" };
         private string sSeasonValue;
 
+        private string CurrenSeason;
+
         public void setDisplay()
         {
             if (_typeDisplay == TypeDisplay.MONTH)
@@ -76,7 +78,7 @@ namespace FORM.UC
 
         public string GetValue()
         {
-            return _typeDisplay == TypeDisplay.MONTH ? sValue : sValue.Substring(0,4);
+            return _typeDisplay == TypeDisplay.SEASON ? sSeasonValue : sValue.Substring(0,4);
         }
 
         private string Season
@@ -84,11 +86,37 @@ namespace FORM.UC
             get
             {
                 string season = "";
-                
-                int month;
-                int.TryParse(sMonthValue, out month);
+                if (lblYear.Text == sYearValue)
+                {
+                    int.TryParse(sMonthValue, out int month);
 
-                season = _arrSeasonValue[month / 4] + sYearValue.Substring(2,2);
+                    season = _arrSeasonValue[month / 3] + sYearValue.Substring(2, 2);
+                    CurrenSeason = season;
+                }
+                else if (sYearValue == "-1")
+                {
+                    int index = Array.IndexOf(_arrSeasonValue, lblYear.Text.Substring(0, 2));
+                    index -= 1;
+                    int.TryParse(lblYear.Text.Substring(2, 2), out int year);
+                    if (index <0)
+                    {
+                        year -=1 ;
+                        index = 3;
+                    }
+                    season = _arrSeasonValue[index] + year.ToString(); 
+                }
+                else if (sYearValue == "1")
+                {
+                    int index = Array.IndexOf(_arrSeasonValue, lblYear.Text.Substring(0, 2));
+                    index += 1;
+                    int.TryParse(lblYear.Text.Substring(2, 2), out int year);
+                    if (index > 3)
+                    {
+                        year += 1;
+                        index = 0;
+                    }
+                    season = _arrSeasonValue[index] + year.ToString();
+                }
                 return season;
             }
         }
@@ -96,18 +124,27 @@ namespace FORM.UC
         #region Year,Month
         private void btnPrevYear_Click(object sender, EventArgs e)
         {
-
-            sYearValue = (Convert.ToInt32(sYearValue) - 1).ToString();
-            sValue = sYearValue + sMonthValue;
-            SetShortName(sYearValue, sMonthValue);
-            this.btnPrevYear.Focus();
+            if (_typeDisplay == TypeDisplay.SEASON)
+            {
+                sYearValue = "-1";
+                SetShortName(sYearValue, sMonthValue);
+            }
+            else
+            {
+                sYearValue = (Convert.ToInt32(sYearValue) - 1).ToString();
+                sValue = sYearValue + sMonthValue;
+                SetShortName(sYearValue, sMonthValue);
+                this.btnPrevYear.Focus();
+            }
+            
         }
 
         private void btnNextYear_Click(object sender, EventArgs e)
         {
             if (_typeDisplay == TypeDisplay.SEASON)
             {
-                
+                sYearValue = "1";
+                SetShortName(sYearValue, sMonthValue);
 
             }
             else
@@ -131,14 +168,14 @@ namespace FORM.UC
                 }
             }
 
-            if (DateTime.Now.Year == Convert.ToInt32(sYearValue))
-            {
-                btnNextYear.Enabled = false;
-            }
-            else
-            {
-                btnNextYear.Enabled = true;
-            }
+            //if (DateTime.Now.Year == Convert.ToInt32(sYearValue))
+            //{
+            //    btnNextYear.Enabled = false;
+            //}
+            //else
+            //{
+            //    btnNextYear.Enabled = true;
+            //}
 
         }
 
@@ -152,17 +189,33 @@ namespace FORM.UC
                     this.ValueChangeEvent(this, e);
                     isMonthValueChange = false;
                 }
-               // EnableControl(true);
+                // EnableControl(true);
 
-                if (Convert.ToInt32(sYearValue) >= DateTime.Now.Year)
+                if (_typeDisplay == TypeDisplay.SEASON)
                 {
-                    this.btnNextYear.Enabled = false;
+                    if (sSeasonValue == CurrenSeason)
+                    {
+                        this.btnNextYear.Enabled = false;
+                    }
+                    else
+                    {
+                        this.btnNextYear.Enabled = true;
+                        this.btnNextYear.Focus();
+                    }    
                 }
                 else
                 {
-                    this.btnNextYear.Enabled = true;
-                    this.btnNextYear.Focus();
+                    if (Convert.ToInt32(sYearValue) >= DateTime.Now.Year)
+                    {
+                        this.btnNextYear.Enabled = false;
+                    }
+                    else
+                    {
+                        this.btnNextYear.Enabled = true;
+                        this.btnNextYear.Focus();
+                    }
                 }
+                    
 
             }
             catch (Exception)
