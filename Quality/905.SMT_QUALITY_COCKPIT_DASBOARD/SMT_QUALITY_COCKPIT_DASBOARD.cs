@@ -96,7 +96,7 @@ namespace FORM
         #region AddUc
         private void AddUc()
         {
-            AddUcToPanelTitle(pnTitle_MrIssues, Grp.MR, "MR Issues", "*Upper/Bottom" );
+            AddUcToPanelTitle(pnTitle_MrIssues, Grp.MR, "FMEA", "*Count" );
             AddUcToPanelTitle(pnTitle_Overall, Grp.OVERALL, "Overall Defective", "*PPM");
             AddUcToPanelTitle(pnTitle_MI, Grp.MI, "MI(Quality)", "*MI Gold(Inbound, FCPP, Bonding)");
             AddUcToPanelTitle(pnTitle_NewColor, Grp.NEW_COLOR, "New Colorway Readiness", "*P-BOM, SB, CFM Shoe\n && Lab Test");
