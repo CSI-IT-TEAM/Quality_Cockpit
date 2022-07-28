@@ -96,7 +96,7 @@ namespace FORM
         #region AddUc
         private void AddUc()
         {
-            AddUcToPanelTitle(pnTitle_MrIssues, Grp.MR, "MR Issues", "*Upper/Bottom" );
+            AddUcToPanelTitle(pnTitle_MrIssues, Grp.MR, "FMEA", "*Count" );
             AddUcToPanelTitle(pnTitle_Overall, Grp.OVERALL, "Overall Defective", "*PPM");
             AddUcToPanelTitle(pnTitle_MI, Grp.MI, "MI(Quality)", "*MI Gold(Inbound, FCPP, Bonding)");
             AddUcToPanelTitle(pnTitle_NewColor, Grp.NEW_COLOR, "New Colorway Readiness", "*P-BOM, SB, CFM Shoe\n && Lab Test");
@@ -177,37 +177,59 @@ namespace FORM
                 this.Cursor = Cursors.WaitCursor;
 
                 DataTable dtData = await Fn_SelectDataChart(Grp.MR.ToString(), _dntTitle[Grp.MR].GetValue());
-
-                chtMrIssues.Series[0].Points.Clear();
-                chtMrIssues.Series[0].ArgumentScaleType = ScaleType.Qualitative;
-
-                if (dtData == null || dtData.Rows.Count == 0) return;
-                for (int iRow = 0; iRow < dtData.Rows.Count; iRow++)
+              
+                if (dtData != null && dtData.Rows.Count > 0)
                 {
-                    for (int iCol = 2; iCol < dtData.Columns.Count; iCol++)
-                    {
-                        string colName = dtData.Columns[iCol].ColumnName;
-                        if (iCol == 4)
-                        {
-                            string season = dtData.Rows[iRow]["SEASON"].ToString();
-                            chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "\n" + season, dtData.Rows[iRow][iCol]));
-                        } 
-                        else if (iRow == 1 && iCol == 5)
-                        {
-                            string season = dtData.Rows[iRow]["SEASON"].ToString();
-                            chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "\n" + season, dtData.Rows[iRow][iCol]));
-                        }
-                        else
-                        {
-                          //  chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "\n" + addBlank(iRow + 1), dtData.Rows[iRow][iCol]));
-                            chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "_" + iRow, dtData.Rows[iRow][iCol]));
-                        }
-                        
-                    }
-                    chtMrIssues.Series[0].Points.Add(new SeriesPoint(addBlank(iRow +1), Double.NaN));
+
+                    // dtchart = dttmp;
+                    chtMrIssues.DataSource = dtData;
+
+                    chtMrIssues.SeriesDataMember = "DIV";
+                    chtMrIssues.SeriesTemplate.ArgumentDataMember = "COL_NM";
+                    chtMrIssues.SeriesTemplate.ArgumentScaleType = ScaleType.Qualitative;
+                    chtMrIssues.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "QTY" });
+                    chtMrIssues.SeriesTemplate.ChangeView(ViewType.Bar);
+                    chtMrIssues.SeriesTemplate.Label.Font = new Font("Calibri", 10, FontStyle.Bold);
+                    chtMrIssues.PaletteName = "doit";
+                    chtMrIssues.SeriesTemplate.LabelsVisibility = DefaultBoolean.True;
+                    chtMrIssues.SeriesTemplate.Label.TextPattern = "{S} : {V : #,#}";
+                    chtMrIssues.SeriesTemplate.Label.TextOrientation = TextOrientation.BottomToTop;
+                    ((SideBySideBarSeriesView)chtMrIssues.SeriesTemplate.View).BarWidth = 2;
+                    chtMrIssues.Legend.Visibility = DefaultBoolean.False;
+                    chtMrIssues.Legend.Font = new System.Drawing.Font("Times New Roman", 12.25F, FontStyle.Bold | FontStyle.Italic);
+                    XYDiagram diagram = (XYDiagram)chtMrIssues.Diagram;
                 }
 
-                ((XYDiagram)chtMrIssues.Diagram).AxisX.NumericScaleOptions.AutoGrid = false;
+                //chtMrIssues.Series[0].Points.Clear();
+                //chtMrIssues.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+
+                //if (dtData == null || dtData.Rows.Count == 0) return;
+                //for (int iRow = 0; iRow < dtData.Rows.Count; iRow++)
+                //{
+                //    for (int iCol = 2; iCol < dtData.Columns.Count; iCol++)
+                //    {
+                //        string colName = dtData.Columns[iCol].ColumnName;
+                //        if (iCol == 4)
+                //        {
+                //            string season = dtData.Rows[iRow]["SEASON"].ToString();
+                //            chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "\n" + season, dtData.Rows[iRow][iCol]));
+                //        } 
+                //        else if (iRow == 1 && iCol == 5)
+                //        {
+                //            string season = dtData.Rows[iRow]["SEASON"].ToString();
+                //            chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "\n" + season, dtData.Rows[iRow][iCol]));
+                //        }
+                //        else
+                //        {
+                //          //  chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "\n" + addBlank(iRow + 1), dtData.Rows[iRow][iCol]));
+                //            chtMrIssues.Series[0].Points.Add(new SeriesPoint(colName + "_" + iRow, dtData.Rows[iRow][iCol]));
+                //        }
+
+                //    }
+                //    chtMrIssues.Series[0].Points.Add(new SeriesPoint(addBlank(iRow +1), Double.NaN));
+                //}
+
+                //((XYDiagram)chtMrIssues.Diagram).AxisX.NumericScaleOptions.AutoGrid = false;
             }
             catch (Exception ex)
             {

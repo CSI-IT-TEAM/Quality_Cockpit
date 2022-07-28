@@ -85,10 +85,6 @@
             DevExpress.XtraCharts.StackedLineSeriesView stackedLineSeriesView2 = new DevExpress.XtraCharts.StackedLineSeriesView();
             DevExpress.XtraCharts.Series series18 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.StackedLineSeriesView stackedLineSeriesView3 = new DevExpress.XtraCharts.StackedLineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram9 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series19 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel8 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView10 = new DevExpress.XtraCharts.LineSeriesView();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.cmdBack = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
@@ -198,10 +194,6 @@
             ((System.ComponentModel.ISupportInitialize)(stackedLineSeriesView3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chtMrIssues)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView10)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -737,9 +729,9 @@
             this.chtNewColor.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
             this.chtNewColor.DataBindings = null;
             xyDiagram6.AxisX.Label.Angle = -45;
-            xyDiagram6.AxisX.Label.Font = new System.Drawing.Font("Calibri", 12.75F);
+            xyDiagram6.AxisX.Label.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             xyDiagram6.AxisX.Tickmarks.MinorVisible = false;
-            xyDiagram6.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            xyDiagram6.AxisX.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             xyDiagram6.AxisX.Title.Text = "";
             xyDiagram6.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram6.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.Default;
@@ -948,28 +940,6 @@
             // 
             this.chtMrIssues.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
             this.chtMrIssues.DataBindings = null;
-            xyDiagram9.AxisX.Label.Angle = -45;
-            xyDiagram9.AxisX.Label.Font = new System.Drawing.Font("Calibri", 10F);
-            xyDiagram9.AxisX.Label.ResolveOverlappingOptions.AllowHide = false;
-            xyDiagram9.AxisX.Label.ResolveOverlappingOptions.AllowRotate = false;
-            xyDiagram9.AxisX.Label.ResolveOverlappingOptions.AllowStagger = false;
-            xyDiagram9.AxisX.Label.ResolveOverlappingOptions.MinIndent = 1;
-            xyDiagram9.AxisX.Tickmarks.MinorVisible = false;
-            xyDiagram9.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            xyDiagram9.AxisX.Title.Text = "";
-            xyDiagram9.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            xyDiagram9.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.Default;
-            xyDiagram9.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram9.AxisY.GridLines.Visible = false;
-            xyDiagram9.AxisY.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram9.AxisY.Tickmarks.MinorVisible = false;
-            xyDiagram9.AxisY.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            xyDiagram9.AxisY.Title.Text = "";
-            xyDiagram9.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            xyDiagram9.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram9.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram9.DefaultPane.BorderVisible = false;
-            this.chtMrIssues.Diagram = xyDiagram9;
             this.chtMrIssues.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chtMrIssues.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
             this.chtMrIssues.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
@@ -981,19 +951,11 @@
             this.chtMrIssues.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chtMrIssues.Location = new System.Drawing.Point(0, 49);
             this.chtMrIssues.Name = "chtMrIssues";
-            this.chtMrIssues.PaletteName = "Marquee";
-            pointSeriesLabel8.TextPattern = "{S}{V}";
-            series19.Label = pointSeriesLabel8;
-            series19.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series19.Name = "Rework Rate";
-            lineSeriesView10.Color = System.Drawing.Color.Blue;
-            lineSeriesView10.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            lineSeriesView10.LineMarkerOptions.Size = 9;
-            lineSeriesView10.LineStyle.Thickness = 3;
-            lineSeriesView10.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series19.View = lineSeriesView10;
-            this.chtMrIssues.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series19};
+            this.chtMrIssues.PaletteName = "doit";
+            this.chtMrIssues.PaletteRepository.Add("doit", new DevExpress.XtraCharts.Palette("doit", DevExpress.XtraCharts.PaletteScaleMode.Repeat, new DevExpress.XtraCharts.PaletteEntry[] {
+                new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))), System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))))),
+                new DevExpress.XtraCharts.PaletteEntry(System.Drawing.Color.Green, System.Drawing.Color.Green)}));
+            this.chtMrIssues.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
             this.chtMrIssues.Size = new System.Drawing.Size(635, 273);
             this.chtMrIssues.TabIndex = 16;
             this.chtMrIssues.CustomDrawAxisLabel += new DevExpress.XtraCharts.CustomDrawAxisLabelEventHandler(this.chtMrIssues_CustomDrawAxisLabel);
@@ -1091,10 +1053,6 @@
             ((System.ComponentModel.ISupportInitialize)(series18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chtOverall)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chtMrIssues)).EndInit();
             this.ResumeLayout(false);
 
