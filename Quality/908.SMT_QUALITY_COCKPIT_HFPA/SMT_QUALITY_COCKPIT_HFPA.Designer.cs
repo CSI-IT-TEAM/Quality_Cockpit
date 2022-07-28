@@ -55,6 +55,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_HFPA));
             DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY2 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
@@ -67,8 +68,6 @@
             DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel1 = new DevExpress.XtraCharts.PieSeriesLabel();
             DevExpress.XtraCharts.PieSeriesView pieSeriesView1 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_HFPA));
             this.chart1 = new DevExpress.XtraCharts.ChartControl();
             this.pnControl = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -84,9 +83,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnTop = new System.Windows.Forms.Panel();
-            this.cmdPm1 = new System.Windows.Forms.Button();
+            this.pn_UC = new OS_DSF.A1Panel();
+            this.btnYear = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMonth = new DevExpress.XtraEditors.SimpleButton();
+            this.btnWeek = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDay = new DevExpress.XtraEditors.SimpleButton();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
+            this.cmdPm1 = new System.Windows.Forms.Button();
             this.pnExport = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
@@ -96,11 +100,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
             this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.pn_UC = new OS_DSF.A1Panel();
-            this.btnYear = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMonth = new DevExpress.XtraEditors.SimpleButton();
-            this.btnWeek = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDay = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
@@ -113,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMDT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMDT.Properties)).BeginInit();
             this.pnTop.SuspendLayout();
+            this.pn_UC.SuspendLayout();
             this.pnExport.SuspendLayout();
             this.pnBody1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -131,7 +131,6 @@
             ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).BeginInit();
-            this.pn_UC.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -507,24 +506,117 @@
             this.pnTop.Size = new System.Drawing.Size(1924, 76);
             this.pnTop.TabIndex = 2;
             // 
-            // cmdPm1
+            // pn_UC
             // 
-            this.cmdPm1.BackColor = System.Drawing.Color.Transparent;
-            this.cmdPm1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdPm1.BackgroundImage")));
-            this.cmdPm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdPm1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cmdPm1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdPm1.FlatAppearance.BorderSize = 0;
-            this.cmdPm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPm1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdPm1.ForeColor = System.Drawing.Color.Navy;
-            this.cmdPm1.Location = new System.Drawing.Point(0, 0);
-            this.cmdPm1.Name = "cmdPm1";
-            this.cmdPm1.Size = new System.Drawing.Size(77, 76);
-            this.cmdPm1.TabIndex = 88;
-            this.cmdPm1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdPm1.UseVisualStyleBackColor = false;
-            this.cmdPm1.Click += new System.EventHandler(this.cmdBack_Click);
+            this.pn_UC.BorderColor = System.Drawing.Color.Transparent;
+            this.pn_UC.Controls.Add(this.btnYear);
+            this.pn_UC.Controls.Add(this.btnMonth);
+            this.pn_UC.Controls.Add(this.btnWeek);
+            this.pn_UC.Controls.Add(this.btnDay);
+            this.pn_UC.GradientEndColor = System.Drawing.Color.Transparent;
+            this.pn_UC.GradientStartColor = System.Drawing.Color.Transparent;
+            this.pn_UC.Image = null;
+            this.pn_UC.ImageLocation = new System.Drawing.Point(4, 4);
+            this.pn_UC.Location = new System.Drawing.Point(1451, 4);
+            this.pn_UC.Name = "pn_UC";
+            this.pn_UC.Size = new System.Drawing.Size(272, 66);
+            this.pn_UC.TabIndex = 89;
+            // 
+            // btnYear
+            // 
+            this.btnYear.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnYear.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnYear.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYear.Appearance.Options.UseBackColor = true;
+            this.btnYear.Appearance.Options.UseFont = true;
+            this.btnYear.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnYear.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnYear.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYear.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnYear.AppearanceHovered.Options.UseBackColor = true;
+            this.btnYear.AppearanceHovered.Options.UseFont = true;
+            this.btnYear.AppearanceHovered.Options.UseForeColor = true;
+            this.btnYear.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnYear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYear.ImageOptions.Image")));
+            this.btnYear.Location = new System.Drawing.Point(148, 36);
+            this.btnYear.Name = "btnYear";
+            this.btnYear.Size = new System.Drawing.Size(130, 30);
+            this.btnYear.TabIndex = 57;
+            this.btnYear.Tag = "Y";
+            this.btnYear.Text = "Year";
+            // 
+            // btnMonth
+            // 
+            this.btnMonth.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnMonth.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnMonth.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonth.Appearance.Options.UseBackColor = true;
+            this.btnMonth.Appearance.Options.UseFont = true;
+            this.btnMonth.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnMonth.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnMonth.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonth.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnMonth.AppearanceHovered.Options.UseBackColor = true;
+            this.btnMonth.AppearanceHovered.Options.UseFont = true;
+            this.btnMonth.AppearanceHovered.Options.UseForeColor = true;
+            this.btnMonth.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnMonth.Enabled = false;
+            this.btnMonth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMonth.ImageOptions.Image")));
+            this.btnMonth.Location = new System.Drawing.Point(148, 5);
+            this.btnMonth.Name = "btnMonth";
+            this.btnMonth.Size = new System.Drawing.Size(130, 30);
+            this.btnMonth.TabIndex = 58;
+            this.btnMonth.Tag = "M";
+            this.btnMonth.Text = "Month";
+            // 
+            // btnWeek
+            // 
+            this.btnWeek.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnWeek.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnWeek.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWeek.Appearance.Options.UseBackColor = true;
+            this.btnWeek.Appearance.Options.UseFont = true;
+            this.btnWeek.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnWeek.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnWeek.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWeek.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnWeek.AppearanceHovered.Options.UseBackColor = true;
+            this.btnWeek.AppearanceHovered.Options.UseFont = true;
+            this.btnWeek.AppearanceHovered.Options.UseForeColor = true;
+            this.btnWeek.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnWeek.Enabled = false;
+            this.btnWeek.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWeek.ImageOptions.Image")));
+            this.btnWeek.Location = new System.Drawing.Point(16, 36);
+            this.btnWeek.Name = "btnWeek";
+            this.btnWeek.Size = new System.Drawing.Size(130, 30);
+            this.btnWeek.TabIndex = 56;
+            this.btnWeek.Tag = "W";
+            this.btnWeek.Text = "Week";
+            this.btnWeek.Click += new System.EventHandler(this.btnWeek_Click);
+            // 
+            // btnDay
+            // 
+            this.btnDay.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnDay.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnDay.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDay.Appearance.Options.UseBackColor = true;
+            this.btnDay.Appearance.Options.UseFont = true;
+            this.btnDay.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDay.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDay.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDay.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnDay.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDay.AppearanceHovered.Options.UseFont = true;
+            this.btnDay.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnDay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDay.ImageOptions.Image")));
+            this.btnDay.Location = new System.Drawing.Point(16, 5);
+            this.btnDay.Name = "btnDay";
+            this.btnDay.Size = new System.Drawing.Size(130, 30);
+            this.btnDay.TabIndex = 55;
+            this.btnDay.Tag = "D";
+            this.btnDay.Text = "Day";
+            this.btnDay.Click += new System.EventHandler(this.btnDay_Click);
             // 
             // lblDate
             // 
@@ -550,6 +642,25 @@
             this.lblHeader.Size = new System.Drawing.Size(1445, 76);
             this.lblHeader.TabIndex = 3;
             this.lblHeader.Text = "        Summary Report";
+            // 
+            // cmdPm1
+            // 
+            this.cmdPm1.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPm1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdPm1.BackgroundImage")));
+            this.cmdPm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdPm1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cmdPm1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdPm1.FlatAppearance.BorderSize = 0;
+            this.cmdPm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPm1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdPm1.ForeColor = System.Drawing.Color.Navy;
+            this.cmdPm1.Location = new System.Drawing.Point(0, 0);
+            this.cmdPm1.Name = "cmdPm1";
+            this.cmdPm1.Size = new System.Drawing.Size(77, 76);
+            this.cmdPm1.TabIndex = 88;
+            this.cmdPm1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdPm1.UseVisualStyleBackColor = false;
+            this.cmdPm1.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // pnExport
             // 
@@ -718,129 +829,11 @@
         series4};
             this.chartControl3.Size = new System.Drawing.Size(956, 432);
             this.chartControl3.TabIndex = 3;
-            chartTitle3.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartTitle3.Text = "HFPA by Reason";
-            chartTitle3.TextColor = System.Drawing.Color.Blue;
-            chartTitle3.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chartControl3.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle3});
             // 
             // gridBand13
             // 
             this.gridBand13.Name = "gridBand13";
             this.gridBand13.VisibleIndex = -1;
-            // 
-            // pn_UC
-            // 
-            this.pn_UC.BorderColor = System.Drawing.Color.Transparent;
-            this.pn_UC.Controls.Add(this.btnYear);
-            this.pn_UC.Controls.Add(this.btnMonth);
-            this.pn_UC.Controls.Add(this.btnWeek);
-            this.pn_UC.Controls.Add(this.btnDay);
-            this.pn_UC.GradientEndColor = System.Drawing.Color.Transparent;
-            this.pn_UC.GradientStartColor = System.Drawing.Color.Transparent;
-            this.pn_UC.Image = null;
-            this.pn_UC.ImageLocation = new System.Drawing.Point(4, 4);
-            this.pn_UC.Location = new System.Drawing.Point(1451, 4);
-            this.pn_UC.Name = "pn_UC";
-            this.pn_UC.Size = new System.Drawing.Size(272, 66);
-            this.pn_UC.TabIndex = 89;
-            // 
-            // btnYear
-            // 
-            this.btnYear.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnYear.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnYear.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYear.Appearance.Options.UseBackColor = true;
-            this.btnYear.Appearance.Options.UseFont = true;
-            this.btnYear.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnYear.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnYear.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYear.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnYear.AppearanceHovered.Options.UseBackColor = true;
-            this.btnYear.AppearanceHovered.Options.UseFont = true;
-            this.btnYear.AppearanceHovered.Options.UseForeColor = true;
-            this.btnYear.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnYear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYear.ImageOptions.Image")));
-            this.btnYear.Location = new System.Drawing.Point(148, 36);
-            this.btnYear.Name = "btnYear";
-            this.btnYear.Size = new System.Drawing.Size(130, 30);
-            this.btnYear.TabIndex = 57;
-            this.btnYear.Tag = "Y";
-            this.btnYear.Text = "Year";
-            // 
-            // btnMonth
-            // 
-            this.btnMonth.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnMonth.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnMonth.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonth.Appearance.Options.UseBackColor = true;
-            this.btnMonth.Appearance.Options.UseFont = true;
-            this.btnMonth.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnMonth.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnMonth.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonth.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnMonth.AppearanceHovered.Options.UseBackColor = true;
-            this.btnMonth.AppearanceHovered.Options.UseFont = true;
-            this.btnMonth.AppearanceHovered.Options.UseForeColor = true;
-            this.btnMonth.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnMonth.Enabled = false;
-            this.btnMonth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMonth.ImageOptions.Image")));
-            this.btnMonth.Location = new System.Drawing.Point(148, 5);
-            this.btnMonth.Name = "btnMonth";
-            this.btnMonth.Size = new System.Drawing.Size(130, 30);
-            this.btnMonth.TabIndex = 58;
-            this.btnMonth.Tag = "M";
-            this.btnMonth.Text = "Month";
-            // 
-            // btnWeek
-            // 
-            this.btnWeek.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnWeek.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnWeek.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeek.Appearance.Options.UseBackColor = true;
-            this.btnWeek.Appearance.Options.UseFont = true;
-            this.btnWeek.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnWeek.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnWeek.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeek.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnWeek.AppearanceHovered.Options.UseBackColor = true;
-            this.btnWeek.AppearanceHovered.Options.UseFont = true;
-            this.btnWeek.AppearanceHovered.Options.UseForeColor = true;
-            this.btnWeek.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnWeek.Enabled = false;
-            this.btnWeek.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWeek.ImageOptions.Image")));
-            this.btnWeek.Location = new System.Drawing.Point(16, 36);
-            this.btnWeek.Name = "btnWeek";
-            this.btnWeek.Size = new System.Drawing.Size(130, 30);
-            this.btnWeek.TabIndex = 56;
-            this.btnWeek.Tag = "W";
-            this.btnWeek.Text = "Week";
-            this.btnWeek.Click += new System.EventHandler(this.btnWeek_Click);
-            // 
-            // btnDay
-            // 
-            this.btnDay.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnDay.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnDay.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDay.Appearance.Options.UseBackColor = true;
-            this.btnDay.Appearance.Options.UseFont = true;
-            this.btnDay.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDay.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDay.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDay.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnDay.AppearanceHovered.Options.UseBackColor = true;
-            this.btnDay.AppearanceHovered.Options.UseFont = true;
-            this.btnDay.AppearanceHovered.Options.UseForeColor = true;
-            this.btnDay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnDay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDay.ImageOptions.Image")));
-            this.btnDay.Location = new System.Drawing.Point(16, 5);
-            this.btnDay.Name = "btnDay";
-            this.btnDay.Size = new System.Drawing.Size(130, 30);
-            this.btnDay.TabIndex = 55;
-            this.btnDay.Tag = "D";
-            this.btnDay.Text = "Day";
-            this.btnDay.Click += new System.EventHandler(this.btnDay_Click);
             // 
             // SMT_QUALITY_COCKPIT_HFPA
             // 
@@ -865,6 +858,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMDT.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMDT.Properties)).EndInit();
             this.pnTop.ResumeLayout(false);
+            this.pn_UC.ResumeLayout(false);
             this.pnExport.ResumeLayout(false);
             this.pnBody1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -883,7 +877,6 @@
             ((System.ComponentModel.ISupportInitialize)(pieSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
-            this.pn_UC.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

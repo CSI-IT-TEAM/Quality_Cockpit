@@ -232,11 +232,30 @@ namespace FORM
                 //SetChart2(dtChart2);
                 if (dtChart2 != null && dtChart2.Rows.Count > 0)
                 {
-                    DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+                    DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                    //chartControl3.DataSource = dtChart2;
+                    //chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+                    //chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+
+                    //
+                    chartControl3.Titles.Clear();
+                    chartTitle.Text = "HFPA by Reason";
                     chartControl3.DataSource = dtChart2;
                     chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                     chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-                    //
+
+                    // Define the alignment of the titles.
+                    chartTitle.Alignment = StringAlignment.Center;
+
+                    // Place the titles where it's required.
+                    chartTitle.Dock = ChartTitleDockStyle.Top;
+
+                    // Customize a title's appearance.
+                    chartTitle.Antialiasing = true;
+                    chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                    chartTitle.TextColor = Color.Blue;
+                    chartTitle.Indent = 10;
+                    this.chartControl3.Titles.Add(chartTitle);
                 }
                 else
                 {
@@ -288,7 +307,7 @@ namespace FORM
                 if (point != null)
                 {
                     string sYM = point.Argument;
-                    
+
                     DataSet dsData = await sbGetHFPA(sDate, sYM);
                     if (dsData == null) return;
                     DataTable dtChart = dsData.Tables[0];
@@ -302,15 +321,71 @@ namespace FORM
                     //SetChart1(dtChart1);
                     if (dtChart2 != null && dtChart2.Rows.Count > 0)
                     {
-                        DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                        chartControl3.Titles.Clear();
+                        if (sYM != null)
+                            chartTitle.Text = "HFPA by Reason Nos " + sYM;
+                        else
+                            chartTitle.Text = "HFPA by Reason";
                         chartControl3.DataSource = dtChart2;
                         chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                         chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-                        //
+
+                        // Define the alignment of the titles.
+                        chartTitle.Alignment = StringAlignment.Center;
+
+                        // Place the titles where it's required.
+                        chartTitle.Dock = ChartTitleDockStyle.Top;
+
+                        // Customize a title's appearance.
+                        chartTitle.Antialiasing = true;
+                        chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                        chartTitle.TextColor = Color.Blue;
+                        chartTitle.Indent = 10;
+                        this.chartControl3.Titles.Add(chartTitle);
+                        //chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle});
                     }
                     else
                     {
                         chartControl3.DataSource = null;
+                    }
+                }
+                else if (hit.ChartTitle != null)
+                {
+                    DataSet dsData = await sbGetHFPA(sDate, "ALL");
+
+                    if (dsData == null) return;
+                    DataTable dtChart = dsData.Tables[0];
+                    DataTable dtChart1 = dsData.Tables[1];
+                    DataTable dtChart2 = dsData.Tables[2];
+                    dtWeek = dsData.Tables[3];
+                    if (sDate == "WEEK")
+                        lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
+
+                    //SetChart(dtChart);
+                    //SetChart1(dtChart1);
+                    if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                    {
+                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                        chartControl3.Titles.Clear();
+                        chartTitle.Text = "HFPA by Reason";
+                        chartControl3.DataSource = dtChart2;
+                        chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+                        chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+
+                        // Define the alignment of the titles.
+                        chartTitle.Alignment = StringAlignment.Center;
+
+                        // Place the titles where it's required.
+                        chartTitle.Dock = ChartTitleDockStyle.Top;
+
+                        // Customize a title's appearance.
+                        chartTitle.Antialiasing = true;
+                        chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                        chartTitle.TextColor = Color.Blue;
+                        chartTitle.Indent = 10;
+                        this.chartControl3.Titles.Add(chartTitle);
+                        //chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle});
                     }
                 }
             }
