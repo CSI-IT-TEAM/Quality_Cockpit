@@ -17,10 +17,10 @@ namespace FORM
             InitializeComponent();
             lblHeader.Text = _strHeader;
         }
-        private readonly string _strHeader = "HFPA by day";
+        private readonly string _strHeader = "Monthly B/C Grade";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
-        string sDate = "DAY";
+        string sDate = "Q";
         DataTable dtWeek = null;
 
         #region Load-Visible Change-Timer
@@ -38,7 +38,6 @@ namespace FORM
             {
                 cboPlant.SelectedValue = ComVar.Var._strValue1;
                 cboLine.SelectedValue = ComVar.Var._strValue2;
-                //clear_chart();
                  _time = 28;
                
 
@@ -53,9 +52,10 @@ namespace FORM
         }
         private void clear_chart()
         {
-            chart1.Series[0].Points.Clear();
-            chart1.Series[1].Points.Clear();
-            //chartControl2.Series[0].Points.Clear();
+            chart2.Series[0].Points.Clear();
+            chart2.Series[1].Points.Clear();
+            chart2.Series[2].Points.Clear();
+            chart3.Series[0].Points.Clear();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -105,22 +105,20 @@ namespace FORM
             {
                 string process_name = "LMES.PKG_SMT_QUALITY_COCKPIT_06.SP_GET_BC_GRADE";
 
-                MyOraDB.ReDim_Parameter(6);
+                MyOraDB.ReDim_Parameter(5);
                 MyOraDB.Process_Name = process_name;
 
                 MyOraDB.Parameter_Name[0] = "V_P_TYPE";
                 MyOraDB.Parameter_Name[1] = "V_P_DATE";
                 MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
-                MyOraDB.Parameter_Name[3] = "OUT_CURSOR2";
-                MyOraDB.Parameter_Name[4] = "OUT_CURSOR3";
-                MyOraDB.Parameter_Name[5] = "OUT_CURSOR4";
+                MyOraDB.Parameter_Name[3] = "OUT_CURSOR1";
+                MyOraDB.Parameter_Name[4] = "OUT_CURSOR2";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
                 MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
                 MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
-                MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
 
 
                 MyOraDB.Parameter_Values[0] = ARG_QTYPE;
@@ -128,7 +126,6 @@ namespace FORM
                 MyOraDB.Parameter_Values[2] = "";
                 MyOraDB.Parameter_Values[3] = "";
                 MyOraDB.Parameter_Values[4] = "";
-                MyOraDB.Parameter_Values[5] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -155,62 +152,55 @@ namespace FORM
             chart1.DataSource = null;
             chart1.Series[0].Points.Clear();
             chart1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chart1.Series[1].Points.Clear();
+            chart1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+            chart1.Series[2].Points.Clear();
+            chart1.Series[2].ArgumentScaleType = ScaleType.Qualitative;
             if (argDtChart == null) return;
-            // XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
-
-            //if(sDate.ToString() == "MONTH")
-            //{
-            //    diagram.AxisX.Title.Text = "Month";
-            //}
-            //else if (sDate.ToString() == "YEAR")
-            //{
-            //    diagram.AxisX.Title.Text = "Year";
-            //}
-            //else
-            //    diagram.AxisX.Title.Text = "Line";
 
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
-                chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["QTY"]));
+                chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["BC_PPM"]));
+                chart1.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["B_GRADE"]));
+                chart1.Series[2].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["C_GRADE"]));
             }
+
+            ((DevExpress.XtraCharts.XYDiagram)chart1.Diagram).AxisX.QualitativeScaleOptions.AutoGrid = false;
+
+
             chart1.RuntimeHitTesting = true;
         }
 
         private void SetChart1(DataTable argDtChart)
         {
-            //chartControl2.DataSource = null;
-            //chartControl2.Series[0].Points.Clear();          
-            //chartControl2.Series[0].ArgumentScaleType = ScaleType.Qualitative;
-            //if (argDtChart == null) return;
-            //XYDiagram diagram = (XYDiagram)chartControl2.Diagram;
+            chart2.DataSource = null;
+            chart2.Series[0].Points.Clear();
+            chart2.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chart2.Series[1].Points.Clear();
+            chart2.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+            chart2.Series[2].Points.Clear();
+            chart2.Series[2].ArgumentScaleType = ScaleType.Qualitative;
+            if (argDtChart == null) return;
 
-            //    diagram.AxisX.Title.Text = "Line";
-            //for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
-            //{
-            //    chartControl2.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["DEFECT_RATE"]));
-            //    if (i >= 5)
-            //    {
-            //        chartControl2.Series[0].Points[i].Color = Color.Red;
-            //    }
-            //    else
-            //    {
-            //        chartControl2.Series[0].Points[i].Color = Color.Green;
-            //    }
-            //}
+            for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
+            {
+                chart2.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NAME"].ToString(), argDtChart.Rows[i]["BC_PPM"]));
+                chart2.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NAME"].ToString(), argDtChart.Rows[i]["B_GRADE"]));
+                chart2.Series[2].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NAME"].ToString(), argDtChart.Rows[i]["C_GRADE"]));
+            }
         }
         private void SetChart2(DataTable argDtChart)
         {
-            //chartControl3.Series[0].Points.Clear();
-            //chartControl3.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chart3.DataSource = null;
+            chart3.Series[0].Points.Clear();
+            chart3.Series[0].ArgumentScaleType = ScaleType.Qualitative;
 
-            //if (argDtChart == null) return;
-            //for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
-            //{
-            //    chartControl3.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["REWORK_NAME"].ToString(), argDtChart.Rows[i]["REW_QTY"]));
-            //    //chartControl3.DataSource = argDtChart;
-            //    //chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
-            //    //chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-            //}
+            if (argDtChart == null) return;
+            for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
+            {
+                chart3.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["ERR_NM"].ToString(), argDtChart.Rows[i]["QTY"]));
+                
+            }
         }
 
         private async void SetData()
@@ -223,44 +213,11 @@ namespace FORM
                 DataTable dtChart  = dsData.Tables[0];
                 DataTable dtChart1 = dsData.Tables[1];
                 DataTable dtChart2 = dsData.Tables[2];
-                dtWeek   = dsData.Tables[3];
-                if(sDate=="WEEK")
-                lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
+                //dtWeek   = dsData.Tables[3];
 
                 SetChart(dtChart);
                 SetChart1(dtChart1);
-                //SetChart2(dtChart2);
-                if (dtChart2 != null && dtChart2.Rows.Count > 0)
-                {
-                    DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
-                    //chartControl3.DataSource = dtChart2;
-                    //chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
-                    //chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-
-                    //
-                    //chartControl3.Titles.Clear();
-                    //chartTitle.Text = "HFPA by Reason";
-                    //chartControl3.DataSource = dtChart2;
-                    //chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
-                    //chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-
-                    // Define the alignment of the titles.
-                    chartTitle.Alignment = StringAlignment.Center;
-
-                    // Place the titles where it's required.
-                    chartTitle.Dock = ChartTitleDockStyle.Top;
-
-                    // Customize a title's appearance.
-                    chartTitle.Antialiasing = true;
-                    chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
-                    chartTitle.TextColor = Color.Blue;
-                    chartTitle.Indent = 10;
-                   // this.chartControl3.Titles.Add(chartTitle);
-                }
-                else
-                {
-                   // chartControl3.DataSource = null;
-                }
+                SetChart2(dtChart2);
 
             }
             catch (Exception ex)
@@ -275,26 +232,26 @@ namespace FORM
 
         private void btnDay_Click(object sender, EventArgs e)
         {
-            btnDay.Enabled = false;
-            btnWeek.Enabled = true;
-            btnMonth.Enabled = false;
-            btnYear.Enabled = false;
-            sDate = "DAY";
-            lblHeader.Text = "HFPA by day";
-            //clear_chart();
-            SetData();
+            //btnDay.Enabled = false;
+            //btnWeek.Enabled = true;
+            //btnMonth.Enabled = false;
+            //btnYear.Enabled = false;
+            //sDate = "DAY";
+            //lblHeader.Text = "HFPA by day";
+            ////clear_chart();
+            //SetData();
         }
 
         private void btnWeek_Click(object sender, EventArgs e)
         {
-            btnDay.Enabled = true;
-            btnWeek.Enabled = false;
-            btnMonth.Enabled = false;
-            btnYear.Enabled = false;
-            sDate = "WEEK";
-            //lblHeader.Text = "       HFPA by week";
-            //clear_chart();
-            SetData();
+            //btnDay.Enabled = true;
+            //btnWeek.Enabled = false;
+            //btnMonth.Enabled = false;
+            //btnYear.Enabled = false;
+            //sDate = "WEEK";
+            ////lblHeader.Text = "       HFPA by week";
+            ////clear_chart();
+            //SetData();
             
         }
 
@@ -306,30 +263,25 @@ namespace FORM
                 SeriesPoint point = hit.SeriesPoint;
                 if (point != null)
                 {
-                    string sYM = point.Argument;
+                    string sYM = point.DateTimeArgument.ToString();
+                    string sYM1 = point.Argument;
+                    clear_chart();
 
                     DataSet dsData = await Task.Run(() => sbGetBC_Grade(sDate, sYM));
                     if (dsData == null) return;
                     DataTable dtChart = dsData.Tables[0];
                     DataTable dtChart1 = dsData.Tables[1];
                     DataTable dtChart2 = dsData.Tables[2];
-                    dtWeek = dsData.Tables[3];
-                    if (sDate == "WEEK")
-                        lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
-
-                    //SetChart(dtChart);
-                    //SetChart1(dtChart1);
-                    if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                    //dtWeek = dsData.Tables[3];
+                    if (dtChart1 != null && dtChart1.Rows.Count > 0)
                     {
                         DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
-                       // chartControl3.Titles.Clear();
+                        chart2.Titles.Clear();
                         if (sYM != null)
-                            chartTitle.Text = "HFPA by Reason Nos " + sYM;
+                            chartTitle.Text = "B/C Grade " + sYM1;
                         else
-                            chartTitle.Text = "HFPA by Reason";
-                      //  chartControl3.DataSource = dtChart2;
-                       // chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
-                      //  chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+                            chartTitle.Text = "B/C Grade by Line";
+                        SetChart1(dtChart1);
 
                         // Define the alignment of the titles.
                         chartTitle.Alignment = StringAlignment.Center;
@@ -342,12 +294,38 @@ namespace FORM
                         chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
                         chartTitle.TextColor = Color.Blue;
                         chartTitle.Indent = 10;
-                       // this.chartControl3.Titles.Add(chartTitle);
-                        //chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle});
+                        chart2.Titles.AddRange(new ChartTitle[] { chartTitle});
                     }
                     else
                     {
-                        //chartControl3.DataSource = null;
+                        chart2.DataSource = null;
+                    }
+                    if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                    {
+                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                        chart3.Titles.Clear();
+                        if (sYM != null)
+                            chartTitle.Text = "B/C Grade by Reason " + sYM1;
+                        else
+                            chartTitle.Text = "B/C Grade by Reason";
+                        SetChart2(dtChart2);
+
+                        // Define the alignment of the titles.
+                        chartTitle.Alignment = StringAlignment.Center;
+
+                        // Place the titles where it's required.
+                        chartTitle.Dock = ChartTitleDockStyle.Top;
+
+                        // Customize a title's appearance.
+                        chartTitle.Antialiasing = true;
+                        chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                        chartTitle.TextColor = Color.Blue;
+                        chartTitle.Indent = 10;
+                        chart3.Titles.AddRange(new ChartTitle[] { chartTitle });
+                    }
+                    else
+                    {
+                        chart3.DataSource = null;
                     }
                 }
                 else if (hit.ChartTitle != null)
@@ -358,20 +336,13 @@ namespace FORM
                     DataTable dtChart = dsData.Tables[0];
                     DataTable dtChart1 = dsData.Tables[1];
                     DataTable dtChart2 = dsData.Tables[2];
-                    dtWeek = dsData.Tables[3];
-                    if (sDate == "WEEK")
-                        lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
-
-                    //SetChart(dtChart);
-                    //SetChart1(dtChart1);
-                    if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                    //dtWeek = dsData.Tables[3];
+                    if (dtChart1 != null && dtChart1.Rows.Count > 0)
                     {
                         DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
-                        //chartControl3.Titles.Clear();
-                        chartTitle.Text = "HFPA by Reason";
-                        //chartControl3.DataSource = dtChart2;
-                       // chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
-                       // chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+                        chart2.Titles.Clear();
+                        chartTitle.Text = "B/C Grade by Line";
+                        SetChart1(dtChart1);
 
                         // Define the alignment of the titles.
                         chartTitle.Alignment = StringAlignment.Center;
@@ -384,8 +355,27 @@ namespace FORM
                         chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
                         chartTitle.TextColor = Color.Blue;
                         chartTitle.Indent = 10;
-                        //this.chartControl3.Titles.Add(chartTitle);
-                        //chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle});
+                        chart2.Titles.AddRange(new ChartTitle[] { chartTitle});
+                    }
+                    if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                    {
+                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                        chart3.Titles.Clear();
+                        chartTitle.Text = "B/C Grade by Reason";
+                        SetChart2(dtChart2);
+
+                        // Define the alignment of the titles.
+                        chartTitle.Alignment = StringAlignment.Center;
+
+                        // Place the titles where it's required.
+                        chartTitle.Dock = ChartTitleDockStyle.Top;
+
+                        // Customize a title's appearance.
+                        chartTitle.Antialiasing = true;
+                        chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                        chartTitle.TextColor = Color.Blue;
+                        chartTitle.Indent = 10;
+                        chart3.Titles.AddRange(new ChartTitle[] { chartTitle });
                     }
                 }
             }

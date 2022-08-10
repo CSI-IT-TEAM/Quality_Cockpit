@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_MAIN));
-            this.tmrTime = new System.Windows.Forms.Timer(this.components);
+            this.tmrTime = new System.Windows.Forms.Timer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmdF1 = new System.Windows.Forms.Button();
             this.cmdF2 = new System.Windows.Forms.Button();
@@ -81,7 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmdDasboard = new System.Windows.Forms.Button();
             this.cmdRework = new System.Windows.Forms.Button();
-            this.tmrBlink = new System.Windows.Forms.Timer(this.components);
+            this.tmrBlink = new System.Windows.Forms.Timer();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labelComponent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleRangeBarComponent1)).BeginInit();
@@ -763,6 +762,7 @@
             this.cmdBCGrade.Size = new System.Drawing.Size(235, 128);
             this.cmdBCGrade.TabIndex = 85;
             this.cmdBCGrade.UseVisualStyleBackColor = false;
+            this.cmdBCGrade.Click += new System.EventHandler(this.cmdBCGrade_Click);
             // 
             // cmdHFPA
             // 
