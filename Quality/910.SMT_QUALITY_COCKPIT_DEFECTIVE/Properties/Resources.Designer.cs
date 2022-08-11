@@ -73,9 +73,9 @@ namespace FORM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap defect {
+        internal static System.Drawing.Bitmap btnSearch {
             get {
-                object obj = ResourceManager.GetObject("defect", resourceCulture);
+                object obj = ResourceManager.GetObject("btnSearch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace FORM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap defective {
+        internal static System.Drawing.Bitmap btnSearch1 {
             get {
-                object obj = ResourceManager.GetObject("defective", resourceCulture);
+                object obj = ResourceManager.GetObject("btnSearch1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace FORM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shoe {
+        internal static System.Drawing.Bitmap loading1 {
             get {
-                object obj = ResourceManager.GetObject("shoe", resourceCulture);
+                object obj = ResourceManager.GetObject("loading1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
