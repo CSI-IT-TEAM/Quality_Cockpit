@@ -751,16 +751,17 @@
             // 
             this.cmdBCGrade.BackColor = System.Drawing.SystemColors.Control;
             this.cmdBCGrade.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBCGrade.BackgroundImage")));
-            this.cmdBCGrade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdBCGrade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmdBCGrade.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdBCGrade.FlatAppearance.BorderSize = 0;
             this.cmdBCGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdBCGrade.Font = new System.Drawing.Font("Calibri", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdBCGrade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmdBCGrade.Font = new System.Drawing.Font("Calibri", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdBCGrade.ForeColor = System.Drawing.Color.Blue;
             this.cmdBCGrade.Location = new System.Drawing.Point(1676, 3);
             this.cmdBCGrade.Name = "cmdBCGrade";
             this.cmdBCGrade.Size = new System.Drawing.Size(235, 128);
             this.cmdBCGrade.TabIndex = 85;
+            this.cmdBCGrade.Text = "B&&C\r\nGrade";
             this.cmdBCGrade.UseVisualStyleBackColor = false;
             this.cmdBCGrade.Click += new System.EventHandler(this.cmdBCGrade_Click);
             // 

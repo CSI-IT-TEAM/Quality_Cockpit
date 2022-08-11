@@ -17,7 +17,7 @@ namespace FORM
             InitializeComponent();
             lblHeader.Text = _strHeader;
         }
-        private readonly string _strHeader = "Monthly B/C Grade";
+        private readonly string _strHeader = "Monthly B&C Grade";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "Q";
@@ -181,6 +181,7 @@ namespace FORM
             chart2.Series[2].Points.Clear();
             chart2.Series[2].ArgumentScaleType = ScaleType.Qualitative;
             if (argDtChart == null) return;
+            chart2.Titles.Clear();
 
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
@@ -218,6 +219,22 @@ namespace FORM
                 SetChart(dtChart);
                 SetChart1(dtChart1);
                 SetChart2(dtChart2);
+
+                DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                chart3.Titles.Clear();
+                chartTitle.Text = "B/C Grade by Reason";
+                // Define the alignment of the titles.
+                chartTitle.Alignment = StringAlignment.Center;
+
+                // Place the titles where it's required.
+                chartTitle.Dock = ChartTitleDockStyle.Top;
+
+                // Customize a title's appearance.
+                chartTitle.Antialiasing = true;
+                chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                chartTitle.TextColor = Color.Blue;
+                chartTitle.Indent = 10;
+                chart3.Titles.AddRange(new ChartTitle[] { chartTitle });
 
             }
             catch (Exception ex)
@@ -359,8 +376,9 @@ namespace FORM
                     }
                     if (dtChart2 != null && dtChart2.Rows.Count > 0)
                     {
-                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
                         chart3.Titles.Clear();
+                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                        
                         chartTitle.Text = "B/C Grade by Reason";
                         SetChart2(dtChart2);
 
