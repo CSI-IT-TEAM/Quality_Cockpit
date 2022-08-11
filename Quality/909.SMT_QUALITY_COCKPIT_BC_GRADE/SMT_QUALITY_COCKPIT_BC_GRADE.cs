@@ -17,7 +17,7 @@ namespace FORM
             InitializeComponent();
             lblHeader.Text = _strHeader;
         }
-        private readonly string _strHeader = "Monthly B&C Grade";
+        private readonly string _strHeader = "Monthly B&&C Grade";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "Q";
@@ -147,23 +147,36 @@ namespace FORM
         #endregion DB
         private void SetChart(DataTable argDtChart)
         {
+            chart1.DataSource = argDtChart;
+            chart1.Series[0].ArgumentDataMember = "YMD";
+            chart1.Series[0].ValueDataMembers.AddRange(new string[] { "BC_PPM" });
+            chart1.Series[1].ArgumentDataMember = "YMD";
+            chart1.Series[1].ValueDataMembers.AddRange(new string[] { "B_GRADE" });
+            chart1.Series[2].ArgumentDataMember = "YMD";
+            chart1.Series[2].ValueDataMembers.AddRange(new string[] { "C_GRADE" });
+            ////DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
+            //chart1.DataSource = null;
+            //chart1.Series[0].Points.Clear();
+            //chart1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            //chart1.Series[1].Points.Clear();
+            //chart1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+            //chart1.Series[2].Points.Clear();
+            //chart1.Series[2].ArgumentScaleType = ScaleType.Qualitative;
+            //if (argDtChart == null) return;
+            ////chart1.DataSource = argDtChart;
 
-            //DataTable dtchart = await sbGetRework_Chart("CHART", YMDF, YMDT, PLANT_CD, LINE_CD);
-            chart1.DataSource = null;
-            chart1.Series[0].Points.Clear();
-            chart1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
-            chart1.Series[1].Points.Clear();
-            chart1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
-            chart1.Series[2].Points.Clear();
-            chart1.Series[2].ArgumentScaleType = ScaleType.Qualitative;
-            if (argDtChart == null) return;
-
-            for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
-            {
-                chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["BC_PPM"]));
-                chart1.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["B_GRADE"]));
-                chart1.Series[2].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["C_GRADE"]));
-            }
+            //for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
+            //{
+            //    //chart1.Series[0].ArgumentDataMember = "YMD";
+            //    //chart1.Series[0].ValueDataMembers.AddRange(new string[] { "BC_PPM" });
+            //    //chart1.Series[1].ArgumentDataMember = "YMD";
+            //    //chart1.Series[1].ValueDataMembers.AddRange(new string[] { "B_GRADE" });
+            //    //chart1.Series[2].ArgumentDataMember = "YMD";
+            //    //chart1.Series[2].ValueDataMembers.AddRange(new string[] { "C_GRADE" });
+            //    chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["BC_PPM"]));
+            //    chart1.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["B_GRADE"]));
+            //    chart1.Series[2].Points.Add(new SeriesPoint(argDtChart.Rows[i]["YMD"].ToString(), argDtChart.Rows[i]["C_GRADE"]));
+            //}
 
             ((DevExpress.XtraCharts.XYDiagram)chart1.Diagram).AxisX.QualitativeScaleOptions.AutoGrid = false;
 
@@ -227,7 +240,7 @@ namespace FORM
                 chartTitle.Alignment = StringAlignment.Center;
 
                 // Place the titles where it's required.
-                chartTitle.Dock = ChartTitleDockStyle.Top;
+                chartTitle.Dock = ChartTitleDockStyle.Right;
 
                 // Customize a title's appearance.
                 chartTitle.Antialiasing = true;
@@ -331,7 +344,7 @@ namespace FORM
                         chartTitle.Alignment = StringAlignment.Center;
 
                         // Place the titles where it's required.
-                        chartTitle.Dock = ChartTitleDockStyle.Top;
+                        chartTitle.Dock = ChartTitleDockStyle.Right;
 
                         // Customize a title's appearance.
                         chartTitle.Antialiasing = true;
@@ -386,7 +399,7 @@ namespace FORM
                         chartTitle.Alignment = StringAlignment.Center;
 
                         // Place the titles where it's required.
-                        chartTitle.Dock = ChartTitleDockStyle.Top;
+                        chartTitle.Dock = ChartTitleDockStyle.Right;
 
                         // Customize a title's appearance.
                         chartTitle.Antialiasing = true;

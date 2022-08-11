@@ -111,8 +111,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.chart2 = new DevExpress.XtraCharts.ChartControl();
             this.pnExport = new System.Windows.Forms.Panel();
-            this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.chart1 = new DevExpress.XtraCharts.ChartControl();
+            this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMD.Properties)).BeginInit();
@@ -672,6 +672,7 @@
             xyDiagram1.AxisX.Title.Text = "Reason";
             xyDiagram1.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisX.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.GridLines.Visible = false;
             xyDiagram1.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -681,24 +682,19 @@
             xyDiagram1.AxisY.Title.Text = "Count";
             xyDiagram1.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisY.Visibility = DevExpress.Utils.DefaultBoolean.False;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             xyDiagram1.Rotated = true;
             secondaryAxisY1.AxisID = 0;
-            secondaryAxisY1.Color = System.Drawing.Color.White;
-            secondaryAxisY1.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            secondaryAxisY1.Label.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             secondaryAxisY1.Name = "Secondary AxisY 1";
-            secondaryAxisY1.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            secondaryAxisY1.Title.Text = "Rework Rate (%)";
-            secondaryAxisY1.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(108)))), ((int)(((byte)(9)))));
+            secondaryAxisY1.Tickmarks.MinorVisible = false;
+            secondaryAxisY1.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            secondaryAxisY1.Title.Text = "Quantity Pairs(Prs)";
+            secondaryAxisY1.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(73)))), ((int)(((byte)(125)))));
             secondaryAxisY1.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            secondaryAxisY1.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            secondaryAxisY1.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY1.VisibleInPanesSerializable = "-1";
-            secondaryAxisY1.VisualRange.Auto = false;
-            secondaryAxisY1.VisualRange.MaxValueSerializable = "9.8";
-            secondaryAxisY1.VisualRange.MinValueSerializable = "0";
-            secondaryAxisY1.WholeRange.Auto = false;
-            secondaryAxisY1.WholeRange.MaxValueSerializable = "9.8";
-            secondaryAxisY1.WholeRange.MinValueSerializable = "0";
             xyDiagram1.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
             secondaryAxisY1});
             this.chart3.Diagram = xyDiagram1;
@@ -719,6 +715,7 @@
             series1.Label = stackedBarSeriesLabel1;
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series1.Name = "Reason";
+            stackedBarSeriesView1.AxisYName = "Secondary AxisY 1";
             stackedBarSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(172)))), ((int)(((byte)(198)))));
             stackedBarSeriesView1.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
             series1.View = stackedBarSeriesView1;
@@ -726,6 +723,7 @@
         series1};
             this.chart3.Size = new System.Drawing.Size(646, 929);
             this.chart3.TabIndex = 12;
+            chartTitle1.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Right;
             chartTitle1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold);
             chartTitle1.Text = "B/C Grade by Reason";
             chartTitle1.TextColor = System.Drawing.Color.Blue;
@@ -783,6 +781,10 @@
             secondaryAxisY2.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             secondaryAxisY2.Name = "Secondary AxisY 1";
             secondaryAxisY2.Tickmarks.Visible = false;
+            secondaryAxisY2.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            secondaryAxisY2.Title.Text = "PPM";
+            secondaryAxisY2.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(212)))));
+            secondaryAxisY2.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY2.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY2.VisibleInPanesSerializable = "-1";
             xyDiagram2.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
@@ -850,11 +852,6 @@
             this.pnExport.Size = new System.Drawing.Size(1260, 458);
             this.pnExport.TabIndex = 78;
             // 
-            // gridBand13
-            // 
-            this.gridBand13.Name = "gridBand13";
-            this.gridBand13.VisibleIndex = -1;
-            // 
             // chart1
             // 
             this.chart1.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
@@ -862,6 +859,7 @@
             this.chart1.DataBindings = null;
             xyDiagram3.AxisX.Label.Angle = 90;
             xyDiagram3.AxisX.Label.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram3.AxisX.Tickmarks.MinorVisible = false;
             xyDiagram3.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             xyDiagram3.AxisX.Title.Text = "Date";
             xyDiagram3.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -880,6 +878,10 @@
             secondaryAxisY3.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             secondaryAxisY3.Name = "Secondary AxisY 1";
             secondaryAxisY3.Tickmarks.Visible = false;
+            secondaryAxisY3.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            secondaryAxisY3.Title.Text = "PPM";
+            secondaryAxisY3.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(212)))));
+            secondaryAxisY3.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY3.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY3.VisibleInPanesSerializable = "-1";
             xyDiagram3.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
@@ -938,6 +940,11 @@
             this.chart1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle3});
             this.chart1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.chartControl1_MouseDoubleClick);
+            // 
+            // gridBand13
+            // 
+            this.gridBand13.Name = "gridBand13";
+            this.gridBand13.VisibleIndex = -1;
             // 
             // SMT_QUALITY_COCKPIT_BC_GRADE
             // 

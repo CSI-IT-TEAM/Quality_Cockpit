@@ -274,6 +274,7 @@
             // 
             // labelComponent1
             // 
+            this.labelComponent1.AcceptOrder = 1001;
             this.labelComponent1.AppearanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 44F);
             this.labelComponent1.AppearanceText.TextBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:DarkOrange");
             this.labelComponent1.Name = "circularGauge1_Label1";
@@ -283,6 +284,7 @@
             // 
             // arcScaleRangeBarComponent1
             // 
+            this.arcScaleRangeBarComponent1.AcceptOrder = 10;
             this.arcScaleRangeBarComponent1.EndOffset = 4F;
             this.arcScaleRangeBarComponent1.Name = "circularGauge1_RangeBar2";
             this.arcScaleRangeBarComponent1.RoundedCaps = true;
@@ -292,6 +294,7 @@
             // 
             // ascInv
             // 
+            this.ascInv.AcceptOrder = 0;
             this.ascInv.AppearanceMajorTickmark.BorderBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
             this.ascInv.AppearanceMajorTickmark.ContentBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
             this.ascInv.AppearanceMinorTickmark.BorderBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
@@ -448,13 +451,15 @@
             this.cmdBCGrade.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdBCGrade.FlatAppearance.BorderSize = 0;
             this.cmdBCGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdBCGrade.Font = new System.Drawing.Font("Calibri", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdBCGrade.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmdBCGrade.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdBCGrade.ForeColor = System.Drawing.Color.DodgerBlue;
             this.cmdBCGrade.Location = new System.Drawing.Point(1487, 3);
             this.cmdBCGrade.Name = "cmdBCGrade";
             this.cmdBCGrade.Size = new System.Drawing.Size(206, 128);
             this.cmdBCGrade.TabIndex = 85;
+            this.cmdBCGrade.Text = "B&&C\r\nGrade";
             this.cmdBCGrade.UseVisualStyleBackColor = false;
+            this.cmdBCGrade.Click += new System.EventHandler(this.cmdBCGrade_Click);
             // 
             // cmdHFPA
             // 
