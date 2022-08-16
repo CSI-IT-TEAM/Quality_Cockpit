@@ -135,6 +135,12 @@
     <Compile Include="SMT_QUALITY_COCKPIT_HFPA.Designer.cs">
       <DependentUpon>SMT_QUALITY_COCKPIT_HFPA.cs</DependentUpon>
     </Compile>
+    <Compile Include="SMT_QUALITY_COCKPIT_HFPA_DETAIL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SMT_QUALITY_COCKPIT_HFPA_DETAIL.Designer.cs">
+      <DependentUpon>SMT_QUALITY_COCKPIT_HFPA_DETAIL.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\UC_COMPARE_DAY_MONTH.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SMT_QUALITY_COCKPIT_HFPA.resx">
       <DependentUpon>SMT_QUALITY_COCKPIT_HFPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_HFPA_DETAIL.resx">
+      <DependentUpon>SMT_QUALITY_COCKPIT_HFPA_DETAIL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_COMPARE_DAY_MONTH.resx">
       <DependentUpon>UC_COMPARE_DAY_MONTH.cs</DependentUpon>
