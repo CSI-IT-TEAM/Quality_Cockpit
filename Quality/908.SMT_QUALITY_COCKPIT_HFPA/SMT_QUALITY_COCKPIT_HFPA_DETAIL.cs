@@ -178,7 +178,7 @@ namespace FORM
                 DataSet ds_ret;
                 try
                 {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK";
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_HFPA";
 
                     MyOraDB.ReDim_Parameter(7);
                     MyOraDB.Process_Name = process_name;
@@ -327,7 +327,7 @@ namespace FORM
                 string strdate = DateTime.Now.ToString("yyyyMMdd");
                 Cursor.Current = Cursors.WaitCursor;
                 SetData();
-                SetData_Detail(strdate, cboPlant.SelectedValue.ToString(), cboLine.SelectedValue.ToString());
+                //SetData_Detail(strdate, cboPlant.SelectedValue.ToString(), cboLine.SelectedValue.ToString());
 
                 
             }
@@ -364,11 +364,11 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 4)
+                if (rate > 5)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate > 3)
+                else if (rate > 2.05)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
@@ -504,13 +504,13 @@ namespace FORM
                         e.Appearance.BackColor = Color.Red;
                         e.Appearance.ForeColor = Color.White;
                     }
-                    else if (temp > 3 && temp <= 4)
+                    else if (temp > 2.05 && temp <= 5)
                     {
 
                         e.Appearance.BackColor = Color.Yellow;
                         e.Appearance.ForeColor = Color.Black;
                     }
-                    else if (temp <= 3)
+                    else if (temp <= 2.05)
                     {
 
                         e.Appearance.BackColor = Color.Green;
@@ -525,70 +525,70 @@ namespace FORM
 
         }
 
-        private async void SetData_Detail(string ymd,string plant, string line)
-        {
-            try
-            {
-                gvwDetail.BeginUpdate();
-                string YMDF,  PLANT_CD, LINE_CD;
-                int total = 0;
-                double PER = 0;
+        //private async void SetData_Detail(string ymd,string plant, string line)
+        //{
+        //    try
+        //    {
+        //        gvwDetail.BeginUpdate();
+        //        string YMDF,  PLANT_CD, LINE_CD;
+        //        int total = 0;
+        //        double PER = 0;
                
 
-                DataSet dsData = await sbGetRework_Detail("Q", ymd, plant, line);
+        //        DataSet dsData = await sbGetRework_Detail("Q", ymd, plant, line);
 
-                DataTable dtGrid = dsData.Tables[0];
+        //        DataTable dtGrid = dsData.Tables[0];
 
-                grdDetail.DataSource = dtGrid;
-              //  gvwDetail.Appearance.Row.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
-
-
-
-                for (int i = 0; i < gvwDetail.Columns.Count; i++)
-                {
-
-                    //gvwDetail.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Regular);
+        //        grdDetail.DataSource = dtGrid;
+        //      //  gvwDetail.Appearance.Row.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
 
 
-                    gvwDetail.Columns[i].AppearanceCell.Options.UseTextOptions = true;
 
-                   // gvwDetail.Columns[i].Width = 156;
-                    gvwDetail.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+        //        for (int i = 0; i < gvwDetail.Columns.Count; i++)
+        //        {
+
+        //            //gvwDetail.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Regular);
+
+
+        //            gvwDetail.Columns[i].AppearanceCell.Options.UseTextOptions = true;
+
+        //           // gvwDetail.Columns[i].Width = 156;
+        //            gvwDetail.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
                    
-                    gvwDetail.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-                    gvwDetail.Columns[i].OptionsFilter.AllowFilter = false;
-                    gvwDetail.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-                    gvwDetail.Columns[i].OptionsColumn.AllowEdit = false;
-                    gvwDetail.Columns[i].OptionsColumn.ReadOnly = true;
+        //            gvwDetail.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+        //            gvwDetail.Columns[i].OptionsFilter.AllowFilter = false;
+        //            gvwDetail.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+        //            gvwDetail.Columns[i].OptionsColumn.AllowEdit = false;
+        //            gvwDetail.Columns[i].OptionsColumn.ReadOnly = true;
                    
-                    gvwDetail.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                    //gvwDetail.Columns[i].AppearanceHeader.Fonts
+        //            gvwDetail.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+        //            //gvwDetail.Columns[i].AppearanceHeader.Fonts
 
-                    gvwDetail.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-                    //  
-                    //gvwDetail.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
-                    gvwDetail.Columns[i].AppearanceCell.Font = new Font("Calibri", 18, FontStyle.Bold);
-                    gvwDetail.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                    gvwDetail.Columns[i].DisplayFormat.FormatString = "#,###.##";
-                }
-                gvwDetail.ColumnPanelRowHeight = 80;
-                gvwDetail.BandPanelRowHeight = 50;
-                gvwDetail.RowHeight = 50;
-
-
-                // gvwView.BestFitColumns();
+        //            gvwDetail.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+        //            //  
+        //            //gvwDetail.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
+        //            gvwDetail.Columns[i].AppearanceCell.Font = new Font("Calibri", 18, FontStyle.Bold);
+        //            gvwDetail.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+        //            gvwDetail.Columns[i].DisplayFormat.FormatString = "#,###.##";
+        //        }
+        //        gvwDetail.ColumnPanelRowHeight = 80;
+        //        gvwDetail.BandPanelRowHeight = 50;
+        //        gvwDetail.RowHeight = 50;
 
 
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                gvwDetail.EndUpdate();
-            }
-        }
+        //        // gvwView.BestFitColumns();
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine(ex);
+        //    }
+        //    finally
+        //    {
+        //        gvwDetail.EndUpdate();
+        //    }
+        //}
 
         private void gvwView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
@@ -758,7 +758,7 @@ namespace FORM
             if (cboLine.Text != "" && _isLoad == false)
             {
                 SetData();
-                SetData_Detail(DateTime.Now.ToString("yyyyMMdd"), cboPlant.SelectedValue.ToString(), cboLine.SelectedValue.ToString());
+                //SetData_Detail(DateTime.Now.ToString("yyyyMMdd"), cboPlant.SelectedValue.ToString(), cboLine.SelectedValue.ToString());
             }
         }
     }
