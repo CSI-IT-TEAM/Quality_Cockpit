@@ -725,7 +725,7 @@
             this.chart3.TabIndex = 12;
             chartTitle1.Dock = DevExpress.XtraCharts.ChartTitleDockStyle.Right;
             chartTitle1.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold);
-            chartTitle1.Text = "B/C Grade by Reason";
+            chartTitle1.Text = "Top 10 by Reason";
             chartTitle1.TextColor = System.Drawing.Color.Blue;
             chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart3.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {

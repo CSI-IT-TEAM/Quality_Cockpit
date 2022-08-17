@@ -235,7 +235,7 @@ namespace FORM
 
                 DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
                 chart3.Titles.Clear();
-                chartTitle.Text = "B/C Grade by Reason";
+                chartTitle.Text = "Top 10 by Reason";
                 // Define the alignment of the titles.
                 chartTitle.Alignment = StringAlignment.Center;
 
@@ -335,9 +335,9 @@ namespace FORM
                         DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
                         chart3.Titles.Clear();
                         if (sYM != null)
-                            chartTitle.Text = "B/C Grade by Reason " + sYM1;
+                            chartTitle.Text = "Top 10 by Reason " + sYM1;
                         else
-                            chartTitle.Text = "B/C Grade by Reason";
+                            chartTitle.Text = "Top 10 by Reason";
                         SetChart2(dtChart2);
 
                         // Define the alignment of the titles.
@@ -392,7 +392,7 @@ namespace FORM
                         chart3.Titles.Clear();
                         DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
                         
-                        chartTitle.Text = "B/C Grade by Reason";
+                        chartTitle.Text = "Top 10 by Reason";
                         SetChart2(dtChart2);
 
                         // Define the alignment of the titles.
