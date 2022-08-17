@@ -193,15 +193,15 @@ namespace FORM.UC
 
                 if (_typeDisplay == TypeDisplay.SEASON)
                 {
-                    if (sSeasonValue == CurrenSeason)
-                    {
-                        this.btnNextYear.Enabled = false;
-                    }
-                    else
-                    {
+                    //if (sSeasonValue == CurrenSeason)
+                    //{
+                    //    this.btnNextYear.Enabled = false;
+                    //}
+                    //else
+                    //{
                         this.btnNextYear.Enabled = true;
                         this.btnNextYear.Focus();
-                    }    
+                   // }    
                 }
                 else
                 {
