@@ -475,9 +475,9 @@ namespace FORM
                 }
 
 
-               // gvwView.BestFitColumns();
-                
+                // gvwView.BestFitColumns();
 
+                gvwView.Columns[0].BestFit();
                 SetChart(dtChart);
             }
             catch (Exception ex)
