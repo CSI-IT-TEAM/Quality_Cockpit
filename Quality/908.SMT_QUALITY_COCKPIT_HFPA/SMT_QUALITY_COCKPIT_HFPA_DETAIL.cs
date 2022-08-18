@@ -268,51 +268,51 @@ namespace FORM
                 }
             });
         }
-        public async Task<DataTable> sbGetRework_Chart(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
-        {
-            return await Task.Run(() => {
-                COM.OraDB MyOraDB = new COM.OraDB();
-                DataSet ds_ret;
-                try
-                {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK_CHART";
+        //public async Task<DataTable> sbGetRework_Chart(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
+        //{
+        //    return await Task.Run(() => {
+        //        COM.OraDB MyOraDB = new COM.OraDB();
+        //        DataSet ds_ret;
+        //        try
+        //        {
+        //            string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_GET_REWORK_CHART";
 
-                    MyOraDB.ReDim_Parameter(6);
-                    MyOraDB.Process_Name = process_name;
+        //            MyOraDB.ReDim_Parameter(6);
+        //            MyOraDB.Process_Name = process_name;
 
-                    MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                    MyOraDB.Parameter_Name[1] = "V_P_DATEF";
-                    MyOraDB.Parameter_Name[2] = "V_P_DATET";
-                    MyOraDB.Parameter_Name[3] = "V_P_PLANT";
-                    MyOraDB.Parameter_Name[4] = "V_P_LINE";
-                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+        //            MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+        //            MyOraDB.Parameter_Name[1] = "V_P_DATEF";
+        //            MyOraDB.Parameter_Name[2] = "V_P_DATET";
+        //            MyOraDB.Parameter_Name[3] = "V_P_PLANT";
+        //            MyOraDB.Parameter_Name[4] = "V_P_LINE";
+        //            MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
 
-                    MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+        //            MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+        //            MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+        //            MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+        //            MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+        //            MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
+        //            MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
 
-                    MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                    MyOraDB.Parameter_Values[1] = ARG_YMDF;
-                    MyOraDB.Parameter_Values[2] = ARG_YMDT;
-                    MyOraDB.Parameter_Values[3] = ARG_PLANT;
-                    MyOraDB.Parameter_Values[4] = ARG_LINE;
-                    MyOraDB.Parameter_Values[5] = "";
+        //            MyOraDB.Parameter_Values[0] = ARG_QTYPE;
+        //            MyOraDB.Parameter_Values[1] = ARG_YMDF;
+        //            MyOraDB.Parameter_Values[2] = ARG_YMDT;
+        //            MyOraDB.Parameter_Values[3] = ARG_PLANT;
+        //            MyOraDB.Parameter_Values[4] = ARG_LINE;
+        //            MyOraDB.Parameter_Values[5] = "";
 
-                    MyOraDB.Add_Select_Parameter(true);
-                    ds_ret = MyOraDB.Exe_Select_Procedure();
+        //            MyOraDB.Add_Select_Parameter(true);
+        //            ds_ret = MyOraDB.Exe_Select_Procedure();
 
-                    if (ds_ret == null) return null;
-                    return ds_ret.Tables[process_name];
-                }
-                catch
-                {
-                    return null;
-                }
-            });
-        }
+        //            if (ds_ret == null) return null;
+        //            return ds_ret.Tables[process_name];
+        //        }
+        //        catch
+        //        {
+        //            return null;
+        //        }
+        //    });
+        //}
    
 
         #endregion DB

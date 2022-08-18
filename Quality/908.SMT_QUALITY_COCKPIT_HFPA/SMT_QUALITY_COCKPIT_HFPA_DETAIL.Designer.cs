@@ -467,7 +467,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1622, 76);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "        Daily Rework";
+            this.lblHeader.Text = "        Daily HFPA";
             // 
             // pnExport
             // 

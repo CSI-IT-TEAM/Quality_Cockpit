@@ -781,11 +781,11 @@
             // 
             this.cmdHFPA.BackColor = System.Drawing.SystemColors.Control;
             this.cmdHFPA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdHFPA.BackgroundImage")));
-            this.cmdHFPA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdHFPA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cmdHFPA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdHFPA.FlatAppearance.BorderSize = 0;
             this.cmdHFPA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdHFPA.Font = new System.Drawing.Font("Calibri", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdHFPA.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdHFPA.ForeColor = System.Drawing.Color.White;
             this.cmdHFPA.Location = new System.Drawing.Point(1275, 3);
             this.cmdHFPA.Name = "cmdHFPA";
