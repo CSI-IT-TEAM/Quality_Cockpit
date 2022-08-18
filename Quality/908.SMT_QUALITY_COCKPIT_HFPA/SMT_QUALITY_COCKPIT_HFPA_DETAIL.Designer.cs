@@ -576,7 +576,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(216, 39);
             this.label1.TabIndex = 420;
-            this.label1.Text = "2.05% > Rate <=5%";
+            this.label1.Text = "2% > Rate <=5%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -589,7 +589,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 39);
             this.label5.TabIndex = 419;
-            this.label5.Text = "Rate <=2.05%";
+            this.label5.Text = "Rate <=2%";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gridBand13

@@ -368,7 +368,7 @@ namespace FORM
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate > 2.05)
+                else if (rate > 2)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
@@ -499,18 +499,18 @@ namespace FORM
                 if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
                     double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
-                    if (temp > 4)
+                    if (temp > 5)
                     {
                         e.Appearance.BackColor = Color.Red;
                         e.Appearance.ForeColor = Color.White;
                     }
-                    else if (temp > 2.05 && temp <= 5)
+                    else if (temp > 2)
                     {
 
                         e.Appearance.BackColor = Color.Yellow;
                         e.Appearance.ForeColor = Color.Black;
                     }
-                    else if (temp <= 2.05)
+                    else
                     {
 
                         e.Appearance.BackColor = Color.Green;

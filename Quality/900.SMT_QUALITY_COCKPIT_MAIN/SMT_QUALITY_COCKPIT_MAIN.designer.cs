@@ -275,7 +275,6 @@
             // 
             // labelComponent1
             // 
-            this.labelComponent1.AcceptOrder = 1001;
             this.labelComponent1.AppearanceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 44F);
             this.labelComponent1.AppearanceText.TextBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:DarkOrange");
             this.labelComponent1.Name = "circularGauge1_Label1";
@@ -285,7 +284,6 @@
             // 
             // arcScaleRangeBarComponent1
             // 
-            this.arcScaleRangeBarComponent1.AcceptOrder = 10;
             this.arcScaleRangeBarComponent1.EndOffset = 4F;
             this.arcScaleRangeBarComponent1.Name = "circularGauge1_RangeBar2";
             this.arcScaleRangeBarComponent1.RoundedCaps = true;
@@ -295,7 +293,6 @@
             // 
             // ascInv
             // 
-            this.ascInv.AcceptOrder = 0;
             this.ascInv.AppearanceMajorTickmark.BorderBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
             this.ascInv.AppearanceMajorTickmark.ContentBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
             this.ascInv.AppearanceMinorTickmark.BorderBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:White");
@@ -777,6 +774,7 @@
             this.cmdBCGrade.Size = new System.Drawing.Size(206, 128);
             this.cmdBCGrade.TabIndex = 85;
             this.cmdBCGrade.UseVisualStyleBackColor = false;
+            this.cmdBCGrade.Visible = false;
             this.cmdBCGrade.Click += new System.EventHandler(this.cmdBCGrade_Click);
             // 
             // cmdHFPA
