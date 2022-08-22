@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.BandedGrid.ViewInfo;
 using System.Data.OleDb;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -21,10 +22,10 @@ namespace FORM
     public partial class SMT_QUALITY_COCKPIT_MAIN : Form
     {
         public SMT_QUALITY_COCKPIT_MAIN()
-        {            
+        {
             InitializeComponent();
             initForm();
-            
+
         }
 
         private const int SW_MAXIMIZE = 3;
@@ -33,17 +34,15 @@ namespace FORM
         int _iReload = 0;
         DataTable _dtMasterLine;
         DataTable _dtGMES;
-       // Dictionary<string, UC.UC_Chart_Donut> _dicLocation = new Dictionary<string, UC.UC_Chart_Donut>();
+        // Dictionary<string, UC.UC_Chart_Donut> _dicLocation = new Dictionary<string, UC.UC_Chart_Donut>();
         Dictionary<string, Button_Status> _dicLine = new Dictionary<string, Button_Status>();
         Dictionary<string, UC.UC_Factory> _dicFac = new Dictionary<string, UC.UC_Factory>();
-        CancellationTokenSource Source;
-        CancellationToken Token;
 
         private void SMT_QUALITY_COCKPIT_MAIN_Load(object sender, EventArgs e)
         {
             SetButtonBack();
             _dtGMES = ComVar.Func.ReadXML(Application.StartupPath + @"\Config.xml", "GMES");
-           
+
         }
 
         private void SMT_SCADA_COCKPIT_MENU_VisibleChanged(object sender, EventArgs e)
@@ -52,20 +51,14 @@ namespace FORM
             {
                 //_dtTest = await GetDataAsync();
                 // DataTable dt = Data_Select("");
-                Source = new CancellationTokenSource();
+
                 _iReload = 29;
                 tmrTime.Start();
-                
-                 tmrBlink.Start();
+
+                tmrBlink.Start();
             }
             else
             {
-                if (Source != null)
-                {
-                    Source.Cancel();
-                    Source = null;
-                    Debug.WriteLine("Task Cancel");
-                }
                 tmrTime.Stop();
                 tmrBlink.Stop();
                 Dispose();
@@ -97,10 +90,10 @@ namespace FORM
             try
             {
 
-               
-               // aPn3.Visible = false;
 
-               // picSCADA.BackgroundImage = Image.FromFile(Application.StartupPath + @"\img\Start_up.png");
+                // aPn3.Visible = false;
+
+                // picSCADA.BackgroundImage = Image.FromFile(Application.StartupPath + @"\img\Start_up.png");
 
 
 
@@ -117,23 +110,23 @@ namespace FORM
                 //  y += 10;
                 //  create_Line_F1(pnF1, dtFactory, x, ref y, "FSS");
 
-               // x = 74;
-               // y = 35;
+                // x = 74;
+                // y = 35;
                 dtFactory = _dtMasterLine.Select("FACTORY = 'F2'").CopyToDataTable();
                 create_Line(pnF2, dtFactory, x, y);
 
-              //  x = 74;
-               // y = 35;
+                //  x = 74;
+                // y = 35;
                 dtFactory = _dtMasterLine.Select("FACTORY = 'F3'").CopyToDataTable();
                 create_Line(pnF3, dtFactory, x, y);
 
-               // x = 74;
-              //  y = 35;
+                // x = 74;
+                //  y = 35;
                 dtFactory = _dtMasterLine.Select("FACTORY = 'F4'").CopyToDataTable();
                 create_Line(pnF4, dtFactory, x, y);
 
-               // x = 74;
-               // y = 35;
+                // x = 74;
+                // y = 35;
                 dtFactory = _dtMasterLine.Select("FACTORY = 'F5'").CopyToDataTable();
                 create_Line(pnF5, dtFactory, x, y);
 
@@ -144,7 +137,7 @@ namespace FORM
                 create_Factory(gpExF2, "F2");
                 create_Factory(gpExF3, "F3");
                 create_Factory(gpExF4, "F4");
-                create_Factory(gpExF5, "F5");             
+                create_Factory(gpExF5, "F5");
                 create_Factory(gpExLT, "LT");
 
                 //setData();
@@ -167,22 +160,22 @@ namespace FORM
             }
             finally
             {
-                
+
             }
         }
 
         private void create_Line(Panel pnControl, DataTable argDt, int locStartX, int locStartY)
         {
             int locX = locStartX, locY = locStartY;
-            Font lineTextButtonFont = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
+            Font lineTextButtonFont = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold);
             Font buttonMlineFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             Font buttonLineFont = new System.Drawing.Font("Calibri", 40F, System.Drawing.FontStyle.Bold);
             Font buttonLineFont2 = new System.Drawing.Font("Calibri", 32F, System.Drawing.FontStyle.Bold);
             Point buttonLoc;
             Size buttonSize;
-            Size lineTextButtonSize ;
-            Size lineButtonSize = new System.Drawing.Size(20, 27);
-            Size buttonStatusSize = new System.Drawing.Size(48, 27);
+            Size lineTextButtonSize;
+            Size lineButtonSize = new System.Drawing.Size(40, 27);
+            Size buttonStatusSize = new System.Drawing.Size(55, 27);
             Dictionary<string, string> dicValue = new Dictionary<string, string>();
             string lineCd, factory = argDt.Rows[0]["FACTORY"].ToString();
             int iNumLine;
@@ -196,10 +189,10 @@ namespace FORM
             Button cmdLine;
 
             //head line name
-            buttonLoc = new Point(locStartX, -5);
+            buttonLoc = new Point(locStartX, 0);
             lineTextButtonSize = new System.Drawing.Size(lineButtonSize.Width, sizeTextHead);
             dicValue["NAME"] = "cmd_LineNm" + factory + "_TXT";
-            dicValue["TEXT"] = "";
+            dicValue["TEXT"] = "Line";
             dicValue["BACK_COLOR"] = "WHITE";
             dicValue["FORE_COLOR"] = "BLACK";
             dicValue["TAG"] = "";
@@ -242,13 +235,6 @@ namespace FORM
             cmdLine = createButton(dicValue, buttonLoc, lineTextButtonSize, lineTextButtonFont);
             pnControl.Controls.Add(cmdLine);
 
-            buttonLoc = new Point(LocStartXLineText + buttonStatusSize.Width * 4 + SpaceButton * 5, 0);
-            lineTextButtonSize = new System.Drawing.Size(buttonStatusSize.Width, sizeTextHead);
-            dicValue["NAME"] = "cmd_HFPA" + factory + "_TXT";
-            dicValue["TEXT"] = "HFPA";
-            dicValue["TAG"] = "";
-            cmdLine = createButton(dicValue, buttonLoc, lineTextButtonSize, lineTextButtonFont);
-            pnControl.Controls.Add(cmdLine);
 
 
             foreach (DataRow row in argDt.Rows)
@@ -256,19 +242,19 @@ namespace FORM
                 int.TryParse(row["NUM_FGA"].ToString(), out iNumLine);
                 lineCd = row["LINE_CD"].ToString();
 
-                
+
 
                 int iStart = lineCd == "018" ? 4 : 0;
                 //lineCd = lineCd.Replace("_1", "");
                 for (int iLine = iStart + 1; iLine <= iStart + iNumLine; iLine++)
                 {
-                    string lineAndMline = lineCd.Replace("_1","") + "_" + iLine.ToString("000");
+                    string lineAndMline = lineCd.Replace("_1", "") + "_" + iLine.ToString("000");
                     if (factory == "F1")
                     {
-                        
-                        lineAndMline = iLine ==2 ? "003_000" : iLine == 3 ? "002_000" : iLine.ToString("000") + "_000";
+
+                        lineAndMline = iLine == 2 ? "003_000" : iLine == 3 ? "002_000" : iLine.ToString("000") + "_000";
                     }
-                        
+
 
                     buttonLoc = new Point(locX, locY);
                     dicValue["NAME"] = "cmd_" + lineAndMline + "_" + "MNM";
@@ -287,7 +273,7 @@ namespace FORM
                     dicValue["TAG"] = lineAndMline + "_" + "NPI";
                     dicValue["TEXT"] = "";
                     dicValue["BACK_COLOR"] = "GREEN";
-                    
+
                     dicValue["FORE_COLOR"] = "WHITE";
                     cmdLine = createButton(dicValue, buttonLoc, buttonStatusSize, buttonMlineFont);
                     pnControl.Controls.Add(cmdLine);
@@ -310,13 +296,6 @@ namespace FORM
                     //Bonding
                     dicValue["NAME"] = "cmd_" + lineAndMline + "_" + "BON" + "_" + "STA";
                     dicValue["TAG"] = lineAndMline + "_" + "BON";
-                    buttonLoc = new Point(locX += buttonStatusSize.Width + SpaceButton, locY);
-                    cmdLine = createButton(dicValue, buttonLoc, buttonStatusSize, buttonMlineFont);
-                    pnControl.Controls.Add(cmdLine);
-
-                    //HFPA
-                    dicValue["NAME"] = "cmd_" + lineAndMline + "_" + "HFP" + "_" + "STA";
-                    dicValue["TAG"] = lineAndMline + "_" + "HFP";
                     buttonLoc = new Point(locX += buttonStatusSize.Width + SpaceButton, locY);
                     cmdLine = createButton(dicValue, buttonLoc, buttonStatusSize, buttonMlineFont);
                     pnControl.Controls.Add(cmdLine);
@@ -344,18 +323,18 @@ namespace FORM
 
                 locStartY = locY += 5;
             }
-                
+
         }
 
         private Button createButton(Dictionary<string, string> value, Point location, Size size, Font font)
         {
-            try 
-	        {	        
-		        Button cmd = new Button();
+            try
+            {
+                Button cmd = new Button();
 
-                
+
                 cmd.FlatAppearance.BorderSize = 0;
-                cmd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;              
+                cmd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                 cmd.Font = font;
                 cmd.Location = location;
                 cmd.BackColor = Color.FromName(value["BACK_COLOR"]);
@@ -367,7 +346,7 @@ namespace FORM
                 cmd.UseVisualStyleBackColor = true;
                 cmd.Click += new EventHandler(Button_Line_Click);
 
-                
+
 
                 if (value["TAG"] != "")
                 {
@@ -377,13 +356,13 @@ namespace FORM
                     _dicLine.Add(value["TAG"].ToString(), con);
                 }
                 return cmd;
-	        }
-	        catch (Exception)
-	        {
-		        return null;
-		        
-	        }
-            
+            }
+            catch (Exception)
+            {
+                return null;
+
+            }
+
         }
 
         private void create_Factory(GroupBoxEx gpEx, string factory)
@@ -399,7 +378,7 @@ namespace FORM
             }
         }
 
-        private void createUcFactory(GroupBoxEx gpEx, string tag , Point location, Size size)
+        private void createUcFactory(GroupBoxEx gpEx, string tag, Point location, Size size)
         {
             UC.UC_Factory uC_Factory = new UC.UC_Factory();
 
@@ -407,12 +386,12 @@ namespace FORM
             uC_Factory.Location = location;
             uC_Factory.Size = size;
             uC_Factory.Tag = tag;
-            
+
             gpEx.Controls.Add(uC_Factory);
             if (tag != "")
                 _dicFac.Add(tag, uC_Factory);
 
-            
+
         }
 
 
@@ -420,7 +399,7 @@ namespace FORM
         #endregion Init Form
 
         #region set Data
-     
+
 
         //private async Task<int> SetDataTest()
         //{
@@ -430,80 +409,53 @@ namespace FORM
         //    return dt;
         //}
 
-        DataTable HfpaData(DataTable sampleDt)
+        private async Task<DataTable> GetDataAsync()
         {
-            DataTable dtHfpa = Data_HFPA_Select();
-            DataTable newDataTable = sampleDt;
+            return await Task.Run(() => {
 
-            var query = from r in dtHfpa.AsEnumerable()
+                DataTable dt = Data_Select("");
 
-                             //where r.Field<string>("c_to") == "foo" &&
-                             //        r.Field<string>("p_to") == "bar"
-                         group r by new
-                         {
-                             LINE_CD = r.Field<string>("LINE_CD"),
-                             MLINE_CD = r.Field<string>("MLINE_CD"),
-                             RATE_BCOLOR = r.Field<string>("RATE_BCOLOR")
-                         }
-                        into g
-                        let objectArray = new object[]
-                        {
-                            g.Key.LINE_CD,
-                            g.Key.LINE_CD + "_" + g.Key.MLINE_CD + "_HFP",
-                            null,
-                            g.Key.RATE_BCOLOR
-                        }
-                        select objectArray;
-                         //{
-                         //    g.Key.LINE_CD,
-                         //    NAME_CONTROL = g.Key.LINE_CD + "_" + g.Key.MLINE_CD + "_" + "HFP",
-                         //    QTY = "",
-                         //    STATUS = g.Key.RATE_BCOLOR
-                         //}).ToArray();
-
-            foreach (var array in query)
-            {
-                newDataTable.Rows.Add(array);
-            }
-            return newDataTable;
+                return dt;
+            });
         }
 
-        private async void SetData()
+
+        private void setData()
         {
-            try
+
+            DataTable dt = Data_Select("");
+
+            //reset color line
+            foreach (var item in _dicLine)
             {
-                DataTable dtData = await Task.Run(() => Data_Select(""), Token);
-                DataTable dtHfpa = await Task.Run(() => HfpaData(dtData.Clone()), Token);
-                DataTable dt = dtData.AsEnumerable().Union(dtHfpa.AsEnumerable()).CopyToDataTable();
-
-                Stopwatch watch = new Stopwatch();
-
-                watch.Start();
-                //reset color line
-                foreach (var item in _dicLine)
+                if (item.Value.status != "GREEN")
                 {
-                    if (item.Value.status == "GREEN") continue;
                     item.Value.status = "GREEN";
                     item.Value.button.BackColor = Color.Green;
                 }
+            }
 
-                //reset color Factory
-                foreach (var item in _dicFac)
+            //reset color Factory
+            foreach (var item in _dicFac)
+            {
+                if (item.Value._Color != "GREEN")
                 {
-                    if (item.Value._Color == "GREEN") continue;
                     item.Value._Color = "GREEN";
                     item.Value.setColor("GREEN");
                     item.Value.Visible = true;
                 }
+            }
 
-                DataRow[] dr;
-                string location;
-                if (_dtMasterLine == null) return;
-                foreach (DataRow row in dt.Rows)
-                {              
+            DataRow[] dr;
+            Dictionary<string, string> dicStatus = new Dictionary<string, string>();
+            string location;
+            if (_dtMasterLine == null) return;
+            foreach (DataRow row in dt.Rows)
+            {
+                try
+                {
                     string lineCd = row["LINE_CD"].ToString();
-                    
-                    if (lineCd== "001" || lineCd == "002" || lineCd == "003" || lineCd == "004" || lineCd == "005" || lineCd == "006")
+                    if (lineCd == "001" || lineCd == "002" || lineCd == "003" || lineCd == "004" || lineCd == "005" || lineCd == "006")
                     {
                         location = "F1";
                     }
@@ -515,26 +467,63 @@ namespace FORM
                     }
 
                     //Set color Line
-                    string line = row["NAME_CONTROL"].ToString();                 
-                    if (!_dicLine.ContainsKey(line)) continue;
+                    if (_dicLine.ContainsKey(row["NAME_CONTROL"].ToString()))
+                    {
+                        _dicLine[row["NAME_CONTROL"].ToString()].status = row["STATUS"].ToString();
+                        _dicLine[row["NAME_CONTROL"].ToString()].button.BackColor = Color.FromName(row["STATUS"].ToString());
+                    }
 
-                    string status = row["STATUS"].ToString();
-                    _dicLine[line].status = status;
-                    _dicLine[line].button.BackColor = Color.FromName(status);
+                    if (row["STATUS"].ToString() == "RED")
+                    {
+                        _dicFac[location + "_RED"]._Color = row["STATUS"].ToString();
+                        _dicFac[location + "_RED"].setColor(row["STATUS"].ToString());
+                    }
+                    else if (row["STATUS"].ToString() == "YELLOW")
+                    {
+                        _dicFac[location + "_YELLOW"]._Color = row["STATUS"].ToString();
+                        _dicFac[location + "_YELLOW"].setColor(row["STATUS"].ToString());
+                    }
 
-                    if (status == "GREEN") continue;
-                    _dicFac[location + "_" + status]._Color = status;
-                    _dicFac[location + "_" + status].setColor(status);
-                
+
+
+                    //Set color Factory
+                    //if (_dicFac[location]._Color != "RED")
+                    //{
+                    //    _dicFac[location].setColor(row["STATUS"].ToString()); 
+                    //    _dicFac[location]._Color = row["STATUS"].ToString();                     
+                    //}
+
+
+                    //if (dicStatus.ContainsKey(location))
+                    //{
+                    //    if (dicStatus[location] == "YELLOW" && row["STATUS"].ToString() == "RED")
+                    //    {
+                    //        dicStatus[location] = row["STATUS"].ToString();
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    dicStatus[location] = row["STATUS"].ToString();
+                    //}
                 }
-                watch.Stop();
-                Debug.WriteLine(watch.Elapsed.Seconds.ToString());
-                
+                catch (Exception ex)
+                {
+                    ComVar.Var.writeToLog("MAIN --> setData: " + ex.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                ComVar.Var.writeToLog("MAIN --> setData: " + ex.ToString());
-            }
+
+
+
+
+
+            //_dicFac["F4_UPN"].setColor("YELLOW");
+            //_dicFac["F4_FSS"].setColor("YELLOW");
+            //_dicFac["F4_FGA"].setColor("YELLOW");
+
+            //   _dicFac["F5_FSS"].setColor("YELLOW");
+
+
+
         }
         #endregion Set Data
 
@@ -544,7 +533,7 @@ namespace FORM
             Control ctr = (Control)sender;
             string[] strArr = ctr.Name.Split('_');
 
-            if (strArr[strArr.Length -1] == "LNM")
+            if (strArr[strArr.Length - 1] == "LNM")
             {
                 CallDigitalShopFloor(strArr);
             }
@@ -572,7 +561,7 @@ namespace FORM
             else if (ComVar.Var._strValue1 == "003")
             {
                 ComVar.Var._strValue2 = "002";
-            }    
+            }
             else
             {
                 ComVar.Var._strValue2 = argLine[2];
@@ -589,11 +578,8 @@ namespace FORM
                 case "OSD":
                     ComVar.Var.callForm = "902";
                     break;
-                case "BON":                   
+                case "BON":
                     ComVar.Var.callForm = "903";
-                    break;
-                case "HFP":
-                    ComVar.Var.callForm = "911";
                     break;
             }
         }
@@ -619,13 +605,13 @@ namespace FORM
             ComVar.Var._strValue1 = line_cd;
 
             //Using for NOS N
-            if (line_cd == "099" || line_cd =="202")
+            if (line_cd == "099" || line_cd == "202")
             {
                 ComVar.Var.callForm = "140";
             }
 
             //Using for F1
-            else if (line_cd == "001"|| line_cd == "002" || line_cd == "003" || line_cd == "004" || line_cd == "005" || line_cd == "006")
+            else if (line_cd == "001" || line_cd == "002" || line_cd == "003" || line_cd == "004" || line_cd == "005" || line_cd == "006")
             {
                 ComVar.Var.callForm = "245";
             }
@@ -644,7 +630,7 @@ namespace FORM
 
 
 
-        private async Task <DataTable> Master_Select(string argType)
+        private async Task<DataTable> Master_Select(string argType)
         {
             return await Task.Run(() =>
             {
@@ -697,38 +683,10 @@ namespace FORM
             return retDS.Tables[MyOraDB.Process_Name];
         }
 
-        private DataTable Data_HFPA_Select()
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-
-            MyOraDB.ShowErr = true;
-
-            MyOraDB.ReDim_Parameter(3);
-            MyOraDB.Process_Name = "SEPHIROTH.PKG_HFPA_CLOUD_IF.SELECT_HFPA_DEF_DATA";
-
-            MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
-            MyOraDB.Parameter_Name[1] = "ARG_DATE";
-            MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
-
-            MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
-
-            MyOraDB.Parameter_Values[0] = "Q1";
-            MyOraDB.Parameter_Values[1] = DateTime.Now.ToString("yyyyMMdd");
-            MyOraDB.Parameter_Values[2] = "";
-
-            MyOraDB.Add_Select_Parameter(true);
-            DataSet retDS = MyOraDB.Exe_Select_Procedure();
-            if (retDS == null) return null;
-
-            return retDS.Tables[MyOraDB.Process_Name];
-        }
-
         private DataTable Data_Select_Machine(string argType, string argLine, string argMline, string argArea)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
-          //  MyOraDB.ShowErr = true;
+            //  MyOraDB.ShowErr = true;
             MyOraDB.ReDim_Parameter(5);
             MyOraDB.Process_Name = "MES.PKG_SMT_SCADA_COCKPIT.PM_SELECT_MACHINE_ALERT";
 
@@ -768,7 +726,7 @@ namespace FORM
             {
                 _iReload = 0;
                 // setDataTest();
-                SetData();
+                setData();
 
                 //uC_Chart_Donut1.setColor("Red");
                 // uC_Chart_Pie1.setColor("Green");
@@ -878,7 +836,7 @@ namespace FORM
                     p.WaitForInputIdle();
                     Thread.Sleep(2000);
                     SendKeys.SendWait("1{enter}"); //VJIT{tab}
-                    
+
                 }
                 else
                 {
