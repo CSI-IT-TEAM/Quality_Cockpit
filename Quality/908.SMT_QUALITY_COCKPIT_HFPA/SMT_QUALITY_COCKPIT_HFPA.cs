@@ -54,7 +54,7 @@ namespace FORM
         private void clear_chart()
         {
             chart1.Series[0].Points.Clear();
-            chart1.Series[1].Points.Clear();
+            //chart1.Series[1].Points.Clear();
             chartControl2.Series[0].Points.Clear();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -156,22 +156,22 @@ namespace FORM
             chart1.Series[0].Points.Clear();
             chart1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
             if (argDtChart == null) return;
-            // XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
-
-            //if(sDate.ToString() == "MONTH")
-            //{
-            //    diagram.AxisX.Title.Text = "Month";
-            //}
-            //else if (sDate.ToString() == "YEAR")
-            //{
-            //    diagram.AxisX.Title.Text = "Year";
-            //}
-            //else
-            //    diagram.AxisX.Title.Text = "Line";
 
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
                 chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["QTY"]));
+                if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) >= 98)
+                {
+                    chart1.Series[0].Points[i].Color = Color.LimeGreen;
+                }
+                else if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) < 95)
+                {
+                    chart1.Series[0].Points[i].Color = Color.Red;
+                }
+                else
+                {
+                    chart1.Series[0].Points[i].Color = Color.Yellow;
+                }
             }
             chart1.RuntimeHitTesting = true;
         }
