@@ -796,7 +796,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1445, 76);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "  Bottom Defective";
+            this.lblHeader.Text = "  Bottom Defective By Day";
             // 
             // cmdPm1
             // 

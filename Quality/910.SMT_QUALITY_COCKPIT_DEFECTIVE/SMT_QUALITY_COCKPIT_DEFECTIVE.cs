@@ -19,7 +19,7 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_DEFECTIVE : Form
     {
-        private readonly string _strHeader = " Defective Report";
+        //private readonly string _strHeader = " Defective Report";
         int _time = 0;
         string _crr_date = "";
         string _crr_div = "OSP", _div_nm = "Outsole";
