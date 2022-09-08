@@ -268,7 +268,7 @@
             this.chartModel.Size = new System.Drawing.Size(956, 462);
             this.chartModel.TabIndex = 15;
             chartTitle1.Font = new System.Drawing.Font("Times New Roman", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            chartTitle1.Text = "Outsole By Model";
+            chartTitle1.Text = "Outsole By Top 10 Model";
             this.chartModel.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle1});
             // 

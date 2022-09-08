@@ -338,7 +338,7 @@ namespace FORM
                     chartModel.DataSource = _dtSource;
 
                     DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
-                    chartTitle.Text = _div_nm + " By Model";
+                    chartTitle.Text = _div_nm + " By Top 10 Model";
                     chartModel.Titles.Clear();
 
                     // Define the alignment of the titles.
