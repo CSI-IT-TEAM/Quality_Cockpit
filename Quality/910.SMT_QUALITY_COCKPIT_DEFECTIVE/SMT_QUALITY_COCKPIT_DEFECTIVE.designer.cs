@@ -396,7 +396,7 @@
             chartTitle3.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chartMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle3});
-            this.chartMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseDoubleClick);
+            this.chartMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseClick);
             // 
             // panel2
             // 
@@ -796,7 +796,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1445, 76);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "    Bottom Defective";
+            this.lblHeader.Text = "  Bottom Defective";
             // 
             // cmdPm1
             // 

@@ -29,7 +29,7 @@ namespace FORM
         public SMT_QUALITY_COCKPIT_DEFECTIVE()
         {
             InitializeComponent();
-            lblHeader.Text = _strHeader;
+            //lblHeader.Text = _strHeader;
         }
 
         #region Load-Visible Change-Timer
@@ -622,6 +622,36 @@ namespace FORM
             }
 
             return result;
+        }
+
+        private void chartMain_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    _div_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
+                        }
+                    }
+                }
+
+                _time = 10;
+                SetDataDetail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void gvwMain_RowCellStyle(object sender, RowCellStyleEventArgs e)
