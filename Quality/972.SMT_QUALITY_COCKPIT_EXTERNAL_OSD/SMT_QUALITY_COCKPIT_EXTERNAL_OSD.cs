@@ -26,7 +26,7 @@ namespace FORM
             InitializeComponent();
             lblHeader.Text = _strHeader;
         }
-        private readonly string _strHeader = "       External OS&&D";
+        private readonly string _strHeader = "       Long Thanh External OS&&D";
         //  private UC.UC_COMPARE_WEEK uc_compare_week = new UC.UC_COMPARE_WEEK();
         string _strType = "Q";
         string _plant = ComVar.Var._strValue1;  // "";// 
@@ -457,12 +457,12 @@ namespace FORM
             {
                 _time = 0;
                 _strType = "Q";
+              
+               // cbo_Plant.SelectedValue = ComVar.Var._strValue1;
+               // cbo_line.SelectedValue = ComVar.Var._strValue2;
 
-                cbo_Plant.SelectedValue = ComVar.Var._strValue1;
-                cbo_line.SelectedValue = ComVar.Var._strValue2;
-
-                _plant = "";// cbo_Plant.SelectedValue.ToString(); //
-                _line = "";// cbo_line.SelectedValue.ToString(); //  
+                _plant = ComVar.Var._strValue1; // cbo_Plant.SelectedValue.ToString(); //
+                _line = ComVar.Var._strValue2; // cbo_line.SelectedValue.ToString(); //  
 
                 timer1.Start();
                 SetData(_strType, _plant, _line, false);
@@ -906,6 +906,11 @@ namespace FORM
         private void lblDate_DoubleClick_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "973";
         }
     }
 }
