@@ -14,6 +14,8 @@ using System.Globalization;
 using System.Reflection;
 using System.Collections.Generic;
 using DevExpress.XtraCharts;
+//using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid;
 
 namespace FORM
 {
@@ -31,6 +33,7 @@ namespace FORM
         string _line = ComVar.Var._strValue2;  //"";//
         int _time = 0;
         string _CurrentDay = "";
+        int _start_column = 0;
 
         private void SetData(string arg_type, string plant, string line, bool arg_load = true)
         {
@@ -41,53 +44,38 @@ namespace FORM
                 grdBase.DataSource = null;
                 DataSet ds = Data_Select(arg_type, plant, line);
                 if (ds == null || ds.Tables.Count == 0) return;
-                DataTable dtSource = ds.Tables[0];
-
-                DataTable dtChart = ds.Tables[1];
-                SetChart(dtChart);             
-
-                if (dtSource != null)
+                //DataTable dtSource = ds.Tables[0]; 
+                DataTable dtf = ds.Tables[0];
+                if (dtf.Rows.Count > 0)
                 {
-                    fnProcess(dtSource);
-                    dtSource.Columns.Remove("MON");
-                    dtSource.Columns.Remove("RN");
-                  
-                    DataTable dt = Pivot(dtSource, dtSource.Columns["YMD"], dtSource.Columns["QTY"]);
-                    grdBase.DataSource = dt;
-
-                    gvwBase.BandPanelRowHeight = 50;
-                    gvwBase.RowHeight = 50;
-                    for (int i = 0; i < gvwBase.Columns.Count; i++)
+                    DataTable dtSource = new DataTable();
+                    if (CreateGrid_Day(dtf, grdBase, gvwBase))
                     {
-                        //Title             
-                        gvwBase.Columns[i].OwnerBand.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                        gvwBase.Columns[i].OwnerBand.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-                        gvwBase.Columns[i].OwnerBand.Width = 80;
-                        gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-                        gvwBase.Columns[i].OwnerBand.AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
-
-                        //Data
-                        gvwBase.Columns[i].AppearanceCell.Font = new Font("Calibri", 16, FontStyle.Bold);
-                        gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Far;
-                        gvwBase.Columns[i].AppearanceCell.TextOptions.VAlignment = VertAlignment.Center;
-
-                        if (i == 0)
+                        dtSource = GetDataTable(gvwBase);
+                        if (bindingData_Detail(dtSource, dtf, _start_column))
                         {
-                            gvwBase.Columns[i].OwnerBand.Width = 300;
-                            gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Near;
+                            grdBase.DataSource = dtSource;                            
+                            Set_Format_Grid_Day();
                         }
-
-                        if (i > 0)
-                        {
-                            gvwBase.Columns[i].OwnerBand.Width = 100;
-                            gvwBase.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
-                            gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.#";
-                        }
-                     //   gvwBase.Columns[i].Caption = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(gvwBase.Columns[i].GetCaption().Replace("-", " ").Replace("'", " ").ToLower()).Split(',')[0];
-                     
                     }
-                }             
-
+                    if (dtf.Select("DIV = 2 AND LOCATE <> 'TOTAL'", "RN1, RN2").Count() > 0)
+                    {
+                        DataTable dtChart = dtf.Select("DIV = 2 AND LOCATE <> 'TOTAL'", "RN1, RN2").CopyToDataTable();
+                        chartControl1.Series.Clear();
+                        chartControl1.DataSource = dtChart;
+                        chartControl1.SeriesDataMember = "DIV";
+                        chartControl1.SeriesTemplate.ArgumentDataMember = "LABEL_CHART";
+                        chartControl1.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "QTY" });
+                        //  chart.SeriesTemplate.View = new SplineSeriesView();
+                        chartControl1.SeriesTemplate.LabelsVisibility = DefaultBoolean.True;
+                        chartControl1.PaletteName = "doit";
+                        //((XYDiagram)chart.Diagram).AxisX.Title.Text = "Vendor";
+                        //((XYDiagram)chartDay.Diagram).AxisX.Title.Visibility = DefaultBoolean.True;
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Text = "OS&D (Prs)";
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Visibility = DefaultBoolean.True;
+                        chartControl1.SeriesTemplate.Label.TextPattern = "{V:#,0.#}";
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -256,9 +244,6 @@ namespace FORM
 
             }
         }
-
-
-
         DataTable Pivot(DataTable dt, DataColumn pivotColumn, DataColumn pivotValue) //(Bẻ cột)
         {
             try
@@ -333,7 +318,7 @@ namespace FORM
         private void LoadForm()
         {
 
-            GET_COMBO_DATA("CPLANT", "");
+            //GET_COMBO_DATA("CPLANT", "");
             GET_COMBO_DATA("DATE", "");
         }
 
@@ -476,8 +461,8 @@ namespace FORM
                 cbo_Plant.SelectedValue = ComVar.Var._strValue1;
                 cbo_line.SelectedValue = ComVar.Var._strValue2;
 
-                _plant = cbo_Plant.SelectedValue.ToString(); //
-                _line = cbo_line.SelectedValue.ToString(); //  
+                _plant = "";// cbo_Plant.SelectedValue.ToString(); //
+                _line = "";// cbo_line.SelectedValue.ToString(); //  
 
                 timer1.Start();
                 SetData(_strType, _plant, _line, false);
@@ -499,57 +484,62 @@ namespace FORM
 
         private void gvwBase_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
-          
             try
             {
-                if (e.Column.AbsoluteIndex > 0)
-                {
-                    if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("REPLENISHMENT RATE (%)") ||
-                        gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
-                    {
-                        if (e.CellValue == DBNull.Value) return;
-                        e.DisplayText = double.Parse(e.CellValue.ToString()).ToString("0.0#");
-                    }
+                if (e.CellValue == DBNull.Value) return;
+            if (e.Column.ColumnHandle >= _start_column && gvwBase.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("3"))
+            {
+                e.DisplayText = e.CellValue.ToString() + "%";
+            }
+            
+            //    if (e.Column.AbsoluteIndex > 0)
+            //    {
+            //        if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("REPLENISHMENT RATE (%)") ||
+            //            gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
+            //        {
+            //            if (e.CellValue == DBNull.Value) return;
+            //            e.DisplayText = double.Parse(e.CellValue.ToString()).ToString("0.0#");
+            //        }
 
-                    if (gvwBase.Columns[e.Column.FieldName].OwnerBand.Caption == _CurrentDay)
-                    {
-                        //return;
-                        Rectangle rect = e.Bounds;
-                        rect.Inflate(new Size(1, 1));
+            //        if (gvwBase.Columns[e.Column.FieldName].OwnerBand.Caption == _CurrentDay)
+            //        {
+            //            //return;
+            //            Rectangle rect = e.Bounds;
+            //            rect.Inflate(new Size(1, 1));
 
-                        Brush brush = new SolidBrush(e.Appearance.BackColor);
-                        e.Graphics.FillRectangle(brush, rect);
-                        Pen pen_horizental = new Pen(Color.Blue, 3F);
-                        Pen pen_vertical = new Pen(Color.Blue, 4F);
+            //            Brush brush = new SolidBrush(e.Appearance.BackColor);
+            //            e.Graphics.FillRectangle(brush, rect);
+            //            Pen pen_horizental = new Pen(Color.Blue, 3F);
+            //            Pen pen_vertical = new Pen(Color.Blue, 4F);
 
-                        ////draw bottom
-                        //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
-                        //// draw top
-                        //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+            //            ////draw bottom
+            //            //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+            //            //// draw top
+            //            //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
 
-                        //if (e.RowHandle == 0)
-                        //{
-                        //    e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
-                        //}
-                        //else 
-                        if (e.RowHandle == gvwBase.RowCount - 1)
-                        {
-                            e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
-                        }
-                        // draw right
-                        e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
+            //            //if (e.RowHandle == 0)
+            //            //{
+            //            //    e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+            //            //}
+            //            //else 
+            //            if (e.RowHandle == gvwBase.RowCount - 1)
+            //            {
+            //                e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+            //            }
+            //            // draw right
+            //            e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
 
 
-                        // draw left
-                        e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X, rect.Y + rect.Height);
+            //            // draw left
+            //            e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X, rect.Y + rect.Height);
 
-                        string[] ls = e.DisplayText.Split('\n');
+            //            string[] ls = e.DisplayText.Split('\n');
 
-                        e.Graphics.DrawString(ls[0], e.Appearance.Font, new SolidBrush(e.Appearance.ForeColor), rect, e.Appearance.GetStringFormat());
+            //            e.Graphics.DrawString(ls[0], e.Appearance.Font, new SolidBrush(e.Appearance.ForeColor), rect, e.Appearance.GetStringFormat());
 
-                        e.Handled = true;
-                    }
-                }
+            //            e.Handled = true;
+            //        }
+            //    }
 
             }
             catch (Exception ex)
@@ -561,35 +551,40 @@ namespace FORM
 
         private void gvwBase_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
-            if (e.CellValue == DBNull.Value) return;
-            if (e.Column.AbsoluteIndex > 0)
+            if (e.Column.ColumnHandle >= _start_column && gvwBase.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("3"))
             {
-                if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
-                {
-                    double rate = double.Parse(e.CellValue.ToString());
-                    if (rate <= 1)
-                    {
-                        e.Appearance.BackColor = Color.Green;
-                        e.Appearance.ForeColor = Color.White;
-
-                    }
-
-                    else if (rate > 2)
-                    {
-                        e.Appearance.ForeColor = Color.White;
-                        e.Appearance.BackColor = Color.Red;
-                    }
-                    else                  
-                       
-                        e.Appearance.BackColor = Color.Yellow;
-
-                }
-                if (e.Column.FieldName.ToUpper().Contains("TOTAL") && e.RowHandle != gvwBase.RowCount - 1)
-                {
-                    e.Appearance.ForeColor = Color.Blue;
-                }
+                e.Appearance.BackColor = Color.LightCyan;
+                e.Appearance.ForeColor = Color.LightCoral;
             }
-          
+            //if (e.CellValue == DBNull.Value) return;
+            //if (e.Column.AbsoluteIndex > 0)
+            //{
+            //    if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
+            //    {
+            //        double rate = double.Parse(e.CellValue.ToString());
+            //        if (rate <= 1)
+            //        {
+            //            e.Appearance.BackColor = Color.Green;
+            //            e.Appearance.ForeColor = Color.White;
+
+            //        }
+
+            //        else if (rate > 2)
+            //        {
+            //            e.Appearance.ForeColor = Color.White;
+            //            e.Appearance.BackColor = Color.Red;
+            //        }
+            //        else                  
+
+            //            e.Appearance.BackColor = Color.Yellow;
+
+            //    }
+            //    if (e.Column.FieldName.ToUpper().Contains("TOTAL") && e.RowHandle != gvwBase.RowCount - 1)
+            //    {
+            //        e.Appearance.ForeColor = Color.Blue;
+            //    }
+            //}
+
         }
 
         private void cbo_Plant_SelectedValueChanged(object sender, EventArgs e)
@@ -633,21 +628,21 @@ namespace FORM
                         string line = cbo_line.SelectedValue.ToString();
                         if (rate > 0)
                         {
-                            using (SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP(date, plant, line))
-                            {
+                            //using (SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP(date, plant, line))
+                            //{
                                 
-                                view1.ShowDialog();
-                            }
+                            //    view1.ShowDialog();
+                            //}
                         }
                     }
 
                     else
                     {
                         Cursor.Current = Cursors.WaitCursor;
-                        using (SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP(strdate, strplant, strline))
-                        {
-                            view.ShowDialog();
-                        }
+                        //using (SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP(strdate, strplant, strline))
+                        //{
+                        //    view.ShowDialog();
+                        //}
                             
                     }
                 }
@@ -721,6 +716,196 @@ namespace FORM
                 Debug.WriteLine(ex);
 
             }
+        }
+     
+
+        private bool CreateGrid_Day(DataTable dt, DevExpress.XtraGrid.GridControl gridControl, BandedGridView gridView)
+        {
+            try
+            {
+                gridControl.BeginUpdate();
+                gridView.OptionsView.ShowGroupPanel = false;
+                gridView.OptionsView.AllowCellMerge = true;
+                //gridView.BandPanelRowHeight = 35;
+                gridView.Bands.Clear();
+                gridView.Columns.Clear();
+                gridControl.DataSource = null;
+                gridView.OptionsView.ShowColumnHeaders = false;
+                GridBand band = null;
+                GridBand bandchlid1 = null;
+                string distinct_row = "", sCol = "";
+                _start_column = int.Parse(dt.Rows[0]["START_COLUMN"].ToString());
+
+                var distinctValues = dt.AsEnumerable()
+                                   .Select(row => new
+                                   {
+                                       RN1 = row.Field<string>("RN1"),
+                                       RN2 = row.Field<string>("RN2"),
+                                       PARENT_CAPTION = row.Field<string>("PARENT_CAPTION"),
+                                       COL_NM = row.Field<string>("COL_NM"),
+                                       COL_CAPTION = row.Field<string>("COL_CAPTION")
+                                   })
+                                   .Distinct().OrderBy(r => r.RN1 + r.RN2);
+                DataTable dttmp = LINQResultToDataTable(distinctValues);
+
+                for (int i = 0; i < _start_column; i++)
+                {
+
+                    if (i == 0)
+                    {
+                        band = new GridBand() { Caption = "DIV" };
+                        gridView.Bands.Add(band);
+                        band.Columns.Add(new BandedGridColumn() { FieldName = dt.Columns[i].ColumnName, Visible = true, Caption = "" });
+                        band.Visible = false;
+                    }
+                    else if (i == 1)
+                    {
+                        band = new GridBand() { Caption = "" };
+                        gridView.Bands.Add(band);
+                        band.Columns.Add(new BandedGridColumn() { FieldName = dt.Columns[i].ColumnName, Visible = true, Caption = "" });
+                    }
+                    band.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                }
+                int cnt = -1;
+                for (int i = 0; i < dttmp.Rows.Count; i++)
+                {
+                    if (!dttmp.Rows[i]["COL_NM"].ToString().Contains("TOTAL"))
+                    {
+                        if (!distinct_row.Equals(dttmp.Rows[i]["PARENT_CAPTION"].ToString()))
+                        {
+                            cnt++;
+                            distinct_row = dttmp.Rows[i]["PARENT_CAPTION"].ToString();
+                            band = new GridBand() { Caption = dttmp.Rows[i]["PARENT_CAPTION"].ToString() };
+                            gridView.Bands.Add(band);
+                        }
+                        if (!sCol.Equals(dttmp.Rows[i]["COL_NM"].ToString()))
+                        {
+                            sCol = dttmp.Rows[i]["COL_NM"].ToString();
+                            bandchlid1 = new GridBand() { Caption = dttmp.Rows[i]["COL_CAPTION"].ToString() };
+                            band.Children.Add(bandchlid1);
+                            bandchlid1.Columns.Add(new BandedGridColumn() { FieldName = dttmp.Rows[i]["COL_NM"].ToString(), Visible = true, Caption = dttmp.Rows[i]["COL_CAPTION"].ToString() });
+                        }
+                    }
+                    else
+                    {
+                        band = new GridBand() { Caption = dttmp.Rows[i]["PARENT_CAPTION"].ToString() };
+                        gridView.Bands.Add(band);
+                        band.Columns.Add(new BandedGridColumn() { FieldName = dttmp.Rows[i]["COL_NM"].ToString(), Visible = true, Caption = dttmp.Rows[i]["COL_CAPTION"].ToString() });
+                    }
+                }
+
+                foreach (GridBand gb in gridView.Bands)
+                {
+                    FormatBand(gb);
+                }
+                gridControl.EndUpdate();
+                return true;
+            }
+            catch (Exception EX) { return false; }
+        }
+
+        private void FormatBand(GridBand root)
+        {
+            root.AppearanceHeader.Options.UseTextOptions = true;
+            root.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            root.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            root.AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Regular);
+            root.RowCount = 2;
+            root.OptionsBand.FixedWidth = true;
+            if (root.Children.Count > 0)
+            {
+                foreach (GridBand child in root.Children)
+                {
+                    FormatBand(child);
+                    child.Width = 55;
+                }
+            }
+        }
+
+        private bool bindingData_Detail(DataTable dtSource, DataTable dt, int startcolumn)
+        {
+            try
+            {
+                int[] rowtotal = new int[dtSource.Columns.Count];
+                string distinct_row = "";
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if (!distinct_row.Equals(dt.Rows[i]["DISTINCTROW"].ToString()))
+                    {
+                        dtSource.Rows.Add();
+                    }
+                    distinct_row = dt.Rows[i]["DISTINCTROW"].ToString();
+                    for (int col = 0; col < startcolumn; col++)
+                    {
+                        dtSource.Rows[dtSource.Rows.Count - 1][dt.Columns[col].ColumnName] = dt.Rows[i][dt.Columns[col].ColumnName].ToString();
+                    }
+                    dtSource.Rows[dtSource.Rows.Count - 1][dt.Rows[i]["COL_NM"].ToString()] = dt.Rows[i]["QTY"];
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private void Set_Format_Grid_Day()
+        {
+            gvwBase.BeginUpdate();
+            for (int i = 0; i < gvwBase.Columns.Count; i++)
+            {
+                gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+                gvwBase.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gvwBase.Columns[i].AppearanceCell.Options.UseTextOptions = true;
+                gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gvwBase.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+
+                gvwBase.Columns[i].OptionsColumn.ReadOnly = false;
+                gvwBase.Columns[i].OptionsColumn.AllowEdit = false;
+                gvwBase.Columns[i].OptionsFilter.AllowFilter = false;
+                if (i < _start_column)
+                {
+                    gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
+                    gvwBase.Columns[i].Width = 150;
+                }
+                else
+                {
+                    gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                    gvwBase.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
+                    gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                    gvwBase.Columns[i].Width = 120;
+                }
+                gvwBase.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+                gvwBase.Columns[i].AppearanceCell.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Regular);
+                gvwBase.Columns[i].AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18, FontStyle.Regular);
+                
+            }
+            gvwBase.ColumnPanelRowHeight = 50;
+
+            gvwBase.TopRowIndex = 0;
+            gvwBase.EndUpdate();
+        }
+
+
+        DataTable GetDataTable(GridView view)
+        {
+            DataTable dt = new DataTable();
+            foreach (DevExpress.XtraGrid.Columns.GridColumn c in view.Columns)
+                dt.Columns.Add(c.FieldName, c.ColumnType);
+            for (int r = 0; r < view.RowCount; r++)
+            {
+                object[] rowValues = new object[dt.Columns.Count];
+                for (int c = 0; c < dt.Columns.Count; c++)
+                    rowValues[c] = view.GetRowCellValue(r, dt.Columns[c].ColumnName);
+                dt.Rows.Add(rowValues);
+            }
+            return dt;
+        }
+
+        private void lblDate_DoubleClick_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
