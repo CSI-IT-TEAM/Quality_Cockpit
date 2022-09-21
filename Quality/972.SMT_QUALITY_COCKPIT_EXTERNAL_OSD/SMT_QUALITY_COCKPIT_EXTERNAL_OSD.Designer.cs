@@ -90,7 +90,6 @@
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdBase = new DevExpress.XtraGrid.GridControl();
             this.gvwBase = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grdExportDetail = new DevExpress.XtraGrid.GridControl();
             this.grvExportDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -117,6 +116,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
@@ -152,7 +152,7 @@
             xyDiagram1.AxisX.Label.Angle = -45;
             xyDiagram1.AxisX.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
-            xyDiagram1.AxisX.Title.Text = "Date";
+            xyDiagram1.AxisX.Title.Text = "Line";
             xyDiagram1.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
@@ -168,7 +168,6 @@
             secondaryAxisY1.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
             secondaryAxisY1.Title.Text = "OS&D Rate (%)";
             secondaryAxisY1.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            secondaryAxisY1.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY1.VisibleInPanesSerializable = "-1";
             xyDiagram1.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
             secondaryAxisY1});
@@ -559,6 +558,7 @@
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "2020-07-22\r\n10:00:00";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDate.DoubleClick += new System.EventHandler(this.lblDate_DoubleClick_1);
             // 
             // lblHeader
             // 
@@ -677,16 +677,8 @@
             this.gvwBase.OptionsView.ShowGroupPanel = false;
             this.gvwBase.OptionsView.ShowIndicator = false;
             this.gvwBase.RowHeight = 50;
-            this.gvwBase.CustomDrawBandHeader += new DevExpress.XtraGrid.Views.BandedGrid.BandHeaderCustomDrawEventHandler(this.gvwBase_CustomDrawBandHeader);
             this.gvwBase.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwBase_CustomDrawCell);
             this.gvwBase.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwBase_RowCellStyle);
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "gridBand1";
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 230;
             // 
             // grdExportDetail
             // 
@@ -1065,6 +1057,7 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Rate > 2";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label7.Visible = false;
             // 
             // label6
             // 
@@ -1078,6 +1071,7 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "1 > Rate <= 2";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Visible = false;
             // 
             // label5
             // 
@@ -1091,6 +1085,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Rate <= 1";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Visible = false;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "gridBand1";
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.RowCount = 2;
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 230;
             // 
             // SMT_QUALITY_COCKPIT_EXTERNAL_OSD
             // 
@@ -1185,9 +1188,9 @@
         private DevExpress.XtraEditors.DateEdit dtpDateT;
         private DevExpress.XtraEditors.DateEdit dtpDateF;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvwBase;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
     }
 }
