@@ -129,17 +129,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP.cs">
+    <Compile Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP.Designer.cs">
-      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP.cs</DependentUpon>
+    <Compile Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP.Designer.cs">
+      <DependentUpon>SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP.cs</DependentUpon>
     </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs">
+    <Compile Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.Designer.cs">
-      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs</DependentUpon>
+    <Compile Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP.Designer.cs">
+      <DependentUpon>SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP.cs</DependentUpon>
     </Compile>
     <Compile Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD.cs">
       <SubType>Form</SubType>
@@ -190,11 +190,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP.resx">
-      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP.cs</DependentUpon>
+    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP.resx">
+      <DependentUpon>SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.resx">
-      <DependentUpon>SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP.cs</DependentUpon>
+    <EmbeddedResource Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP.resx">
+      <DependentUpon>SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SMT_QUALITY_COCKPIT_EXTERNAL_OSD.resx">
       <DependentUpon>SMT_QUALITY_COCKPIT_EXTERNAL_OSD.cs</DependentUpon>

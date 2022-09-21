@@ -1,6 +1,6 @@
 ﻿namespace FORM
 {
-    partial class SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP
+    partial class SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grdBase = new DevExpress.XtraGrid.GridControl();
             this.gvwBase = new DevExpress.XtraGrid.Views.Grid.GridView();

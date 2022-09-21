@@ -7,17 +7,17 @@ using System.Windows.Forms;
 
 namespace FORM
 {
-    public partial class SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP : Form
+    public partial class SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP : Form
     {
 
 
         string _date,  _plant_code, _line_code;
 
-        public SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP()
+        public SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP()
         {
             InitializeComponent();
         }
-        public SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(string date, string plant, string line )
+        public SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP(string date, string plant, string line )
         {
             InitializeComponent();
             _date = date; 
