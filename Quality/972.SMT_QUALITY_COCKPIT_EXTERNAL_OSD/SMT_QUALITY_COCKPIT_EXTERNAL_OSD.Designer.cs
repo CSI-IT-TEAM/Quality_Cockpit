@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -78,6 +77,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnTop = new System.Windows.Forms.Panel();
+            this.btnEx = new DevExpress.XtraEditors.SimpleButton();
+            this.btnIn = new DevExpress.XtraEditors.SimpleButton();
             this.cmdPm1 = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
@@ -85,11 +86,12 @@
             this.pnBody2 = new System.Windows.Forms.Panel();
             this.cmdExportDetail = new System.Windows.Forms.Button();
             this.cmdExportIssue = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdBase = new DevExpress.XtraGrid.GridControl();
             this.gvwBase = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grdExportDetail = new DevExpress.XtraGrid.GridControl();
             this.grvExportDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -116,7 +118,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
@@ -154,7 +155,6 @@
             xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
             xyDiagram1.AxisX.Title.Text = "Line";
             xyDiagram1.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            xyDiagram1.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
@@ -201,7 +201,7 @@
         series1,
         series2};
             this.chartControl1.SeriesTemplate.LegendName = "Default Legend";
-            this.chartControl1.Size = new System.Drawing.Size(1888, 548);
+            this.chartControl1.Size = new System.Drawing.Size(1888, 700);
             this.chartControl1.TabIndex = 12;
             chartTitle1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartTitle1.Text = "Bonding Gap";
@@ -425,7 +425,7 @@
             this.btn_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Search.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Search.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Search.Location = new System.Drawing.Point(1373, 2);
+            this.btn_Search.Location = new System.Drawing.Point(671, 4);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(141, 44);
             this.btn_Search.TabIndex = 6;
@@ -520,6 +520,8 @@
             // 
             // pnTop
             // 
+            this.pnTop.Controls.Add(this.btnEx);
+            this.pnTop.Controls.Add(this.btnIn);
             this.pnTop.Controls.Add(this.cmdPm1);
             this.pnTop.Controls.Add(this.lblDate);
             this.pnTop.Controls.Add(this.lblHeader);
@@ -528,6 +530,44 @@
             this.pnTop.Name = "pnTop";
             this.pnTop.Size = new System.Drawing.Size(1888, 76);
             this.pnTop.TabIndex = 2;
+            // 
+            // btnEx
+            // 
+            this.btnEx.Appearance.BackColor = System.Drawing.Color.MediumOrchid;
+            this.btnEx.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnEx.Appearance.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEx.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnEx.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.btnEx.Appearance.Options.UseBackColor = true;
+            this.btnEx.Appearance.Options.UseFont = true;
+            this.btnEx.Appearance.Options.UseForeColor = true;
+            this.btnEx.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnEx.Enabled = false;
+            this.btnEx.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEx.ImageOptions.Image")));
+            this.btnEx.Location = new System.Drawing.Point(1512, 10);
+            this.btnEx.Name = "btnEx";
+            this.btnEx.Size = new System.Drawing.Size(175, 48);
+            this.btnEx.TabIndex = 93;
+            this.btnEx.Text = "External";
+            // 
+            // btnIn
+            // 
+            this.btnIn.Appearance.BackColor = System.Drawing.Color.MediumBlue;
+            this.btnIn.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnIn.Appearance.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIn.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnIn.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.btnIn.Appearance.Options.UseBackColor = true;
+            this.btnIn.Appearance.Options.UseFont = true;
+            this.btnIn.Appearance.Options.UseForeColor = true;
+            this.btnIn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnIn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.ImageOptions.Image")));
+            this.btnIn.Location = new System.Drawing.Point(1335, 10);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(175, 48);
+            this.btnIn.TabIndex = 94;
+            this.btnIn.Text = "Internal";
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // cmdPm1
             // 
@@ -552,13 +592,12 @@
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDate.Font = new System.Drawing.Font("Calibri", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.Black;
-            this.lblDate.Location = new System.Drawing.Point(1653, 0);
+            this.lblDate.Location = new System.Drawing.Point(1693, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(235, 76);
+            this.lblDate.Size = new System.Drawing.Size(195, 76);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "2020-07-22\r\n10:00:00";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblDate.DoubleClick += new System.EventHandler(this.lblDate_DoubleClick_1);
             // 
             // lblHeader
             // 
@@ -569,7 +608,7 @@
             this.lblHeader.LineVisible = true;
             this.lblHeader.Location = new System.Drawing.Point(0, 0);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(1622, 76);
+            this.lblHeader.Size = new System.Drawing.Size(1226, 76);
             this.lblHeader.TabIndex = 3;
             this.lblHeader.Text = "        Preventative Maintenance";
             // 
@@ -580,7 +619,7 @@
             this.pnExport.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnExport.Location = new System.Drawing.Point(0, 0);
             this.pnExport.Name = "pnExport";
-            this.pnExport.Size = new System.Drawing.Size(1888, 548);
+            this.pnExport.Size = new System.Drawing.Size(1888, 700);
             this.pnExport.TabIndex = 77;
             // 
             // pnBody2
@@ -637,9 +676,9 @@
             this.pnGrid.Controls.Add(this.grdExportDetail);
             this.pnGrid.Controls.Add(this.grdExportIssue);
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnGrid.Location = new System.Drawing.Point(0, 599);
+            this.pnGrid.Location = new System.Drawing.Point(0, 710);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(1888, 317);
+            this.pnGrid.Size = new System.Drawing.Size(1888, 206);
             this.pnGrid.TabIndex = 78;
             // 
             // grdBase
@@ -652,7 +691,7 @@
             this.grdBase.Location = new System.Drawing.Point(0, 0);
             this.grdBase.MainView = this.gvwBase;
             this.grdBase.Name = "grdBase";
-            this.grdBase.Size = new System.Drawing.Size(1888, 317);
+            this.grdBase.Size = new System.Drawing.Size(1888, 206);
             this.grdBase.TabIndex = 8;
             this.grdBase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwBase});
@@ -679,6 +718,14 @@
             this.gvwBase.RowHeight = 50;
             this.gvwBase.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwBase_CustomDrawCell);
             this.gvwBase.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwBase_RowCellStyle);
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "gridBand1";
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.RowCount = 2;
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 230;
             // 
             // grdExportDetail
             // 
@@ -1041,9 +1088,9 @@
             this.pnC.Controls.Add(this.cmdExportDetail);
             this.pnC.Controls.Add(this.cmdExportIssue);
             this.pnC.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnC.Location = new System.Drawing.Point(0, 548);
+            this.pnC.Location = new System.Drawing.Point(0, 700);
             this.pnC.Name = "pnC";
-            this.pnC.Size = new System.Drawing.Size(1888, 51);
+            this.pnC.Size = new System.Drawing.Size(1888, 10);
             this.pnC.TabIndex = 13;
             // 
             // label7
@@ -1086,14 +1133,6 @@
             this.label5.Text = "Rate <= 1";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.Visible = false;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "gridBand1";
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.RowCount = 2;
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 230;
             // 
             // SMT_QUALITY_COCKPIT_EXTERNAL_OSD
             // 
@@ -1192,5 +1231,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraEditors.SimpleButton btnEx;
+        private DevExpress.XtraEditors.SimpleButton btnIn;
     }
 }
