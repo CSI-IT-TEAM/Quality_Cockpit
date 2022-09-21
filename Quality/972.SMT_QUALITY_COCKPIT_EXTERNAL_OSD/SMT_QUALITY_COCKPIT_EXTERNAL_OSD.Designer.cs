@@ -1102,8 +1102,8 @@
             this.Controls.Add(this.pnTop);
             this.Name = "SMT_QUALITY_COCKPIT_EXTERNAL_OSD";
             this.Text = "SMT_QUALITY_COCKPIT_INTERNAL_OSD";
-            this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_INTERNAL_OSD_Load);
-            this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged);
+            this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_EXTERNAL_OSD_Load);
+            this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_EXTERNAL_OSD_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
