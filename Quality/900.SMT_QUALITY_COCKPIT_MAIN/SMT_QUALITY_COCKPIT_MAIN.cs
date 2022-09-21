@@ -912,6 +912,32 @@ namespace FORM
             ComVar.Var._IsBack = true;
             ComVar.Var.callForm = "909";
         }
+
+        private void cmd_FTY_OSD_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+
+            Panel panel = (Panel)sender;
+
+            ComVar.Var._strValue1 = panel.Tag.ToString();
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "973";
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void cmd_FTY_OSD_Label_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+
+            Label label = (Label)sender;
+
+            ComVar.Var._strValue1 = label.Tag.ToString();
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "973";
+
+            this.Cursor = Cursors.Default;
+        }
     }
 
     public class Button_Status

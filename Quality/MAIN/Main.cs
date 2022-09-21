@@ -36,12 +36,12 @@ namespace MAIN
                 
                 
                 /// Run 1 form using Test
-               runSingleForm();
+                //runSingleForm();
 
                 ///Run Group form by Config file
 
                 
-                //runGroupForm();
+                runGroupForm();
                 
                 
 

@@ -473,8 +473,8 @@ namespace FORM
                 _time = 0;
                 _strType = "Q";
 
-                cbo_Plant.SelectedValue = ComVar.Var._strValue1;
-                cbo_line.SelectedValue = ComVar.Var._strValue2;
+                //cbo_Plant.SelectedValue = ComVar.Var._strValue1;
+                //cbo_line.SelectedValue = ComVar.Var._strValue2;
 
                 _plant = cbo_Plant.SelectedValue.ToString(); //
                 _line = cbo_line.SelectedValue.ToString(); //  
@@ -609,60 +609,6 @@ namespace FORM
         private void SMT_QUALITY_COCKPIT_EXTERNAL_OSD_Load(object sender, EventArgs e)
         {
             LoadForm();
-        }
-
-        private void gvwBase_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        {
-
-            if (e.CellValue == null) return;
-            if (e.Column.AbsoluteIndex < 2) return;
-
-            string strdate = gvwBase.Columns[e.Column.ColumnHandle - 1].FieldName.ToString();
-            string strplant = cbo_Plant.SelectedValue.ToString();
-            string strline = cbo_line.SelectedValue.ToString();
-
-            try
-            {
-                if (e.Column.ColumnHandle > 2)
-                {
-                    if (gvwBase.GetRowCellValue(e.RowHandle, "ITEM").ToString().ToUpper().Equals("OS&D RATE (%)"))
-                    {
-                        double rate = double.Parse(e.CellValue.ToString());
-                        string date = e.Column.FieldName.ToString();
-                        string plant = cbo_Plant.SelectedValue.ToString();
-                        string line = cbo_line.SelectedValue.ToString();
-                        if (rate > 0)
-                        {
-                            using (SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POPUP(date, plant, line))
-                            {
-                                
-                                view1.ShowDialog();
-                            }
-                        }
-                    }
-
-                    else
-                    {
-                        Cursor.Current = Cursors.WaitCursor;
-                        using (SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_EXTERNAL_OSD_POP(strdate, strplant, strline))
-                        {
-                            view.ShowDialog();
-                        }
-                            
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-
         }
 
         private void gvwBase_CustomDrawBandHeader(object sender, BandHeaderCustomDrawEventArgs e)
