@@ -40,13 +40,17 @@ namespace FORM
             try
             {
                 DataTable _dtDate = Get_Internal_Data("Q_DATE", _plant_cd, dtpDateF.DateTime.ToString("yyyyMMdd"), dtpDateT.DateTime.ToString("yyyyMMdd"));
-                DataTable _dtPlant = Get_Internal_Data("Q_PLANT", _plant_cd, dtpDateF.DateTime.ToString("yyyyMMdd"), dtpDateT.DateTime.ToString("yyyyMMdd"));
+                DataTable _dtPlant = null;
+                string _lasted_date = "";
 
                 _dtf = _dtDate;
 
                 if (_dtDate != null && _dtDate.Rows.Count > 0)
                 {
                     SetChartDate(_dtDate);
+
+                    _lasted_date = _dtDate.Rows[_dtDate.Rows.Count - 1]["YMD"].ToString();
+                    _dtPlant = Get_Internal_Data("Q_PLANT", _plant_cd, _lasted_date, _lasted_date);
                 }
                 else
                 {
@@ -58,6 +62,15 @@ namespace FORM
                 if (_dtPlant != null && _dtPlant.Rows.Count > 0)
                 {
                     SetChartPlant(_dtPlant);
+
+                    for(int iRow = 0; iRow < _dtDate.Rows.Count; iRow++)
+                    {
+                        if(_dtDate.Rows[iRow]["YMD"].ToString() == dtpDateT.DateTime.ToString("yyyyMMdd"))
+                        {
+                            lbl_title.Text = "Date: " + _dtDate.Rows[iRow]["MON"].ToString();
+                            break;
+                        }
+                    }
                 }
                 else
                 {
@@ -296,6 +309,7 @@ namespace FORM
                     if (_dtPlant != null && _dtPlant.Rows.Count > 0)
                     {
                         SetChartPlant(_dtPlant);
+                        lbl_title.Text = "Date: " + _col_nm;
                     }
                     else
                     {
