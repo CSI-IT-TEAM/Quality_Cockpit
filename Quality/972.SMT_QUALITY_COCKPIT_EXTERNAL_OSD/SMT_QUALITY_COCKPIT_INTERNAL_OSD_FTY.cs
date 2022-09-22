@@ -221,6 +221,23 @@ namespace FORM
             {
                 _time = 30;
                 timer1.Start();
+
+                _plant_cd = ComVar.Var._strValue1;
+                switch (_plant_cd)
+                {
+                    case "VJ1":
+                        lblHeader.Text = "   Vinh Cuu Internal OS&&D";
+                        break;
+                    case "VJ2":
+                        lblHeader.Text = "   Long Thanh Internal OS&&D";
+                        break;
+                    case "VJ3":
+                        lblHeader.Text = "   Tan Phu Internal OS&&D";
+                        break;
+                    default:
+                        lblHeader.Text = "   Internal OS&&D";
+                        break;
+                }
             }
             else
             {
