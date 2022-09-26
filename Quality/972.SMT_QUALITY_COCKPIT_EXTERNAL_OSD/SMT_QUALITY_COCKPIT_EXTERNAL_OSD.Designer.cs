@@ -168,7 +168,6 @@
             series2.Label = pointSeriesLabel1;
             series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series2.Name = "Rate";
-            lineSeriesView1.AxisYName = "Secondary AxisY 1";
             lineSeriesView1.Color = System.Drawing.Color.Blue;
             lineSeriesView1.LineMarkerOptions.Color = System.Drawing.Color.Blue;
             lineSeriesView1.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;

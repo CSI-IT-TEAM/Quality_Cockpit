@@ -68,15 +68,24 @@ namespace FORM
                         chartControl1.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "QTY" });
                         //  chart.SeriesTemplate.View = new SplineSeriesView();
                         chartControl1.SeriesTemplate.LabelsVisibility = DefaultBoolean.True;
-                        chartControl1.PaletteName = "doit";
-                       
+
                         //((XYDiagram)chart.Diagram).AxisX.Title.Text = "Vendor";
                         //((XYDiagram)chartDay.Diagram).AxisX.Title.Visibility = DefaultBoolean.True;
-                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Text = "OS&D (Prs)";
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Text = "OS&D Q'ty (Prs)";
                         ((XYDiagram)chartControl1.Diagram).AxisY.Title.Visibility = DefaultBoolean.True;
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Label.Font = new Font("Calibri", 16, FontStyle.Regular);
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Font = new Font("Calibri", 16, FontStyle.Bold);
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.TextColor = Color.FromArgb(255, 128, 0);
+
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Text = "Division";
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Visibility = DefaultBoolean.True;
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Label.Font = new Font("Calibri", 16, FontStyle.Regular);
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Font = new Font("Calibri", 16, FontStyle.Bold);
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.TextColor = Color.FromArgb(255, 128, 0);
+
+
                         chartControl1.SeriesTemplate.Label.TextPattern = "{V:#,0.#}";
-                        chartControl1.SeriesTemplate.Label.Font = new Font("Tahoma", 18, FontStyle.Regular);
-                        
+                        chartControl1.SeriesTemplate.Label.Font = new Font("Tahoma", 10, FontStyle.Regular);
                     }
                 }
             }
