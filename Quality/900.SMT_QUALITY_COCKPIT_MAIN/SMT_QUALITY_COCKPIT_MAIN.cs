@@ -878,6 +878,17 @@ namespace FORM
 
         #endregion
 
+        private void lblFTY_Click(object sender, EventArgs e)
+        {
+            using (POPUP_PROD_BY_PLANT pop = new POPUP_PROD_BY_PLANT())
+            {
+                Control ctr = (Control)sender;
+                pop.Plant = ctr.Tag.ToString();
+                pop.PlantName = ctr.Text;
+                pop.ShowDialog();
+            }
+        }
+
         private void CmdDasboard_Click(object sender, EventArgs e)
         {
             ComVar.Var._IsBack = true;

@@ -119,6 +119,12 @@
     <Compile Include="ClassLib\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="POPUP_PROD_BY_PLANT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POPUP_PROD_BY_PLANT.designer.cs">
+      <DependentUpon>POPUP_PROD_BY_PLANT.cs</DependentUpon>
+    </Compile>
     <Compile Include="SMT_QUALITY_COCKPIT_MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="POPUP_PROD_BY_PLANT.resx">
+      <DependentUpon>POPUP_PROD_BY_PLANT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SMT_QUALITY_COCKPIT_MAIN.resx">
       <DependentUpon>SMT_QUALITY_COCKPIT_MAIN.cs</DependentUpon>
     </EmbeddedResource>
