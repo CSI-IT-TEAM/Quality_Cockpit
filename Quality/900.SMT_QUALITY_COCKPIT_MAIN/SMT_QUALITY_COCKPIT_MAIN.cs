@@ -242,9 +242,8 @@ namespace FORM
                 int.TryParse(row["NUM_FGA"].ToString(), out iNumLine);
                 lineCd = row["LINE_CD"].ToString();
 
-
-
-                int iStart = lineCd == "018" ? 4 : 0;
+                int iStart = 0;
+                if (lineCd == "018" || lineCd == "019") iStart = 4;
                 //lineCd = lineCd.Replace("_1", "");
                 for (int iLine = iStart + 1; iLine <= iStart + iNumLine; iLine++)
                 {
