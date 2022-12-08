@@ -948,6 +948,12 @@ namespace FORM
 
             this.Cursor = Cursors.Default;
         }
+
+        private void cmdExternal_Click(object sender, EventArgs e)
+        {
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "912";
+        }
     }
 
     public class Button_Status

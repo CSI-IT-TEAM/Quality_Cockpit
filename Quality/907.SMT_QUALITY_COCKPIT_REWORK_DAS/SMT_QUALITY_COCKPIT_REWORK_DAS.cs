@@ -21,6 +21,8 @@ namespace FORM
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "DAY";
+        string sLine = "ALL", sLine_nm = "ALL";
+        DataTable _dtArea = null;
 
         #region Load-Visible Change-Timer
         private void SMT_QUALITY_COCKPIT_FORM1_Load(object sender, EventArgs e)
@@ -96,33 +98,36 @@ namespace FORM
         #region Database
        
 
-        public async Task<DataSet> sbGetRework(string ARG_QTYPE)
+        public async Task<DataSet> sbGetRework(string ARG_QTYPE, string ARG_LINE)
         {
             return await Task.Run(() => {
                 COM.OraDB MyOraDB = new COM.OraDB();
                 DataSet ds_ret;
                 try
                 {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_REWORK_DAS";
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_REWORK_DAS_V2";
 
-                    MyOraDB.ReDim_Parameter(4);
+                    MyOraDB.ReDim_Parameter(5);
                     MyOraDB.Process_Name = process_name;
 
                     MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                    MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
-                    MyOraDB.Parameter_Name[2] = "OUT_CURSOR2";
-                    MyOraDB.Parameter_Name[3] = "OUT_CURSOR3";
+                    MyOraDB.Parameter_Name[1] = "V_P_LINE";
+                    MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[3] = "OUT_CURSOR2";
+                    MyOraDB.Parameter_Name[4] = "OUT_CURSOR3";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[1] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
                     MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
                    
 
                     MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                    MyOraDB.Parameter_Values[1] = "";
+                    MyOraDB.Parameter_Values[1] = ARG_LINE;
                     MyOraDB.Parameter_Values[2] = "";
                     MyOraDB.Parameter_Values[3] = "";
+                    MyOraDB.Parameter_Values[4] = "";
                    ;
 
                     MyOraDB.Add_Select_Parameter(true);
@@ -165,7 +170,7 @@ namespace FORM
                 diagram.AxisX.Title.Text = "Year";
             }
             else
-                diagram.AxisX.Title.Text = "Line";
+                diagram.AxisX.Title.Text = "Plant";
 
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
@@ -214,7 +219,7 @@ namespace FORM
 
             //}
             //else
-                diagram.AxisX.Title.Text = "Line";
+                diagram.AxisX.Title.Text = "Plant";
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
                 chartControl2.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["RATE"]));
@@ -242,28 +247,12 @@ namespace FORM
             try
             {               
 
-                DataSet dsData = await sbGetRework(sDate);
+                DataSet dsData = await sbGetRework(sDate,sLine);
                 if (dsData == null) return;               
                 DataTable dtChart = dsData.Tables[0];
-                DataTable dtChart1 = dsData.Tables[1];
-                DataTable dtChart2 = dsData.Tables[2];               
-
+                _dtArea = dtChart;
                 SetChart(dtChart);
-                SetChart1(dtChart1);
-                //SetChart2(dtChart2);
-                if (dtChart2 != null && dtChart2.Rows.Count > 0)
-                {
-                    DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
-                    chartControl3.DataSource = dtChart2;
-                    chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
-                    chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-
-                }
-                else
-                {
-                    chartControl3.DataSource = null;
-                }
-
+                SetDataDetail();
             }
             catch (Exception ex)
             {
@@ -321,6 +310,105 @@ namespace FORM
             lblHeader.Text = "       Rework by year";
             clear_chart();
             SetData();
+        }
+
+        private void chartControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartControl1.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    sLine_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
+                        {
+                            sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                        }
+                    }
+                }
+                else
+                    sLine = "ALL";
+                _time = 10;
+                SetDataDetail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private async void SetDataDetail()
+        {
+            try
+            {
+               
+
+                DataSet _dtSet = await sbGetRework(sDate, sLine);
+
+                DataTable dtChart1 = _dtSet.Tables[1];
+                DataTable dtChart2 = _dtSet.Tables[2];
+
+                SetChart1(dtChart1);
+                if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                {
+                    DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+                    chartControl3.Titles.Clear();
+                    if (sLine == "ALL")
+                    {
+                        chartTitle2.Text = "Rework By Reason";
+                    }
+                    else
+                    {
+                        if(int.Parse(sLine)<6)
+                        {
+                            chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
+                        } 
+                        else
+                            chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
+                    }
+                    // Define the alignment of the titles.
+                    chartTitle2.Alignment = StringAlignment.Center;
+
+                    // Place the titles where it's required.
+                    chartTitle2.Dock = ChartTitleDockStyle.Top;
+
+                    // Customize a title's appearance.
+                    chartTitle2.Antialiasing = true;
+                    chartTitle2.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                    chartTitle2.TextColor = Color.Blue;
+                    chartTitle2.Indent = 10;
+                    chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle2 });
+
+                    if (dtChart2 == null) return;
+                    chartControl3.DataSource = dtChart2;
+                    chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+                    chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+
+                }
+                else
+                {
+                    chartControl3.DataSource = null;
+                }
+
+                dtChart1 = null;
+                dtChart2 = null;
+
+               
+            }
+            catch (Exception ex)
+            {
+               
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+
+            }
         }
     }
 }
