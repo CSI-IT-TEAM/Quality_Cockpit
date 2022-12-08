@@ -36,8 +36,8 @@ namespace FORM
         {
             if (Visible)
             {
-                cboPlant.SelectedValue = ComVar.Var._strValue1;
-                cboLine.SelectedValue = ComVar.Var._strValue2;
+                //cboPlant.SelectedValue = ComVar.Var._strValue1;
+                //cboLine.SelectedValue = ComVar.Var._strValue2;
                  _time = 28;
                
 
@@ -103,7 +103,7 @@ namespace FORM
             DataSet ds_ret;
             try
             {
-                string process_name = "LMES.PKG_SMT_QUALITY_COCKPIT_06.SP_GET_BC_GRADE";
+                string process_name = "LMES.PKG_SMT_QUALITY_COCKPIT_06.SP_GET_BC_GRADE_V2";
 
                 MyOraDB.ReDim_Parameter(5);
                 MyOraDB.Process_Name = process_name;
@@ -228,7 +228,15 @@ namespace FORM
                 DataTable dtChart1 = dsData.Tables[1];
                 DataTable dtChart2 = dsData.Tables[2];
                 //dtWeek   = dsData.Tables[3];
-
+                if (dtChart.Select("YMD = 'Total'").Count() > 0)
+                {
+                    DataTable _dtChart = dtChart.Select("YMD = 'Total'").CopyToDataTable();
+                    lblTotalB.Text   = _dtChart.Rows[0]["B_GRADE"].ToString() +" (Prs)";
+                    lblTotalC.Text   = _dtChart.Rows[0]["C_GRADE"].ToString() + " (Prs)";
+                    lblTotalBC.Text = (double.Parse(_dtChart.Rows[0]["B_GRADE"].ToString())+ double.Parse(_dtChart.Rows[0]["C_GRADE"].ToString())) + " (Prs)";
+                    lblTotalPPM.Text = _dtChart.Rows[0]["BC_PPM"].ToString() + " (PPM)";
+                }
+                dtChart.Rows.RemoveAt(dtChart.Rows.Count - 1);
                 SetChart(dtChart);
                 SetChart1(dtChart1);
                 SetChart2(dtChart2);
