@@ -33,6 +33,7 @@ namespace FORM
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         int _iReload = 0;
         DataTable _dtMasterLine;
+        DataTable _dtLineProd;
         DataTable _dtGMES;
         // Dictionary<string, UC.UC_Chart_Donut> _dicLocation = new Dictionary<string, UC.UC_Chart_Donut>();
         Dictionary<string, Button_Status> _dicLine = new Dictionary<string, Button_Status>();
@@ -98,6 +99,7 @@ namespace FORM
 
 
                 _dtMasterLine = await Master_Select("");// createDatatableTest();// Master_Select("");
+                //_dtLineProd = await Master_Select("LINE_PROD");
 
                 DataTable dtFactory = _dtMasterLine.Select("FACTORY = 'F1'").CopyToDataTable();
 
@@ -322,8 +324,8 @@ namespace FORM
 
                 locStartY = locY += 5;
             }
-
         }
+
 
         private Button createButton(Dictionary<string, string> value, Point location, Size size, Font font)
         {
@@ -393,7 +395,12 @@ namespace FORM
 
         }
 
-
+        private bool IsProdLine(string lineAndMline)
+        {
+            DataRow[] dr = _dtLineProd.Select($"LINE_MLINE = '{lineAndMline}'");
+            if (dr.Count() > 0) return true;
+            return false;
+        }
 
         #endregion Init Form
 
@@ -408,25 +415,23 @@ namespace FORM
         //    return dt;
         //}
 
-        private async Task<DataTable> GetDataAsync()
-        {
-            return await Task.Run(() => {
 
-                DataTable dt = Data_Select("");
-
-                return dt;
-            });
-        }
-
-
-        private void setData()
+        private async void setData()
         {
 
             DataTable dt = Data_Select("");
+            _dtLineProd = await Master_Select("LINE_PROD");
 
             //reset color line
             foreach (var item in _dicLine)
             {
+                string[] value = item.Key.Split('_');
+                if (!IsProdLine(value[0] + "_" + value[1]))
+                {
+                    item.Value.status = "GRAY";
+                    item.Value.button.BackColor = Color.Silver;
+                    continue;
+                }
                 if (item.Value.status != "GREEN")
                 {
                     item.Value.status = "GREEN";
@@ -465,22 +470,25 @@ namespace FORM
                         location = dr[0][0].ToString();
                     }
 
+                    string nameButton = row["NAME_CONTROL"].ToString();
+                    string status = row["STATUS"].ToString();
                     //Set color Line
-                    if (_dicLine.ContainsKey(row["NAME_CONTROL"].ToString()))
+                    if (_dicLine.ContainsKey(nameButton))
                     {
-                        _dicLine[row["NAME_CONTROL"].ToString()].status = row["STATUS"].ToString();
-                        _dicLine[row["NAME_CONTROL"].ToString()].button.BackColor = Color.FromName(row["STATUS"].ToString());
+                        if (_dicLine[nameButton].status == "GRAY") continue;
+                        _dicLine[nameButton].status = status;
+                        _dicLine[nameButton].button.BackColor = Color.FromName(status);
                     }
 
                     if (row["STATUS"].ToString() == "RED")
                     {
-                        _dicFac[location + "_RED"]._Color = row["STATUS"].ToString();
-                        _dicFac[location + "_RED"].setColor(row["STATUS"].ToString());
+                        _dicFac[location + "_RED"]._Color = status;
+                        _dicFac[location + "_RED"].setColor(status);
                     }
                     else if (row["STATUS"].ToString() == "YELLOW")
                     {
-                        _dicFac[location + "_YELLOW"]._Color = row["STATUS"].ToString();
-                        _dicFac[location + "_YELLOW"].setColor(row["STATUS"].ToString());
+                        _dicFac[location + "_YELLOW"]._Color = status;
+                        _dicFac[location + "_YELLOW"].setColor(status);
                     }
 
 

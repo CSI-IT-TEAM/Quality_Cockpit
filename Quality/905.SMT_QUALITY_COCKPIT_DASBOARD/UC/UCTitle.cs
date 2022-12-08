@@ -89,8 +89,8 @@ namespace FORM.UC
                 if (lblYear.Text == sYearValue)
                 {
                     int.TryParse(sMonthValue, out int month);
-
-                    season = _arrSeasonValue[month / 3] + sYearValue.Substring(2, 2);
+                    int idx = month % 3 == 0 ? (month / 3) - 1 : (month / 3);
+                    season = _arrSeasonValue[idx] + sYearValue.Substring(2, 2);
                     CurrenSeason = season;
                 }
                 else if (sYearValue == "-1")
