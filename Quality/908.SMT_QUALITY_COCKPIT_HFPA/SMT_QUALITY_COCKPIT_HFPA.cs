@@ -184,7 +184,7 @@ namespace FORM
             if (argDtChart == null) return;
             XYDiagram diagram = (XYDiagram)chartControl2.Diagram;
 
-                diagram.AxisX.Title.Text = "Line";
+                diagram.AxisX.Title.Text = "Plant";
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
                 chartControl2.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["DEFECT_RATE"]));
@@ -324,7 +324,15 @@ namespace FORM
                         DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
                         chartControl3.Titles.Clear();
                         if (sYM != null)
-                            chartTitle.Text = "HFPA by Reason Nos " + sYM;
+                            if (sYM == "iD")
+                            {
+                                chartTitle.Text = "Plant ID" + " HFPA by Reason";
+                            }
+                            else
+                            {
+                                chartTitle.Text = "Plant "+ sYM + " HFPA by Reason";
+                            }
+
                         else
                             chartTitle.Text = "HFPA by Reason";
                         chartControl3.DataSource = dtChart2;
