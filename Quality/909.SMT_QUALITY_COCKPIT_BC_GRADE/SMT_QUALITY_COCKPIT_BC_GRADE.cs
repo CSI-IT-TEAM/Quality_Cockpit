@@ -417,6 +417,73 @@ namespace FORM
                         chart3.Titles.AddRange(new ChartTitle[] { chartTitle });
                     }
                 }
+                else
+                {
+                    string sYM = DateTime.Parse(hit.AxisLabelItem.AxisValue.ToString()).ToString();
+                    string sYM1 = hit.AxisLabelItem.AxisValue.ToString();
+                    clear_chart();
+
+                    DataSet dsData = await Task.Run(() => sbGetBC_Grade(sDate, sYM));
+                    if (dsData == null) return;
+                    DataTable dtChart = dsData.Tables[0];
+                    DataTable dtChart1 = dsData.Tables[1];
+                    DataTable dtChart2 = dsData.Tables[2];
+                    //dtWeek = dsData.Tables[3];
+                    if (dtChart1 != null && dtChart1.Rows.Count > 0)
+                    {
+                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                        chart2.Titles.Clear();
+                        if (sYM != null)
+                            chartTitle.Text = "B/C Grade " + sYM1;
+                        else
+                            chartTitle.Text = "B/C Grade by Line";
+                        SetChart1(dtChart1);
+
+                        // Define the alignment of the titles.
+                        chartTitle.Alignment = StringAlignment.Center;
+
+                        // Place the titles where it's required.
+                        chartTitle.Dock = ChartTitleDockStyle.Top;
+
+                        // Customize a title's appearance.
+                        chartTitle.Antialiasing = true;
+                        chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                        chartTitle.TextColor = Color.Blue;
+                        chartTitle.Indent = 10;
+                        chart2.Titles.AddRange(new ChartTitle[] { chartTitle });
+                    }
+                    else
+                    {
+                        chart2.DataSource = null;
+                    }
+                    if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                    {
+                        DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+                        chart3.Titles.Clear();
+                        if (sYM != null)
+                            chartTitle.Text = "Top 10 by Reason " + sYM1;
+                        else
+                            chartTitle.Text = "Top 10 by Reason";
+                        SetChart2(dtChart2);
+
+                        // Define the alignment of the titles.
+                        chartTitle.Alignment = StringAlignment.Center;
+
+                        // Place the titles where it's required.
+                        chartTitle.Dock = ChartTitleDockStyle.Right;
+
+                        // Customize a title's appearance.
+                        chartTitle.Antialiasing = true;
+                        chartTitle.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                        chartTitle.TextColor = Color.Blue;
+                        chartTitle.Indent = 10;
+                        chart3.Titles.AddRange(new ChartTitle[] { chartTitle });
+                    }
+                    else
+                    {
+                        chart3.DataSource = null;
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -15,6 +15,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace FORM
 {
@@ -43,7 +44,8 @@ namespace FORM
             btnWeek.Enabled = true;
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
-            _crr_date = DateTime.Now.ToString("yyyyMMdd");
+            cbo_Date.DateTime = DateTime.Now;
+            //_crr_date = DateTime.Now.ToString("yyyyMMdd");
             InitCombo("C_FACTORY", cboFactory);
         }
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_VisibleChanged(object sender, EventArgs e)
@@ -114,13 +116,12 @@ namespace FORM
                 if (dsData == null) return;
                 DataTable _dtData = dsData.Tables[0];
 
-                //if (_dtData != null && _dtData.Rows.Count > 0)
-                //{
                     //Load Chart Main
-                    if (_dtData.Select("DIV <> 1 AND LOCATE <> 'TOTAL'", "RN1, RN2").Count() > 0)
+                    if (_dtData.Select("DIV <>1 AND LOCATE <> 'TOTAL'", "RN1, RN2").Count() > 0)
                     {
                         DataTable dtChart = _dtData.Select("DIV <>1 AND LOCATE <> 'TOTAL'", "RN1, RN2").CopyToDataTable();
                         dtChart.Columns.Remove("DISTINCTROW");
+                        dtChart.Columns.Remove("O_TYPE");
                         DataTable _dtPivot = Pivot(dtChart, dtChart.Columns["DIV"], dtChart.Columns["QTY"]);
                         LoadDataChart("Q1", _dtPivot);
                     }
@@ -138,9 +139,8 @@ namespace FORM
                             SetDataDetail();
                         }
                     }
-               // }
 
-                _dtData = null;
+               // _dtData = null;
 
                 splashScreenManager1.CloseWaitForm();
                 _is_All_Load = false;
@@ -161,7 +161,7 @@ namespace FORM
             try
             {
                 DataSet _dtData = null;
-                _dtData = GetExternalOSD("Q", _crr_date,cboFactory.EditValue.ToString(), _crr_div);
+                _dtData = GetExternalOSD("Q", cbo_Date.DateTime.ToString("yyyyMMdd"), cboFactory.EditValue.ToString(), _crr_div);
 
                 return _dtData;
             }
@@ -341,6 +341,7 @@ namespace FORM
         {
             try
             {
+                gvwMain.BestFitColumns();
                 grdMain.BeginUpdate();
 
                 for (int i = 0; i < gvwMain.Columns.Count; i++)
@@ -348,7 +349,7 @@ namespace FORM
                     gvwMain.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
                     gvwMain.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     gvwMain.Columns[i].AppearanceCell.Options.UseTextOptions = true;
-                    gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                    gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
                     gvwMain.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
 
                     gvwMain.Columns[i].OptionsColumn.ReadOnly = false;
@@ -363,15 +364,17 @@ namespace FORM
                         gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
                         gvwMain.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
                         gvwMain.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                        gvwMain.Columns[i].Width = 76;
                     }
 
-                    gvwMain.Columns[i].AppearanceCell.Font = new Font("Calibri", 16, FontStyle.Regular);
-                    gvwMain.Columns[i].AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
+                    gvwMain.Columns[i].AppearanceCell.Font = new Font("Calibri", 14, FontStyle.Regular);
+                    gvwMain.Columns[i].AppearanceHeader.Font = new Font("Calibri", 14, FontStyle.Bold);
                 }
                 gvwMain.RowHeight = 45;
                 gvwMain.TopRowIndex = 0;
 
                 grdMain.EndUpdate();
+               
             }
             catch (Exception ex)
             {
@@ -434,8 +437,8 @@ namespace FORM
                 //Load Chart Model
                 LoadDataChart("Q3", _dtReason);
 
-                _dtModel = null;
-                _dtReason = null;
+                //_dtModel = null;
+                //_dtReason = null;
 
                 if (_is_All_Load == false)
                 {
@@ -465,12 +468,45 @@ namespace FORM
                 if (_qtype == "Q1")
                 {
                     chartMain.DataSource = null;
+                    //chartMain.Series[0].Points.Clear();
+                    //chartMain.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+                    //chartMain.Series[1].Points.Clear();
+                    //chartMain.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+                    //chartMain.Series[2].Points.Clear();
+                    //chartMain.Series[2].ArgumentScaleType = ScaleType.Qualitative;
+                    //chartMain.Series[3].Points.Clear();
+                    //chartMain.Series[3].ArgumentScaleType = ScaleType.Qualitative;
                     if (_dtSource == null) return;
                     chartMain.DataSource = _dtSource;
                     chartMain.Series[0].ArgumentDataMember = "LABEL_CHART";
                     chartMain.Series[0].ValueDataMembers.AddRange(new string[] { "2" });
                     chartMain.Series[1].ArgumentDataMember = "LABEL_CHART";
-                    chartMain.Series[1].ValueDataMembers.AddRange(new string[] { "3" });
+                    chartMain.Series[1].ValueDataMembers.AddRange(new string[] { "5" });
+                    chartMain.Series[2].ArgumentDataMember = "LABEL_CHART";
+                    chartMain.Series[2].ValueDataMembers.AddRange(new string[] { "3" });
+                    chartMain.Series[3].ArgumentDataMember = "LABEL_CHART";
+                    chartMain.Series[3].ValueDataMembers.AddRange(new string[] { "4" });
+                    //for (int i = 0; i <= _dtSource.Rows.Count - 1; i++)
+                    //{
+                    //    chartMain.Series[0].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["3"]));
+                    //    chartMain.Series[1].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["5"]));
+                    //    chartMain.Series[2].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["2"]));
+                    //    chartMain.Series[3].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["4"]));
+                    //}
+                    //for (int i = 0; i < _dtSource.Rows.Count; i++)
+                    //{
+                    //    if (Convert.ToDouble(_dtSource.Rows[i]["2"]) == Convert.ToDouble(_dtSource.Rows[i]["3"]))
+                    //    {
+                    //        chartMain.Series[0].Points[i].Color = Color.Green;
+                    //        chartMain.Series[2].Points[i].Color = Color.Green;
+                    //    }
+                    //    else
+                    //    {
+                    //        chartMain.Series[0].Points[i].Color = Color.DodgerBlue;
+                    //        chartMain.Series[2].Points[i].Color = Color.Orange;
+                    //    }
+
+                    //}
                 }
                 else if (_qtype == "Q2")
                 {
@@ -594,7 +630,7 @@ namespace FORM
             DataSet ds_ret;
             try
             {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_06.SP_GET_EXTERNAL_OSD";
+                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_06.SP_GET_EXTERNAL_OSD_V2";
 
                 MyOraDB.ReDim_Parameter(7);
                 MyOraDB.Process_Name = process_name;
@@ -661,9 +697,12 @@ namespace FORM
         {
             try
             {
+
+
                 this.Cursor = Cursors.Hand;
                 ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
                 SeriesPoint point = hit.SeriesPoint;
+
                 // Check whether the series point was clicked or not.
                 if (point != null)
                 {
@@ -673,10 +712,24 @@ namespace FORM
                     {
                         if (_dtArea.Rows[iRow]["LABEL_CHART"].ToString() == _div_nm)
                         {
-                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString().Split('_')[1];
                         }
                     }
                 }
+                else
+                {
+                    if (hit.AxisLabelItem == null) return;
+                    _div_nm = hit.AxisLabelItem.AxisValue.ToString();
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["LABEL_CHART"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString().Split('_')[1];
+                        }
+                    }
+                }    
+
 
                 _time = 10;
                 SetDataDetail();
@@ -690,10 +743,27 @@ namespace FORM
         private void gvwMain_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             if (e.CellValue == DBNull.Value) return;
-            if (e.Column.ColumnHandle >= _start_column && gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("3"))
+            if (e.Column.ColumnHandle >= _start_column && (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("2")|| gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("3")))
             {
-                e.DisplayText = e.CellValue.ToString() + "%";
+                if (e.CellValue.ToString().Equals("0"))
+                {
+                    gvwMain.SetRowCellValue(e.RowHandle, e.Column.FieldName, "");
+                }    
+                    
             }
+            //if (e.Column.ColumnHandle >= _start_column && gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("4"))
+            //{
+            //    e.DisplayText = e.CellValue.ToString() + "%";
+            //}
+            //else if (e.Column.ColumnHandle >= _start_column && gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("5"))
+            //{
+            //    e.DisplayText = e.CellValue.ToString() + "%";
+            //}
+        }
+
+        private void cbo_Date_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            SetData();
         }
 
         private void gvwMain_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -702,14 +772,24 @@ namespace FORM
             {
                 if (grdMain.DataSource == null || gvwMain.RowCount < 1) return;
 
-                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("3"))
+                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("4"))
                 {
                     e.Appearance.BackColor = Color.LightYellow;
 
                     if (e.Column.FieldName != "O_TYPE")
                     {
                         e.Appearance.ForeColor = Color.Blue;
-                        e.Appearance.Font = new Font("Calibri", 16, FontStyle.Bold);
+                        e.Appearance.Font = new Font("Calibri", 14, FontStyle.Bold);
+                    }
+                }
+                else if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("5"))
+                {
+                    e.Appearance.BackColor = Color.LightYellow;
+
+                    if (e.Column.FieldName != "O_TYPE")
+                    {
+                        e.Appearance.ForeColor = Color.Blue;
+                        e.Appearance.Font = new Font("Calibri", 14, FontStyle.Bold);
                     }
                 }
             }
