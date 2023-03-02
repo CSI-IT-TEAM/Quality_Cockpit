@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -51,10 +50,26 @@
             DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel2 = new DevExpress.XtraCharts.PointSeriesLabel();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView2 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel3 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView3 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel3 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_EXTERNAL));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            this.timer1 = new System.Windows.Forms.Timer();
             this.pn_Main = new System.Windows.Forms.Panel();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,6 +83,8 @@
             this.grdMain = new DevExpress.XtraGrid.GridControl();
             this.gvwMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.pnControl = new System.Windows.Forms.Panel();
+            this.cbo_Date = new DevExpress.XtraEditors.DateEdit();
+            this.label6 = new System.Windows.Forms.Label();
             this.cboFactory = new DevExpress.XtraEditors.LookUpEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.pnTop = new System.Windows.Forms.Panel();
@@ -109,10 +126,18 @@
             ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwMain)).BeginInit();
             this.pnControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_Date.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_Date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFactory.Properties)).BeginInit();
             this.pnTop.SuspendLayout();
             this.pn_UC.SuspendLayout();
@@ -177,6 +202,8 @@
             this.chartModel.DataBindings = null;
             xyDiagram1.AxisX.Label.Angle = -40;
             xyDiagram1.AxisX.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram1.AxisX.Label.MaxLineCount = 2;
+            xyDiagram1.AxisX.Label.MaxWidth = 200;
             xyDiagram1.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             xyDiagram1.AxisX.Title.Text = "Model";
             xyDiagram1.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -335,13 +362,14 @@
             this.chartMain.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
             this.chartMain.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
             this.chartMain.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
+            this.chartMain.Legend.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chartMain.Legend.Name = "Default Legend";
-            this.chartMain.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chartMain.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chartMain.Location = new System.Drawing.Point(0, 0);
             this.chartMain.Name = "chartMain";
             this.chartMain.RuntimeHitTesting = true;
             sideBySideBarSeriesLabel2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sideBySideBarSeriesLabel2.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Center;
+            sideBySideBarSeriesLabel2.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
             sideBySideBarSeriesLabel2.TextPattern = "{V:#,0.0}";
             series4.Label = sideBySideBarSeriesLabel2;
             series4.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
@@ -359,9 +387,31 @@
             lineSeriesView2.LineStyle.Thickness = 4;
             lineSeriesView2.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
             series5.View = lineSeriesView2;
+            sideBySideBarSeriesLabel3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            sideBySideBarSeriesLabel3.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
+            sideBySideBarSeriesLabel3.TextPattern = "{V:#,0.0}";
+            series6.Label = sideBySideBarSeriesLabel3;
+            series6.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series6.Name = "Replenishment";
+            sideBySideBarSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(150)))), ((int)(((byte)(70)))));
+            series6.View = sideBySideBarSeriesView3;
+            pointSeriesLabel3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            pointSeriesLabel3.TextPattern = "{V:0.00}%";
+            series7.Label = pointSeriesLabel3;
+            series7.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series7.Name = "Replenishment Rate";
+            lineSeriesView3.AxisYName = "Secondary AxisY 1";
+            lineSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(100)))), ((int)(((byte)(162)))));
+            lineSeriesView3.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(103)))));
+            lineSeriesView3.LineStyle.Thickness = 4;
+            lineSeriesView3.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series7.View = lineSeriesView3;
+            series7.Visible = false;
             this.chartMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4,
-        series5};
+        series5,
+        series6,
+        series7};
             this.chartMain.Size = new System.Drawing.Size(956, 461);
             this.chartMain.TabIndex = 25;
             chartTitle3.Font = new System.Drawing.Font("Times New Roman", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -394,7 +444,7 @@
             // gvwMain
             // 
             this.gvwMain.Appearance.BandPanel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.gvwMain.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvwMain.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvwMain.Appearance.BandPanel.ForeColor = System.Drawing.Color.White;
             this.gvwMain.Appearance.BandPanel.Options.UseBackColor = true;
             this.gvwMain.Appearance.BandPanel.Options.UseFont = true;
@@ -418,6 +468,7 @@
             this.gvwMain.OptionsSelection.EnableAppearanceFocusedRow = false;
             this.gvwMain.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
             this.gvwMain.OptionsView.AllowCellMerge = true;
+            this.gvwMain.OptionsView.ColumnAutoWidth = false;
             this.gvwMain.OptionsView.ShowColumnHeaders = false;
             this.gvwMain.OptionsView.ShowGroupPanel = false;
             this.gvwMain.OptionsView.ShowIndicator = false;
@@ -431,6 +482,8 @@
             // pnControl
             // 
             this.pnControl.BackColor = System.Drawing.Color.Transparent;
+            this.pnControl.Controls.Add(this.cbo_Date);
+            this.pnControl.Controls.Add(this.label6);
             this.pnControl.Controls.Add(this.cboFactory);
             this.pnControl.Controls.Add(this.label2);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
@@ -439,9 +492,91 @@
             this.pnControl.Size = new System.Drawing.Size(1924, 50);
             this.pnControl.TabIndex = 4;
             // 
+            // cbo_Date
+            // 
+            this.cbo_Date.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cbo_Date.EditValue = new System.DateTime(2017, 12, 15, 16, 0, 56, 917);
+            this.cbo_Date.Location = new System.Drawing.Point(150, 5);
+            this.cbo_Date.Name = "cbo_Date";
+            this.cbo_Date.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cbo_Date.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_Date.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cbo_Date.Properties.Appearance.Options.UseFont = true;
+            this.cbo_Date.Properties.Appearance.Options.UseForeColor = true;
+            this.cbo_Date.Properties.AppearanceCalendar.CalendarHeader.Font = new System.Drawing.Font("Calibri", 15.25F);
+            this.cbo_Date.Properties.AppearanceCalendar.CalendarHeader.Options.UseFont = true;
+            this.cbo_Date.Properties.AppearanceCalendar.DayCell.Font = new System.Drawing.Font("Calibri", 15.25F);
+            this.cbo_Date.Properties.AppearanceCalendar.DayCell.Options.UseFont = true;
+            this.cbo_Date.Properties.AppearanceCalendar.DayCellHighlighted.Font = new System.Drawing.Font("Calibri", 15.25F);
+            this.cbo_Date.Properties.AppearanceCalendar.DayCellHighlighted.Options.UseFont = true;
+            this.cbo_Date.Properties.AppearanceCalendar.DayCellSelected.Font = new System.Drawing.Font("Calibri", 15.25F);
+            this.cbo_Date.Properties.AppearanceCalendar.DayCellSelected.Options.UseFont = true;
+            this.cbo_Date.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
+            this.cbo_Date.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.cbo_Date.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_Date.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cbo_Date.Properties.AppearanceFocused.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
+            this.cbo_Date.Properties.AppearanceFocused.Options.UseFont = true;
+            this.cbo_Date.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
+            this.cbo_Date.Properties.AppearanceReadOnly.Options.UseFont = true;
+            this.cbo_Date.Properties.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject2.Options.UseFont = true;
+            serializableAppearanceObject3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject3.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject4.Options.UseFont = true;
+            this.cbo_Date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 50, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null)});
+            this.cbo_Date.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            editorButtonImageOptions2.Location = DevExpress.XtraEditors.ImageLocation.Default;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.Options.UseFont = true;
+            serializableAppearanceObject6.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject6.Options.UseFont = true;
+            serializableAppearanceObject7.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject7.Options.UseFont = true;
+            serializableAppearanceObject8.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject8.Options.UseFont = true;
+            this.cbo_Date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", 50, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null)});
+            this.cbo_Date.Properties.CalendarTimeProperties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.cbo_Date.Properties.CalendarTimeProperties.ReadOnly = true;
+            this.cbo_Date.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.cbo_Date.Properties.ContextImageOptions.SvgImageSize = new System.Drawing.Size(1, 10);
+            this.cbo_Date.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.cbo_Date.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cbo_Date.Properties.EditFormat.FormatString = "yyyy-MM-dd";
+            this.cbo_Date.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cbo_Date.Properties.Mask.EditMask = "yyyy-MM-dd";
+            this.cbo_Date.Properties.ShowNullValuePromptWhenFocused = true;
+            this.cbo_Date.Size = new System.Drawing.Size(220, 40);
+            this.cbo_Date.TabIndex = 790;
+            this.cbo_Date.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.cbo_Date.ToolTipTitle = "Click vào để chọn ngày";
+            this.cbo_Date.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cbo_Date_Closed);
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Black;
+            this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(12, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 40);
+            this.label6.TabIndex = 789;
+            this.label6.Text = "Date";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // cboFactory
             // 
-            this.cboFactory.Location = new System.Drawing.Point(151, 5);
+            this.cboFactory.Location = new System.Drawing.Point(518, 5);
             this.cboFactory.Name = "cboFactory";
             this.cboFactory.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
             this.cboFactory.Properties.Appearance.Options.UseFont = true;
@@ -453,7 +588,7 @@
             this.cboFactory.Properties.AppearanceFocused.Options.UseFont = true;
             this.cboFactory.Properties.AutoHeight = false;
             this.cboFactory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 30, true, true, false, editorButtonImageOptions1)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 30, true, true, false, editorButtonImageOptions3)});
             this.cboFactory.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.cboFactory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
@@ -469,7 +604,7 @@
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 5);
+            this.label2.Location = new System.Drawing.Point(380, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 40);
             this.label2.TabIndex = 22;
@@ -685,11 +820,19 @@
             ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMain)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwMain)).EndInit();
             this.pnControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_Date.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbo_Date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFactory.Properties)).EndInit();
             this.pnTop.ResumeLayout(false);
             this.pn_UC.ResumeLayout(false);
@@ -724,5 +867,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvwMain;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.LookUpEdit cboFactory;
+        private DevExpress.XtraEditors.DateEdit cbo_Date;
+        private System.Windows.Forms.Label label6;
     }
 }

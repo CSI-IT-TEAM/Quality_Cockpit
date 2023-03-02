@@ -644,6 +644,19 @@ namespace FORM
                         }
                     }
                 }
+                else
+                {
+                    if (hit.AxisLabelItem == null) return;
+                    _div_nm = hit.AxisLabelItem.AxisValue.ToString();
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
+                        }
+                    }
+                }
 
                 _time = 10;
                 SetDataDetail();

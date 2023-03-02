@@ -333,7 +333,26 @@ namespace FORM
                     }
                 }
                 else
-                    sLine = "ALL";
+                {
+                    if(hit.AxisLabelItem == null)
+                    {
+                        sLine = "ALL";
+                    }   
+                    else
+                    {
+                        sLine_nm = hit.AxisLabelItem.AxisValue.ToString();
+                        for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                        {
+                            if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
+                            {
+                                sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                            }
+                        }
+                    }    
+                    
+                }
+                //else
+                //    sLine = "ALL";
                 _time = 10;
                 SetDataDetail();
             }
