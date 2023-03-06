@@ -164,7 +164,7 @@ namespace FORM
                 {
                     chart1.Series[0].Points[i].Color = Color.LimeGreen;
                 }
-                else if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) < 95)
+                else if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) < 97)
                 {
                     chart1.Series[0].Points[i].Color = Color.Red;
                 }
