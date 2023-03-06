@@ -1,16 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using FORM;
+using System.Windows.Forms;
 
-namespace OS_DSF
+namespace FORM
 {
-	public partial class A1Panel : Panel
+    public partial class A1Panel : Panel
 	{
 		int _borderWidth = 1;
 		[Browsable(true), Category(A1PanelGlobals.A1Category)]

@@ -962,6 +962,12 @@ namespace FORM
             ComVar.Var._IsBack = true;
             ComVar.Var.callForm = "912";
         }
+
+        private void btnHumidity_Click(object sender, EventArgs e)
+        {
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "913";
+        }
     }
 
     public class Button_Status

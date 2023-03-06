@@ -127,6 +127,24 @@
     <Compile Include="ClassLib\TransparentPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Form\FORM_SMT_WEATHER_MGNT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FORM_SMT_WEATHER_MGNT.designer.cs">
+      <DependentUpon>FORM_SMT_WEATHER_MGNT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FORM_SMT_WEATHER_MGNT_STATICS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FORM_SMT_WEATHER_MGNT_STATICS.designer.cs">
+      <DependentUpon>FORM_SMT_WEATHER_MGNT_STATICS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FORM_SMT_WEATHER_MGNT_STATICS_POPUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FORM_SMT_WEATHER_MGNT_STATICS_POPUP.designer.cs">
+      <DependentUpon>FORM_SMT_WEATHER_MGNT_STATICS_POPUP.cs</DependentUpon>
+    </Compile>
     <Compile Include="init.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -176,6 +194,12 @@
     <Compile Include="UC\UC_MONTH_SELECTION.designer.cs">
       <DependentUpon>UC_MONTH_SELECTION.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\UC_WEATHER.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_WEATHER.designer.cs">
+      <DependentUpon>UC_WEATHER.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\UC_YEAR_SELECTION.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +208,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\FORM_SMT_WEATHER_MGNT.resx">
+      <DependentUpon>FORM_SMT_WEATHER_MGNT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FORM_SMT_WEATHER_MGNT_STATICS.resx">
+      <DependentUpon>FORM_SMT_WEATHER_MGNT_STATICS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FORM_SMT_WEATHER_MGNT_STATICS_POPUP.resx">
+      <DependentUpon>FORM_SMT_WEATHER_MGNT_STATICS_POPUP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -210,6 +243,9 @@
     <EmbeddedResource Include="UC\UC_MONTH_SELECTION.resx">
       <DependentUpon>UC_MONTH_SELECTION.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_WEATHER.resx">
+      <DependentUpon>UC_WEATHER.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC\UC_YEAR_SELECTION.resx">
       <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,9 +265,16 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\analytics.png" />
     <Content Include="Resources\btnSearch.png" />
+    <Content Include="Resources\CheckLocation.png" />
     <Content Include="Resources\Draft1.png" />
+    <Content Include="Resources\drop_slower.gif" />
+    <Content Include="Resources\humidity.png" />
     <Content Include="Resources\location.png" />
+    <Content Include="Resources\partly_cloudy.png" />
+    <Content Include="Resources\raining.png" />
+    <Content Include="Resources\weather_animated.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

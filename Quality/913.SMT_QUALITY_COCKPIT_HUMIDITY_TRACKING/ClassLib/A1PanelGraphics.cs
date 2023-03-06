@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace OS_DSF
+namespace FORM
 {
-	internal class A1PanelGraphics
+    internal class A1PanelGraphics
 	{
 		public static GraphicsPath GetRoundPath(Rectangle r, int depth)
 		{

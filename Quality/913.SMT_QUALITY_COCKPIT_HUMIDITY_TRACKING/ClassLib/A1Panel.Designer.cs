@@ -1,4 +1,4 @@
-namespace OS_DSF
+namespace FORM
 {
 	partial class A1Panel
 	{

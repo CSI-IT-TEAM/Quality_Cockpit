@@ -93,6 +93,16 @@ namespace FORM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap humidity {
+            get {
+                object obj = ResourceManager.GetObject("humidity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shoe {
             get {
                 object obj = ResourceManager.GetObject("shoe", resourceCulture);

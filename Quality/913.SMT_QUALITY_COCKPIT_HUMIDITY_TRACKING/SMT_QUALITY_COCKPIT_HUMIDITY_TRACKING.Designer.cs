@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING));
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.ConstantLine constantLine1 = new DevExpress.XtraCharts.ConstantLine();
@@ -36,44 +35,27 @@
             DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel1 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
             DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.ConstantLine constantLine2 = new DevExpress.XtraCharts.ConstantLine();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel2 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView2 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
             this.pnTop = new System.Windows.Forms.Panel();
             this.cmdPm1 = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.pnBody = new System.Windows.Forms.Panel();
             this.tblBody = new System.Windows.Forms.TableLayoutPanel();
             this.pnLeft = new System.Windows.Forms.Panel();
-            this.advancedPanel1 = new FORM.AdvancedPanel();
-            this.lbl_L_3 = new System.Windows.Forms.Label();
-            this.advancedPanel4 = new FORM.AdvancedPanel();
-            this.lbl_L_4 = new System.Windows.Forms.Label();
-            this.advancedPanel3 = new FORM.AdvancedPanel();
-            this.lbl_L_2 = new System.Windows.Forms.Label();
-            this.advancedPanel2 = new FORM.AdvancedPanel();
-            this.lbl_L_1 = new System.Windows.Forms.Label();
+            this.btnLocation_E = new FORM.AdvancedPanel();
+            this.btnLocation_K = new FORM.AdvancedPanel();
+            this.btnLocation_J = new FORM.AdvancedPanel();
+            this.btnLocation_I = new FORM.AdvancedPanel();
+            this.btnLocation_H = new FORM.AdvancedPanel();
+            this.btnLocation_G = new FORM.AdvancedPanel();
+            this.btnLocation_C = new FORM.AdvancedPanel();
+            this.btnLocation_MA = new FORM.AdvancedPanel();
+            this.btnLocation_M = new FORM.AdvancedPanel();
+            this.btnLocation_L = new FORM.AdvancedPanel();
             this.pnRight = new System.Windows.Forms.Panel();
             this.tblRight = new System.Windows.Forms.TableLayoutPanel();
-            this.tblMonth = new System.Windows.Forms.TableLayoutPanel();
-            this.pnChart2 = new System.Windows.Forms.Panel();
-            this.chthumiMon = new DevExpress.XtraCharts.ChartControl();
-            this.pnFacMon = new System.Windows.Forms.Panel();
-            this.grdBase = new DevExpress.XtraGrid.GridControl();
-            this.gvwBase = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.RST_DATE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.lbl_title = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tblLine = new System.Windows.Forms.TableLayoutPanel();
             this.pnChart = new System.Windows.Forms.Panel();
             this.chtHumi = new DevExpress.XtraCharts.ChartControl();
@@ -87,34 +69,20 @@
             this.HUMIDITY = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pnT = new System.Windows.Forms.Panel();
+            this.tmrWarning = new System.Windows.Forms.Timer();
             this.pnTop.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.tblBody.SuspendLayout();
             this.pnLeft.SuspendLayout();
-            this.advancedPanel1.SuspendLayout();
-            this.advancedPanel4.SuspendLayout();
-            this.advancedPanel3.SuspendLayout();
-            this.advancedPanel2.SuspendLayout();
             this.pnRight.SuspendLayout();
             this.tblRight.SuspendLayout();
-            this.tblMonth.SuspendLayout();
-            this.pnChart2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chthumiMon)).BeginInit();
+            this.tblLine.SuspendLayout();
+            this.pnChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chtHumi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).BeginInit();
-            this.pnFacMon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdBase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvwBase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.tblLine.SuspendLayout();
-            this.pnChart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chtHumi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView2)).BeginInit();
             this.pnFac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwMain)).BeginInit();
@@ -211,167 +179,251 @@
             // 
             this.pnLeft.BackgroundImage = global::FORM.Properties.Resources.Draft1;
             this.pnLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnLeft.Controls.Add(this.advancedPanel1);
-            this.pnLeft.Controls.Add(this.advancedPanel4);
-            this.pnLeft.Controls.Add(this.advancedPanel3);
-            this.pnLeft.Controls.Add(this.advancedPanel2);
+            this.pnLeft.Controls.Add(this.btnLocation_E);
+            this.pnLeft.Controls.Add(this.btnLocation_K);
+            this.pnLeft.Controls.Add(this.btnLocation_J);
+            this.pnLeft.Controls.Add(this.btnLocation_I);
+            this.pnLeft.Controls.Add(this.btnLocation_H);
+            this.pnLeft.Controls.Add(this.btnLocation_G);
+            this.pnLeft.Controls.Add(this.btnLocation_C);
+            this.pnLeft.Controls.Add(this.btnLocation_MA);
+            this.pnLeft.Controls.Add(this.btnLocation_M);
+            this.pnLeft.Controls.Add(this.btnLocation_L);
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnLeft.Location = new System.Drawing.Point(3, 3);
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Size = new System.Drawing.Size(1231, 909);
             this.pnLeft.TabIndex = 0;
             // 
-            // advancedPanel1
+            // btnLocation_E
             // 
-            this.advancedPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.advancedPanel1.BackColor = System.Drawing.Color.White;
-            this.advancedPanel1.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.advancedPanel1.Controls.Add(this.lbl_L_3);
-            this.advancedPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.advancedPanel1.EdgeWidth = 2;
-            this.advancedPanel1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel1.FlatBorderColor = System.Drawing.Color.Red;
-            this.advancedPanel1.Location = new System.Drawing.Point(680, 628);
-            this.advancedPanel1.Name = "advancedPanel1";
-            this.advancedPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.advancedPanel1.RectRadius = 17;
-            this.advancedPanel1.ShadowColor = System.Drawing.SystemColors.Control;
-            this.advancedPanel1.ShadowShift = 1;
-            this.advancedPanel1.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel1.Size = new System.Drawing.Size(37, 35);
-            this.advancedPanel1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel1.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel1.TabIndex = 0;
+            this.btnLocation_E.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_E.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_E.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_E.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_E.EdgeWidth = 2;
+            this.btnLocation_E.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_E.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_E.Location = new System.Drawing.Point(736, 441);
+            this.btnLocation_E.Name = "btnLocation_E";
+            this.btnLocation_E.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_E.RectRadius = 17;
+            this.btnLocation_E.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_E.ShadowShift = 1;
+            this.btnLocation_E.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_E.Size = new System.Drawing.Size(37, 35);
+            this.btnLocation_E.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_E.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_E.TabIndex = 0;
+            this.btnLocation_E.Tag = "011";
+            this.btnLocation_E.Click += new System.EventHandler(this.btnLocation_Click);
             // 
-            // lbl_L_3
+            // btnLocation_K
             // 
-            this.lbl_L_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.lbl_L_3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_L_3.ForeColor = System.Drawing.Color.White;
-            this.lbl_L_3.Location = new System.Drawing.Point(10, 6);
-            this.lbl_L_3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbl_L_3.Name = "lbl_L_3";
-            this.lbl_L_3.Size = new System.Drawing.Size(18, 21);
-            this.lbl_L_3.TabIndex = 0;
-            this.lbl_L_3.Tag = "3";
-            this.lbl_L_3.Text = "3";
-            this.lbl_L_3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_L_3.Click += new System.EventHandler(this.lbl_Click);
+            this.btnLocation_K.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_K.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_K.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_K.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_K.EdgeWidth = 2;
+            this.btnLocation_K.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_K.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_K.Location = new System.Drawing.Point(580, 193);
+            this.btnLocation_K.Name = "btnLocation_K";
+            this.btnLocation_K.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_K.RectRadius = 12;
+            this.btnLocation_K.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_K.ShadowShift = 1;
+            this.btnLocation_K.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_K.Size = new System.Drawing.Size(29, 26);
+            this.btnLocation_K.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_K.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_K.TabIndex = 0;
+            this.btnLocation_K.Tag = "009";
+            this.btnLocation_K.Click += new System.EventHandler(this.btnLocation_Click);
             // 
-            // advancedPanel4
+            // btnLocation_J
             // 
-            this.advancedPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.advancedPanel4.BackColor = System.Drawing.Color.White;
-            this.advancedPanel4.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.advancedPanel4.Controls.Add(this.lbl_L_4);
-            this.advancedPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.advancedPanel4.EdgeWidth = 2;
-            this.advancedPanel4.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel4.FlatBorderColor = System.Drawing.Color.Red;
-            this.advancedPanel4.Location = new System.Drawing.Point(716, 628);
-            this.advancedPanel4.Name = "advancedPanel4";
-            this.advancedPanel4.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.advancedPanel4.RectRadius = 17;
-            this.advancedPanel4.ShadowColor = System.Drawing.SystemColors.Control;
-            this.advancedPanel4.ShadowShift = 1;
-            this.advancedPanel4.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel4.Size = new System.Drawing.Size(37, 35);
-            this.advancedPanel4.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel4.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel4.TabIndex = 0;
+            this.btnLocation_J.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_J.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_J.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_J.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_J.EdgeWidth = 2;
+            this.btnLocation_J.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_J.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_J.Location = new System.Drawing.Point(613, 164);
+            this.btnLocation_J.Name = "btnLocation_J";
+            this.btnLocation_J.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_J.RectRadius = 12;
+            this.btnLocation_J.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_J.ShadowShift = 1;
+            this.btnLocation_J.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_J.Size = new System.Drawing.Size(29, 28);
+            this.btnLocation_J.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_J.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_J.TabIndex = 0;
+            this.btnLocation_J.Tag = "016";
+            this.btnLocation_J.Click += new System.EventHandler(this.btnLocation_Click);
             // 
-            // lbl_L_4
+            // btnLocation_I
             // 
-            this.lbl_L_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.lbl_L_4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_L_4.ForeColor = System.Drawing.Color.White;
-            this.lbl_L_4.Location = new System.Drawing.Point(10, 6);
-            this.lbl_L_4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbl_L_4.Name = "lbl_L_4";
-            this.lbl_L_4.Size = new System.Drawing.Size(18, 21);
-            this.lbl_L_4.TabIndex = 0;
-            this.lbl_L_4.Tag = "4";
-            this.lbl_L_4.Text = "4";
-            this.lbl_L_4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_L_4.Click += new System.EventHandler(this.lbl_Click);
+            this.btnLocation_I.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_I.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_I.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_I.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_I.EdgeWidth = 2;
+            this.btnLocation_I.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_I.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_I.Location = new System.Drawing.Point(644, 141);
+            this.btnLocation_I.Name = "btnLocation_I";
+            this.btnLocation_I.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_I.RectRadius = 12;
+            this.btnLocation_I.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_I.ShadowShift = 1;
+            this.btnLocation_I.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_I.Size = new System.Drawing.Size(29, 28);
+            this.btnLocation_I.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_I.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_I.TabIndex = 0;
+            this.btnLocation_I.Tag = "015";
+            this.btnLocation_I.Click += new System.EventHandler(this.btnLocation_Click);
             // 
-            // advancedPanel3
+            // btnLocation_H
             // 
-            this.advancedPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.advancedPanel3.BackColor = System.Drawing.Color.White;
-            this.advancedPanel3.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.advancedPanel3.Controls.Add(this.lbl_L_2);
-            this.advancedPanel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.advancedPanel3.EdgeWidth = 2;
-            this.advancedPanel3.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel3.FlatBorderColor = System.Drawing.Color.Red;
-            this.advancedPanel3.Location = new System.Drawing.Point(754, 518);
-            this.advancedPanel3.Name = "advancedPanel3";
-            this.advancedPanel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.advancedPanel3.RectRadius = 17;
-            this.advancedPanel3.ShadowColor = System.Drawing.SystemColors.Control;
-            this.advancedPanel3.ShadowShift = 1;
-            this.advancedPanel3.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel3.Size = new System.Drawing.Size(37, 35);
-            this.advancedPanel3.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel3.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel3.TabIndex = 0;
+            this.btnLocation_H.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_H.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_H.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_H.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_H.EdgeWidth = 2;
+            this.btnLocation_H.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_H.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_H.Location = new System.Drawing.Point(669, 114);
+            this.btnLocation_H.Name = "btnLocation_H";
+            this.btnLocation_H.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_H.RectRadius = 12;
+            this.btnLocation_H.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_H.ShadowShift = 1;
+            this.btnLocation_H.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_H.Size = new System.Drawing.Size(29, 28);
+            this.btnLocation_H.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_H.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_H.TabIndex = 0;
+            this.btnLocation_H.Tag = "014";
+            this.btnLocation_H.Click += new System.EventHandler(this.btnLocation_Click);
             // 
-            // lbl_L_2
+            // btnLocation_G
             // 
-            this.lbl_L_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.lbl_L_2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_L_2.ForeColor = System.Drawing.Color.White;
-            this.lbl_L_2.Location = new System.Drawing.Point(10, 6);
-            this.lbl_L_2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbl_L_2.Name = "lbl_L_2";
-            this.lbl_L_2.Size = new System.Drawing.Size(18, 21);
-            this.lbl_L_2.TabIndex = 0;
-            this.lbl_L_2.Tag = "2";
-            this.lbl_L_2.Text = "2";
-            this.lbl_L_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_L_2.Click += new System.EventHandler(this.lbl_Click);
+            this.btnLocation_G.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_G.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_G.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_G.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_G.EdgeWidth = 2;
+            this.btnLocation_G.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_G.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_G.Location = new System.Drawing.Point(698, 90);
+            this.btnLocation_G.Name = "btnLocation_G";
+            this.btnLocation_G.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_G.RectRadius = 12;
+            this.btnLocation_G.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_G.ShadowShift = 1;
+            this.btnLocation_G.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_G.Size = new System.Drawing.Size(29, 28);
+            this.btnLocation_G.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_G.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_G.TabIndex = 0;
+            this.btnLocation_G.Tag = "013";
+            this.btnLocation_G.Click += new System.EventHandler(this.btnLocation_Click);
             // 
-            // advancedPanel2
+            // btnLocation_C
             // 
-            this.advancedPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.advancedPanel2.BackColor = System.Drawing.Color.White;
-            this.advancedPanel2.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.advancedPanel2.Controls.Add(this.lbl_L_1);
-            this.advancedPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.advancedPanel2.EdgeWidth = 2;
-            this.advancedPanel2.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel2.FlatBorderColor = System.Drawing.Color.Red;
-            this.advancedPanel2.Location = new System.Drawing.Point(718, 518);
-            this.advancedPanel2.Name = "advancedPanel2";
-            this.advancedPanel2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.advancedPanel2.RectRadius = 17;
-            this.advancedPanel2.ShadowColor = System.Drawing.SystemColors.Control;
-            this.advancedPanel2.ShadowShift = 1;
-            this.advancedPanel2.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel2.Size = new System.Drawing.Size(37, 35);
-            this.advancedPanel2.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.advancedPanel2.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel2.TabIndex = 0;
+            this.btnLocation_C.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_C.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_C.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_C.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_C.EdgeWidth = 2;
+            this.btnLocation_C.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_C.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_C.Location = new System.Drawing.Point(591, 274);
+            this.btnLocation_C.Name = "btnLocation_C";
+            this.btnLocation_C.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_C.RectRadius = 12;
+            this.btnLocation_C.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_C.ShadowShift = 1;
+            this.btnLocation_C.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_C.Size = new System.Drawing.Size(29, 28);
+            this.btnLocation_C.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_C.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_C.TabIndex = 0;
+            this.btnLocation_C.Tag = "008";
+            this.btnLocation_C.Click += new System.EventHandler(this.btnLocation_Click);
             // 
-            // lbl_L_1
+            // btnLocation_MA
             // 
-            this.lbl_L_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            this.lbl_L_1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_L_1.ForeColor = System.Drawing.Color.White;
-            this.lbl_L_1.Location = new System.Drawing.Point(10, 6);
-            this.lbl_L_1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbl_L_1.Name = "lbl_L_1";
-            this.lbl_L_1.Size = new System.Drawing.Size(18, 21);
-            this.lbl_L_1.TabIndex = 0;
-            this.lbl_L_1.Tag = "1";
-            this.lbl_L_1.Text = "1";
-            this.lbl_L_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_L_1.Click += new System.EventHandler(this.lbl_Click);
+            this.btnLocation_MA.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_MA.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_MA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_MA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_MA.EdgeWidth = 2;
+            this.btnLocation_MA.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_MA.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_MA.Location = new System.Drawing.Point(626, 518);
+            this.btnLocation_MA.Name = "btnLocation_MA";
+            this.btnLocation_MA.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_MA.RectRadius = 17;
+            this.btnLocation_MA.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_MA.ShadowShift = 1;
+            this.btnLocation_MA.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_MA.Size = new System.Drawing.Size(37, 35);
+            this.btnLocation_MA.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_MA.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_MA.TabIndex = 0;
+            this.btnLocation_MA.Tag = "0000";
+            this.btnLocation_MA.Click += new System.EventHandler(this.btnLocation_Click);
+            // 
+            // btnLocation_M
+            // 
+            this.btnLocation_M.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_M.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_M.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_M.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_M.EdgeWidth = 2;
+            this.btnLocation_M.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_M.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_M.Location = new System.Drawing.Point(679, 527);
+            this.btnLocation_M.Name = "btnLocation_M";
+            this.btnLocation_M.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_M.RectRadius = 17;
+            this.btnLocation_M.ShadowColor = System.Drawing.Color.Transparent;
+            this.btnLocation_M.ShadowShift = 1;
+            this.btnLocation_M.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_M.Size = new System.Drawing.Size(37, 35);
+            this.btnLocation_M.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_M.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_M.TabIndex = 0;
+            this.btnLocation_M.Tag = "019";
+            this.btnLocation_M.Click += new System.EventHandler(this.btnLocation_Click);
+            // 
+            // btnLocation_L
+            // 
+            this.btnLocation_L.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_L.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_L.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_L.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_L.EdgeWidth = 2;
+            this.btnLocation_L.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_L.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_L.Location = new System.Drawing.Point(741, 554);
+            this.btnLocation_L.Name = "btnLocation_L";
+            this.btnLocation_L.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_L.RectRadius = 17;
+            this.btnLocation_L.ShadowColor = System.Drawing.Color.Transparent;
+            this.btnLocation_L.ShadowShift = 1;
+            this.btnLocation_L.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_L.Size = new System.Drawing.Size(37, 35);
+            this.btnLocation_L.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_L.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_L.TabIndex = 0;
+            this.btnLocation_L.Tag = "018";
+            this.btnLocation_L.Click += new System.EventHandler(this.btnLocation_Click);
             // 
             // pnRight
             // 
@@ -386,53 +438,63 @@
             // 
             this.tblRight.ColumnCount = 1;
             this.tblRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblRight.Controls.Add(this.tblMonth, 0, 3);
             this.tblRight.Controls.Add(this.lbl_title, 0, 0);
-            this.tblRight.Controls.Add(this.label1, 0, 2);
             this.tblRight.Controls.Add(this.tblLine, 0, 1);
             this.tblRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblRight.Location = new System.Drawing.Point(0, 0);
             this.tblRight.Name = "tblRight";
-            this.tblRight.RowCount = 4;
+            this.tblRight.RowCount = 2;
             this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblRight.Size = new System.Drawing.Size(661, 909);
             this.tblRight.TabIndex = 0;
             // 
-            // tblMonth
+            // lbl_title
             // 
-            this.tblMonth.ColumnCount = 2;
-            this.tblMonth.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblMonth.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblMonth.Controls.Add(this.pnChart2, 0, 0);
-            this.tblMonth.Controls.Add(this.pnFacMon, 0, 0);
-            this.tblMonth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblMonth.Location = new System.Drawing.Point(3, 487);
-            this.tblMonth.Name = "tblMonth";
-            this.tblMonth.RowCount = 1;
-            this.tblMonth.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblMonth.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblMonth.Size = new System.Drawing.Size(655, 419);
-            this.tblMonth.TabIndex = 14;
+            this.lbl_title.BackColor = System.Drawing.Color.RoyalBlue;
+            this.lbl_title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_title.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_title.ForeColor = System.Drawing.Color.Transparent;
+            this.lbl_title.Location = new System.Drawing.Point(3, 0);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(655, 30);
+            this.lbl_title.TabIndex = 11;
+            this.lbl_title.Text = "Humidity Average By Line";
+            this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnChart2
+            // tblLine
             // 
-            this.pnChart2.Controls.Add(this.chthumiMon);
-            this.pnChart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnChart2.Location = new System.Drawing.Point(330, 3);
-            this.pnChart2.Name = "pnChart2";
-            this.pnChart2.Size = new System.Drawing.Size(322, 413);
-            this.pnChart2.TabIndex = 2;
+            this.tblLine.ColumnCount = 2;
+            this.tblLine.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblLine.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblLine.Controls.Add(this.pnChart, 1, 0);
+            this.tblLine.Controls.Add(this.pnFac, 0, 0);
+            this.tblLine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblLine.Location = new System.Drawing.Point(3, 33);
+            this.tblLine.Name = "tblLine";
+            this.tblLine.RowCount = 1;
+            this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblLine.Size = new System.Drawing.Size(655, 873);
+            this.tblLine.TabIndex = 13;
             // 
-            // chthumiMon
+            // pnChart
             // 
-            this.chthumiMon.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
-            this.chthumiMon.BorderOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.chthumiMon.BorderOptions.Thickness = 2;
-            this.chthumiMon.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chthumiMon.DataBindings = null;
+            this.pnChart.Controls.Add(this.chtHumi);
+            this.pnChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnChart.Location = new System.Drawing.Point(330, 3);
+            this.pnChart.Name = "pnChart";
+            this.pnChart.Size = new System.Drawing.Size(322, 867);
+            this.pnChart.TabIndex = 0;
+            // 
+            // chtHumi
+            // 
+            this.chtHumi.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
+            this.chtHumi.BorderOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.chtHumi.BorderOptions.Thickness = 2;
+            this.chtHumi.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            this.chtHumi.DataBindings = null;
             xyDiagram1.AxisX.Label.Angle = -25;
             xyDiagram1.AxisX.Label.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             xyDiagram1.AxisX.NumericScaleOptions.AutoGrid = false;
@@ -447,6 +509,7 @@
             constantLine1.Color = System.Drawing.Color.Red;
             constantLine1.LineStyle.Thickness = 3;
             constantLine1.Name = "Constant Line 1";
+            constantLine1.Title.Alignment = DevExpress.XtraCharts.ConstantLineTitleAlignment.Far;
             constantLine1.Title.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             constantLine1.Title.Text = "Within 70%";
             constantLine1.Title.TextColor = System.Drawing.Color.Red;
@@ -476,16 +539,16 @@
             xyDiagram1.EnableAxisYScrolling = true;
             xyDiagram1.EnableAxisYZooming = true;
             xyDiagram1.Rotated = true;
-            this.chthumiMon.Diagram = xyDiagram1;
-            this.chthumiMon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chthumiMon.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
-            this.chthumiMon.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
-            this.chthumiMon.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
-            this.chthumiMon.Legend.Name = "Default Legend";
-            this.chthumiMon.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chthumiMon.Location = new System.Drawing.Point(0, 0);
-            this.chthumiMon.Name = "chthumiMon";
-            this.chthumiMon.RuntimeHitTesting = true;
+            this.chtHumi.Diagram = xyDiagram1;
+            this.chtHumi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chtHumi.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
+            this.chtHumi.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
+            this.chtHumi.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
+            this.chtHumi.Legend.Name = "Default Legend";
+            this.chtHumi.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chtHumi.Location = new System.Drawing.Point(0, 0);
+            this.chtHumi.Name = "chtHumi";
+            this.chtHumi.RuntimeHitTesting = true;
             series1.CrosshairLabelPattern = "{V:#,0.#}%";
             sideBySideBarSeriesLabel1.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
             sideBySideBarSeriesLabel1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -496,247 +559,15 @@
             sideBySideBarSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
             sideBySideBarSeriesView1.ColorEach = true;
             series1.View = sideBySideBarSeriesView1;
-            this.chthumiMon.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+            this.chtHumi.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chthumiMon.Size = new System.Drawing.Size(322, 413);
-            this.chthumiMon.TabIndex = 26;
+            this.chtHumi.Size = new System.Drawing.Size(322, 867);
+            this.chtHumi.TabIndex = 25;
             chartTitle1.Font = new System.Drawing.Font("Times New Roman", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             chartTitle1.Text = "Inventory (Finish Goods)";
             chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chthumiMon.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
-            // 
-            // pnFacMon
-            // 
-            this.pnFacMon.Controls.Add(this.grdBase);
-            this.pnFacMon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnFacMon.Location = new System.Drawing.Point(3, 3);
-            this.pnFacMon.Name = "pnFacMon";
-            this.pnFacMon.Size = new System.Drawing.Size(321, 413);
-            this.pnFacMon.TabIndex = 1;
-            // 
-            // grdBase
-            // 
-            this.grdBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdBase.Font = new System.Drawing.Font("Calibri", 16F);
-            this.grdBase.Location = new System.Drawing.Point(0, 0);
-            this.grdBase.LookAndFeel.SkinName = "Office 2010 Blue";
-            this.grdBase.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.grdBase.MainView = this.gvwBase;
-            this.grdBase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.grdBase.Name = "grdBase";
-            this.grdBase.Size = new System.Drawing.Size(321, 413);
-            this.grdBase.TabIndex = 4;
-            this.grdBase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvwBase,
-            this.gridView1});
-            // 
-            // gvwBase
-            // 
-            this.gvwBase.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 12F);
-            this.gvwBase.Appearance.BandPanel.Options.UseFont = true;
-            this.gvwBase.Appearance.BandPanel.Options.UseTextOptions = true;
-            this.gvwBase.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gvwBase.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand2,
-            this.gridBand3});
-            this.gvwBase.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gvwBase.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.bandedGridColumn1,
-            this.bandedGridColumn3,
-            this.RST_DATE});
-            this.gvwBase.GridControl = this.grdBase;
-            this.gvwBase.Name = "gvwBase";
-            this.gvwBase.OptionsBehavior.Editable = false;
-            this.gvwBase.OptionsBehavior.ReadOnly = true;
-            this.gvwBase.OptionsSelection.MultiSelect = true;
-            this.gvwBase.OptionsView.AllowCellMerge = true;
-            this.gvwBase.OptionsView.ColumnAutoWidth = false;
-            this.gvwBase.OptionsView.ShowColumnHeaders = false;
-            this.gvwBase.OptionsView.ShowGroupPanel = false;
-            this.gvwBase.OptionsView.ShowIndicator = false;
-            this.gvwBase.RowHeight = 28;
-            this.gvwBase.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwBase_CustomDrawCell);
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.Columns.Add(this.bandedGridColumn1);
-            this.gridBand2.Columns.Add(this.RST_DATE);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.VisibleIndex = 0;
-            this.gridBand2.Width = 225;
-            // 
-            // bandedGridColumn1
-            // 
-            this.bandedGridColumn1.Caption = "FAC_NM";
-            this.bandedGridColumn1.FieldName = "FAC_NM";
-            this.bandedGridColumn1.Name = "bandedGridColumn1";
-            this.bandedGridColumn1.Visible = true;
-            this.bandedGridColumn1.Width = 126;
-            // 
-            // RST_DATE
-            // 
-            this.RST_DATE.Caption = "RST_DATE";
-            this.RST_DATE.FieldName = "RST_DATE";
-            this.RST_DATE.Name = "RST_DATE";
-            this.RST_DATE.Visible = true;
-            this.RST_DATE.Width = 99;
-            // 
-            // gridBand3
-            // 
-            this.gridBand3.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridBand3.AppearanceHeader.Options.UseFont = true;
-            this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridBand3.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridBand3.Caption = "Average";
-            this.gridBand3.Columns.Add(this.bandedGridColumn3);
-            this.gridBand3.Name = "gridBand3";
-            this.gridBand3.VisibleIndex = 1;
-            this.gridBand3.Width = 96;
-            // 
-            // bandedGridColumn3
-            // 
-            this.bandedGridColumn3.Caption = "HUMIDITY";
-            this.bandedGridColumn3.FieldName = "HUMIDITY";
-            this.bandedGridColumn3.Name = "bandedGridColumn3";
-            this.bandedGridColumn3.Visible = true;
-            this.bandedGridColumn3.Width = 96;
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.grdBase;
-            this.gridView1.Name = "gridView1";
-            // 
-            // lbl_title
-            // 
-            this.lbl_title.BackColor = System.Drawing.Color.RoyalBlue;
-            this.lbl_title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_title.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.ForeColor = System.Drawing.Color.Transparent;
-            this.lbl_title.Location = new System.Drawing.Point(3, 0);
-            this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(655, 30);
-            this.lbl_title.TabIndex = 11;
-            this.lbl_title.Text = "Humidity Average By Line";
-            this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(3, 454);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(655, 30);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Humidity Average By Month";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tblLine
-            // 
-            this.tblLine.ColumnCount = 2;
-            this.tblLine.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblLine.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblLine.Controls.Add(this.pnChart, 1, 0);
-            this.tblLine.Controls.Add(this.pnFac, 0, 0);
-            this.tblLine.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblLine.Location = new System.Drawing.Point(3, 33);
-            this.tblLine.Name = "tblLine";
-            this.tblLine.RowCount = 1;
-            this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLine.Size = new System.Drawing.Size(655, 418);
-            this.tblLine.TabIndex = 13;
-            // 
-            // pnChart
-            // 
-            this.pnChart.Controls.Add(this.chtHumi);
-            this.pnChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnChart.Location = new System.Drawing.Point(330, 3);
-            this.pnChart.Name = "pnChart";
-            this.pnChart.Size = new System.Drawing.Size(322, 412);
-            this.pnChart.TabIndex = 0;
-            // 
-            // chtHumi
-            // 
-            this.chtHumi.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
-            this.chtHumi.BorderOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.chtHumi.BorderOptions.Thickness = 2;
-            this.chtHumi.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            this.chtHumi.DataBindings = null;
-            xyDiagram2.AxisX.Label.Angle = -25;
-            xyDiagram2.AxisX.Label.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram2.AxisX.NumericScaleOptions.AutoGrid = false;
-            xyDiagram2.AxisX.Reverse = true;
-            xyDiagram2.AxisX.Title.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
-            xyDiagram2.AxisX.Title.Text = "Line";
-            xyDiagram2.AxisX.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            xyDiagram2.AxisX.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram2.AxisY.Alignment = DevExpress.XtraCharts.AxisAlignment.Far;
-            constantLine2.AxisValueSerializable = "70";
-            constantLine2.Color = System.Drawing.Color.Red;
-            constantLine2.LineStyle.Thickness = 3;
-            constantLine2.Name = "Constant Line 1";
-            constantLine2.Title.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            constantLine2.Title.Text = "Within 70%";
-            constantLine2.Title.TextColor = System.Drawing.Color.Red;
-            xyDiagram2.AxisY.ConstantLines.AddRange(new DevExpress.XtraCharts.ConstantLine[] {
-            constantLine2});
-            xyDiagram2.AxisY.Label.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram2.AxisY.NumericScaleOptions.AutoGrid = false;
-            xyDiagram2.AxisY.NumericScaleOptions.GridSpacing = 20D;
-            xyDiagram2.AxisY.Title.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
-            xyDiagram2.AxisY.Title.Text = "Humidity (%)";
-            xyDiagram2.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(192)))));
-            xyDiagram2.AxisY.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram2.AxisY.VisualRange.Auto = false;
-            xyDiagram2.AxisY.VisualRange.AutoSideMargins = false;
-            xyDiagram2.AxisY.VisualRange.MaxValueSerializable = "100";
-            xyDiagram2.AxisY.VisualRange.MinValueSerializable = "0";
-            xyDiagram2.AxisY.VisualRange.SideMarginsValue = 0D;
-            xyDiagram2.AxisY.WholeRange.AlwaysShowZeroLevel = false;
-            xyDiagram2.AxisY.WholeRange.Auto = false;
-            xyDiagram2.AxisY.WholeRange.AutoSideMargins = false;
-            xyDiagram2.AxisY.WholeRange.MaxValueSerializable = "100";
-            xyDiagram2.AxisY.WholeRange.MinValueSerializable = "0";
-            xyDiagram2.AxisY.WholeRange.SideMarginsValue = 0D;
-            xyDiagram2.EnableAxisXScrolling = true;
-            xyDiagram2.EnableAxisXZooming = true;
-            xyDiagram2.EnableAxisYScrolling = true;
-            xyDiagram2.EnableAxisYZooming = true;
-            xyDiagram2.Rotated = true;
-            this.chtHumi.Diagram = xyDiagram2;
-            this.chtHumi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chtHumi.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
-            this.chtHumi.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
-            this.chtHumi.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
-            this.chtHumi.Legend.Name = "Default Legend";
-            this.chtHumi.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chtHumi.Location = new System.Drawing.Point(0, 0);
-            this.chtHumi.Name = "chtHumi";
-            this.chtHumi.RuntimeHitTesting = true;
-            series2.CrosshairLabelPattern = "{V:#,0.#}%";
-            sideBySideBarSeriesLabel2.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
-            sideBySideBarSeriesLabel2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            sideBySideBarSeriesLabel2.TextPattern = "{V:#,0.#}%";
-            series2.Label = sideBySideBarSeriesLabel2;
-            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series2.Name = "Humidity By Line";
-            sideBySideBarSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
-            sideBySideBarSeriesView2.ColorEach = true;
-            series2.View = sideBySideBarSeriesView2;
-            this.chtHumi.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chtHumi.Size = new System.Drawing.Size(322, 412);
-            this.chtHumi.TabIndex = 25;
-            chartTitle2.Font = new System.Drawing.Font("Times New Roman", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            chartTitle2.Text = "Inventory (Finish Goods)";
-            chartTitle2.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chtHumi.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle2});
+            chartTitle1});
             // 
             // pnFac
             // 
@@ -744,7 +575,7 @@
             this.pnFac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnFac.Location = new System.Drawing.Point(3, 3);
             this.pnFac.Name = "pnFac";
-            this.pnFac.Size = new System.Drawing.Size(321, 412);
+            this.pnFac.Size = new System.Drawing.Size(321, 867);
             this.pnFac.TabIndex = 0;
             // 
             // grdMain
@@ -757,7 +588,7 @@
             this.grdMain.MainView = this.gvwMain;
             this.grdMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grdMain.Name = "grdMain";
-            this.grdMain.Size = new System.Drawing.Size(321, 412);
+            this.grdMain.Size = new System.Drawing.Size(321, 867);
             this.grdMain.TabIndex = 3;
             this.grdMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwMain,
@@ -849,6 +680,12 @@
             this.pnT.Size = new System.Drawing.Size(1904, 50);
             this.pnT.TabIndex = 4;
             // 
+            // tmrWarning
+            // 
+            this.tmrWarning.Enabled = true;
+            this.tmrWarning.Interval = 500;
+            this.tmrWarning.Tick += new System.EventHandler(this.tmrWarning_Tick);
+            // 
             // SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -856,36 +693,24 @@
             this.Controls.Add(this.pnBody);
             this.Controls.Add(this.pnT);
             this.Controls.Add(this.pnTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_EXTERNAL_OSD_VisibleChanged);
             this.pnTop.ResumeLayout(false);
             this.pnBody.ResumeLayout(false);
             this.tblBody.ResumeLayout(false);
             this.pnLeft.ResumeLayout(false);
-            this.advancedPanel1.ResumeLayout(false);
-            this.advancedPanel4.ResumeLayout(false);
-            this.advancedPanel3.ResumeLayout(false);
-            this.advancedPanel2.ResumeLayout(false);
             this.pnRight.ResumeLayout(false);
             this.tblRight.ResumeLayout(false);
-            this.tblMonth.ResumeLayout(false);
-            this.pnChart2.ResumeLayout(false);
+            this.tblLine.ResumeLayout(false);
+            this.pnChart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chthumiMon)).EndInit();
-            this.pnFacMon.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdBase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvwBase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.tblLine.ResumeLayout(false);
-            this.pnChart.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chtHumi)).EndInit();
             this.pnFac.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdMain)).EndInit();
@@ -908,11 +733,7 @@
         private System.Windows.Forms.Panel pnT;
         private System.Windows.Forms.TableLayoutPanel tblRight;
         private System.Windows.Forms.Label lbl_title;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tblLine;
-        private System.Windows.Forms.TableLayoutPanel tblMonth;
-        private System.Windows.Forms.Panel pnChart2;
-        private System.Windows.Forms.Panel pnFacMon;
         private System.Windows.Forms.Panel pnChart;
         private System.Windows.Forms.Panel pnFac;
         private DevExpress.XtraCharts.ChartControl chtHumi;
@@ -924,22 +745,16 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand Average;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn HUMIDITY;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraCharts.ChartControl chthumiMon;
-        private DevExpress.XtraGrid.GridControl grdBase;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvwBase;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn RST_DATE;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
-        private AdvancedPanel advancedPanel1;
-        private System.Windows.Forms.Label lbl_L_3;
-        private AdvancedPanel advancedPanel4;
-        private System.Windows.Forms.Label lbl_L_4;
-        private AdvancedPanel advancedPanel3;
-        private System.Windows.Forms.Label lbl_L_2;
-        private AdvancedPanel advancedPanel2;
-        private System.Windows.Forms.Label lbl_L_1;
+        private AdvancedPanel btnLocation_L;
+        private System.Windows.Forms.Timer tmrWarning;
+        private AdvancedPanel btnLocation_M;
+        private AdvancedPanel btnLocation_MA;
+        private AdvancedPanel btnLocation_E;
+        private AdvancedPanel btnLocation_C;
+        private AdvancedPanel btnLocation_K;
+        private AdvancedPanel btnLocation_J;
+        private AdvancedPanel btnLocation_I;
+        private AdvancedPanel btnLocation_H;
+        private AdvancedPanel btnLocation_G;
     }
 }
