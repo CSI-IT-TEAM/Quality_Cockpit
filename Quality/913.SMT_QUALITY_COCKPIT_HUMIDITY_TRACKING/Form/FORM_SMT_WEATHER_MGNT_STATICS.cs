@@ -59,14 +59,16 @@ namespace FORM
                         double rate;
                         double.TryParse(dtChart.Rows[i]["HUMI_VL"].ToString(), out rate);
 
+                        _chart.Series[0].Points[i].Color = Color.FromArgb(255, 192, 0);
+
                         if (rate <= 70)
                         {
-                            // _chart.Series[0].Points[i].Color = Color.Lime;
+                            _chart.Series[1].View.Color = Color.Lime;
                             _chart.Series[1].Points[i].Color = Color.Lime;
                         }
                         else
                         {
-                            //_chart.Series[0].Points[i].Color = Color.Red;
+                            _chart.Series[1].View.Color = Color.Red;
                             _chart.Series[1].Points[i].Color = Color.Red;
                         }
                     }

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraCharts;
+using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,15 @@ namespace FORM
         {
             InitializeComponent();
             lblHeader.Text = _strHeader;
+            tmrAniNumber.Stop();
+            timer1.Stop();
         }
         private readonly string _strHeader = "       Humidity Tracking";
         int _time = 0;
         DataTable dtWarn = null;
         DataTable dtBlink = null;
-        string strBlink = "", strSEQ = "";
+        private int iHumidity = 0;
+        int cAnimationNo = 0;
 
         private void CheckLineInTable(string strLine = "")
         {
@@ -41,7 +45,7 @@ namespace FORM
                         btnLocation_K,
                         btnLocation_L,
                         btnLocation_M,
-                        btnLocation_MA
+                        //btnLocation_MA
                     };
                     foreach (var btn in buttons)
                     {
@@ -80,7 +84,7 @@ namespace FORM
                         btnLocation_K,
                         btnLocation_L,
                         btnLocation_M,
-                        btnLocation_MA
+                        //btnLocation_MA
                     };
                     foreach (var btn in buttons)
                     {
@@ -124,9 +128,10 @@ namespace FORM
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                int color = 0;
                 chtHumi.DataSource = null;
                 grdMain.DataSource = null;
+                lblLine.Text = "";
+                lblHumi.Text = "";
                 DataTable dt = Data_Select(arg_type, DateTime.Now.ToString(), plant, line);
                 if (dt == null || dt.Rows.Count == 0) return;
 
@@ -141,20 +146,64 @@ namespace FORM
                     {
                         grdMain.DataSource = dtChart;
                         FormatGrid(gvwMain);
-                        chtHumi.Series[0].ArgumentScaleType = ScaleType.Qualitative;
-
                         for (int i = 0; i < dtChart.Rows.Count; i++)
                         {
                             chtHumi.Series[0].Points.Add(new SeriesPoint(dtChart.Rows[i]["LINE_NM"].ToString(), dtChart.Rows[i]["HUMIDITY"]));
-                            color = Convert.ToInt32(dtChart.Rows[i]["HUMIDITY"]);
-                            if (color < 70)
+                            double rate;
+                            double.TryParse(dtChart.Rows[i]["HUMIDITY"].ToString(), out rate);
+
+                            chtHumi.Series[0].Points[i].Color = Color.FromArgb(255, 192, 0);
+
+                            if (rate <= 70)
                             {
+                                chtHumi.Series[0].View.Color = Color.Lime;
                                 chtHumi.Series[0].Points[i].Color = Color.Lime;
+                                RepositoryItemProgressBar pgrsbar = new RepositoryItemProgressBar();
+                                pgrsbar.StartColor = Color.Lime;
+                                pgrsbar.EndColor = Color.Lime;
+                                pgrsbar.Minimum = 0;
+                                pgrsbar.Maximum = 100;
+
+                                pgrsbar.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
+                                pgrsbar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+                                pgrsbar.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Horizontal;
+                                pgrsbar.PercentView = true;
+                                pgrsbar.ShowTitle = false;
+                                pgrsbar.Step = 1;
+                                pgrsbar.LookAndFeel.UseDefaultLookAndFeel = false;
+
+                                gvwMain.Columns["HUMIDITY"].ColumnEdit = pgrsbar;
                             }
                             else
                             {
+                                chtHumi.Series[0].View.Color = Color.Red;
                                 chtHumi.Series[0].Points[i].Color = Color.Red;
+
+                                RepositoryItemProgressBar pgrsbar = new RepositoryItemProgressBar();
+                                pgrsbar.StartColor = Color.Red;
+                                pgrsbar.EndColor = Color.Red;
+                                pgrsbar.Minimum = 0;
+                                pgrsbar.Maximum = 100;
+
+                                pgrsbar.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
+                                pgrsbar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+                                //pgrsbar.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Horizontal;
+                                pgrsbar.PercentView = true;
+                                pgrsbar.ShowTitle = false;
+                                pgrsbar.Step = 1;
+                                pgrsbar.LookAndFeel.UseDefaultLookAndFeel = false;
+
+                                gvwMain.Columns["HUMIDITY"].ColumnEdit = pgrsbar;
                             }
+                        }
+
+                        DataTable dtCharttmp = dtChart.Copy();
+                        if (dtCharttmp != null && dtCharttmp.Rows.Count >= 0)
+                        {
+                            dtCharttmp = dtCharttmp.Select("HUMIDITY = MAX(HUMIDITY)", "LINE_CD").CopyToDataTable();
+                            lblLine.Text = dtCharttmp.Rows[0]["LINE_NM"].ToString();
+                            iHumidity = Convert.ToInt32(dtCharttmp.Rows[0]["HUMIDITY"]);
+                            tmrAniNumber.Start();
                         }
                     }
                 }
@@ -236,7 +285,7 @@ namespace FORM
         {
             lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
             _time++;
-            if (_time >= 30)
+            if (_time >= 60)
             {
                 _time = 0;
                 BindingData();
@@ -257,10 +306,9 @@ namespace FORM
         {
             if (Visible)
             {
-                _time = 0;
+                _time = 60;
                 BindingData();
                 timer1.Start();
-
             }
             else
             {
@@ -269,21 +317,6 @@ namespace FORM
             }
         }
         private void gvwMain_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
-        {
-            try
-            {
-                if (e.Column.FieldName == "HUMIDITY")
-                {
-                    e.DisplayText = Convert.ToInt32(e.CellValue) + "%";
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-        }
-
-        private void gvwBase_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
         {
             try
             {
@@ -343,6 +376,7 @@ namespace FORM
                     default:
                         break;
                 }
+                _time = 60;
             }
             catch (Exception ex)
             {
@@ -427,6 +461,33 @@ namespace FORM
                 return null;
             }
         }
+        private void tmrAniNumber_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                Random r = new Random();
+                cAnimationNo++;
+                if (cAnimationNo >= 100)
+                {
+                    cAnimationNo = 0;
+                    tmrAniNumber.Stop();
+                    lblHumi.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
+                    if (iHumidity >= 70)
+                        lblHumi.ForeColor = Color.Red;
+                    else
+                        lblHumi.ForeColor = Color.Lime;
+                }
+                else
+                {
+                    lblHumi.Text = string.Concat(string.Format("{0:n0}", r.Next(1,100)), "%");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
 
         private void tmrWarning_Tick(object sender, EventArgs e)
         {
@@ -444,7 +505,7 @@ namespace FORM
                         btnLocation_K,
                         btnLocation_L,
                         btnLocation_M,
-                        btnLocation_MA
+                        //btnLocation_MA
                     };
                 foreach (var btn in buttons)
                 {
@@ -469,8 +530,6 @@ namespace FORM
                             }
                         }
                     }
-
-
                 }
             }
             catch (Exception ex)
