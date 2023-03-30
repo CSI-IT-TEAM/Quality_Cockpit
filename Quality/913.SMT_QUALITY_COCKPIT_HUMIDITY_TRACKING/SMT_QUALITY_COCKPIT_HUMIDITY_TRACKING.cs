@@ -20,6 +20,10 @@ namespace FORM
             tmrAniNumber.Stop();
             timer1.Stop();
         }
+        #region Variable
+        bool isFirstLoad = true;
+        List<AdvancedPanel> advLst = new List<AdvancedPanel>();
+        #endregion
         private readonly string _strHeader = "       Humidity Tracking";
         int _time = 0;
         DataTable dtWarn = null;
@@ -35,18 +39,18 @@ namespace FORM
                 CheckBlink();
                 if (dtWarn != null)
                 {
-                    var buttons = new List<AdvancedPanel> {
-                        btnLocation_C,
-                        btnLocation_E,
-                        btnLocation_G,
-                        btnLocation_H,
-                        btnLocation_I,
-                        btnLocation_J,
-                        btnLocation_K,
-                        btnLocation_L,
-                        btnLocation_M,
-                        //btnLocation_MA
-                    };
+                    //var buttons = new List<AdvancedPanel> {
+                    //    btnLocation_C,
+                    //    btnLocation_E,
+                    //    btnLocation_G,
+                    //    btnLocation_H,
+                    //    btnLocation_I,
+                    //    btnLocation_J,
+                    //    btnLocation_K,
+                    //    btnLocation_L,
+                    //    btnLocation_M,
+                    //    btnLocation_MA
+                    //};
                     foreach (var btn in buttons)
                     {
                         if (btn.Tag != null)
@@ -74,19 +78,19 @@ namespace FORM
                 dtBlink = SMT_MAT_WEATHER_MGNT("CHECK");
                 if (dtBlink != null)
                 {
-                    var buttons = new List<AdvancedPanel> {
-                        btnLocation_C,
-                        btnLocation_E,
-                        btnLocation_G,
-                        btnLocation_H,
-                        btnLocation_I,
-                        btnLocation_J,
-                        btnLocation_K,
-                        btnLocation_L,
-                        btnLocation_M,
-                        //btnLocation_MA
-                    };
-                    foreach (var btn in buttons)
+                    //var buttons = new List<AdvancedPanel> {
+                    //    btnLocation_C,
+                    //    btnLocation_E,
+                    //    btnLocation_G,
+                    //    btnLocation_H,
+                    //    btnLocation_I,
+                    //    btnLocation_J,
+                    //    btnLocation_K,
+                    //    btnLocation_L,
+                    //    btnLocation_M,
+                    //    btnLocation_MA
+                    //};
+                    foreach (var btn in advLst)
                     {
                         if (btn.Tag != null)
                         {
@@ -306,7 +310,30 @@ namespace FORM
         {
             if (Visible)
             {
-                _time = 60;
+                _time = 0;
+                if (isFirstLoad)
+                {
+                    isFirstLoad = false;
+                    //master production line
+                    AdvancedPanel[] ButtonLst = new AdvancedPanel[] {
+                    btnLocation_FTY1,
+                    btnLocation_B,
+                    btnLocation_C,
+                    btnLocation_E,
+                    btnLocation_F,
+                    btnLocation_G,
+                    btnLocation_H,
+                    btnLocation_I,
+                    btnLocation_J,
+                    btnLocation_K,
+                    btnLocation_L,
+                    btnLocation_M
+                };
+                    foreach (var item in ButtonLst)
+                    {
+                        advLst.Add(item);
+                    }
+                }
                 BindingData();
                 timer1.Start();
             }
@@ -489,31 +516,64 @@ namespace FORM
             }
         }
 
+        private void SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING_Load(object sender, EventArgs e)
+        {
+            try
+            {
+
+                ////master production line
+                //AdvancedPanel[] ButtonLst = new AdvancedPanel[] {
+                //    btnLocation_FTY1,
+                //    btnLocation_B,
+                //    btnLocation_C,
+                //    btnLocation_E,
+                //    btnLocation_F,
+                //    btnLocation_G,
+                //    btnLocation_H,
+                //    btnLocation_I,
+                //    btnLocation_J,
+                //    btnLocation_K,
+                //    btnLocation_L,
+                //    btnLocation_M
+                //};
+                //foreach (var item in ButtonLst)
+                //{
+                //    advLst.Add(item);
+                //}
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         private void tmrWarning_Tick(object sender, EventArgs e)
         {
             try
             {
                 if (dtWarn == null) return;
 
-                var buttons = new List<AdvancedPanel> {
-                        btnLocation_C,
-                        btnLocation_E,
-                        btnLocation_G,
-                        btnLocation_H,
-                        btnLocation_I,
-                        btnLocation_J,
-                        btnLocation_K,
-                        btnLocation_L,
-                        btnLocation_M,
-                        //btnLocation_MA
-                    };
-                foreach (var btn in buttons)
+                //var buttons = new List<AdvancedPanel> {
+                //        btnLocation_C,
+                //        btnLocation_E,
+                //        btnLocation_G,
+                //        btnLocation_H,
+                //        btnLocation_I,
+                //        btnLocation_J,
+                //        btnLocation_K,
+                //        btnLocation_L,
+                //        btnLocation_M,
+                //        btnLocation_MA
+                //    };
+                foreach (var btn in advLst)
                 {
                     if (btn.Tag != null)
                     {
                         foreach (DataRow dr in dtWarn.Rows)
                         {
-                            if (dr["LINE_CD"].ToString().Equals(btn.Tag.ToString())&& dr["COLOR"].ToString().ToUpper().Equals("RED"))
+                            if (dr["LINE_CD"].ToString().Equals(btn.Tag.ToString()) && dr["COLOR"].ToString().ToUpper().Equals("RED"))
                             {
                                 if (btn.EndColor == Color.Lime && btn.FlatBorderColor == Color.LimeGreen && btn.StartColor == Color.LimeGreen)
                                 {
