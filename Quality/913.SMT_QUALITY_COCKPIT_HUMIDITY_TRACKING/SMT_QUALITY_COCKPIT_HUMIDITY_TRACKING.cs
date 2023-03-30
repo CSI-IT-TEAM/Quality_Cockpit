@@ -39,19 +39,7 @@ namespace FORM
                 CheckBlink();
                 if (dtWarn != null)
                 {
-                    //var buttons = new List<AdvancedPanel> {
-                    //    btnLocation_C,
-                    //    btnLocation_E,
-                    //    btnLocation_G,
-                    //    btnLocation_H,
-                    //    btnLocation_I,
-                    //    btnLocation_J,
-                    //    btnLocation_K,
-                    //    btnLocation_L,
-                    //    btnLocation_M,
-                    //    btnLocation_MA
-                    //};
-                    foreach (var btn in buttons)
+                    foreach (var btn in advLst)
                     {
                         if (btn.Tag != null)
                         {
@@ -78,18 +66,6 @@ namespace FORM
                 dtBlink = SMT_MAT_WEATHER_MGNT("CHECK");
                 if (dtBlink != null)
                 {
-                    //var buttons = new List<AdvancedPanel> {
-                    //    btnLocation_C,
-                    //    btnLocation_E,
-                    //    btnLocation_G,
-                    //    btnLocation_H,
-                    //    btnLocation_I,
-                    //    btnLocation_J,
-                    //    btnLocation_K,
-                    //    btnLocation_L,
-                    //    btnLocation_M,
-                    //    btnLocation_MA
-                    //};
                     foreach (var btn in advLst)
                     {
                         if (btn.Tag != null)
@@ -438,7 +414,6 @@ namespace FORM
                 Debug.WriteLine(ex.Message);
             }
         }
-
         /*DATABASE*/
         private DataTable SMT_MAT_WEATHER_MGNT(string ARG_TYPE, string ARG_PLANT = "", string ARG_LINE = "", string ARG_DATE = "", string ARG_SEQ = "")
         {
@@ -506,7 +481,7 @@ namespace FORM
                 }
                 else
                 {
-                    lblHumi.Text = string.Concat(string.Format("{0:n0}", r.Next(1,100)), "%");
+                    lblHumi.Text = string.Concat(string.Format("{0:n0}", r.Next(1, 100)), "%");
                 }
 
             }
@@ -515,58 +490,11 @@ namespace FORM
                 Debug.WriteLine(ex.Message);
             }
         }
-
-        private void SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING_Load(object sender, EventArgs e)
-        {
-            try
-            {
-
-                ////master production line
-                //AdvancedPanel[] ButtonLst = new AdvancedPanel[] {
-                //    btnLocation_FTY1,
-                //    btnLocation_B,
-                //    btnLocation_C,
-                //    btnLocation_E,
-                //    btnLocation_F,
-                //    btnLocation_G,
-                //    btnLocation_H,
-                //    btnLocation_I,
-                //    btnLocation_J,
-                //    btnLocation_K,
-                //    btnLocation_L,
-                //    btnLocation_M
-                //};
-                //foreach (var item in ButtonLst)
-                //{
-                //    advLst.Add(item);
-                //}
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         private void tmrWarning_Tick(object sender, EventArgs e)
         {
             try
             {
                 if (dtWarn == null) return;
-
-                //var buttons = new List<AdvancedPanel> {
-                //        btnLocation_C,
-                //        btnLocation_E,
-                //        btnLocation_G,
-                //        btnLocation_H,
-                //        btnLocation_I,
-                //        btnLocation_J,
-                //        btnLocation_K,
-                //        btnLocation_L,
-                //        btnLocation_M,
-                //        btnLocation_MA
-                //    };
                 foreach (var btn in advLst)
                 {
                     if (btn.Tag != null)
