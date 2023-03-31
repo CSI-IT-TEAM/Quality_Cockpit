@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraCharts;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Views.BandedGrid;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,6 +31,7 @@ namespace FORM
         DataTable dtBlink = null;
         private int iHumidity = 0;
         int cAnimationNo = 0;
+        Dictionary<Color, RepositoryItemProgressBar> progressBarColor = new Dictionary<Color, RepositoryItemProgressBar>();
 
         private void CheckLineInTable(string strLine = "")
         {
@@ -102,7 +104,29 @@ namespace FORM
                 Debug.WriteLine(ex.Message);
             }
         }
-
+        private RepositoryItemProgressBar CreateProgressBar(Color color)
+        {
+            try
+            {
+                var pgrsbar = new RepositoryItemProgressBar();
+                pgrsbar.Minimum = 0;
+                pgrsbar.Maximum = 100;
+                pgrsbar.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
+                pgrsbar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+                pgrsbar.StartColor = color;
+                pgrsbar.EndColor = color;
+                pgrsbar.PercentView = true;
+                pgrsbar.ShowTitle = false;
+                pgrsbar.Step = 1;
+                pgrsbar.LookAndFeel.UseDefaultLookAndFeel = false;
+                return pgrsbar;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+        }
         private void SetData(string arg_type, string plant = "ALL", string line = "ALL")
         {
             try
@@ -133,47 +157,15 @@ namespace FORM
                             double.TryParse(dtChart.Rows[i]["HUMIDITY"].ToString(), out rate);
 
                             chtHumi.Series[0].Points[i].Color = Color.FromArgb(255, 192, 0);
-
                             if (rate <= 70)
                             {
                                 chtHumi.Series[0].View.Color = Color.Lime;
                                 chtHumi.Series[0].Points[i].Color = Color.Lime;
-                                RepositoryItemProgressBar pgrsbar = new RepositoryItemProgressBar();
-                                pgrsbar.StartColor = Color.Lime;
-                                pgrsbar.EndColor = Color.Lime;
-                                pgrsbar.Minimum = 0;
-                                pgrsbar.Maximum = 100;
-
-                                pgrsbar.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
-                                pgrsbar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-                                pgrsbar.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Horizontal;
-                                pgrsbar.PercentView = true;
-                                pgrsbar.ShowTitle = false;
-                                pgrsbar.Step = 1;
-                                pgrsbar.LookAndFeel.UseDefaultLookAndFeel = false;
-
-                                gvwMain.Columns["HUMIDITY"].ColumnEdit = pgrsbar;
                             }
                             else
                             {
                                 chtHumi.Series[0].View.Color = Color.Red;
                                 chtHumi.Series[0].Points[i].Color = Color.Red;
-
-                                RepositoryItemProgressBar pgrsbar = new RepositoryItemProgressBar();
-                                pgrsbar.StartColor = Color.Red;
-                                pgrsbar.EndColor = Color.Red;
-                                pgrsbar.Minimum = 0;
-                                pgrsbar.Maximum = 100;
-
-                                pgrsbar.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
-                                pgrsbar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-                                //pgrsbar.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Horizontal;
-                                pgrsbar.PercentView = true;
-                                pgrsbar.ShowTitle = false;
-                                pgrsbar.Step = 1;
-                                pgrsbar.LookAndFeel.UseDefaultLookAndFeel = false;
-
-                                gvwMain.Columns["HUMIDITY"].ColumnEdit = pgrsbar;
                             }
                         }
 
@@ -198,7 +190,6 @@ namespace FORM
                 this.Cursor = Cursors.Default;
             }
         }
-
         private void FormatGrid(BandedGridView gvwGrid)
         {
             try
@@ -326,6 +317,34 @@ namespace FORM
                 if (e.Column.FieldName == "HUMIDITY")
                 {
                     e.DisplayText = Convert.ToInt32(e.CellValue) + "%";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        private void gvwMain_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
+        {
+            try
+            {
+                var view = sender as BandedGridView;
+                if (e.Column.AbsoluteIndex < 3) return;
+                else
+                {
+                    int value = int.Parse(view.GetRowCellValue(e.RowHandle, "HUMIDITY").ToString());
+                    var c = Color.Transparent;
+                    if (value <= 70)
+                    {
+                        c = Color.Lime;
+                    }
+                    else
+                    {
+                        c = Color.Red;
+                    }
+                    if (!progressBarColor.ContainsKey(c))
+                        progressBarColor.Add(c, CreateProgressBar(c));
+                    e.RepositoryItem = progressBarColor[c];
                 }
             }
             catch (Exception ex)
@@ -474,7 +493,7 @@ namespace FORM
                     cAnimationNo = 0;
                     tmrAniNumber.Stop();
                     lblHumi.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
-                    if (iHumidity >= 70)
+                    if (iHumidity > 70)
                         lblHumi.ForeColor = Color.Red;
                     else
                         lblHumi.ForeColor = Color.Lime;

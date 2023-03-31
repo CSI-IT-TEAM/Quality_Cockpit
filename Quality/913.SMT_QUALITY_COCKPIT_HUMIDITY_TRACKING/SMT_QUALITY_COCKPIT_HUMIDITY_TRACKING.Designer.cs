@@ -64,9 +64,12 @@
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdMain = new DevExpress.XtraGrid.GridControl();
             this.gvwMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.FAC_NM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.LINE_NM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Average = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.HUMIDITY = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.RATIO = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pnChart = new System.Windows.Forms.Panel();
@@ -84,9 +87,6 @@
             this.tmrWarning = new System.Windows.Forms.Timer(this.components);
             this.digitalBackgroundLayerComponent5 = new DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent();
             this.tmrAniNumber = new System.Windows.Forms.Timer(this.components);
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.Average = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.pnTop.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.tblBody.SuspendLayout();
@@ -631,6 +631,15 @@
             this.gvwMain.OptionsView.ShowIndicator = false;
             this.gvwMain.RowHeight = 28;
             this.gvwMain.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwMain_CustomDrawCell);
+            this.gvwMain.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.gvwMain_CustomRowCellEdit);
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Columns.Add(this.FAC_NM);
+            this.gridBand1.Columns.Add(this.LINE_NM);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 223;
             // 
             // FAC_NM
             // 
@@ -648,6 +657,19 @@
             this.LINE_NM.Visible = true;
             this.LINE_NM.Width = 97;
             // 
+            // Average
+            // 
+            this.Average.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Average.AppearanceHeader.Options.UseFont = true;
+            this.Average.AppearanceHeader.Options.UseTextOptions = true;
+            this.Average.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.Average.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.Average.Caption = "Average";
+            this.Average.Columns.Add(this.HUMIDITY);
+            this.Average.Name = "Average";
+            this.Average.VisibleIndex = 1;
+            this.Average.Width = 96;
+            // 
             // HUMIDITY
             // 
             this.HUMIDITY.Caption = "HUMIDITY";
@@ -655,6 +677,14 @@
             this.HUMIDITY.Name = "HUMIDITY";
             this.HUMIDITY.Visible = true;
             this.HUMIDITY.Width = 96;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.Caption = "Ratio (%)";
+            this.gridBand2.Columns.Add(this.RATIO);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.VisibleIndex = 2;
+            this.gridBand2.Width = 264;
             // 
             // RATIO
             // 
@@ -909,35 +939,6 @@
             this.tmrAniNumber.Enabled = true;
             this.tmrAniNumber.Interval = 10;
             this.tmrAniNumber.Tick += new System.EventHandler(this.tmrAniNumber_Tick);
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Columns.Add(this.FAC_NM);
-            this.gridBand1.Columns.Add(this.LINE_NM);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 223;
-            // 
-            // Average
-            // 
-            this.Average.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Average.AppearanceHeader.Options.UseFont = true;
-            this.Average.AppearanceHeader.Options.UseTextOptions = true;
-            this.Average.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.Average.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.Average.Caption = "Average";
-            this.Average.Columns.Add(this.HUMIDITY);
-            this.Average.Name = "Average";
-            this.Average.VisibleIndex = 1;
-            this.Average.Width = 96;
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.Caption = "Ratio (%)";
-            this.gridBand2.Columns.Add(this.RATIO);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.VisibleIndex = 2;
-            this.gridBand2.Width = 264;
             // 
             // SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING
             // 
