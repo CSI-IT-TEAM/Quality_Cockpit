@@ -348,7 +348,7 @@ namespace FORM
                     WH_CD = ComVar.Var._Area;
                     strDate = ComVar.Var._strValue1;
                     strCHK = ComVar.Var._strValue5;
-                    //btnCheckLocate.EditValue = strCHK;
+                    navigationFrame1.SelectedPage = navigationPage1;
                     LoadCHKPoint();
                     BindingData("PAGE1");
                     tmrTick.Start();
