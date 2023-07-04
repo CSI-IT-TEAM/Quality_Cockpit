@@ -286,8 +286,10 @@ namespace FORM
                     btnLocation_FTY1,
                     btnLocation_B,
                     btnLocation_C,
+                    btnLocation_D,
                     btnLocation_E,
                     btnLocation_F,
+                    btnLocation_N,
                     btnLocation_G,
                     btnLocation_H,
                     btnLocation_I,
@@ -367,6 +369,10 @@ namespace FORM
                         ComVar.Var._Area = "018";
                         CheckSeq(ComVar.Var._Area);
                         break;
+                    case "FTY1":
+                        ComVar.Var._Area = "000";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
                     case "M":
                         ComVar.Var._Area = "019";
                         CheckSeq(ComVar.Var._Area);
@@ -375,8 +381,20 @@ namespace FORM
                         ComVar.Var._Area = "008";
                         CheckSeq(ComVar.Var._Area);
                         break;
+                    case "D":
+                        ComVar.Var._Area = "010";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
                     case "E":
                         ComVar.Var._Area = "011";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
+                    case "F":
+                        ComVar.Var._Area = "012";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
+                    case "N":
+                        ComVar.Var._Area = "099";
                         CheckSeq(ComVar.Var._Area);
                         break;
                     case "G":

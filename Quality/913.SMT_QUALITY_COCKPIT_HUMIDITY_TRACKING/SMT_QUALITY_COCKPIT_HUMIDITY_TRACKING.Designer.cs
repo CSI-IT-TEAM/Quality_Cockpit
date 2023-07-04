@@ -87,6 +87,7 @@
             this.tmrWarning = new System.Windows.Forms.Timer(this.components);
             this.digitalBackgroundLayerComponent5 = new DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent();
             this.tmrAniNumber = new System.Windows.Forms.Timer(this.components);
+            this.btnLocation_D = new FORM.AdvancedPanel();
             this.pnTop.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.tblBody.SuspendLayout();
@@ -211,6 +212,7 @@
             this.pnLeft.Controls.Add(this.btnLocation_G);
             this.pnLeft.Controls.Add(this.btnLocation_FTY1);
             this.pnLeft.Controls.Add(this.btnLocation_B);
+            this.pnLeft.Controls.Add(this.btnLocation_D);
             this.pnLeft.Controls.Add(this.btnLocation_C);
             this.pnLeft.Controls.Add(this.btnLocation_M);
             this.pnLeft.Controls.Add(this.btnLocation_L);
@@ -940,6 +942,29 @@
             this.tmrAniNumber.Interval = 10;
             this.tmrAniNumber.Tick += new System.EventHandler(this.tmrAniNumber_Tick);
             // 
+            // btnLocation_D
+            // 
+            this.btnLocation_D.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_D.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_D.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_D.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_D.EdgeWidth = 2;
+            this.btnLocation_D.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_D.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_D.Location = new System.Drawing.Point(639, 291);
+            this.btnLocation_D.Name = "btnLocation_D";
+            this.btnLocation_D.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_D.RectRadius = 12;
+            this.btnLocation_D.ShadowColor = System.Drawing.Color.Gray;
+            this.btnLocation_D.ShadowShift = 1;
+            this.btnLocation_D.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_D.Size = new System.Drawing.Size(29, 28);
+            this.btnLocation_D.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_D.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_D.TabIndex = 0;
+            this.btnLocation_D.Tag = "010";
+            this.btnLocation_D.Click += new System.EventHandler(this.btnLocation_Click);
+            // 
             // SMT_QUALITY_COCKPIT_HUMIDITY_TRACKING
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1032,5 +1057,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand Average;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private AdvancedPanel btnLocation_D;
     }
 }
