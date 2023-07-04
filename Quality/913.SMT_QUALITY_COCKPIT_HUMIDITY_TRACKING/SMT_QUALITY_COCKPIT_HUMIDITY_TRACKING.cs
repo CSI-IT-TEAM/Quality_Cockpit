@@ -377,6 +377,10 @@ namespace FORM
                         ComVar.Var._Area = "019";
                         CheckSeq(ComVar.Var._Area);
                         break;
+                    case "B":
+                        ComVar.Var._Area = "007";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
                     case "C":
                         ComVar.Var._Area = "008";
                         CheckSeq(ComVar.Var._Area);
@@ -395,6 +399,10 @@ namespace FORM
                         break;
                     case "N":
                         ComVar.Var._Area = "099";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
+                    case "K":
+                        ComVar.Var._Area = "009";
                         CheckSeq(ComVar.Var._Area);
                         break;
                     case "G":
