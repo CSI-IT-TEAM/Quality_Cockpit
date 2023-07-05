@@ -14,7 +14,7 @@ namespace FORM
         public FORM_SMT_WEATHER_MGNT()
         {
             InitializeComponent();
-            btnCheckLocate.Enabled = false;
+            //btnCheckLocate.Enabled = false;
         }
         /*Variables*/
         int _time = 0;
@@ -30,7 +30,7 @@ namespace FORM
             try
             {
                 //LoadCHKPoint();
-                _first_load = false;
+                //_first_load = false;
             }
             catch (Exception ex)
             {
@@ -195,7 +195,7 @@ namespace FORM
         {
             try
             {
-                btnCheckLocate.EditValue = strCHK;
+                //btnCheckLocate.EditValue = strCHK;
                 if (strPageCurr.ToUpper().Equals("PAGE1"))
                 {
                     /*Đổ dữ liệu cho Flow bên dưới*/
@@ -204,7 +204,7 @@ namespace FORM
                     fplWeather.Visible = false;
                     fplWeather.Controls.Clear();
                     this.Cursor = Cursors.WaitCursor;
-                    DataTable dt1 = SMT_MAT_WEATHER_MGNT("Q1_1", PLANT_CD, WH_CD, DateTime.Now.ToString(), btnCheckLocate.EditValue.ToString());
+                    DataTable dt1 = SMT_MAT_WEATHER_MGNT("Q1_1", PLANT_CD, WH_CD, DateTime.Now.ToString(), btnCheckLocate.EditValue.ToString() == "" ? strCHK : btnCheckLocate.EditValue.ToString());
                     if (dt1 != null && dt1.Rows.Count > 0)
                     {
                         ClickDate(strDate);
@@ -469,24 +469,26 @@ namespace FORM
             ComVar.Var.callForm = "915";
         }
 
-        private void btnCheckLocate_EditValueChanged(object sender, EventArgs e)
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "back";
+        }
+
+        private void btnCheckLocate_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             try
             {
-                //if (_first_load)
-                //{
-                //    BindingData("PAGE1");
-                //}
+                if (!_first_load)
+                {
+                    navigationFrame1.SelectedPage = navigationPage1;
+                    strNavPageCurr = "PAGE1";
+                    BindingData("PAGE1");
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-        }
-
-        private void cmdBack_Click(object sender, EventArgs e)
-        {
-            ComVar.Var.callForm = "back";
         }
     }
 }

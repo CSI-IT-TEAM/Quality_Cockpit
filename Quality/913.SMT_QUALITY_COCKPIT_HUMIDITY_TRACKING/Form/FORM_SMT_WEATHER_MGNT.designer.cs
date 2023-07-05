@@ -411,7 +411,7 @@ namespace FORM
             this.btnCheckLocate.Properties.ShowHeader = false;
             this.btnCheckLocate.Size = new System.Drawing.Size(158, 36);
             this.btnCheckLocate.TabIndex = 726;
-            this.btnCheckLocate.EditValueChanged += new System.EventHandler(this.btnCheckLocate_EditValueChanged);
+            this.btnCheckLocate.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.btnCheckLocate_Closed);
             // 
             // label6
             // 
