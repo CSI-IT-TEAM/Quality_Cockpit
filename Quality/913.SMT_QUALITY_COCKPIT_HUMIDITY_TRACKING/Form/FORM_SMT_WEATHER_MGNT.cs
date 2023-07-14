@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraCharts;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OracleClient;
 using System.Diagnostics;
@@ -24,6 +25,7 @@ namespace FORM
         string WH_CD = ComVar.Var._Area;
         string strDate = ComVar.Var._strValue1;
         string strCHK = ComVar.Var._strValue5;
+        List<UC.UC_WEATHER> ucWeatherList = new List<UC.UC_WEATHER>();
 
         private void FORM_SMT_WEATHER_MGNT_Load(object sender, EventArgs e)
         {
@@ -42,21 +44,27 @@ namespace FORM
         {
             try
             {
-                if (chtDaily.Series[0].Points.Count > 0 && chtDaily.Series[1].Points.Count > 0)
+                fplWeather.Visible = false;
+                for (int i = fplWeather.Controls.Count - 1; i >= 0; --i)
+                {
+                    var ctl = fplWeather.Controls[i];
+                    ctl.Dispose();
+                }
+                if (chtDaily.Series[0].Points.Count > 0)
                 {
                     chtDaily.Series[0].Points.Clear();
+                }
+                if (chtDaily.Series[1].Points.Count > 0)
+                {
                     chtDaily.Series[1].Points.Clear();
                 }
-                if (chartHourly.Series[0].Points.Count > 0 && chartHourly.Series[1].Points.Count > 0)
+                if (chartHourly.Series[0].Points.Count > 0)
                 {
                     chartHourly.Series[0].Points.Clear();
-                    chartHourly.Series[1].Points.Clear();
                 }
-                //Clear label
-                foreach (var item in fplWeather.Controls.Find("lblDate", true))
+                if (chartHourly.Series[1].Points.Count > 0)
                 {
-                    ((Label)item).BackColor = Color.FromArgb(75, 88, 184);
-                    ((Label)item).ForeColor = Color.White;
+                    chartHourly.Series[1].Points.Clear();
                 }
                 lblTemp.Text = "";
                 lblHu_Qty.Text = "";
@@ -66,9 +74,6 @@ namespace FORM
                 lblHu_Qty.Text = "";
                 GauHumi.Value = 0;
                 lblHu.Text = "";
-                lblHu_Qty.ForeColor = Color.Lime;
-                lblHu_Qty.BackColor = Color.White;
-                lblpt.ForeColor = Color.Lime;
             }
             catch (Exception ex)
             {
@@ -108,23 +113,21 @@ namespace FORM
         {
             try
             {
-                string strShow = "";
+                //string strShow = "";
                 if (dt == null && dt.Rows.Count < 0) return;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     UC.UC_WEATHER _UC_WEATHER = new UC.UC_WEATHER();
                     _UC_WEATHER.Tag = i;
-                    _UC_WEATHER.strDate = strDate == "" ? "" : strDate;
-                    strShow = dt.Rows[i]["SHOW"].ToString();
-                    _UC_WEATHER.Image(strShow);
                     _UC_WEATHER.BindingData(i, dt);
-                    _UC_WEATHER.clickdate += ClickDate;
+                    _UC_WEATHER.ucClickDate += ClickDate;
                     fplWeather.Controls.Add(_UC_WEATHER);
-                    if (strDate.Equals(dt.Rows[i]["CAL_DATE"].ToString()))
-                    {
-                        fplWeather.Controls.SetChildIndex(_UC_WEATHER, i);
-                        break;
-                    }
+                    ucWeatherList.Add(_UC_WEATHER);
+                    //if (strDate.Equals(dt.Rows[i]["CAL_DATE"].ToString()))
+                    //{
+                    //    fplWeather.Controls.SetChildIndex(_UC_WEATHER, i);
+                    //    break;
+                    //}
                 }
                 hScrollBar1.Minimum = fplWeather.HorizontalScroll.Minimum;
                 hScrollBar1.Maximum = fplWeather.HorizontalScroll.Maximum;
@@ -136,24 +139,51 @@ namespace FORM
                 Debug.WriteLine(ex.Message);
             }
         }
-        void ClickDate(string ymd)
+        void ClickDate(UserControl uc, Label label)
         {
             try
             {
-                ClearData();
+                //Debug.WriteLine(label.Text.Replace("-", ""));
+                foreach (UC.UC_WEATHER ucItem in ucWeatherList)
+                {
+                    if (ucItem.Tag != null)
+                    {
+                        ucItem.PaintBorder(ucItem.Tag.Equals(uc.Tag));
+                        ucItem.Refresh();
+                    }
+                }
+                GetDataDate(label.Text.Replace("-", ""));
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+        void GetDataDate(string ymd)
+        {
+            try
+            {
+                chtDaily.DataSource = null;
+                chartHourly.DataSource = null;
                 DataTable dtChart = null;
-                DataTable dt1 = SMT_MAT_WEATHER_MGNT("Q_FLOW", PLANT_CD, WH_CD, ymd, btnCheckLocate.EditValue.ToString());
-                /*Get current Humidity*/
-                DataTable dtCurrHumi = SMT_MAT_WEATHER_MGNT("Q_FLOW", PLANT_CD, WH_CD, DateTime.Now.ToString("yyyyMMdd"), btnCheckLocate.EditValue.ToString());
-                DataTable dtCurr = SMT_MAT_WEATHER_MGNT("Q_CURR", PLANT_CD, WH_CD, ymd, btnCheckLocate.EditValue.ToString());
-                if (dt1 != null && dt1.Rows.Count > 0
-                    && dtCurr != null && dtCurr.Rows.Count >= 0
-                    && dtCurrHumi != null && dtCurrHumi.Rows.Count >= 0)
+                DataTable dt1 = null, dtCurrHumi = null, dtCurr = null;
+                dt1 = SMT_MAT_WEATHER_MGNT("Q_FLOW", PLANT_CD, WH_CD, ymd, btnCheckLocate.EditValue.ToString());
+                if (dt1 != null && dt1.Rows.Count > 0)
                 {
                     dtChart = dt1.Copy();
                     dtChart = dtChart.Select("HH <> 'AVG'", "HH").CopyToDataTable();
                     BindingChart(chtDaily, dtChart);
+                }
+                /*Get current Humidity*/
+                dtCurrHumi = SMT_MAT_WEATHER_MGNT("Q_FLOW", PLANT_CD, WH_CD, DateTime.Now.ToString("yyyyMMdd"), btnCheckLocate.EditValue.ToString());
+                if (dtCurrHumi != null && dtCurrHumi.Rows.Count >= 0)
+                {
                     BindingLabel(dtCurrHumi);
+                }
+                dtCurr = SMT_MAT_WEATHER_MGNT("Q_CURR", PLANT_CD, WH_CD, ymd, btnCheckLocate.EditValue.ToString());
+                if (dtCurr != null && dtCurr.Rows.Count >= 0)
+                {
                     BindingLabelTemp(ymd, dtCurr);
                 }
             }
@@ -179,10 +209,6 @@ namespace FORM
                     GauTmp.Value = int.Parse(dt.Rows[0]["TMP_VL"].ToString());
                     lblHu_Qty.Text = dt.Rows[0]["HUMI_VL"].ToString();
                     GauHumi.Value = int.Parse(dt.Rows[0]["HUMI_VL"].ToString());
-                    if (Convert.ToInt32(lblHu_Qty.Text) <= 70)
-                        tmrHumindity.Stop();
-                    else
-                        tmrHumindity.Start();
                 }
             }
             catch (Exception ex)
@@ -195,45 +221,46 @@ namespace FORM
         {
             try
             {
-                //btnCheckLocate.EditValue = strCHK;
+                this.Cursor = Cursors.WaitCursor;
+                ClearData();
+                if (btnCheckLocate.EditValue == null) return;
+                DataTable dt1 = null, dt2 = null;
                 if (strPageCurr.ToUpper().Equals("PAGE1"))
                 {
                     /*Đổ dữ liệu cho Flow bên dưới*/
-                    chtDaily.DataSource = null;
-                    chartHourly.DataSource = null;
-                    fplWeather.Visible = false;
-                    fplWeather.Controls.Clear();
-                    this.Cursor = Cursors.WaitCursor;
-                    DataTable dt1 = SMT_MAT_WEATHER_MGNT("Q1_1", PLANT_CD, WH_CD, DateTime.Now.ToString(), btnCheckLocate.EditValue.ToString() == "" ? strCHK : btnCheckLocate.EditValue.ToString());
+                    //chtDaily.DataSource = null;
+                    //chartHourly.DataSource = null;
+                    //fplWeather.Visible = false;
+                    //fplWeather.Controls.Clear();
+                    dt1 = SMT_MAT_WEATHER_MGNT("Q1_1", PLANT_CD, WH_CD, DateTime.Now.ToString("yyyyMMdd"), btnCheckLocate.EditValue.ToString());
                     if (dt1 != null && dt1.Rows.Count > 0)
                     {
-                        ClickDate(strDate);
+                        GetDataDate(dt1.Rows[dt1.Rows.Count - 1]["CAL_DATE"].ToString());
                         AddUC(dt1);
                         btnDaily.Enabled = false;
                         btnHourly.Enabled = true;
                     }
                     fplWeather.Visible = true;
-                    this.Cursor = Cursors.Default;
                 }
                 else
                 {
-                    this.Cursor = Cursors.WaitCursor;
-                    DataTable dt2 = SMT_MAT_WEATHER_MGNT("Q2", "ALL", WH_CD, strDate, btnCheckLocate.EditValue.ToString());
+                    dt2 = SMT_MAT_WEATHER_MGNT("Q2", "ALL", WH_CD, "", btnCheckLocate.EditValue.ToString());
                     if (dt2 != null && dt2.Rows.Count > 0)
                     {
                         DataTable dttmp = dt2.Copy();
                         dttmp = dttmp.Select("HH <> 'AVG'", "HH").CopyToDataTable();
                         BindingChart(chartHourly, dttmp);
-                        DataTable dtCurr = SMT_MAT_WEATHER_MGNT("Q_CURR", PLANT_CD, WH_CD, strDate, btnCheckLocate.EditValue.ToString());
+                        DataTable dtCurr = SMT_MAT_WEATHER_MGNT("Q_CURR", PLANT_CD, WH_CD, DateTime.Now.ToString("yyyyMMdd"), btnCheckLocate.EditValue.ToString());
                         if (dtCurr != null && dtCurr.Rows.Count > 0)
                         {
                             BindingLabelTemp(DateTime.Now.ToString("yyyyMMdd"), dtCurr);
                         }
+                        btnDaily.Enabled = true;
+                        btnHourly.Enabled = false;
                     }
-                    btnDaily.Enabled = true;
-                    btnHourly.Enabled = false;
-                    this.Cursor = Cursors.Default;
                 }
+                _first_load = false;
+                this.Cursor = Cursors.Default;
             }
             catch (Exception ex)
             {
@@ -264,6 +291,14 @@ namespace FORM
         {
             try
             {
+                if (_chart.Series[0].Points.Count > 0)
+                {
+                    _chart.Series[0].Points.Clear();
+                }
+                if (_chart.Series[1].Points.Count > 0)
+                {
+                    _chart.Series[1].Points.Clear();
+                }
                 ((DevExpress.XtraCharts.XYDiagram)_chart.Diagram).AxisX.QualitativeScaleOptions.AutoGrid = false;
                 if (dtChart != null && dtChart.Rows.Count > 0)
                 {
@@ -290,6 +325,19 @@ namespace FORM
                             _chart.Series[1].Points[i].Color = Color.Red;
                         }
                     }
+                    double _drawColor;
+                    double.TryParse(dtChart.Rows[dtChart.Rows.Count - 1]["HUMI_VL"].ToString(), out _drawColor);
+                    if (_drawColor <= 70)
+                    {
+                        lblHu_Qty.ForeColor = Color.Lime;
+                        lblHu_Qty.BackColor = Color.White;
+                        lblpt.ForeColor = Color.Lime;
+                        tmrHumindity.Stop();
+                    }
+                    else
+                    {
+                        tmrHumindity.Start();
+                    }
                 }
             }
             catch (Exception ex)
@@ -307,6 +355,7 @@ namespace FORM
                 if (_time >= 59)
                 {
                     tmrTick.Stop();
+                    BindingData(strNavPageCurr);
                     _time = 0;
                     tmrTick.Start();
                 }
@@ -348,9 +397,9 @@ namespace FORM
                     WH_CD = ComVar.Var._Area;
                     strDate = ComVar.Var._strValue1;
                     strCHK = ComVar.Var._strValue5;
-                    navigationFrame1.SelectedPage = navigationPage1;
                     LoadCHKPoint();
-                    BindingData("PAGE1");
+                    //navigationFrame1.SelectedPage = navigationPage1;
+                    //BindingData("PAGE1");
                     tmrTick.Start();
                 }
                 else
