@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraCharts;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
@@ -27,17 +28,20 @@ namespace FORM
         #endregion
         private readonly string _strHeader = "       Humidity Tracking";
         int _time = 0;
+        string strPlant = "2110";
         DataTable dtWarn = null;
         DataTable dtBlink = null;
         private int iHumidity = 0;
         int cAnimationNo = 0;
+        string _tabIndex = "0";
         Dictionary<Color, RepositoryItemProgressBar> progressBarColor = new Dictionary<Color, RepositoryItemProgressBar>();
+        
 
         private void CheckLineInTable(string strLine = "")
         {
             try
             {
-                dtWarn = SMT_MAT_WEATHER_MGNT("CHK_WARNING", "ALL", "ALL", DateTime.Now.ToString("yyyyMMdd"));
+                dtWarn = SMT_MAT_WEATHER_MGNT("CHK_WARNING", strPlant, "ALL", DateTime.Now.ToString("yyyyMMdd"));
                 CheckBlink();
                 if (dtWarn != null)
                 {
@@ -65,7 +69,7 @@ namespace FORM
         {
             try
             {
-                dtBlink = SMT_MAT_WEATHER_MGNT("CHECK");
+                dtBlink = SMT_MAT_WEATHER_MGNT("CHECK", strPlant);
                 if (dtBlink != null)
                 {
                     foreach (var btn in advLst)
@@ -96,12 +100,26 @@ namespace FORM
         {
             try
             {
+                splashScreenManager1.ShowWaitForm();
+                iHumidity = 0; //gan lai khi do cho Long Thanh
                 CheckLineInTable();
-                SetData("Q_CHART");
+                if (strPlant == "2110")
+                {
+                    SetData(grdMain, gvwMain, chtHumi, "Q_CHART", strPlant);
+                }
+                else
+                {
+                    SetData(grdView, gvwView, chtHuLT, "Q_CHART", strPlant);
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                splashScreenManager1.CloseWaitForm();
+            }
+            finally
+            {
+                splashScreenManager1.CloseWaitForm();
             }
         }
         private RepositoryItemProgressBar CreateProgressBar(Color color)
@@ -127,45 +145,47 @@ namespace FORM
                 return null;
             }
         }
-        private void SetData(string arg_type, string plant = "ALL", string line = "ALL")
+        private void SetData(GridControl _grd, BandedGridView gvw, ChartControl _cht, string arg_type, string plant = "", string line = "ALL")
         {
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                chtHumi.DataSource = null;
-                grdMain.DataSource = null;
+                _cht.DataSource = null;
+                _grd.DataSource = null;
                 lblLine.Text = "";
                 lblHumi.Text = "";
+                lblLineLT.Text = "";
+                lblHumiLT.Text = "";
                 DataTable dt = Data_Select(arg_type, DateTime.Now.ToString(), plant, line);
                 if (dt == null || dt.Rows.Count == 0) return;
 
                 DataTable dtChart = dt.Copy();
                 if (dtChart.Rows.Count > 0)
                 {
-                    if (chtHumi.Series[0].Points.Count > 0)
+                    if (_cht.Series[0].Points.Count > 0)
                     {
-                        chtHumi.Series[0].Points.Clear();
+                        _cht.Series[0].Points.Clear();
                     }
                     if (dtChart != null && dtChart.Rows.Count > 0)
                     {
-                        grdMain.DataSource = dtChart;
-                        FormatGrid(gvwMain);
+                        _grd.DataSource = dtChart;
+                        FormatGrid(gvw);
                         for (int i = 0; i < dtChart.Rows.Count; i++)
                         {
-                            chtHumi.Series[0].Points.Add(new SeriesPoint(dtChart.Rows[i]["LINE_NM"].ToString(), dtChart.Rows[i]["HUMIDITY"]));
+                            _cht.Series[0].Points.Add(new SeriesPoint(dtChart.Rows[i]["LINE_NM"].ToString(), dtChart.Rows[i]["HUMIDITY"]));
                             double rate;
                             double.TryParse(dtChart.Rows[i]["HUMIDITY"].ToString(), out rate);
 
-                            chtHumi.Series[0].Points[i].Color = Color.FromArgb(255, 192, 0);
+                            _cht.Series[0].Points[i].Color = Color.FromArgb(255, 192, 0);
                             if (rate <= 70)
                             {
-                                chtHumi.Series[0].View.Color = Color.Lime;
-                                chtHumi.Series[0].Points[i].Color = Color.Lime;
+                                _cht.Series[0].View.Color = Color.Lime;
+                                _cht.Series[0].Points[i].Color = Color.Lime;
                             }
                             else
                             {
-                                chtHumi.Series[0].View.Color = Color.Red;
-                                chtHumi.Series[0].Points[i].Color = Color.Red;
+                                _cht.Series[0].View.Color = Color.Red;
+                                _cht.Series[0].Points[i].Color = Color.Red;
                             }
                         }
 
@@ -174,6 +194,7 @@ namespace FORM
                         {
                             dtCharttmp = dtCharttmp.Select("HUMIDITY = MAX(HUMIDITY)", "LINE_CD").CopyToDataTable();
                             lblLine.Text = dtCharttmp.Rows[0]["LINE_NM"].ToString();
+                            lblLineLT.Text = dtCharttmp.Rows[0]["LINE_NM"].ToString();
                             iHumidity = Convert.ToInt32(dtCharttmp.Rows[0]["HUMIDITY"]);
                             tmrAniNumber.Start();
                         }
@@ -296,12 +317,23 @@ namespace FORM
                     btnLocation_J,
                     btnLocation_K,
                     btnLocation_L,
-                    btnLocation_M
+                    btnLocation_M,
+                    btnLocation_LE,
+                    btnLocation_LD,
+                    btnLocation_Clt
                 };
                     foreach (var item in ButtonLst)
                     {
                         advLst.Add(item);
                     }
+                }
+                if (ComVar.Var._Area == "201" || ComVar.Var._Area == "202" || ComVar.Var._Area == "0W2")
+                {
+                    tabControl.SelectedTabPage = tabControl.TabPages[1];
+                }
+                else
+                {
+                    tabControl.SelectedTabPage = tabControl.TabPages[0];
                 }
                 BindingData();
                 timer1.Start();
@@ -421,6 +453,18 @@ namespace FORM
                         ComVar.Var._Area = "016";
                         CheckSeq(ComVar.Var._Area);
                         break;
+                    case "LE":
+                        ComVar.Var._Area = "202";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
+                    case "LD":
+                        ComVar.Var._Area = "201";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
+                    case "Clt":
+                        ComVar.Var._Area = "0W2";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
                     default:
                         break;
                 }
@@ -435,8 +479,10 @@ namespace FORM
         {
             try
             {
+                splashScreenManager1.ShowWaitForm();
                 ComVar.Var._strValue1 = "";
                 ComVar.Var._strValue5 = "";
+                ComVar.Var._IsBack = true;
                 DataTable dtCheck = dtWarn.Copy();
                 if (dtCheck != null)
                 {
@@ -457,6 +503,11 @@ namespace FORM
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                splashScreenManager1.CloseWaitForm();
+            }
+            finally
+            {
+                splashScreenManager1.CloseWaitForm();
             }
         }
         /*DATABASE*/
@@ -518,15 +569,27 @@ namespace FORM
                 {
                     cAnimationNo = 0;
                     tmrAniNumber.Stop();
-                    lblHumi.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
-                    if (iHumidity > 70)
-                        lblHumi.ForeColor = Color.Red;
+                    if (strPlant == "2110")
+                    {
+                        lblHumi.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
+                        if (iHumidity > 70)
+                            lblHumi.ForeColor = Color.Red;
+                        else
+                            lblHumi.ForeColor = Color.Lime;
+                    }
                     else
-                        lblHumi.ForeColor = Color.Lime;
+                    {
+                        lblHumiLT.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
+                        if (iHumidity > 70)
+                            lblHumiLT.ForeColor = Color.Red;
+                        else
+                            lblHumiLT.ForeColor = Color.Lime;
+                    }
                 }
                 else
                 {
                     lblHumi.Text = string.Concat(string.Format("{0:n0}", r.Next(1, 100)), "%");
+                    lblHumiLT.Text = string.Concat(string.Format("{0:n0}", r.Next(1, 100)), "%");
                 }
 
             }
@@ -563,6 +626,30 @@ namespace FORM
                             }
                         }
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        private void tabControl_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            try
+            {
+                _tabIndex = tabControl.SelectedTabPageIndex.ToString();
+                switch (_tabIndex)
+                {
+                    case "0":
+                        strPlant = "2110";
+                        BindingData();
+                        break;
+                    case "1":
+                        strPlant = "2120";
+                        BindingData();
+                        break;
+                    default:
+                        break;
                 }
             }
             catch (Exception ex)

@@ -206,6 +206,12 @@
     <Compile Include="UC\UC_YEAR_SELECTION.Designer.cs">
       <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
     </Compile>
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form\FORM_SMT_WEATHER_MGNT.resx">
@@ -249,6 +255,9 @@
     <EmbeddedResource Include="UC\UC_YEAR_SELECTION.resx">
       <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Back-Icon.png" />
@@ -271,9 +280,11 @@
     <Content Include="Resources\Draft1.png" />
     <Content Include="Resources\drop_slower.gif" />
     <Content Include="Resources\humidity.png" />
+    <Content Include="Resources\loading1.png" />
     <Content Include="Resources\location.png" />
     <Content Include="Resources\partly_cloudy.png" />
     <Content Include="Resources\raining.png" />
+    <Content Include="Resources\VJ2_롱탄2.PNG" />
     <Content Include="Resources\weather_animated.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

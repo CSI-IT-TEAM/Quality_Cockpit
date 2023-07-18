@@ -123,6 +123,16 @@ namespace FORM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loading1 {
+            get {
+                object obj = ResourceManager.GetObject("loading1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap location {
             get {
                 object obj = ResourceManager.GetObject("location", resourceCulture);
@@ -146,6 +156,16 @@ namespace FORM.Properties {
         internal static System.Drawing.Bitmap raining {
             get {
                 object obj = ResourceManager.GetObject("raining", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VJ2_롱탄2 {
+            get {
+                object obj = ResourceManager.GetObject("VJ2_롱탄2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
