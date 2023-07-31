@@ -22,6 +22,7 @@ namespace FORM.UC
         {
             try
             {
+                lblTemp.ForeColor = Color.Magenta;
                 if (strImg == "SUN")
                 {
                     pctBox.Image = Properties.Resources.partly_cloudy;

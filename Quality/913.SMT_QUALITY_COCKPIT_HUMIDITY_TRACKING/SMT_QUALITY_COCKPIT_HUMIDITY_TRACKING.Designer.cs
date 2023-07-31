@@ -1098,7 +1098,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(158, 55);
             this.label7.TabIndex = 90;
-            this.label7.Text = "C";
+            this.label7.Text = "LC";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
