@@ -391,7 +391,7 @@ namespace FORM
             {
                 _time = 0;
              
-                SetData(_strType,_plant, _line, false);
+                SetData(_strType, cbo_Plant.SelectedValue.ToString(), cbo_line.SelectedValue.ToString(), false);
             }
             
         }
@@ -448,7 +448,8 @@ namespace FORM
                 _line = cbo_line.SelectedValue.ToString(); //  
 
                 timer1.Start();
-                SetData(_strType, _plant, _line, false);
+                //SetData(_strType, _plant, _line, false);
+                _time = 30;
 
 
 
@@ -462,9 +463,8 @@ namespace FORM
 
         private void btnSearch_Click(object sender, EventArgs e)
         {        
-            SetData(_strType, _plant, _line);
-            
-
+            //SetData(_strType, _plant, _line);
+            _time = 30;
         }
 
         private void gvwBase_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
