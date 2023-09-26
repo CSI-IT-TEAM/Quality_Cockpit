@@ -610,7 +610,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 39);
             this.label7.TabIndex = 421;
-            this.label7.Text = "Rate >4%";
+            this.label7.Text = "Rate > 5%";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -619,11 +619,11 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1569, 6);
+            this.label1.Location = new System.Drawing.Point(1557, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 39);
+            this.label1.Size = new System.Drawing.Size(195, 39);
             this.label1.TabIndex = 420;
-            this.label1.Text = "3% > Rate <=4%";
+            this.label1.Text = "4% > Rate <= 4.9%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -632,11 +632,11 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1391, 6);
+            this.label5.Location = new System.Drawing.Point(1379, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 39);
             this.label5.TabIndex = 419;
-            this.label5.Text = "Rate <=3%";
+            this.label5.Text = "Rate <= 3.9%";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
