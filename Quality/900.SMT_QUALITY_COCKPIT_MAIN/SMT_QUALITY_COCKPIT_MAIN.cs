@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OracleClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraGrid.Views.BandedGrid.ViewInfo;
-using System.Data.OleDb;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 //using JPlatform.Client.Controls;
 
 

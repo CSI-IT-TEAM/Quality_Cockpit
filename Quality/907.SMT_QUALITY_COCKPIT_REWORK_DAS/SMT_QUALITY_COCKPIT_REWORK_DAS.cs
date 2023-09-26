@@ -180,11 +180,11 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 4)
+                if (rate >= 5)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate > 3)
+                else if (rate >= 4)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
