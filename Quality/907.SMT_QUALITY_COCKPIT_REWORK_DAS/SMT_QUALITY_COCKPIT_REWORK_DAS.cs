@@ -184,7 +184,7 @@ namespace FORM
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate >= 4)
+                else if (rate >= 4 && rate < 5)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }

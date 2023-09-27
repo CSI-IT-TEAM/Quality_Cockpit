@@ -368,7 +368,7 @@ namespace FORM
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate >= 4)
+                else if (rate >= 4 && rate < 5)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
@@ -504,7 +504,7 @@ namespace FORM
                         e.Appearance.BackColor = Color.Red;
                         e.Appearance.ForeColor = Color.White;
                     }
-                    else if(temp >= 4)
+                    else if(temp >= 4 && temp < 5)
                     {
 
                         e.Appearance.BackColor = Color.Yellow;
