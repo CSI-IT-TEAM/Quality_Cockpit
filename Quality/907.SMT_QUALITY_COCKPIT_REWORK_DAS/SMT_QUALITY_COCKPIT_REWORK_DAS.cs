@@ -35,7 +35,7 @@ namespace FORM
             dtpYMDT.EditValue = DateTime.Now;
             DateTime dt = DateTime.Now;
             DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            dtpYMD.EditValue = fistdate;
+            dtpYMD.EditValue = DateTime.Now;
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
