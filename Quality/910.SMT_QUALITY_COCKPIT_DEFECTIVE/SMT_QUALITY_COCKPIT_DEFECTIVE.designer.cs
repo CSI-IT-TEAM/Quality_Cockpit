@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -73,7 +74,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pn_Main = new System.Windows.Forms.Panel();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -87,6 +88,7 @@
             this.grdMain = new DevExpress.XtraGrid.GridControl();
             this.gvwMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.pnControl = new System.Windows.Forms.Panel();
+            this.lbUnit = new System.Windows.Forms.Label();
             this.cboDateTo = new DevExpress.XtraEditors.DateEdit();
             this.cboDateFr = new DevExpress.XtraEditors.DateEdit();
             this.label3 = new System.Windows.Forms.Label();
@@ -151,7 +153,7 @@
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Main.Location = new System.Drawing.Point(0, 0);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(1924, 1061);
+            this.pn_Main.Size = new System.Drawing.Size(1920, 1056);
             this.pn_Main.TabIndex = 431;
             // 
             // pnBody1
@@ -160,7 +162,7 @@
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnBody1.Location = new System.Drawing.Point(0, 155);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1924, 906);
+            this.pnBody1.Size = new System.Drawing.Size(1920, 901);
             this.pnBody1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -178,16 +180,16 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1924, 906);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1920, 901);
             this.tableLayoutPanel1.TabIndex = 78;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.chartModel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 456);
+            this.panel3.Location = new System.Drawing.Point(3, 453);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(956, 447);
+            this.panel3.Size = new System.Drawing.Size(954, 445);
             this.panel3.TabIndex = 3;
             // 
             // chartModel
@@ -260,7 +262,7 @@
             this.chartModel.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,
         series2};
-            this.chartModel.Size = new System.Drawing.Size(956, 447);
+            this.chartModel.Size = new System.Drawing.Size(954, 445);
             this.chartModel.TabIndex = 15;
             chartTitle1.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             chartTitle1.Text = "Outsole By Top 10 Model";
@@ -271,9 +273,9 @@
             // 
             this.panel4.Controls.Add(this.chartReason);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(965, 456);
+            this.panel4.Location = new System.Drawing.Point(963, 453);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(956, 447);
+            this.panel4.Size = new System.Drawing.Size(954, 445);
             this.panel4.TabIndex = 2;
             // 
             // chartReason
@@ -303,7 +305,7 @@
             series3.View = pieSeriesView1;
             this.chartReason.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series3};
-            this.chartReason.Size = new System.Drawing.Size(956, 447);
+            this.chartReason.Size = new System.Drawing.Size(954, 445);
             this.chartReason.TabIndex = 4;
             chartTitle2.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             chartTitle2.Text = "Outsole By Reason";
@@ -317,7 +319,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(956, 447);
+            this.panel1.Size = new System.Drawing.Size(954, 444);
             this.panel1.TabIndex = 0;
             // 
             // chartMain
@@ -386,7 +388,7 @@
             this.chartMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4,
         series5};
-            this.chartMain.Size = new System.Drawing.Size(956, 447);
+            this.chartMain.Size = new System.Drawing.Size(954, 444);
             this.chartMain.TabIndex = 25;
             chartTitle3.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             chartTitle3.Text = "Defective By Area";
@@ -399,9 +401,9 @@
             // 
             this.panel2.Controls.Add(this.grdMain);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(965, 3);
+            this.panel2.Location = new System.Drawing.Point(963, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(956, 447);
+            this.panel2.Size = new System.Drawing.Size(954, 444);
             this.panel2.TabIndex = 1;
             // 
             // grdMain
@@ -413,7 +415,7 @@
             this.grdMain.Location = new System.Drawing.Point(0, 0);
             this.grdMain.MainView = this.gvwMain;
             this.grdMain.Name = "grdMain";
-            this.grdMain.Size = new System.Drawing.Size(956, 447);
+            this.grdMain.Size = new System.Drawing.Size(954, 444);
             this.grdMain.TabIndex = 17;
             this.grdMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwMain});
@@ -445,6 +447,7 @@
             this.gvwMain.OptionsSelection.EnableAppearanceFocusedRow = false;
             this.gvwMain.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
             this.gvwMain.OptionsView.AllowCellMerge = true;
+            this.gvwMain.OptionsView.ColumnAutoWidth = false;
             this.gvwMain.OptionsView.ShowColumnHeaders = false;
             this.gvwMain.OptionsView.ShowGroupPanel = false;
             this.gvwMain.OptionsView.ShowIndicator = false;
@@ -452,11 +455,13 @@
             this.gvwMain.RowHeight = 40;
             this.gvwMain.ScrollStyle = DevExpress.XtraGrid.Views.Grid.ScrollStyleFlags.None;
             this.gvwMain.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
+            this.gvwMain.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwMain_CustomDrawCell);
             this.gvwMain.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwMain_RowCellStyle);
             // 
             // pnControl
             // 
             this.pnControl.BackColor = System.Drawing.Color.Transparent;
+            this.pnControl.Controls.Add(this.lbUnit);
             this.pnControl.Controls.Add(this.cboDateTo);
             this.pnControl.Controls.Add(this.cboDateFr);
             this.pnControl.Controls.Add(this.label3);
@@ -465,8 +470,20 @@
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnControl.Location = new System.Drawing.Point(0, 100);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(1924, 55);
+            this.pnControl.Size = new System.Drawing.Size(1920, 55);
             this.pnControl.TabIndex = 4;
+            // 
+            // lbUnit
+            // 
+            this.lbUnit.BackColor = System.Drawing.SystemColors.Control;
+            this.lbUnit.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lbUnit.ForeColor = System.Drawing.Color.Blue;
+            this.lbUnit.Location = new System.Drawing.Point(1770, 7);
+            this.lbUnit.Name = "lbUnit";
+            this.lbUnit.Size = new System.Drawing.Size(148, 41);
+            this.lbUnit.TabIndex = 806;
+            this.lbUnit.Text = "Unit: Pairs";
+            this.lbUnit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cboDateTo
             // 
@@ -612,7 +629,7 @@
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(375, 7);
@@ -640,7 +657,7 @@
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.Color.DodgerBlue;
+            this.label6.BackColor = System.Drawing.Color.Black;
             this.label6.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(10, 7);
@@ -648,7 +665,7 @@
             this.label6.Size = new System.Drawing.Size(137, 41);
             this.label6.TabIndex = 20;
             this.label6.Text = "Date";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnTop
             // 
@@ -658,7 +675,7 @@
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1924, 100);
+            this.pnTop.Size = new System.Drawing.Size(1920, 100);
             this.pnTop.TabIndex = 3;
             // 
             // lblDate
@@ -666,7 +683,7 @@
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDate.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.Black;
-            this.lblDate.Location = new System.Drawing.Point(1699, 0);
+            this.lblDate.Location = new System.Drawing.Point(1695, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(225, 100);
             this.lblDate.TabIndex = 5;
@@ -713,8 +730,9 @@
             // SMT_QUALITY_COCKPIT_DEFECTIVE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1920, 1056);
             this.Controls.Add(this.pn_Main);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SMT_QUALITY_COCKPIT_DEFECTIVE";
             this.Tag = "10396";
             this.Text = "SMT_SCADA_COCKPIT_FORM_DEFECTIVE";
@@ -787,5 +805,6 @@
         private DevExpress.XtraGrid.GridControl grdMain;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvwMain;
         private DevExpress.XtraEditors.DateEdit cboDateTo;
+        private System.Windows.Forms.Label lbUnit;
     }
 }
