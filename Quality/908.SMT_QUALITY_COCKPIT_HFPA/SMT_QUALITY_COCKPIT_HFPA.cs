@@ -335,17 +335,16 @@ namespace FORM
                         DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
                         chartControl3.Titles.Clear();
                         if (sYM != null)
-                            if (sYM == "iD")
-                            {
-                                chartTitle.Text = "Plant ID" + " HFPA by Reason";
-                            }
-                            else
-                            {
-                                chartTitle.Text = "Plant "+ sYM + " HFPA by Reason";
-                            }
 
+                            if (sYM == "iD")
+                                chartTitle.Text = "Plant ID" + " HFPA by Reason";
+                            else if (sYM == "Total"|| sYM == "TOTAL")
+                                chartTitle.Text = "Total HFPA by Reason";
+                            else
+                                chartTitle.Text = "Plant " + sYM + " HFPA by Reason";
                         else
                             chartTitle.Text = "HFPA by Reason";
+                        
                         chartControl3.DataSource = dtChart2;
                         chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                         chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
@@ -432,6 +431,8 @@ namespace FORM
                             {
                                 chartTitle.Text = "Plant ID" + " HFPA by Reason";
                             }
+                            else if (sYM == "Total" || sYM == "TOTAL")
+                                chartTitle.Text = "Total HFPA by Reason";
                             else
                             {
                                 chartTitle.Text = "Plant " + sYM + " HFPA by Reason";
