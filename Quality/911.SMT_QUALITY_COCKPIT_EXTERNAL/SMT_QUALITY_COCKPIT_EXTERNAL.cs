@@ -21,40 +21,40 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_EXTERNAL : Form
     {
-       
 
-        public SMT_QUALITY_COCKPIT_EXTERNAL()
-        {
-            InitializeComponent();
-        }
-        #region Global Variant
+        #region ========= [Global Variable] ==============================================
+
         int _time = 0;
         string _crr_date = "";
         string _crr_div = "OSP", _div_nm = "Outsole";
         DataTable _dtArea = null;
         bool _is_All_Load = false;
         int _start_column = 0;
-        #endregion Global Variant
 
-        #region Load-Visible Change-Timer
+        #endregion ========= [Global Variable] ==============================================
 
+        #region ========= [Form Init] ==============================================
+        public SMT_QUALITY_COCKPIT_EXTERNAL()
+        {
+            InitializeComponent();
+        }
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_Load(object sender, EventArgs e)
         {
             btnDay.Enabled = false;
             btnWeek.Enabled = true;
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
-            cbo_Date.DateTime = DateTime.Now;
-            //_crr_date = DateTime.Now.ToString("yyyyMMdd");
+            cboDateTo.EditValue = DateTime.Now;
+            DateTime dt = DateTime.Now;
+            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
+            cboDateFr.EditValue = fistdate;
             InitCombo("C_FACTORY", cboFactory);
         }
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
             {
-                //clear_chart();
-                _time = 28;
-
+                _time = 29;
                 timer1.Start();
             }
             else
@@ -64,10 +64,13 @@ namespace FORM
             }
 
         }
+        #endregion ========= [Form Init] ==============================================
+
+        #region ========= [Timer Event] ==========================================
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
             if (_time >= 30)
             {
@@ -76,13 +79,129 @@ namespace FORM
             }
         }
 
-        #endregion Load-Visible Change-Timer
+        #endregion ========= [Timer Event] ==========================================
 
-        #region Function
+        #region ========= [Control Event] ==========================================
+
+        private void cboFactory_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            SetData();
+        }
+        private void cbo_Date_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            SetData();
+        }
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "back";
+        }
+
+        private void lblDate_DoubleClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        
+        private void chartMain_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    _div_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["LABEL_CHART"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString().Split('_')[1];
+                        }
+                    }
+                }
+                else
+                {
+                    if (hit.AxisLabelItem == null) return;
+                    _div_nm = hit.AxisLabelItem.AxisValue.ToString();
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["LABEL_CHART"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString().Split('_')[1];
+                        }
+                    }
+                }
+
+
+                _time = 10;
+                SetDataDetail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void gvwMain_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.CellValue == DBNull.Value) return;
+            if (e.Column.ColumnHandle >= _start_column && (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("2") || gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("3")))
+            {
+                if (e.CellValue.ToString().Equals("0"))
+                {
+                    gvwMain.SetRowCellValue(e.RowHandle, e.Column.FieldName, "");
+                }
+
+            }
+        }
+       
+
+        private void gvwMain_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            try
+            {
+                if (grdMain.DataSource == null || gvwMain.RowCount < 1) return;
+
+                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("4"))
+                {
+                    e.Appearance.BackColor = Color.LightYellow;
+
+                    if (e.Column.FieldName != "O_TYPE")
+                    {
+                        e.Appearance.ForeColor = Color.Blue;
+                        e.Appearance.Font = new Font("Calibri", 14F, FontStyle.Bold);
+                    }
+                }
+                else if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("5"))
+                {
+                    e.Appearance.BackColor = Color.LightYellow;
+
+                    if (e.Column.FieldName != "O_TYPE")
+                    {
+                        e.Appearance.ForeColor = Color.Blue;
+                        e.Appearance.Font = new Font("Calibri", 14F, FontStyle.Bold);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        #endregion ========= [Control Event] ==========================================
+
+        #region ========= [Method] ==========================================
 
         private void InitCombo(string type, LookUpEdit cboname)
         {
-            DataTable dtdata = GET_COMBOBOX( V_P_TYPE :type,V_P_CONDITION:"",V_P_CONDITION1:"");
+            DataSet dtSet = SMT_QUA_EXTERNAL_OSD(type,"", "","","");
+            DataTable dtdata = dtSet.Tables[0];
             SetCombobox(dtdata, cboname);
         }
         private void SetCombobox(DataTable dtdata, LookUpEdit cbname)//ham set combo
@@ -116,31 +235,31 @@ namespace FORM
                 if (dsData == null) return;
                 DataTable _dtData = dsData.Tables[0];
 
-                    //Load Chart Main
-                    if (_dtData.Select("DIV <>1 AND LOCATE <> 'TOTAL'", "RN1, RN2").Count() > 0)
+                //Load Chart Main
+                if (_dtData.Select("DIV <>1 AND LOCATE <> 'TOTAL'", "RN1, RN2").Count() > 0)
+                {
+                    DataTable dtChart = _dtData.Select("DIV <>1 AND LOCATE <> 'TOTAL'", "RN1, RN2").CopyToDataTable();
+                    dtChart.Columns.Remove("DISTINCTROW");
+                    dtChart.Columns.Remove("O_TYPE");
+                    DataTable _dtPivot = Pivot(dtChart, dtChart.Columns["DIV"], dtChart.Columns["QTY"]);
+                    LoadDataChart("Q1", _dtPivot);
+                }
+
+                //Load Grid Main
+                DataTable dtSource = new DataTable();
+                if (CreateGrid(_dtData, grdMain, gvwMain))
+                {
+                    dtSource = GetDataTable(gvwMain);
+                    if (bindingData_Detail(dtSource, _dtData, _start_column))
                     {
-                        DataTable dtChart = _dtData.Select("DIV <>1 AND LOCATE <> 'TOTAL'", "RN1, RN2").CopyToDataTable();
-                        dtChart.Columns.Remove("DISTINCTROW");
-                        dtChart.Columns.Remove("O_TYPE");
-                        DataTable _dtPivot = Pivot(dtChart, dtChart.Columns["DIV"], dtChart.Columns["QTY"]);
-                        LoadDataChart("Q1", _dtPivot);
+                        grdMain.DataSource = dtSource;
+                        FormatGrid();
+
+                        SetDataDetail();
                     }
+                }
 
-                    //Load Grid Main
-                    DataTable dtSource = new DataTable();
-                    if (CreateGrid(_dtData, grdMain, gvwMain))
-                    {
-                        dtSource = GetDataTable(gvwMain);
-                        if (bindingData_Detail(dtSource, _dtData, _start_column))
-                        {
-                            grdMain.DataSource= dtSource;
-                            FormatGrid();
-
-                            SetDataDetail();
-                        }
-                    }
-
-               // _dtData = null;
+                // _dtData = null;
 
                 splashScreenManager1.CloseWaitForm();
                 _is_All_Load = false;
@@ -161,7 +280,7 @@ namespace FORM
             try
             {
                 DataSet _dtData = null;
-                _dtData = GetExternalOSD("Q", cbo_Date.DateTime.ToString("yyyyMMdd"), cboFactory.EditValue.ToString(), _crr_div);
+                _dtData = SMT_QUA_EXTERNAL_OSD("Q", cboDateFr.DateTime.ToString("yyyyMMdd"), cboDateTo.DateTime.ToString("yyyyMMdd"), cboFactory.EditValue.ToString(), _crr_div);
 
                 return _dtData;
             }
@@ -364,17 +483,17 @@ namespace FORM
                         gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
                         gvwMain.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
                         gvwMain.Columns[i].DisplayFormat.FormatString = "#,0.##";
-                        gvwMain.Columns[i].Width = 76;
+                        gvwMain.Columns[i].Width = 110;
                     }
 
                     gvwMain.Columns[i].AppearanceCell.Font = new Font("Calibri", 14, FontStyle.Regular);
-                    gvwMain.Columns[i].AppearanceHeader.Font = new Font("Calibri", 14, FontStyle.Bold);
+                    gvwMain.Columns[i].AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
                 }
                 gvwMain.RowHeight = 45;
                 gvwMain.TopRowIndex = 0;
 
                 grdMain.EndUpdate();
-               
+
             }
             catch (Exception ex)
             {
@@ -416,8 +535,6 @@ namespace FORM
 
             return result;
         }
-        #endregion Function
-
         public void SetDataDetail()
         {
             try
@@ -430,15 +547,13 @@ namespace FORM
                 DataSet _dtSet = GetOracleData();
                 DataTable _dtModel = _dtSet.Tables[1];
                 DataTable _dtReason = _dtSet.Tables[2];
-                
+
                 //Load Chart Model
                 LoadDataChart("Q2", _dtModel);
-                
+
                 //Load Chart Model
                 LoadDataChart("Q3", _dtReason);
 
-                //_dtModel = null;
-                //_dtReason = null;
 
                 if (_is_All_Load == false)
                 {
@@ -468,14 +583,6 @@ namespace FORM
                 if (_qtype == "Q1")
                 {
                     chartMain.DataSource = null;
-                    //chartMain.Series[0].Points.Clear();
-                    //chartMain.Series[0].ArgumentScaleType = ScaleType.Qualitative;
-                    //chartMain.Series[1].Points.Clear();
-                    //chartMain.Series[1].ArgumentScaleType = ScaleType.Qualitative;
-                    //chartMain.Series[2].Points.Clear();
-                    //chartMain.Series[2].ArgumentScaleType = ScaleType.Qualitative;
-                    //chartMain.Series[3].Points.Clear();
-                    //chartMain.Series[3].ArgumentScaleType = ScaleType.Qualitative;
                     if (_dtSource == null) return;
                     chartMain.DataSource = _dtSource;
                     chartMain.Series[0].ArgumentDataMember = "LABEL_CHART";
@@ -486,27 +593,6 @@ namespace FORM
                     chartMain.Series[2].ValueDataMembers.AddRange(new string[] { "3" });
                     chartMain.Series[3].ArgumentDataMember = "LABEL_CHART";
                     chartMain.Series[3].ValueDataMembers.AddRange(new string[] { "4" });
-                    //for (int i = 0; i <= _dtSource.Rows.Count - 1; i++)
-                    //{
-                    //    chartMain.Series[0].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["3"]));
-                    //    chartMain.Series[1].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["5"]));
-                    //    chartMain.Series[2].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["2"]));
-                    //    chartMain.Series[3].Points.Add(new SeriesPoint(_dtSource.Rows[i]["LABEL_CHART"].ToString(), _dtSource.Rows[i]["4"]));
-                    //}
-                    //for (int i = 0; i < _dtSource.Rows.Count; i++)
-                    //{
-                    //    if (Convert.ToDouble(_dtSource.Rows[i]["2"]) == Convert.ToDouble(_dtSource.Rows[i]["3"]))
-                    //    {
-                    //        chartMain.Series[0].Points[i].Color = Color.Green;
-                    //        chartMain.Series[2].Points[i].Color = Color.Green;
-                    //    }
-                    //    else
-                    //    {
-                    //        chartMain.Series[0].Points[i].Color = Color.DodgerBlue;
-                    //        chartMain.Series[2].Points[i].Color = Color.Orange;
-                    //    }
-
-                    //}
                 }
                 else if (_qtype == "Q2")
                 {
@@ -544,16 +630,16 @@ namespace FORM
                     chartTitle.Dock = ChartTitleDockStyle.Top;
 
                     // Customize a title's appearance.
-                    chartTitle.Font = new Font("Times New Roman", 26F, FontStyle.Bold ^ FontStyle.Italic);
+                    chartTitle.Font = new Font("Times New Roman", 20F, FontStyle.Bold ^ FontStyle.Italic);
                     chartModel.Titles.Add(chartTitle);
 
                     if (_dtSource.Rows.Count <= 6)
                     {
-                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 14, FontStyle.Regular);
+                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 12F, FontStyle.Regular);
                     }
                     else
                     {
-                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 11, FontStyle.Regular);
+                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 12F, FontStyle.Regular);
                     }
                     ((XYDiagram)chartModel.Diagram).AxisX.Label.Staggered = false;
                 }
@@ -575,7 +661,7 @@ namespace FORM
                     chartTitle.Dock = ChartTitleDockStyle.Top;
 
                     // Customize a title's appearance.
-                    chartTitle.Font = new Font("Times New Roman", 26F, FontStyle.Bold ^ FontStyle.Italic);
+                    chartTitle.Font = new Font("Times New Roman", 20F, FontStyle.Bold ^ FontStyle.Italic);
                     chartReason.Titles.Add(chartTitle);
                 }
             }
@@ -585,220 +671,61 @@ namespace FORM
             }
         }
 
-        #region Database
-        private DataTable GET_COMBOBOX(string V_P_TYPE, string V_P_CONDITION, string V_P_CONDITION1)
-        {
-            COM.OraDB oradb = new COM.OraDB();
-            DataSet dtset;
-            oradb.ShowErr = false;
-            try
-            {
-                string process_name = "PKG_SMT_QUALITY_COCKPIT_06.SP_CBO_EXTERNAL_OSD";
-                oradb.ReDim_Parameter(4);
-                oradb.Process_Name = process_name;
+        #endregion ========= [Method] ==========================================
 
-                oradb.Parameter_Name[0] = "V_P_TYPE";
-                oradb.Parameter_Name[1] = "V_P_CONDITION";
-                oradb.Parameter_Name[2] = "V_P_CONDITION1";
-                oradb.Parameter_Name[3] = "OUT_CURSOR";
-
-                oradb.Parameter_Type[0] = (int)OracleType.VarChar;
-                oradb.Parameter_Type[1] = (int)OracleType.VarChar;
-                oradb.Parameter_Type[2] = (int)OracleType.VarChar;
-                oradb.Parameter_Type[3] = (int)OracleType.Cursor;
-
-                oradb.Parameter_Values[0] = V_P_TYPE;
-                oradb.Parameter_Values[1] = V_P_CONDITION;
-                oradb.Parameter_Values[2] = V_P_CONDITION1;
-                oradb.Parameter_Values[3] = "";
-
-                oradb.Add_Select_Parameter(true);
-                dtset = oradb.Exe_Select_Procedure();
-                if (dtset == null) return null;
-                return dtset.Tables[0];
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-
-        public DataSet GetExternalOSD(string ARG_QTYPE,string ARG_DATE, string V_P_PLANT, string ARG_LINE)
+        #region ========= [Procedure Call] ===========================================
+        public DataSet SMT_QUA_EXTERNAL_OSD(string ARG_QTYPE, string ARG_DATE_FR, string ARG_DATE_TO, string V_P_PLANT, string ARG_LINE)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             MyOraDB.ShowErr = true;
             DataSet ds_ret;
             try
             {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_06.SP_GET_EXTERNAL_OSD_V2";
+                string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_EXTERNAL_OSD";
 
-                MyOraDB.ReDim_Parameter(7);
+                MyOraDB.ReDim_Parameter(8);
                 MyOraDB.Process_Name = process_name;
 
                 MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                MyOraDB.Parameter_Name[1] = "V_P_DATE";
-                MyOraDB.Parameter_Name[2] = "V_P_PLANT";
-                MyOraDB.Parameter_Name[3] = "V_P_LINE";
-                MyOraDB.Parameter_Name[4] = "OUT_CURSOR";
-                MyOraDB.Parameter_Name[5] = "OUT_CURSOR2";
-                MyOraDB.Parameter_Name[6] = "OUT_CURSOR3";
+                MyOraDB.Parameter_Name[1] = "V_P_DATE_FR";
+                MyOraDB.Parameter_Name[2] = "V_P_DATE_TO";
+                MyOraDB.Parameter_Name[3] = "V_P_PLANT";
+                MyOraDB.Parameter_Name[4] = "V_P_LINE";
+                MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[6] = "OUT_CURSOR2";
+                MyOraDB.Parameter_Name[7] = "OUT_CURSOR3";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
                 MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[7] = (int)OracleType.Cursor;
 
 
                 MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                MyOraDB.Parameter_Values[1] = ARG_DATE;
-                MyOraDB.Parameter_Values[2] = V_P_PLANT;
-                MyOraDB.Parameter_Values[3] = ARG_LINE;
-                MyOraDB.Parameter_Values[4] = "";
+                MyOraDB.Parameter_Values[1] = ARG_DATE_FR;
+                MyOraDB.Parameter_Values[2] = ARG_DATE_TO;
+                MyOraDB.Parameter_Values[3] = V_P_PLANT;
+                MyOraDB.Parameter_Values[4] = ARG_LINE;
                 MyOraDB.Parameter_Values[5] = "";
                 MyOraDB.Parameter_Values[6] = "";
+                MyOraDB.Parameter_Values[7] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();
 
                 if (ds_ret == null) return null;
-                 return ds_ret;
+                return ds_ret;
             }
             catch
             {
                 return null;
             }
         }
-
-        #endregion DB
-
-        #region Events
-        private void cmdBack_Click(object sender, EventArgs e)
-        {
-            ComVar.Var.callForm = "back";
-        }
-
-        private void lblDate_DoubleClick(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        #endregion
-
-        #region [Start Control Event]
-
-        private void cboFactory_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        {
-            SetData();
-        }
-        private void chartMain_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-
-
-                this.Cursor = Cursors.Hand;
-                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
-                SeriesPoint point = hit.SeriesPoint;
-
-                // Check whether the series point was clicked or not.
-                if (point != null)
-                {
-                    _div_nm = point.Argument;
-
-                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
-                    {
-                        if (_dtArea.Rows[iRow]["LABEL_CHART"].ToString() == _div_nm)
-                        {
-                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString().Split('_')[1];
-                        }
-                    }
-                }
-                else
-                {
-                    if (hit.AxisLabelItem == null) return;
-                    _div_nm = hit.AxisLabelItem.AxisValue.ToString();
-
-                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
-                    {
-                        if (_dtArea.Rows[iRow]["LABEL_CHART"].ToString() == _div_nm)
-                        {
-                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString().Split('_')[1];
-                        }
-                    }
-                }    
-
-
-                _time = 10;
-                SetDataDetail();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void gvwMain_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
-        {
-            if (e.CellValue == DBNull.Value) return;
-            if (e.Column.ColumnHandle >= _start_column && (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("2")|| gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("3")))
-            {
-                if (e.CellValue.ToString().Equals("0"))
-                {
-                    gvwMain.SetRowCellValue(e.RowHandle, e.Column.FieldName, "");
-                }    
-                    
-            }
-            //if (e.Column.ColumnHandle >= _start_column && gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("4"))
-            //{
-            //    e.DisplayText = e.CellValue.ToString() + "%";
-            //}
-            //else if (e.Column.ColumnHandle >= _start_column && gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("5"))
-            //{
-            //    e.DisplayText = e.CellValue.ToString() + "%";
-            //}
-        }
-
-        private void cbo_Date_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        {
-            SetData();
-        }
-
-        private void gvwMain_RowCellStyle(object sender, RowCellStyleEventArgs e)
-        {
-            try
-            {
-                if (grdMain.DataSource == null || gvwMain.RowCount < 1) return;
-
-                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("4"))
-                {
-                    e.Appearance.BackColor = Color.LightYellow;
-
-                    if (e.Column.FieldName != "O_TYPE")
-                    {
-                        e.Appearance.ForeColor = Color.Blue;
-                        e.Appearance.Font = new Font("Calibri", 14, FontStyle.Bold);
-                    }
-                }
-                else if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("5"))
-                {
-                    e.Appearance.BackColor = Color.LightYellow;
-
-                    if (e.Column.FieldName != "O_TYPE")
-                    {
-                        e.Appearance.ForeColor = Color.Blue;
-                        e.Appearance.Font = new Font("Calibri", 14, FontStyle.Bold);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        #endregion [End Control Event]
+        #endregion ========= [Procedure Call] ===========================================
+        
     }
 }
