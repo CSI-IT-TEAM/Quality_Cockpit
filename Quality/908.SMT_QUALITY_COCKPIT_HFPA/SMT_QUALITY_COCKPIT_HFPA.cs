@@ -30,6 +30,11 @@ namespace FORM
             btnWeek.Enabled = true;
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
+
+            dtpYMDT.EditValue = DateTime.Now;
+            DateTime dt = DateTime.Now;
+            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
+            dtpYMD.EditValue = DateTime.Now;
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
@@ -102,32 +107,38 @@ namespace FORM
                 DataSet ds_ret;
                 try
                 {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_HFPA_V3";
+                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_HFPA_V4";
 
-                    MyOraDB.ReDim_Parameter(6);
+                    MyOraDB.ReDim_Parameter(8);
                     MyOraDB.Process_Name = process_name;
 
                     MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                    MyOraDB.Parameter_Name[1] = "V_P_LINE_CD";
-                    MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
-                    MyOraDB.Parameter_Name[3] = "OUT_CURSOR2";
-                    MyOraDB.Parameter_Name[4] = "OUT_CURSOR3";
-                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR4";
+                    MyOraDB.Parameter_Name[1] = "V_P_DATEF";
+                    MyOraDB.Parameter_Name[2] = "V_P_DATET";
+                    MyOraDB.Parameter_Name[3] = "V_P_LINE_CD";
+                    MyOraDB.Parameter_Name[4] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR2";
+                    MyOraDB.Parameter_Name[6] = "OUT_CURSOR3";
+                    MyOraDB.Parameter_Name[7] = "OUT_CURSOR4";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
-                    MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
                     MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
                     MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[7] = (int)OracleType.Cursor;
 
 
                     MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                    MyOraDB.Parameter_Values[1] = ARG_LINE;
-                    MyOraDB.Parameter_Values[2] = "";
-                    MyOraDB.Parameter_Values[3] = "";
+                    MyOraDB.Parameter_Values[1] = dtpYMD.DateTime.ToString("yyyyMMdd");
+                    MyOraDB.Parameter_Values[2] = dtpYMDT.DateTime.ToString("yyyyMMdd");
+                    MyOraDB.Parameter_Values[3] = ARG_LINE;
                     MyOraDB.Parameter_Values[4] = "";
                     MyOraDB.Parameter_Values[5] = "";
+                    MyOraDB.Parameter_Values[6] = "";
+                    MyOraDB.Parameter_Values[7] = "";
 
                     MyOraDB.Add_Select_Parameter(true);
                     ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -324,17 +335,16 @@ namespace FORM
                         DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
                         chartControl3.Titles.Clear();
                         if (sYM != null)
-                            if (sYM == "iD")
-                            {
-                                chartTitle.Text = "Plant ID" + " HFPA by Reason";
-                            }
-                            else
-                            {
-                                chartTitle.Text = "Plant "+ sYM + " HFPA by Reason";
-                            }
 
+                            if (sYM == "iD")
+                                chartTitle.Text = "Plant ID" + " HFPA by Reason";
+                            else if (sYM == "Total"|| sYM == "TOTAL")
+                                chartTitle.Text = "Total HFPA by Reason";
+                            else
+                                chartTitle.Text = "Plant " + sYM + " HFPA by Reason";
                         else
                             chartTitle.Text = "HFPA by Reason";
+                        
                         chartControl3.DataSource = dtChart2;
                         chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                         chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
@@ -421,6 +431,8 @@ namespace FORM
                             {
                                 chartTitle.Text = "Plant ID" + " HFPA by Reason";
                             }
+                            else if (sYM == "Total" || sYM == "TOTAL")
+                                chartTitle.Text = "Total HFPA by Reason";
                             else
                             {
                                 chartTitle.Text = "Plant " + sYM + " HFPA by Reason";
@@ -456,6 +468,16 @@ namespace FORM
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dtpYMD_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            SetData();
+        }
+
+        private void dtpYMDT_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            SetData();
         }
     }
 }

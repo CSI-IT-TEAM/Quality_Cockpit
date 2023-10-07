@@ -73,6 +73,12 @@
             DevExpress.XtraCharts.ChartTitle chartTitle3 = new DevExpress.XtraCharts.ChartTitle();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.pnControl = new System.Windows.Forms.Panel();
+            this.lblTotalProd = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotalRate = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblTotalRework = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpYMD = new DevExpress.XtraEditors.DateEdit();
@@ -220,6 +226,12 @@
             // pnControl
             // 
             this.pnControl.BackColor = System.Drawing.Color.Transparent;
+            this.pnControl.Controls.Add(this.lblTotalProd);
+            this.pnControl.Controls.Add(this.label8);
+            this.pnControl.Controls.Add(this.lblTotalRate);
+            this.pnControl.Controls.Add(this.label9);
+            this.pnControl.Controls.Add(this.lblTotalRework);
+            this.pnControl.Controls.Add(this.label10);
             this.pnControl.Controls.Add(this.label7);
             this.pnControl.Controls.Add(this.label1);
             this.pnControl.Controls.Add(this.dtpYMD);
@@ -235,8 +247,80 @@
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnControl.Location = new System.Drawing.Point(0, 76);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(1924, 50);
+            this.pnControl.Size = new System.Drawing.Size(1924, 95);
             this.pnControl.TabIndex = 2;
+            // 
+            // lblTotalProd
+            // 
+            this.lblTotalProd.BackColor = System.Drawing.Color.White;
+            this.lblTotalProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalProd.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProd.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalProd.Location = new System.Drawing.Point(1194, 5);
+            this.lblTotalProd.Name = "lblTotalProd";
+            this.lblTotalProd.Size = new System.Drawing.Size(220, 41);
+            this.lblTotalProd.TabIndex = 787;
+            this.lblTotalProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(1035, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(157, 41);
+            this.label8.TabIndex = 786;
+            this.label8.Text = "Total Production";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTotalRate
+            // 
+            this.lblTotalRate.BackColor = System.Drawing.Color.White;
+            this.lblTotalRate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalRate.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRate.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalRate.Location = new System.Drawing.Point(1557, 5);
+            this.lblTotalRate.Name = "lblTotalRate";
+            this.lblTotalRate.Size = new System.Drawing.Size(220, 41);
+            this.lblTotalRate.TabIndex = 785;
+            this.lblTotalRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Black;
+            this.label9.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(1418, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(137, 41);
+            this.label9.TabIndex = 784;
+            this.label9.Text = "Rate";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTotalRework
+            // 
+            this.lblTotalRework.BackColor = System.Drawing.Color.White;
+            this.lblTotalRework.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotalRework.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRework.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalRework.Location = new System.Drawing.Point(807, 4);
+            this.lblTotalRework.Name = "lblTotalRework";
+            this.lblTotalRework.Size = new System.Drawing.Size(220, 41);
+            this.lblTotalRework.TabIndex = 783;
+            this.lblTotalRework.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Black;
+            this.label10.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(669, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(137, 41);
+            this.label10.TabIndex = 782;
+            this.label10.Text = "Total Rework";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -244,7 +328,7 @@
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1758, 5);
+            this.label7.Location = new System.Drawing.Point(1758, 53);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 39);
             this.label7.TabIndex = 421;
@@ -257,7 +341,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1561, 5);
+            this.label1.Location = new System.Drawing.Point(1561, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 39);
             this.label1.TabIndex = 420;
@@ -331,7 +415,7 @@
             this.dtpYMD.TabIndex = 706;
             this.dtpYMD.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.dtpYMD.ToolTipTitle = "Click vào để chọn ngày";
-            this.dtpYMD.Visible = false;
+            this.dtpYMD.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.dtpYMD_Closed);
             // 
             // label3
             // 
@@ -344,7 +428,6 @@
             this.label3.TabIndex = 705;
             this.label3.Text = "~";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Visible = false;
             // 
             // label5
             // 
@@ -352,7 +435,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1383, 5);
+            this.label5.Location = new System.Drawing.Point(1383, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 39);
             this.label5.TabIndex = 419;
@@ -426,7 +509,7 @@
             this.dtpYMDT.TabIndex = 704;
             this.dtpYMDT.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.dtpYMDT.ToolTipTitle = "Click vào để chọn ngày";
-            this.dtpYMDT.Visible = false;
+            this.dtpYMDT.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.dtpYMDT_Closed);
             // 
             // btnSearch
             // 
@@ -449,7 +532,7 @@
             this.cboLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLine.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.cboLine.FormattingEnabled = true;
-            this.cboLine.Location = new System.Drawing.Point(1161, 5);
+            this.cboLine.Location = new System.Drawing.Point(1161, 53);
             this.cboLine.Name = "cboLine";
             this.cboLine.Size = new System.Drawing.Size(205, 41);
             this.cboLine.TabIndex = 21;
@@ -460,7 +543,7 @@
             this.cboPlant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlant.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.cboPlant.FormattingEnabled = true;
-            this.cboPlant.Location = new System.Drawing.Point(811, 5);
+            this.cboPlant.Location = new System.Drawing.Point(811, 53);
             this.cboPlant.Name = "cboPlant";
             this.cboPlant.Size = new System.Drawing.Size(205, 41);
             this.cboPlant.TabIndex = 21;
@@ -471,7 +554,7 @@
             this.label4.BackColor = System.Drawing.Color.Black;
             this.label4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1023, 5);
+            this.label4.Location = new System.Drawing.Point(1023, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 40);
             this.label4.TabIndex = 19;
@@ -489,15 +572,14 @@
             this.label6.Size = new System.Drawing.Size(137, 40);
             this.label6.TabIndex = 20;
             this.label6.Text = "Date";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Visible = false;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(673, 5);
+            this.label2.Location = new System.Drawing.Point(673, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 40);
             this.label2.TabIndex = 19;
@@ -580,9 +662,9 @@
             this.pnBody1.Controls.Add(this.tableLayoutPanel1);
             this.pnBody1.Controls.Add(this.pnExport);
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody1.Location = new System.Drawing.Point(0, 126);
+            this.pnBody1.Location = new System.Drawing.Point(0, 171);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1924, 935);
+            this.pnBody1.Size = new System.Drawing.Size(1924, 890);
             this.pnBody1.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -598,7 +680,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1924, 438);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1924, 393);
             this.tableLayoutPanel1.TabIndex = 78;
             // 
             // panel1
@@ -607,7 +689,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(956, 432);
+            this.panel1.Size = new System.Drawing.Size(956, 387);
             this.panel1.TabIndex = 0;
             // 
             // chartControl2
@@ -681,7 +763,7 @@
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series3,
         series4};
-            this.chartControl2.Size = new System.Drawing.Size(956, 432);
+            this.chartControl2.Size = new System.Drawing.Size(956, 387);
             this.chartControl2.TabIndex = 13;
             chartTitle2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             chartTitle2.Text = "Top 5 Plant";
@@ -695,7 +777,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(965, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(956, 432);
+            this.panel2.Size = new System.Drawing.Size(956, 387);
             this.panel2.TabIndex = 1;
             // 
             // chartControl3
@@ -724,7 +806,7 @@
             series5.View = pieSeriesView1;
             this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series5};
-            this.chartControl3.Size = new System.Drawing.Size(956, 432);
+            this.chartControl3.Size = new System.Drawing.Size(956, 387);
             this.chartControl3.TabIndex = 3;
             chartTitle3.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             chartTitle3.Text = "Rework by Reason";
@@ -753,6 +835,7 @@
             this.pn_UC.Name = "pn_UC";
             this.pn_UC.Size = new System.Drawing.Size(283, 71);
             this.pn_UC.TabIndex = 89;
+            this.pn_UC.Visible = false;
             // 
             // btnYear
             // 
@@ -934,5 +1017,11 @@
         private DevExpress.XtraCharts.ChartControl chartControl2;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraCharts.ChartControl chartControl3;
+        private System.Windows.Forms.Label lblTotalProd;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTotalRate;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblTotalRework;
+        private System.Windows.Forms.Label label10;
     }
 }
