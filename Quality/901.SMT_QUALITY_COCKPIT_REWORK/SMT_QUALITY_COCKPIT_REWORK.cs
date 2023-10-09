@@ -364,18 +364,18 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate >= 5)
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.Red;
-                }
-                else if (rate >= 4 && rate < 5)
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
-                }
-                else
-                {
+                //if (rate >= 5)
+                //{
+                //    chartControl1.Series[0].Points[i].Color = Color.Red;
+                //}
+                //else if (rate >= 4 && rate < 5)
+                //{
+                //    chartControl1.Series[0].Points[i].Color = Color.Yellow;
+                //}
+                //else
+                //{
                     chartControl1.Series[0].Points[i].Color = Color.Green;
-                }
+                //}
             }
         }
 
@@ -499,23 +499,23 @@ namespace FORM
                 if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
                     double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
-                    if (temp >= 5)
-                    {
-                        e.Appearance.BackColor = Color.Red;
-                        e.Appearance.ForeColor = Color.White;
-                    }
-                    else if(temp >= 4 && temp < 5)
-                    {
+                    //if (temp >= 5)
+                    //{
+                    //    e.Appearance.BackColor = Color.Red;
+                    //    e.Appearance.ForeColor = Color.White;
+                    //}
+                    //else if(temp >= 4 && temp < 5)
+                    //{
 
-                        e.Appearance.BackColor = Color.Yellow;
-                        e.Appearance.ForeColor = Color.Black;
-                    }
-                    else
-                    {
+                    //    e.Appearance.BackColor = Color.Yellow;
+                    //    e.Appearance.ForeColor = Color.Black;
+                    //}
+                    //else
+                    //{
 
                         e.Appearance.BackColor = Color.Green;
                         e.Appearance.ForeColor = Color.White;
-                    }
+                    //}
                 }
                 if (e.Column.FieldName.Contains("TOTAL") && e.RowHandle != gvwView.RowCount -1)
                 {
