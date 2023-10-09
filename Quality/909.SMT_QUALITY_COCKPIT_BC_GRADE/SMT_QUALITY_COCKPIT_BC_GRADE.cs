@@ -15,7 +15,7 @@ namespace FORM
 
         #region ========= [Global Variable] ==============================================
 
-        private readonly string _strHeader = "Monthly B&&C Grade";
+        private readonly string _strHeader = "  Monthly B&&C Grade";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "Q";
@@ -102,6 +102,7 @@ namespace FORM
         {
             try
             {
+                splashScreenManager1.ShowWaitForm();
                 ChartHitInfo hit = chart1.CalcHitInfo(e.Location);
                 SeriesPoint point = hit.SeriesPoint;
                 if (point != null)
@@ -289,10 +290,12 @@ namespace FORM
                         chart3.DataSource = null;
                     }
                 }
+                splashScreenManager1.CloseWaitForm();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                splashScreenManager1.CloseWaitForm();
             }
         }
 
@@ -304,7 +307,7 @@ namespace FORM
         {
             try
             {
-
+                splashScreenManager1.ShowWaitForm();
                 DataSet dsData = await Task.Run(() => sbGetBC_Grade(sDate, "ALL", cboDateFr.DateTime.ToString("yyyyMMdd"), cboDateTo.DateTime.ToString("yyyyMMdd")));
                 if (dsData == null) return;
                 DataTable dtChart = dsData.Tables[0];
@@ -346,7 +349,7 @@ namespace FORM
             }
             finally
             {
-
+                splashScreenManager1.CloseWaitForm();
             }
         }
         private void clear_chart()
@@ -457,7 +460,5 @@ namespace FORM
         }
         #endregion ========= [Procedure Call] ===========================================
 
-
-        
     }
 }

@@ -112,6 +112,7 @@
             this.pnExport = new System.Windows.Forms.Panel();
             this.chart1 = new DevExpress.XtraCharts.ChartControl();
             this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::FORM.WaitForm1), true, true);
             this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboDateTo.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDateTo.Properties)).BeginInit();
@@ -590,13 +591,14 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1600, 100);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "Summary Report";
+            this.lblHeader.Text = "  Summary Report";
             // 
             // cmdPm1
             // 
             this.cmdPm1.BackColor = System.Drawing.Color.Transparent;
             this.cmdPm1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdPm1.BackgroundImage")));
             this.cmdPm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdPm1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdPm1.Dock = System.Windows.Forms.DockStyle.Left;
             this.cmdPm1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.cmdPm1.FlatAppearance.BorderSize = 0;
@@ -936,6 +938,10 @@
             this.gridBand13.Name = "gridBand13";
             this.gridBand13.VisibleIndex = -1;
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // SMT_QUALITY_COCKPIT_BC_GRADE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1029,5 +1035,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.DateEdit cboDateFr;
         private System.Windows.Forms.Label label6;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }
