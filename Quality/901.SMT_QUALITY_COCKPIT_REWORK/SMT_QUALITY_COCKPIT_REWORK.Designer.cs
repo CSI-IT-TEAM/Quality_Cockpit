@@ -233,7 +233,7 @@
             this.pnControl.Controls.Add(this.label6);
             this.pnControl.Controls.Add(this.label2);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnControl.Location = new System.Drawing.Point(0, 76);
+            this.pnControl.Location = new System.Drawing.Point(0, 100);
             this.pnControl.Name = "pnControl";
             this.pnControl.Size = new System.Drawing.Size(1924, 50);
             this.pnControl.TabIndex = 2;
@@ -300,6 +300,7 @@
             this.dtpYMD.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtpYMD.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtpYMD.Properties.ShowNullValuePromptWhenFocused = true;
+            this.dtpYMD.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpYMD.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView;
             this.dtpYMD.Size = new System.Drawing.Size(237, 40);
             this.dtpYMD.TabIndex = 706;
@@ -380,6 +381,7 @@
             this.dtpYMDT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtpYMDT.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtpYMDT.Properties.ShowNullValuePromptWhenFocused = true;
+            this.dtpYMDT.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpYMDT.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView;
             this.dtpYMDT.Size = new System.Drawing.Size(237, 40);
             this.dtpYMDT.TabIndex = 704;
@@ -468,7 +470,7 @@
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1924, 76);
+            this.pnTop.Size = new System.Drawing.Size(1924, 100);
             this.pnTop.TabIndex = 2;
             // 
             // cmdPm1
@@ -481,9 +483,9 @@
             this.cmdPm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdPm1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
             this.cmdPm1.ForeColor = System.Drawing.Color.Navy;
-            this.cmdPm1.Location = new System.Drawing.Point(3, 3);
+            this.cmdPm1.Location = new System.Drawing.Point(0, 0);
             this.cmdPm1.Name = "cmdPm1";
-            this.cmdPm1.Size = new System.Drawing.Size(77, 70);
+            this.cmdPm1.Size = new System.Drawing.Size(100, 100);
             this.cmdPm1.TabIndex = 88;
             this.cmdPm1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.cmdPm1.UseVisualStyleBackColor = false;
@@ -496,7 +498,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.Black;
             this.lblDate.Location = new System.Drawing.Point(1689, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(235, 76);
+            this.lblDate.Size = new System.Drawing.Size(235, 100);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "2020-07-22\r\n10:00:00";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -510,7 +512,7 @@
             this.lblHeader.LineVisible = true;
             this.lblHeader.Location = new System.Drawing.Point(0, 0);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(1622, 76);
+            this.lblHeader.Size = new System.Drawing.Size(1622, 100);
             this.lblHeader.TabIndex = 3;
             this.lblHeader.Text = "        Daily Rework";
             // 
@@ -536,9 +538,9 @@
             this.pnBody1.Controls.Add(this.panel1);
             this.pnBody1.Controls.Add(this.pnExport);
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody1.Location = new System.Drawing.Point(0, 126);
+            this.pnBody1.Location = new System.Drawing.Point(0, 150);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1924, 935);
+            this.pnBody1.Size = new System.Drawing.Size(1924, 911);
             this.pnBody1.TabIndex = 3;
             // 
             // pnGrid
@@ -547,7 +549,7 @@
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnGrid.Location = new System.Drawing.Point(0, 548);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(1924, 216);
+            this.pnGrid.Size = new System.Drawing.Size(1924, 192);
             this.pnGrid.TabIndex = 78;
             // 
             // grdView
@@ -560,7 +562,7 @@
             this.grdView.Location = new System.Drawing.Point(0, 0);
             this.grdView.MainView = this.gvwView;
             this.grdView.Name = "grdView";
-            this.grdView.Size = new System.Drawing.Size(1924, 216);
+            this.grdView.Size = new System.Drawing.Size(1924, 192);
             this.grdView.TabIndex = 8;
             this.grdView.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwView});
@@ -646,7 +648,7 @@
             // 
             this.panel1.Controls.Add(this.grdDetail);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 764);
+            this.panel1.Location = new System.Drawing.Point(0, 740);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1924, 171);
             this.panel1.TabIndex = 79;
