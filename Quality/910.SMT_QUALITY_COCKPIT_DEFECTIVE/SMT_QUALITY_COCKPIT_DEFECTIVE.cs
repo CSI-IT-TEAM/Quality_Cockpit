@@ -40,16 +40,16 @@ namespace FORM
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_Load(object sender, EventArgs e)
         {
             cboDateTo.EditValue = DateTime.Now;
-            DateTime dt = DateTime.Now;
-            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            cboDateFr.EditValue = fistdate;
+            cboDateFr.EditValue = DateTime.Now;
+            //DateTime dt = DateTime.Now;
+            //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
+            //cboDateFr.EditValue = fistdate;
         }
 
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_VisibleChanged(object sender, EventArgs e)
         {
             if (Visible)
             {
-                //clear_chart();
                 _time = 30;
 
                 timer1.Start();
@@ -97,13 +97,32 @@ namespace FORM
         {
             Application.Exit();
         }
+        private void gvwMain_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            try
+            {
+                BandedGridView _gvw = sender as BandedGridView;
+
+                if (e.RowHandle < 0 || _gvw.RowCount == 0)
+                    return;
+
+                if (e.Column.FieldName != "DIV" && e.RowHandle == _gvw.RowCount - 1)
+                {
+                    e.DisplayText = e.CellValue + "%";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void gvwMain_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
             try
             {
                 if (grdMain.DataSource == null || gvwMain.RowCount < 1) return;
 
-                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("RATE"))
+                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("DEFECTIVE RATE"))
                 {
                     e.Appearance.BackColor = Color.LightYellow;
 
@@ -113,7 +132,7 @@ namespace FORM
                     }
                 }
 
-                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("DEFECTIVE"))
+                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("DEFECTIVE QUANTITY"))
                 {
                     e.Appearance.BackColor = Color.FromArgb(255, 218, 153);
                 }
@@ -306,16 +325,19 @@ namespace FORM
                 {
                     gvwMain.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     gvwMain.Columns[i].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-                    gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                    gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
                     gvwMain.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     gvwMain.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
                     gvwMain.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
                     gvwMain.Columns[i].OptionsColumn.ReadOnly = true;
                     gvwMain.Columns[i].OptionsColumn.AllowEdit = false;
-
-                    if (gvwMain.Columns[i].FieldName == "DIV")
+                    gvwMain.Columns[i].Width = 200;
+                    if (i>0)
                     {
-                        gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                        gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                        gvwMain.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
+                        gvwMain.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                        gvwMain.Columns[i].Width = 125;
                     }
 
                     gvwMain.Columns[i].AppearanceCell.Font = new Font("Calibri", 14, FontStyle.Regular);
@@ -341,7 +363,7 @@ namespace FORM
                                         {
                                             DIV = row.Field<string>("DIV"),
                                             OP_CD = row.Field<string>("OP_CD"),
-                                            QTY = row.Field<string>("QTY"),
+                                            QTY = row.Field<decimal>("QTY"),
                                         })
                                         .Distinct();
                 DataTable _dtf = LINQResultToDataTable(distinctValues).Select("").CopyToDataTable();
@@ -420,7 +442,7 @@ namespace FORM
             try
             {
                 DataTable _dtData = null;
-                _dtData = GetBotDefective(qtype, _crr_date, _crr_div);
+                _dtData = GetBotDefective(qtype, cboDateFr.DateTime.ToString("yyyyMMdd"), cboDateTo.DateTime.ToString("yyyyMMdd"), _crr_div);
 
                 return _dtData;
             }
@@ -647,37 +669,41 @@ namespace FORM
 
             return result;
         }
+
+       
         #endregion ========= [Method] ==========================================
 
         #region ========= [Procedure Call] ===========================================
 
-        public DataTable GetBotDefective(string ARG_QTYPE, string ARG_DATE, string ARG_DIV)
+        public DataTable GetBotDefective(string V_P_TYPE, string V_P_DATE_FR, string V_P_DATE_TO, string V_P_DIV)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             DataSet ds_ret;
             MyOraDB.ShowErr = true;
-            MyOraDB.ConnectName = COM.OraDB.ConnectDB.SEPHIROTH;
             try
             {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_DEFECTIVE";
+                string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_DEFECTIVE";
 
-                MyOraDB.ReDim_Parameter(4);
+                MyOraDB.ReDim_Parameter(5);
                 MyOraDB.Process_Name = process_name;
 
-                MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
-                MyOraDB.Parameter_Name[1] = "ARG_DATE";
-                MyOraDB.Parameter_Name[2] = "ARG_DIV";
-                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                MyOraDB.Parameter_Name[1] = "V_P_DATE_FR";
+                MyOraDB.Parameter_Name[2] = "V_P_DATE_TO";
+                MyOraDB.Parameter_Name[3] = "V_P_DIV";
+                MyOraDB.Parameter_Name[4] = "OUT_CURSOR";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
 
-                MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                MyOraDB.Parameter_Values[1] = ARG_DATE;
-                MyOraDB.Parameter_Values[2] = ARG_DIV;
-                MyOraDB.Parameter_Values[3] = "";
+                MyOraDB.Parameter_Values[0] = V_P_TYPE;
+                MyOraDB.Parameter_Values[1] = V_P_DATE_FR;
+                MyOraDB.Parameter_Values[2] = V_P_DATE_TO;
+                MyOraDB.Parameter_Values[3] = V_P_DIV;
+                MyOraDB.Parameter_Values[4] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();

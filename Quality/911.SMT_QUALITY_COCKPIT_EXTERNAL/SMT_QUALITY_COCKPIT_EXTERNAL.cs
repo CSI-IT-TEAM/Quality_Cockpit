@@ -41,13 +41,15 @@ namespace FORM
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_Load(object sender, EventArgs e)
         {
             btnDay.Enabled = false;
-            btnWeek.Enabled = true;
+            btnWeek.Enabled = false;
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
+            cboDateFr.EditValue = DateTime.Now;
             cboDateTo.EditValue = DateTime.Now;
-            DateTime dt = DateTime.Now;
-            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            cboDateFr.EditValue = fistdate;
+
+            //DateTime dt = DateTime.Now;
+            //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
+            //cboDateFr.EditValue = fistdate;
             InitCombo("C_FACTORY", cboFactory);
         }
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_VisibleChanged(object sender, EventArgs e)
@@ -158,6 +160,10 @@ namespace FORM
                 }
 
             }
+            //else if (e.Column.ColumnHandle >= _start_column && (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("4") || gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().Equals("5")))
+            //{
+            //    e.DisplayText = e.CellValue + "%";
+            //}
         }
        
 
@@ -354,6 +360,7 @@ namespace FORM
                         band = new GridBand() { Caption = dttmp.Rows[i]["PARENT_CAPTION"].ToString() };
                         gridView.Bands.Add(band);
                         band.Columns.Add(new BandedGridColumn() { FieldName = dttmp.Rows[i]["COL_NM"].ToString(), Visible = true, Caption = dttmp.Rows[i]["COL_CAPTION"].ToString() });
+                        band.Fixed = FixedStyle.Left;
                     }
                 }
 
