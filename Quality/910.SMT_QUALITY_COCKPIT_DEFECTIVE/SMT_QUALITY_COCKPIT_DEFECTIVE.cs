@@ -39,8 +39,8 @@ namespace FORM
 
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_Load(object sender, EventArgs e)
         {
-            cboDateTo.EditValue = DateTime.Now;
-            cboDateFr.EditValue = DateTime.Now;
+            cboDateTo.EditValue = DateTime.Now.AddDays(-1);
+            cboDateFr.EditValue = DateTime.Now.AddDays(-1);
             //DateTime dt = DateTime.Now;
             //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
             //cboDateFr.EditValue = fistdate;
