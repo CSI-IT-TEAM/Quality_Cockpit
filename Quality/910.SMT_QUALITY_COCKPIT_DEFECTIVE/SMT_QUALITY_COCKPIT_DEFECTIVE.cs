@@ -67,7 +67,7 @@ namespace FORM
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
             if (_time >= 30)
             {

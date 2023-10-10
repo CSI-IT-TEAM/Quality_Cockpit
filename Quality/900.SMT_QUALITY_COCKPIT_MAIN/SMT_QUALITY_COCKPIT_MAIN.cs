@@ -722,7 +722,7 @@ namespace FORM
         #region Event
         private void tmrTime_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _iReload++;
             if (_iReload >= 20)
             {

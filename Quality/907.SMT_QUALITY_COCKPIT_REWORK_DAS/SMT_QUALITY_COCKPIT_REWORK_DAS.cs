@@ -12,22 +12,29 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_REWORK_DAS : Form
     {
-        public SMT_QUALITY_COCKPIT_REWORK_DAS()
-        {
-            InitializeComponent();
-            lblHeader.Text = _strHeader;
-        }
-        private readonly string _strHeader = "       Rework by day";
+       
+        #region ========= [Global Variable] ==============================================
+
+        private readonly string _strHeader = "  Rework By Day";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sType = "DAY";
         string sLine = "ALL", sLine_nm = "ALL", sPlant = "ALL", sDateF = "", sDateT = "";
         DataTable _dtArea = null;
 
-        #region Load-Visible Change-Timer
+        #endregion ========= [Global Variable] ==============================================
+
+        #region ========= [Form Init] ==============================================
+
+        public SMT_QUALITY_COCKPIT_REWORK_DAS()
+        {
+            InitializeComponent();
+            lblHeader.Text = _strHeader;
+        }
+
         private void SMT_QUALITY_COCKPIT_FORM1_Load(object sender, EventArgs e)
-        {         
-            btnDay.Enabled = false;           
+        {
+            btnDay.Enabled = false;
             btnWeek.Enabled = true;
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
@@ -45,8 +52,8 @@ namespace FORM
                 cboPlant.SelectedValue = ComVar.Var._strValue1;
                 cboLine.SelectedValue = ComVar.Var._strValue2;
                 clear_chart();
-                 _time = 28;
-               
+                _time = 28;
+
 
                 timer1.Start();
             }
@@ -57,34 +64,26 @@ namespace FORM
             }
 
         }
-        private void clear_chart()
-        {
-            chartControl1.Series[0].Points.Clear();
-            chartControl1.Series[1].Points.Clear();
-            chartControl2.Series[0].Points.Clear();
-           // chartControl3.Series[1].Points.Clear();
-        }
+
+        #endregion ========= [Form Init] ==============================================
+
+        #region ========= [Timer Event] ==========================================
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
             if (_time >= 30)
-            {              
+            {
                 SetData();
-                _time = 0;               
+                _time = 0;
 
             }
         }
 
-        #endregion
+        #endregion ========= [Timer Event] ==========================================
 
-        #region Combo     
-
-      
-        #endregion
-
-
-        #region
+        #region ========= [Control Event] ==========================================
 
         private void cmdBack_Click(object sender, EventArgs e)
         {
@@ -95,73 +94,122 @@ namespace FORM
         {
             Application.Exit();
         }
-
-        #endregion
-
-
-        #region Database
-       
-
-        public async Task<DataSet> sbGetRework(string ARG_QTYPE,  string ARG_DATEF, string ARG_DATET,string ARG_PLANT, string ARG_LINE)
+        private void btnDay_Click(object sender, EventArgs e)
         {
-            return await Task.Run(() => {
-                COM.OraDB MyOraDB = new COM.OraDB();
-                DataSet ds_ret;
-                try
-                {
-                    string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_REWORK_DAS_V3";
-
-                    MyOraDB.ReDim_Parameter(8);
-                    MyOraDB.Process_Name = process_name;
-
-                    MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                    MyOraDB.Parameter_Name[1] = "V_P_DATEF";
-                    MyOraDB.Parameter_Name[2] = "V_P_DATET";
-                    MyOraDB.Parameter_Name[3] = "V_P_PLANT";
-                    MyOraDB.Parameter_Name[4] = "V_P_LINE";
-                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
-                    MyOraDB.Parameter_Name[6] = "OUT_CURSOR2";
-                    MyOraDB.Parameter_Name[7] = "OUT_CURSOR3";
-
-                    MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
-                    MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
-                    MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
-                    MyOraDB.Parameter_Type[7] = (int)OracleType.Cursor;
-                   
-
-                    MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                    MyOraDB.Parameter_Values[1] = ARG_DATEF;
-                    MyOraDB.Parameter_Values[2] = ARG_DATET;
-                    MyOraDB.Parameter_Values[3] = ARG_PLANT;
-                    MyOraDB.Parameter_Values[4] = ARG_LINE;                    
-                    MyOraDB.Parameter_Values[5] = "";
-                    MyOraDB.Parameter_Values[6] = "";
-                    MyOraDB.Parameter_Values[7] = "";
-                   ;
-
-                    MyOraDB.Add_Select_Parameter(true);
-                    ds_ret = MyOraDB.Exe_Select_Procedure();
-
-                    if (ds_ret == null) return null;
-                    return ds_ret;
-                }
-                catch
-                {
-                    return null;
-                }
-            });
+            btnDay.Enabled = false;
+            btnWeek.Enabled = true;
+            btnMonth.Enabled = false;
+            btnYear.Enabled = false;
+            sType = "DAY";
+            lblHeader.Text = "  Rework By Day";
+            clear_chart();
+            SetData();
         }
 
+        private void btnWeek_Click(object sender, EventArgs e)
+        {
+            btnDay.Enabled = true;
+            btnWeek.Enabled = false;
+            btnMonth.Enabled = false;
+            btnYear.Enabled = false;
+            sType = "WEEK";
+            lblHeader.Text = "  Rework By Week";
+            clear_chart();
+            _time = 30;
+        }
 
+        private void dtpYMD_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            _time = 30;
+        }
 
-       
+        private void dtpYMDT_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            _time = 30;
+        }
 
-       
-        #endregion DB
+        private void btnMonth_Click(object sender, EventArgs e)
+        {
+            btnDay.Enabled = true;
+            btnWeek.Enabled = true;
+            btnMonth.Enabled = false;
+            btnYear.Enabled = true;
+            sType = "MONTH";
+            lblHeader.Text = "  Rework By Month";
+            clear_chart();
+            _time = 30;
+        }
+        private void btnYear_Click(object sender, EventArgs e)
+        {
+            btnDay.Enabled = true;
+            btnWeek.Enabled = true;
+            btnMonth.Enabled = true;
+            btnYear.Enabled = false;
+            sType = "YEAR";
+            lblHeader.Text = "  Rework By Year";
+            clear_chart();
+            _time = 30;
+        }
+
+        private void chartControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartControl1.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    sLine_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
+                        {
+                            sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    if (hit.AxisLabelItem == null)
+                    {
+                        sLine = "ALL";
+                    }
+                    else
+                    {
+                        sLine_nm = hit.AxisLabelItem.AxisValue.ToString();
+                        for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                        {
+                            if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
+                            {
+                                sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                            }
+                        }
+                    }
+
+                }
+                //else
+                //    sLine = "ALL";
+                _time = 10;
+                SetDataDetail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion ========= [Control Event] ==========================================
+
+        #region ========= [Method] ==========================================
+        private void clear_chart()
+        {
+            chartControl1.Series[0].Points.Clear();
+            chartControl1.Series[1].Points.Clear();
+            chartControl2.Series[0].Points.Clear();
+            // chartControl3.Series[1].Points.Clear();
+        }
         private void SetChart(DataTable argDtChart)
         {
 
@@ -173,8 +221,8 @@ namespace FORM
             chartControl1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
             if (argDtChart == null) return;
             XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
-           
-            if(sType.ToString() == "MONTH")
+
+            if (sType.ToString() == "MONTH")
             {
                 diagram.AxisX.Title.Text = "Month";
             }
@@ -203,7 +251,7 @@ namespace FORM
                 //}
                 //else
                 //{
-                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                chartControl1.Series[0].Points[i].Color = Color.Green;
                 //}
             }
         }
@@ -211,7 +259,7 @@ namespace FORM
         private void SetChart1(DataTable argDtChart)
         {
             chartControl2.DataSource = null;
-            chartControl2.Series[0].Points.Clear();          
+            chartControl2.Series[0].Points.Clear();
             chartControl2.Series[0].ArgumentScaleType = ScaleType.Qualitative;
             chartControl2.Series[1].ArgumentScaleType = ScaleType.Qualitative;
             if (argDtChart == null) return;
@@ -232,11 +280,11 @@ namespace FORM
 
             //}
             //else
-                diagram.AxisX.Title.Text = "Plant";
+            diagram.AxisX.Title.Text = "Plant";
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
                 chartControl2.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["RATE"]));
-              
+
             }
         }
         private void SetChart2(DataTable argDtChart)
@@ -259,23 +307,24 @@ namespace FORM
         {
             try
             {
+                splashScreenManager1.ShowWaitForm();
                 sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
                 sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
 
-                DataSet dsData = await sbGetRework(sType,sDateF, sDateT, sPlant, sLine);
-                if (dsData == null) return;               
+                DataSet dsData = await sbGetRework(sType, sDateF, sDateT, sPlant, sLine);
+                if (dsData == null) return;
                 DataTable dtChart = dsData.Tables[0];
 
-                if (dtChart.Select("LINE_CD <> 'TOTAL'", "LINE_CD").Count() > 0)
+                if (dtChart.Select("LINE_CD <> 'TOT'", "LINE_CD").Count() > 0)
                 {
-                    DataTable _dtChart = dtChart.Select("LINE_CD <> 'TOTAL'", "LINE_CD").CopyToDataTable();
+                    DataTable _dtChart = dtChart.Select("LINE_CD <> 'TOT'", "LINE_CD").CopyToDataTable();
 
                     _dtArea = _dtChart;
                     SetChart(_dtChart);
                 }
-                if (dtChart.Select("LINE_CD = 'TOTAL'", "LINE_CD").Count() > 0)
+                if (dtChart.Select("LINE_CD = 'TOT'", "LINE_CD").Count() > 0)
                 {
-                    DataTable _dtLabel = dtChart.Select("LINE_CD = 'TOTAL'", "LINE_CD").CopyToDataTable();
+                    DataTable _dtLabel = dtChart.Select("LINE_CD = 'TOT'", "LINE_CD").CopyToDataTable();
                     lblTotalRework.Text = Convert.ToDouble(_dtLabel.Rows[0]["REW_QTY"].ToString()).ToString("###,##0.##") + " Pairs";
                     lblTotalProd.Text = Convert.ToDouble(_dtLabel.Rows[0]["PROD_QY"].ToString()).ToString("###,##0.##") + " Pairs";
                     lblTotalRate.Text = _dtLabel.Rows[0]["RATE"].ToString() + " %";
@@ -293,115 +342,7 @@ namespace FORM
             }
             finally
             {
-               
-            }
-        }
-
-        private void btnDay_Click(object sender, EventArgs e)
-        {
-            btnDay.Enabled = false;
-            btnWeek.Enabled = true;
-            btnMonth.Enabled = false;
-            btnYear.Enabled = false;
-            sType = "DAY";
-            lblHeader.Text = "       Rework by day";
-            clear_chart();
-            SetData();
-        }
-
-        private void btnWeek_Click(object sender, EventArgs e)
-        {
-            btnDay.Enabled = true;
-            btnWeek.Enabled = false;
-            btnMonth.Enabled = false;
-            btnYear.Enabled = false;
-            sType = "WEEK";
-            lblHeader.Text = "       Rework by week";
-            clear_chart();
-            SetData();
-        }
-
-        private void dtpYMD_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        {
-            SetData();
-        }
-
-        private void dtpYMDT_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        {
-            SetData();
-        }
-
-        private void btnMonth_Click(object sender, EventArgs e)
-        {
-            btnDay.Enabled = true;
-            btnWeek.Enabled = true;
-            btnMonth.Enabled = false;
-            btnYear.Enabled = true;
-            sType = "MONTH";
-            lblHeader.Text = "       Rework by month";
-            clear_chart();
-            SetData();
-        }
-
-        private void btnYear_Click(object sender, EventArgs e)
-        {
-            btnDay.Enabled = true;
-            btnWeek.Enabled = true;
-            btnMonth.Enabled = true;
-            btnYear.Enabled = false;
-            sType = "YEAR";
-            lblHeader.Text = "       Rework by year";
-            clear_chart();
-            SetData();
-        }
-
-        private void chartControl1_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.Hand;
-                ChartHitInfo hit = chartControl1.CalcHitInfo(e.X, e.Y);
-                SeriesPoint point = hit.SeriesPoint;
-                // Check whether the series point was clicked or not.
-                if (point != null)
-                {
-                    sLine_nm = point.Argument;
-
-                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
-                    {
-                        if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
-                        {
-                            sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
-                        }
-                    }
-                }
-                else
-                {
-                    if(hit.AxisLabelItem == null)
-                    {
-                        sLine = "ALL";
-                    }   
-                    else
-                    {
-                        sLine_nm = hit.AxisLabelItem.AxisValue.ToString();
-                        for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
-                        {
-                            if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
-                            {
-                                sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
-                            }
-                        }
-                    }    
-                    
-                }
-                //else
-                //    sLine = "ALL";
-                _time = 10;
-                SetDataDetail();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                splashScreenManager1.CloseWaitForm();
             }
         }
         private async void SetDataDetail()
@@ -427,10 +368,10 @@ namespace FORM
                     }
                     else
                     {
-                        if(int.Parse(sLine)<6)
+                        if (int.Parse(sLine) < 6)
                         {
                             chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
-                        } 
+                        }
                         else
                             chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
                     }
@@ -461,11 +402,11 @@ namespace FORM
                 dtChart1 = null;
                 dtChart2 = null;
 
-               
+
             }
             catch (Exception ex)
             {
-               
+
                 Debug.WriteLine(ex);
             }
             finally
@@ -473,5 +414,62 @@ namespace FORM
 
             }
         }
+        #endregion ========= [Method] ==========================================
+
+        #region ========= [Procedure Call] ===========================================
+        public async Task<DataSet> sbGetRework(string ARG_QTYPE, string ARG_DATEF, string ARG_DATET, string ARG_PLANT, string ARG_LINE)
+        {
+            return await Task.Run(() => {
+                COM.OraDB MyOraDB = new COM.OraDB();
+                DataSet ds_ret;
+                try
+                {
+                    string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_REWORK";
+
+                    MyOraDB.ReDim_Parameter(8);
+                    MyOraDB.Process_Name = process_name;
+
+                    MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                    MyOraDB.Parameter_Name[1] = "V_P_DATE_FR";
+                    MyOraDB.Parameter_Name[2] = "V_P_DATE_TO";
+                    MyOraDB.Parameter_Name[3] = "V_P_PLANT";
+                    MyOraDB.Parameter_Name[4] = "V_P_LINE";
+                    MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+                    MyOraDB.Parameter_Name[6] = "OUT_CURSOR2";
+                    MyOraDB.Parameter_Name[7] = "OUT_CURSOR3";
+
+                    MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
+                    MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
+                    MyOraDB.Parameter_Type[7] = (int)OracleType.Cursor;
+
+
+                    MyOraDB.Parameter_Values[0] = ARG_QTYPE;
+                    MyOraDB.Parameter_Values[1] = ARG_DATEF;
+                    MyOraDB.Parameter_Values[2] = ARG_DATET;
+                    MyOraDB.Parameter_Values[3] = ARG_PLANT;
+                    MyOraDB.Parameter_Values[4] = ARG_LINE;
+                    MyOraDB.Parameter_Values[5] = "";
+                    MyOraDB.Parameter_Values[6] = "";
+                    MyOraDB.Parameter_Values[7] = "";
+                    ;
+
+                    MyOraDB.Add_Select_Parameter(true);
+                    ds_ret = MyOraDB.Exe_Select_Procedure();
+
+                    if (ds_ret == null) return null;
+                    return ds_ret;
+                }
+                catch
+                {
+                    return null;
+                }
+            });
+        }
+        #endregion ========= [Procedure Call] ===========================================
     }
 }
