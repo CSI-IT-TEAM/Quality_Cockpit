@@ -15,13 +15,10 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_DASBOARD : Form
     {
-        public SMT_QUALITY_COCKPIT_DASBOARD()
-        {
-            InitializeComponent();
-            AddUc();
-        }
+
+        #region ========= [Global Variable] ==============================================
         int _time = 0;
-          
+
         Dictionary<Grp, UC.UCTitle> _dntTitle = new Dictionary<Grp, UC.UCTitle>();
 
         enum Grp
@@ -36,12 +33,17 @@ namespace FORM
             MOLD_REPAIR,
             DR_FCPP
         }
+        #endregion ========= [Global Variable] ==============================================
 
-        #region Event
-
+        #region ========= [Form Init] ==============================================
+        public SMT_QUALITY_COCKPIT_DASBOARD()
+        {
+            InitializeComponent();
+            AddUc();
+        }
         private void Form_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Form_VisibleChanged(object sender, EventArgs e)
@@ -58,7 +60,9 @@ namespace FORM
             }
 
         }
+        #endregion ========= [Form Init] ==============================================
 
+        #region ========= [Timer Event] ==========================================
         private void tmrTime_Tick(object sender, EventArgs e)
         {
             lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
@@ -70,13 +74,17 @@ namespace FORM
             }
         }
 
+        #endregion ========= [Timer Event] ==========================================
+
+        #region ========= [Control Event] ==========================================
         private void cmdBack_Click(object sender, EventArgs e)
         {
             ComVar.Var.callForm = "back";
         }
 
-        #endregion Event
+        #endregion ========= [Control Event] ==========================================
 
+        #region ========= [Method] ==========================================
 
         private void LoadDataChart()
         {
@@ -534,7 +542,9 @@ namespace FORM
 
         #endregion
 
-        #region Database
+        #endregion ========= [Method] ==========================================
+
+        #region ========= [Procedure Call] ===========================================
 
         public async Task<DataTable> Fn_SelectDataChart(string argType, string argYm)
         {
@@ -578,7 +588,7 @@ namespace FORM
             });
         }
 
-        #endregion DB
-        
+        #endregion ========= [Procedure Call] ===========================================
+
     }
 }

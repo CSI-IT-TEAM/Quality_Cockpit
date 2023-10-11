@@ -21,228 +21,81 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_EXTERNAL_OSD : Form
     {
+
+        #region ========= [Global Variable] ==============================================
+
+        private readonly string _strHeader = "  Long Thanh External OS&&D";
+        string _strType = "Q";
+        string _plant = ComVar.Var._strValue1;
+        string _line = ComVar.Var._strValue2;
+        int _time = 0;
+        string _CurrentDay = "";
+        int _start_column = 0;
+
+        #endregion ========= [Global Variable] ==============================================
+
+        #region ========= [Form Init] ==============================================
+
         public SMT_QUALITY_COCKPIT_EXTERNAL_OSD()
         {
             InitializeComponent();
             lblHeader.Text = _strHeader;
         }
-        private readonly string _strHeader = "       Long Thanh External OS&&D";
-        //  private UC.UC_COMPARE_WEEK uc_compare_week = new UC.UC_COMPARE_WEEK();
-        string _strType = "Q";
-        string _plant = ComVar.Var._strValue1;  
-        string _line = ComVar.Var._strValue2;  
-        int _time = 0;
-        string _CurrentDay = "";
-        int _start_column = 0;
 
-        private void SetData(string arg_type, string plant, string line, bool arg_load = true)
+        private void SMT_QUALITY_COCKPIT_EXTERNAL_OSD_Load(object sender, EventArgs e)
         {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-
-                grdBase.DataSource = null;
-                DataSet ds = Data_Select(arg_type, plant, line);
-                if (ds == null || ds.Tables.Count == 0) return;
-                //DataTable dtSource = ds.Tables[0]; 
-                DataTable dtf = ds.Tables[0];
-                if (dtf.Rows.Count > 0)
-                {
-                    DataTable dtSource = new DataTable();
-                    if (CreateGrid_Day(dtf, grdBase, gvwBase))
-                    {
-                        dtSource = GetDataTable(gvwBase);
-                        if (bindingData_Detail(dtSource, dtf, _start_column))
-                        {
-                            grdBase.DataSource = dtSource;                            
-                            Set_Format_Grid_Day();
-                        }
-                    }
-                    if (dtf.Select("DIV = 2 AND LOCATE <> 'TOTAL'", "RN1, RN2").Count() > 0)
-                    {
-                        DataTable dtChart = dtf.Select("DIV = 2 AND LOCATE <> 'TOTAL'", "RN1, RN2").CopyToDataTable();
-                        chartControl1.Series.Clear();
-                        chartControl1.DataSource = dtChart;
-                        chartControl1.SeriesDataMember = "DIV";
-                        chartControl1.SeriesTemplate.ArgumentDataMember = "LABEL_CHART";
-                        chartControl1.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "QTY" });
-                        //  chart.SeriesTemplate.View = new SplineSeriesView();
-                        chartControl1.SeriesTemplate.LabelsVisibility = DefaultBoolean.True;
-
-                        //((XYDiagram)chart.Diagram).AxisX.Title.Text = "Vendor";
-                        //((XYDiagram)chartDay.Diagram).AxisX.Title.Visibility = DefaultBoolean.True;
-                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Text = "OS&D Q'ty (Prs)";
-                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Visibility = DefaultBoolean.True;
-                        ((XYDiagram)chartControl1.Diagram).AxisY.Label.Font = new Font("Calibri", 16, FontStyle.Regular);
-                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Font = new Font("Calibri", 16, FontStyle.Bold);
-                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.TextColor = Color.FromArgb(255, 128, 0);
-
-                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Text = "Division";
-                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Visibility = DefaultBoolean.True;
-                        ((XYDiagram)chartControl1.Diagram).AxisX.Label.Font = new Font("Calibri", 16, FontStyle.Regular);
-                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Font = new Font("Calibri", 16, FontStyle.Bold);
-                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.TextColor = Color.FromArgb(255, 128, 0);
-
-
-                        chartControl1.SeriesTemplate.Label.TextPattern = "{V:#,0.#}";
-                        chartControl1.SeriesTemplate.Label.Font = new Font("Tahoma", 10, FontStyle.Regular);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                this.Cursor = Cursors.Default;
-                Debug.WriteLine(ex.ToString());
-                //throw;
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-
+            LoadForm();
         }
 
-        //===================load com bo ===============
-
-        private void GET_COMBO_DATA(string type, string plant)
+        private void SMT_QUALITY_COCKPIT_EXTERNAL_OSD_VisibleChanged(object sender, EventArgs e)
         {
-            if (type == "CPLANT")
+            if (Visible)
             {
-                DataTable dt = LOAD_COMBO_V2(type, "","");
-                cbo_Plant.DataSource = dt;
-                cbo_Plant.DisplayMember = "NAME";
-                cbo_Plant.ValueMember = "CODE";
-                cbo_Plant.SelectedIndex = 0;
-            }
-            if (type == "CLINE")
-            {
-                plant = cbo_Plant.SelectedValue.ToString();
-                DataTable dt = LOAD_COMBO_V2(type, plant,"");
-
-                cbo_line.DataSource = dt;
-                cbo_line.DisplayMember = "NAME";
-                cbo_line.ValueMember = "CODE";
-                cbo_line.SelectedIndex = 0;
-            }
-            if (type == "DATE")
-            {
-                DataTable dt = LOAD_COMBO_V2(type, "", "");
-                _CurrentDay = dt.Rows[0]["CURRENTDAY"].ToString();
-                dtpDateT.EditValue = dt.Rows[0]["TODAY"];
-                dtpDateF.EditValue = dt.Rows[0]["PREV_DAY"];
+                _time = 0;
+                _strType = "Q";
+                _plant = ComVar.Var._strValue1;
+                _line = ComVar.Var._strValue2;
+                timer1.Start();
+                SetData(_strType, _plant, _line, false);
 
             }
-
-        }       
-
-        private void LoadForm()
-        {
-            //GET_COMBO_DATA("CPLANT", "");
-            GET_COMBO_DATA("DATE", "");
-        }
-
-        #region DB
-        private DataSet Data_Select(string argType, string plant, string line)
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-
-            MyOraDB.ReDim_Parameter(7);
-            MyOraDB.Process_Name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_EXTERNAL_OSD";//
-
-            MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-            MyOraDB.Parameter_Name[1] = "V_P_DATEF";
-            MyOraDB.Parameter_Name[2] = "V_P_DATET";
-            MyOraDB.Parameter_Name[3] = "V_P_PLANT";
-            MyOraDB.Parameter_Name[4] = "V_P_LINE";
-            MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
-            MyOraDB.Parameter_Name[6] = "OUT_CURSOR2";
-
-            MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
-            MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
-            MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
-
-            MyOraDB.Parameter_Values[0] = argType;
-            MyOraDB.Parameter_Values[1] = dtpDateF.DateTime.ToString("yyyyMMdd");
-            MyOraDB.Parameter_Values[2] = dtpDateT.DateTime.ToString("yyyyMMdd");
-            MyOraDB.Parameter_Values[3] = plant;// 
-            MyOraDB.Parameter_Values[4] = line;//cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
-            MyOraDB.Parameter_Values[5] = "";
-            MyOraDB.Parameter_Values[6] = "";
-
-            MyOraDB.Add_Select_Parameter(true);
-            DataSet retDS = MyOraDB.Exe_Select_Procedure();
-            if (retDS == null) return null;
-
-            return retDS;
-        }
-
-
-        public DataTable LOAD_COMBO_V2(string type, string plant, string line)
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-            DataSet ds_ret;
-
-            try
+            else
             {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_SET_COMBO";
-
-                MyOraDB.ReDim_Parameter(4);
-                MyOraDB.Process_Name = process_name;
-
-                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                MyOraDB.Parameter_Name[1] = "V_P_PLANT";
-                MyOraDB.Parameter_Name[2] = "V_P_LINE";
-                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
-
-                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
-
-                MyOraDB.Parameter_Values[0] = type;
-                MyOraDB.Parameter_Values[1] = plant;
-                MyOraDB.Parameter_Values[2] = line;
-                MyOraDB.Parameter_Values[3] = "";
-
-                MyOraDB.Add_Select_Parameter(true);
-                ds_ret = MyOraDB.Exe_Select_Procedure();
-
-                if (ds_ret == null) return null;
-                return ds_ret.Tables[process_name];
-            }
-            catch
-            {
-                return null;
+                timer1.Stop();
+                Dispose();
             }
         }
+        #endregion ========= [Form Init] ==============================================
 
-        #endregion DB
+        #region ========= [Timer Event] ==========================================
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
-            if(_time >=30)
+            if (_time >= 30)
             {
-                _time = 0;             
-                SetData(_strType,_plant, _line, false);
+                _time = 0;
+                SetData(_strType, _plant, _line, false);
             }
-            
+
         }
 
+        #endregion ========= [Timer Event] ==========================================
+
+        #region ========= [Control Event] ==========================================
         private void cmdBack_Click(object sender, EventArgs e)
         {
             ComVar.Var.callForm = "back";
-        } 
-
+        }
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "973";
+        }
         private void lblDate_DoubleClick(object sender, EventArgs e)
         {
             Application.Exit();
-        } 
+        }
         private void cbo_Plant_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -255,29 +108,24 @@ namespace FORM
             }
             catch { }
         }
-
-        private void SMT_QUALITY_COCKPIT_EXTERNAL_OSD_VisibleChanged(object sender, EventArgs e)
+        private void cbo_Plant_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (Visible)
+            try
             {
-                _time = 0;
-                _strType = "Q"; 
-                _plant = ComVar.Var._strValue1; 
-                _line = ComVar.Var._strValue2;
-                timer1.Start();
-                SetData(_strType, _plant, _line, false);
+                if (cbo_Plant.SelectedValue.ToString() != null)
+                    GET_COMBO_DATA("CLINE", cbo_Plant.SelectedValue.ToString());
+
+                else
+                    return;
 
             }
-            else
-            {
-                timer1.Stop();
-                Dispose();
-            }
+            catch { }
         }
 
+
         private void btnSearch_Click(object sender, EventArgs e)
-        {        
-            SetData(_strType, _plant, _line,false);           
+        {
+            SetData(_strType, _plant, _line, false);
 
         }
 
@@ -305,34 +153,122 @@ namespace FORM
             {
                 e.Appearance.BackColor = Color.LightCyan;
                 e.Appearance.ForeColor = Color.LightCoral;
-            }  
-            if(e.Column.ColumnHandle == gvwBase.Columns.Count -1)
+            }
+            if (e.Column.ColumnHandle == gvwBase.Columns.Count - 1)
             {
                 e.Appearance.BackColor = Color.LightYellow;
-               // e.Appearance.ForeColor = Color.LightCoral;
+                // e.Appearance.ForeColor = Color.LightCoral;
             }
 
         }
 
-        private void cbo_Plant_SelectedValueChanged(object sender, EventArgs e)
+        #endregion ========= [Control Event] ==========================================
+
+        #region ========= [Method] ==========================================
+
+
+        private void LoadForm()
+        {
+            //GET_COMBO_DATA("CPLANT", "");
+            GET_COMBO_DATA("DATE", "");
+        }
+        private void GET_COMBO_DATA(string type, string plant)
+        {
+            //if (type == "CPLANT")
+            //{
+            //    DataTable dt = LOAD_COMBO_V2(type, "","");
+            //    cbo_Plant.DataSource = dt;
+            //    cbo_Plant.DisplayMember = "NAME";
+            //    cbo_Plant.ValueMember = "CODE";
+            //    cbo_Plant.SelectedIndex = 0;
+            //}
+            //if (type == "CLINE")
+            //{
+            //    plant = cbo_Plant.SelectedValue.ToString();
+            //    DataTable dt = LOAD_COMBO_V2(type, plant,"");
+
+            //    cbo_line.DataSource = dt;
+            //    cbo_line.DisplayMember = "NAME";
+            //    cbo_line.ValueMember = "CODE";
+            //    cbo_line.SelectedIndex = 0;
+            //}
+            if (type == "DATE")
+            {
+                DataTable dt = Data_Select(type, "", "");
+                _CurrentDay = dt.Rows[0]["CURRENTDAY"].ToString();
+                dtpDateT.EditValue = dt.Rows[0]["TODAY"];
+                dtpDateF.EditValue = dt.Rows[0]["PREV_DAY"];
+
+            }
+
+        }
+        private void SetData(string arg_type, string plant, string line, bool arg_load = true)
         {
             try
             {
-                if (cbo_Plant.SelectedValue.ToString() != null)
-                    GET_COMBO_DATA("CLINE", cbo_Plant.SelectedValue.ToString());
+                //this.Cursor = Cursors.WaitCursor;
+                splashScreenManager1.ShowWaitForm();
+                grdBase.DataSource = null;
+                DataTable dtf = Data_Select(arg_type, plant, line);
+                if (dtf == null || dtf.Rows.Count == 0) return;
+                //DataTable dtSource = ds.Tables[0]; 
+                if (dtf.Rows.Count > 0)
+                {
+                    DataTable dtSource = new DataTable();
+                    if (CreateGrid_Day(dtf, grdBase, gvwBase))
+                    {
+                        dtSource = GetDataTable(gvwBase);
+                        if (bindingData_Detail(dtSource, dtf, _start_column))
+                        {
+                            grdBase.DataSource = dtSource;
+                            Set_Format_Grid_Day();
+                        }
+                    }
+                    if (dtf.Select("DIV = 2 AND LOCATE <> 'TOTAL'", "RN1, RN2").Count() > 0)
+                    {
+                        DataTable dtChart = dtf.Select("DIV = 2 AND LOCATE <> 'TOTAL'", "RN1, RN2").CopyToDataTable();
+                        chartControl1.Series.Clear();
+                        chartControl1.DataSource = dtChart;
+                        chartControl1.SeriesDataMember = "DIV";
+                        chartControl1.SeriesTemplate.ArgumentDataMember = "LABEL_CHART";
+                        chartControl1.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "QTY" });
+                        //  chart.SeriesTemplate.View = new SplineSeriesView();
+                        chartControl1.SeriesTemplate.LabelsVisibility = DefaultBoolean.True;
 
-                else
-                    return;
+                        //((XYDiagram)chart.Diagram).AxisX.Title.Text = "Vendor";
+                        //((XYDiagram)chartDay.Diagram).AxisX.Title.Visibility = DefaultBoolean.True;
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Text = "OS&D Quantity (Pairs)";
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Visibility = DefaultBoolean.True;
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Label.Font = new Font("Calibri", 12, FontStyle.Regular);
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.Font = new Font("Calibri", 16, FontStyle.Bold);
+                        ((XYDiagram)chartControl1.Diagram).AxisY.Title.TextColor = Color.FromArgb(255, 128, 0);
 
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Text = "Division";
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Visibility = DefaultBoolean.True;
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Label.Font = new Font("Calibri", 12, FontStyle.Regular);
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.Font = new Font("Calibri", 16, FontStyle.Bold);
+                        ((XYDiagram)chartControl1.Diagram).AxisX.Title.TextColor = Color.FromArgb(255, 128, 0);
+
+
+                        chartControl1.SeriesTemplate.Label.TextPattern = "{V:#,0.#}";
+                        chartControl1.SeriesTemplate.Label.Font = new Font("Calibri", 12, FontStyle.Regular);
+                    }
+                }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                splashScreenManager1.CloseWaitForm();
+                //this.Cursor = Cursors.Default;
+                Debug.WriteLine(ex.ToString());
+                //throw;
+            }
+            finally
+            {
+                splashScreenManager1.CloseWaitForm();
+               // this.Cursor = Cursors.Default;
+            }
+
         }
-
-        private void SMT_QUALITY_COCKPIT_EXTERNAL_OSD_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        } 
-
         private bool CreateGrid_Day(DataTable dt, DevExpress.XtraGrid.GridControl gridControl, BandedGridView gridView)
         {
             try
@@ -479,8 +415,8 @@ namespace FORM
                 gvwBase.Columns[i].OptionsColumn.AllowEdit = false;
                 gvwBase.Columns[i].OptionsFilter.AllowFilter = false;
                 gvwBase.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-                gvwBase.Columns[i].AppearanceCell.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
-                gvwBase.Columns[i].AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18, FontStyle.Bold);
+                gvwBase.Columns[i].AppearanceCell.Font = new System.Drawing.Font("Calibri", 14, FontStyle.Regular);
+                gvwBase.Columns[i].AppearanceHeader.Font = new System.Drawing.Font("Calibri", 16, FontStyle.Bold);
                 if (i < _start_column)
                 {
                     gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
@@ -493,7 +429,7 @@ namespace FORM
                     gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.##";
                     gvwBase.Columns[i].Width = 120;
                 }
-               
+
 
 
             }
@@ -551,10 +487,59 @@ namespace FORM
             }
             return dt;
         }
+        #endregion ========= [Method] ==========================================
 
-        private void btnIn_Click(object sender, EventArgs e)
+        #region ========= [Procedure Call] ===========================================
+        private DataTable Data_Select(string argType, string plant, string line)
         {
-            ComVar.Var.callForm = "973";
+            COM.OraDB MyOraDB = new COM.OraDB();
+            DataSet ds_ret;
+
+            try
+            {
+
+                MyOraDB.ReDim_Parameter(6);
+                MyOraDB.Process_Name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_EXTERNAL_OSD_LT";//
+
+                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                MyOraDB.Parameter_Name[1] = "V_P_DATE_FR";
+                MyOraDB.Parameter_Name[2] = "V_P_DATE_TO";
+                MyOraDB.Parameter_Name[3] = "V_P_PLANT";
+                MyOraDB.Parameter_Name[4] = "V_P_LINE";
+                MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
+
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[5] = (int)OracleType.Cursor;
+
+                MyOraDB.Parameter_Values[0] = argType;
+                MyOraDB.Parameter_Values[1] = dtpDateF.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[2] = dtpDateT.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[3] = plant;// 
+                MyOraDB.Parameter_Values[4] = line;//cbo_line.SelectedValue == null ? "" : cbo_line.SelectedValue.ToString();
+                MyOraDB.Parameter_Values[5] = "";
+
+                MyOraDB.Add_Select_Parameter(true);
+                DataSet retDS = MyOraDB.Exe_Select_Procedure();
+                if (retDS == null) return null;
+
+                MyOraDB.Add_Select_Parameter(true);
+                ds_ret = MyOraDB.Exe_Select_Procedure();
+
+                if (ds_ret == null) return null;
+                return ds_ret.Tables[0];
+            }
+            catch
+            {
+                return null;
+            }
         }
+
+
+        #endregion ========= [Procedure Call] ===========================================
+
     }
 }
