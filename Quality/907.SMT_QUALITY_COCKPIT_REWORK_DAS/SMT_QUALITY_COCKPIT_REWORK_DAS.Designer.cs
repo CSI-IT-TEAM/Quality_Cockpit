@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -86,6 +85,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpYMDT = new DevExpress.XtraEditors.DateEdit();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.cboLine = new System.Windows.Forms.ComboBox();
             this.cboPlant = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -93,10 +93,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pn_UC = new OS_DSF.A1Panel();
+            this.btnYear = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMonth = new DevExpress.XtraEditors.SimpleButton();
+            this.btnWeek = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDay = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdPm1 = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
             this.pnExport = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -105,12 +110,6 @@
             this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
             this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::FORM.WaitForm1), true, true);
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnYear = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMonth = new DevExpress.XtraEditors.SimpleButton();
-            this.btnWeek = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDay = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdPm1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
@@ -169,7 +168,6 @@
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             secondaryAxisY1.AxisID = 0;
-            secondaryAxisY1.Color = System.Drawing.Color.White;
             secondaryAxisY1.Label.Font = new System.Drawing.Font("Calibri", 14F);
             secondaryAxisY1.Name = "Secondary AxisY 1";
             secondaryAxisY1.Tickmarks.MinorVisible = false;
@@ -177,13 +175,8 @@
             secondaryAxisY1.Title.Text = "Rework Rate (%)";
             secondaryAxisY1.Title.TextColor = System.Drawing.Color.Orange;
             secondaryAxisY1.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            secondaryAxisY1.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY1.VisibleInPanesSerializable = "-1";
-            secondaryAxisY1.VisualRange.Auto = false;
-            secondaryAxisY1.VisualRange.MaxValueSerializable = "9.8";
-            secondaryAxisY1.VisualRange.MinValueSerializable = "0";
-            secondaryAxisY1.WholeRange.Auto = false;
-            secondaryAxisY1.WholeRange.MaxValueSerializable = "9.8";
-            secondaryAxisY1.WholeRange.MinValueSerializable = "0";
             xyDiagram1.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
             secondaryAxisY1});
             this.chartControl1.Diagram = xyDiagram1;
@@ -262,7 +255,7 @@
             // 
             this.lblTotalProd.BackColor = System.Drawing.Color.White;
             this.lblTotalProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotalProd.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProd.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalProd.ForeColor = System.Drawing.Color.Black;
             this.lblTotalProd.Location = new System.Drawing.Point(1189, 7);
             this.lblTotalProd.Name = "lblTotalProd";
@@ -286,7 +279,7 @@
             // 
             this.lblTotalRate.BackColor = System.Drawing.Color.White;
             this.lblTotalRate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotalRate.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRate.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalRate.ForeColor = System.Drawing.Color.Black;
             this.lblTotalRate.Location = new System.Drawing.Point(1554, 7);
             this.lblTotalRate.Name = "lblTotalRate";
@@ -310,7 +303,7 @@
             // 
             this.lblTotalRework.BackColor = System.Drawing.Color.White;
             this.lblTotalRework.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotalRework.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRework.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalRework.ForeColor = System.Drawing.Color.Black;
             this.lblTotalRework.Location = new System.Drawing.Point(783, 7);
             this.lblTotalRework.Name = "lblTotalRework";
@@ -365,7 +358,7 @@
             this.dtpYMD.Location = new System.Drawing.Point(147, 7);
             this.dtpYMD.Name = "dtpYMD";
             this.dtpYMD.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpYMD.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMD.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.dtpYMD.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.dtpYMD.Properties.Appearance.Options.UseFont = true;
             this.dtpYMD.Properties.Appearance.Options.UseForeColor = true;
@@ -430,10 +423,10 @@
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(376, 7);
+            this.label3.Location = new System.Drawing.Point(375, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 41);
             this.label3.TabIndex = 705;
@@ -458,10 +451,10 @@
             // 
             this.dtpYMDT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpYMDT.EditValue = new System.DateTime(2017, 12, 15, 16, 0, 56, 917);
-            this.dtpYMDT.Location = new System.Drawing.Point(417, 7);
+            this.dtpYMDT.Location = new System.Drawing.Point(416, 7);
             this.dtpYMDT.Name = "dtpYMDT";
             this.dtpYMDT.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpYMDT.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMDT.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.dtpYMDT.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.dtpYMDT.Properties.Appearance.Options.UseFont = true;
             this.dtpYMDT.Properties.Appearance.Options.UseForeColor = true;
@@ -524,6 +517,22 @@
             this.dtpYMDT.ToolTipTitle = "Click vào để chọn ngày";
             this.dtpYMDT.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.dtpYMDT_Closed);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImage = global::FORM.Properties.Resources.btnSearch1;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Location = new System.Drawing.Point(1377, 5);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(123, 39);
+            this.btnSearch.TabIndex = 23;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Visible = false;
+            // 
             // cboLine
             // 
             this.cboLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -562,7 +571,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Black;
-            this.label6.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(10, 7);
             this.label6.Name = "label6";
@@ -612,6 +621,123 @@
             this.pn_UC.Size = new System.Drawing.Size(283, 71);
             this.pn_UC.TabIndex = 89;
             this.pn_UC.Visible = false;
+            // 
+            // btnYear
+            // 
+            this.btnYear.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnYear.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnYear.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYear.Appearance.Options.UseBackColor = true;
+            this.btnYear.Appearance.Options.UseFont = true;
+            this.btnYear.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnYear.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnYear.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYear.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnYear.AppearanceHovered.Options.UseBackColor = true;
+            this.btnYear.AppearanceHovered.Options.UseFont = true;
+            this.btnYear.AppearanceHovered.Options.UseForeColor = true;
+            this.btnYear.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.btnYear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYear.ImageOptions.Image")));
+            this.btnYear.Location = new System.Drawing.Point(148, 36);
+            this.btnYear.Name = "btnYear";
+            this.btnYear.Size = new System.Drawing.Size(130, 30);
+            this.btnYear.TabIndex = 57;
+            this.btnYear.Tag = "Y";
+            this.btnYear.Text = "Year";
+            this.btnYear.Click += new System.EventHandler(this.btnYear_Click);
+            // 
+            // btnMonth
+            // 
+            this.btnMonth.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnMonth.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnMonth.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonth.Appearance.Options.UseBackColor = true;
+            this.btnMonth.Appearance.Options.UseFont = true;
+            this.btnMonth.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnMonth.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnMonth.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonth.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnMonth.AppearanceHovered.Options.UseBackColor = true;
+            this.btnMonth.AppearanceHovered.Options.UseFont = true;
+            this.btnMonth.AppearanceHovered.Options.UseForeColor = true;
+            this.btnMonth.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnMonth.Enabled = false;
+            this.btnMonth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMonth.ImageOptions.Image")));
+            this.btnMonth.Location = new System.Drawing.Point(148, 5);
+            this.btnMonth.Name = "btnMonth";
+            this.btnMonth.Size = new System.Drawing.Size(130, 30);
+            this.btnMonth.TabIndex = 58;
+            this.btnMonth.Tag = "M";
+            this.btnMonth.Text = "Month";
+            this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
+            // 
+            // btnWeek
+            // 
+            this.btnWeek.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnWeek.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnWeek.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWeek.Appearance.Options.UseBackColor = true;
+            this.btnWeek.Appearance.Options.UseFont = true;
+            this.btnWeek.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnWeek.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnWeek.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWeek.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnWeek.AppearanceHovered.Options.UseBackColor = true;
+            this.btnWeek.AppearanceHovered.Options.UseFont = true;
+            this.btnWeek.AppearanceHovered.Options.UseForeColor = true;
+            this.btnWeek.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnWeek.Enabled = false;
+            this.btnWeek.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWeek.ImageOptions.Image")));
+            this.btnWeek.Location = new System.Drawing.Point(16, 36);
+            this.btnWeek.Name = "btnWeek";
+            this.btnWeek.Size = new System.Drawing.Size(130, 30);
+            this.btnWeek.TabIndex = 56;
+            this.btnWeek.Tag = "W";
+            this.btnWeek.Text = "Week";
+            this.btnWeek.Click += new System.EventHandler(this.btnWeek_Click);
+            // 
+            // btnDay
+            // 
+            this.btnDay.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.btnDay.Appearance.BackColor2 = System.Drawing.Color.LightGray;
+            this.btnDay.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDay.Appearance.Options.UseBackColor = true;
+            this.btnDay.Appearance.Options.UseFont = true;
+            this.btnDay.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDay.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDay.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDay.AppearanceHovered.ForeColor = System.Drawing.Color.White;
+            this.btnDay.AppearanceHovered.Options.UseBackColor = true;
+            this.btnDay.AppearanceHovered.Options.UseFont = true;
+            this.btnDay.AppearanceHovered.Options.UseForeColor = true;
+            this.btnDay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnDay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDay.ImageOptions.Image")));
+            this.btnDay.Location = new System.Drawing.Point(16, 5);
+            this.btnDay.Name = "btnDay";
+            this.btnDay.Size = new System.Drawing.Size(130, 30);
+            this.btnDay.TabIndex = 55;
+            this.btnDay.Tag = "D";
+            this.btnDay.Text = "Day";
+            this.btnDay.Click += new System.EventHandler(this.btnDay_Click);
+            // 
+            // cmdPm1
+            // 
+            this.cmdPm1.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPm1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdPm1.BackgroundImage")));
+            this.cmdPm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdPm1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdPm1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdPm1.FlatAppearance.BorderSize = 0;
+            this.cmdPm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPm1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdPm1.ForeColor = System.Drawing.Color.Navy;
+            this.cmdPm1.Location = new System.Drawing.Point(0, 0);
+            this.cmdPm1.Name = "cmdPm1";
+            this.cmdPm1.Size = new System.Drawing.Size(100, 100);
+            this.cmdPm1.TabIndex = 88;
+            this.cmdPm1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdPm1.UseVisualStyleBackColor = false;
+            this.cmdPm1.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // lblDate
             // 
@@ -823,139 +949,6 @@
             // splashScreenManager1
             // 
             this.splashScreenManager1.ClosingDelay = 500;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackgroundImage = global::FORM.Properties.Resources.btnSearch1;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(1377, 5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(123, 39);
-            this.btnSearch.TabIndex = 23;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Visible = false;
-            // 
-            // btnYear
-            // 
-            this.btnYear.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnYear.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnYear.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYear.Appearance.Options.UseBackColor = true;
-            this.btnYear.Appearance.Options.UseFont = true;
-            this.btnYear.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnYear.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnYear.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYear.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnYear.AppearanceHovered.Options.UseBackColor = true;
-            this.btnYear.AppearanceHovered.Options.UseFont = true;
-            this.btnYear.AppearanceHovered.Options.UseForeColor = true;
-            this.btnYear.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.btnYear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYear.ImageOptions.Image")));
-            this.btnYear.Location = new System.Drawing.Point(148, 36);
-            this.btnYear.Name = "btnYear";
-            this.btnYear.Size = new System.Drawing.Size(130, 30);
-            this.btnYear.TabIndex = 57;
-            this.btnYear.Tag = "Y";
-            this.btnYear.Text = "Year";
-            this.btnYear.Click += new System.EventHandler(this.btnYear_Click);
-            // 
-            // btnMonth
-            // 
-            this.btnMonth.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnMonth.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnMonth.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonth.Appearance.Options.UseBackColor = true;
-            this.btnMonth.Appearance.Options.UseFont = true;
-            this.btnMonth.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnMonth.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnMonth.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonth.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnMonth.AppearanceHovered.Options.UseBackColor = true;
-            this.btnMonth.AppearanceHovered.Options.UseFont = true;
-            this.btnMonth.AppearanceHovered.Options.UseForeColor = true;
-            this.btnMonth.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnMonth.Enabled = false;
-            this.btnMonth.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMonth.ImageOptions.Image")));
-            this.btnMonth.Location = new System.Drawing.Point(148, 5);
-            this.btnMonth.Name = "btnMonth";
-            this.btnMonth.Size = new System.Drawing.Size(130, 30);
-            this.btnMonth.TabIndex = 58;
-            this.btnMonth.Tag = "M";
-            this.btnMonth.Text = "Month";
-            this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
-            // 
-            // btnWeek
-            // 
-            this.btnWeek.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnWeek.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnWeek.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeek.Appearance.Options.UseBackColor = true;
-            this.btnWeek.Appearance.Options.UseFont = true;
-            this.btnWeek.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnWeek.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnWeek.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeek.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnWeek.AppearanceHovered.Options.UseBackColor = true;
-            this.btnWeek.AppearanceHovered.Options.UseFont = true;
-            this.btnWeek.AppearanceHovered.Options.UseForeColor = true;
-            this.btnWeek.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnWeek.Enabled = false;
-            this.btnWeek.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWeek.ImageOptions.Image")));
-            this.btnWeek.Location = new System.Drawing.Point(16, 36);
-            this.btnWeek.Name = "btnWeek";
-            this.btnWeek.Size = new System.Drawing.Size(130, 30);
-            this.btnWeek.TabIndex = 56;
-            this.btnWeek.Tag = "W";
-            this.btnWeek.Text = "Week";
-            this.btnWeek.Click += new System.EventHandler(this.btnWeek_Click);
-            // 
-            // btnDay
-            // 
-            this.btnDay.Appearance.BackColor = System.Drawing.Color.LightGray;
-            this.btnDay.Appearance.BackColor2 = System.Drawing.Color.LightGray;
-            this.btnDay.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDay.Appearance.Options.UseBackColor = true;
-            this.btnDay.Appearance.Options.UseFont = true;
-            this.btnDay.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDay.AppearanceHovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDay.AppearanceHovered.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDay.AppearanceHovered.ForeColor = System.Drawing.Color.White;
-            this.btnDay.AppearanceHovered.Options.UseBackColor = true;
-            this.btnDay.AppearanceHovered.Options.UseFont = true;
-            this.btnDay.AppearanceHovered.Options.UseForeColor = true;
-            this.btnDay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnDay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDay.ImageOptions.Image")));
-            this.btnDay.Location = new System.Drawing.Point(16, 5);
-            this.btnDay.Name = "btnDay";
-            this.btnDay.Size = new System.Drawing.Size(130, 30);
-            this.btnDay.TabIndex = 55;
-            this.btnDay.Tag = "D";
-            this.btnDay.Text = "Day";
-            this.btnDay.Click += new System.EventHandler(this.btnDay_Click);
-            // 
-            // cmdPm1
-            // 
-            this.cmdPm1.BackColor = System.Drawing.Color.Transparent;
-            this.cmdPm1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdPm1.BackgroundImage")));
-            this.cmdPm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdPm1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdPm1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdPm1.FlatAppearance.BorderSize = 0;
-            this.cmdPm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPm1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdPm1.ForeColor = System.Drawing.Color.Navy;
-            this.cmdPm1.Location = new System.Drawing.Point(0, 0);
-            this.cmdPm1.Name = "cmdPm1";
-            this.cmdPm1.Size = new System.Drawing.Size(100, 100);
-            this.cmdPm1.TabIndex = 88;
-            this.cmdPm1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdPm1.UseVisualStyleBackColor = false;
-            this.cmdPm1.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // SMT_QUALITY_COCKPIT_REWORK_DAS
             // 

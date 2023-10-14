@@ -58,7 +58,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::FORM.WaitForm1), true, true);
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.pnControl = new System.Windows.Forms.Panel();
             this.dtpYMD = new DevExpress.XtraEditors.DateEdit();
@@ -79,7 +79,7 @@
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdView = new DevExpress.XtraGrid.GridControl();
-            this.gvwView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvwView = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.pnC = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -87,46 +87,46 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.grdDetail = new DevExpress.XtraGrid.GridControl();
             this.gvwDetail = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this._011 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._010 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._008 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._014 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._001 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._006 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._007 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._004 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._017 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._016 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._015 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._002 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._005 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._013 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._009 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this._012 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Total = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this._Total = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._011 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._010 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._008 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand18 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._014 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand11 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._001 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand12 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._006 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._007 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._004 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand19 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._017 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand20 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._016 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand21 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._015 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand14 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._002 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._005 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand22 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._013 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand15 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand16 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._009 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand17 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.Total = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this._012 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(secondaryAxisY1)).BeginInit();
@@ -152,6 +152,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwDetail)).BeginInit();
             this.SuspendLayout();
+            // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // chartControl1
             // 
@@ -220,7 +224,7 @@
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,
         series2};
-            this.chartControl1.Size = new System.Drawing.Size(1924, 497);
+            this.chartControl1.Size = new System.Drawing.Size(1920, 497);
             this.chartControl1.TabIndex = 12;
             // 
             // pnControl
@@ -236,19 +240,20 @@
             this.pnControl.Controls.Add(this.label6);
             this.pnControl.Controls.Add(this.label2);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnControl.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.pnControl.Location = new System.Drawing.Point(0, 100);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(1924, 50);
+            this.pnControl.Size = new System.Drawing.Size(1920, 55);
             this.pnControl.TabIndex = 2;
             // 
             // dtpYMD
             // 
             this.dtpYMD.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtpYMD.EditValue = new System.DateTime(2017, 12, 15, 16, 0, 56, 917);
-            this.dtpYMD.Location = new System.Drawing.Point(150, 5);
+            this.dtpYMD.Location = new System.Drawing.Point(147, 7);
             this.dtpYMD.Name = "dtpYMD";
             this.dtpYMD.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpYMD.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMD.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.dtpYMD.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.dtpYMD.Properties.Appearance.Options.UseFont = true;
             this.dtpYMD.Properties.Appearance.Options.UseForeColor = true;
@@ -305,19 +310,19 @@
             this.dtpYMD.Properties.ShowNullValuePromptWhenFocused = true;
             this.dtpYMD.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpYMD.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView;
-            this.dtpYMD.Size = new System.Drawing.Size(237, 40);
+            this.dtpYMD.Size = new System.Drawing.Size(220, 41);
             this.dtpYMD.TabIndex = 706;
             this.dtpYMD.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.dtpYMD.ToolTipTitle = "Click vào để chọn ngày";
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.BackColor = System.Drawing.Color.Black;
+            this.label3.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(388, 5);
+            this.label3.Location = new System.Drawing.Point(375, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 39);
+            this.label3.Size = new System.Drawing.Size(41, 41);
             this.label3.TabIndex = 705;
             this.label3.Text = "~";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -326,10 +331,10 @@
             // 
             this.dtpYMDT.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtpYMDT.EditValue = new System.DateTime(2017, 12, 15, 16, 0, 56, 917);
-            this.dtpYMDT.Location = new System.Drawing.Point(429, 5);
+            this.dtpYMDT.Location = new System.Drawing.Point(416, 7);
             this.dtpYMDT.Name = "dtpYMDT";
             this.dtpYMDT.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpYMDT.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMDT.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.dtpYMDT.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.dtpYMDT.Properties.Appearance.Options.UseFont = true;
             this.dtpYMDT.Properties.Appearance.Options.UseForeColor = true;
@@ -348,7 +353,6 @@
             this.dtpYMDT.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.dtpYMDT.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.dtpYMDT.Properties.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             serializableAppearanceObject9.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject9.Options.UseFont = true;
             serializableAppearanceObject10.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
@@ -386,7 +390,7 @@
             this.dtpYMDT.Properties.ShowNullValuePromptWhenFocused = true;
             this.dtpYMDT.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpYMDT.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView;
-            this.dtpYMDT.Size = new System.Drawing.Size(237, 40);
+            this.dtpYMDT.Size = new System.Drawing.Size(220, 41);
             this.dtpYMDT.TabIndex = 704;
             this.dtpYMDT.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.dtpYMDT.ToolTipTitle = "Click vào để chọn ngày";
@@ -400,9 +404,9 @@
             this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(1377, 5);
+            this.btnSearch.Location = new System.Drawing.Point(1380, 7);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(123, 39);
+            this.btnSearch.Size = new System.Drawing.Size(131, 41);
             this.btnSearch.TabIndex = 23;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -410,60 +414,60 @@
             // cboLine
             // 
             this.cboLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLine.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            this.cboLine.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboLine.FormattingEnabled = true;
-            this.cboLine.Location = new System.Drawing.Point(1161, 5);
+            this.cboLine.Location = new System.Drawing.Point(1149, 7);
             this.cboLine.Name = "cboLine";
-            this.cboLine.Size = new System.Drawing.Size(205, 41);
+            this.cboLine.Size = new System.Drawing.Size(220, 41);
             this.cboLine.TabIndex = 21;
             this.cboLine.SelectedIndexChanged += new System.EventHandler(this.cboLine_SelectedIndexChanged);
             // 
             // cboPlant
             // 
             this.cboPlant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPlant.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            this.cboPlant.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboPlant.FormattingEnabled = true;
-            this.cboPlant.Location = new System.Drawing.Point(811, 5);
+            this.cboPlant.Location = new System.Drawing.Point(783, 7);
             this.cboPlant.Name = "cboPlant";
-            this.cboPlant.Size = new System.Drawing.Size(205, 41);
+            this.cboPlant.Size = new System.Drawing.Size(220, 41);
             this.cboPlant.TabIndex = 21;
             this.cboPlant.SelectedIndexChanged += new System.EventHandler(this.cboPlant_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.Black;
-            this.label4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1023, 5);
+            this.label4.Location = new System.Drawing.Point(1012, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 40);
+            this.label4.Size = new System.Drawing.Size(137, 41);
             this.label4.TabIndex = 19;
             this.label4.Text = " Line";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Black;
-            this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 5);
+            this.label6.Location = new System.Drawing.Point(10, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 40);
+            this.label6.Size = new System.Drawing.Size(137, 41);
             this.label6.TabIndex = 20;
             this.label6.Text = "Date";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(673, 5);
+            this.label2.Location = new System.Drawing.Point(646, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 40);
+            this.label2.Size = new System.Drawing.Size(137, 41);
             this.label2.TabIndex = 19;
             this.label2.Text = " Plant";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnTop
             // 
@@ -473,7 +477,7 @@
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1924, 100);
+            this.pnTop.Size = new System.Drawing.Size(1920, 100);
             this.pnTop.TabIndex = 2;
             // 
             // cmdPm1
@@ -497,11 +501,11 @@
             // lblDate
             // 
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblDate.Font = new System.Drawing.Font("Calibri", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.Black;
-            this.lblDate.Location = new System.Drawing.Point(1689, 0);
+            this.lblDate.Location = new System.Drawing.Point(1695, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(235, 100);
+            this.lblDate.Size = new System.Drawing.Size(225, 100);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "2020-07-22\r\n10:00:00";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -511,13 +515,12 @@
             this.lblHeader.Appearance.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.Appearance.Options.UseFont = true;
             this.lblHeader.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblHeader.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblHeader.LineVisible = true;
-            this.lblHeader.Location = new System.Drawing.Point(0, 0);
+            this.lblHeader.Location = new System.Drawing.Point(100, 0);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(1622, 100);
+            this.lblHeader.Size = new System.Drawing.Size(1600, 100);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "        Daily Rework";
+            this.lblHeader.Text = "  Daily Rework";
             // 
             // pnExport
             // 
@@ -525,7 +528,7 @@
             this.pnExport.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnExport.Location = new System.Drawing.Point(0, 0);
             this.pnExport.Name = "pnExport";
-            this.pnExport.Size = new System.Drawing.Size(1924, 497);
+            this.pnExport.Size = new System.Drawing.Size(1920, 497);
             this.pnExport.TabIndex = 77;
             // 
             // timer1
@@ -541,55 +544,59 @@
             this.pnBody1.Controls.Add(this.panel1);
             this.pnBody1.Controls.Add(this.pnExport);
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody1.Location = new System.Drawing.Point(0, 150);
+            this.pnBody1.Location = new System.Drawing.Point(0, 155);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1924, 911);
+            this.pnBody1.Size = new System.Drawing.Size(1920, 901);
             this.pnBody1.TabIndex = 3;
             // 
             // pnGrid
             // 
             this.pnGrid.Controls.Add(this.grdView);
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnGrid.Location = new System.Drawing.Point(0, 509);
+            this.pnGrid.Location = new System.Drawing.Point(0, 497);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(1924, 231);
+            this.pnGrid.Size = new System.Drawing.Size(1920, 233);
             this.pnGrid.TabIndex = 78;
             // 
             // grdView
             // 
             this.grdView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdView.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode1.RelationName = "Level1";
-            this.grdView.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
             this.grdView.Location = new System.Drawing.Point(0, 0);
+            this.grdView.LookAndFeel.SkinName = "Office 2010 Blue";
+            this.grdView.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grdView.MainView = this.gvwView;
             this.grdView.Name = "grdView";
-            this.grdView.Size = new System.Drawing.Size(1924, 231);
-            this.grdView.TabIndex = 8;
+            this.grdView.Size = new System.Drawing.Size(1920, 233);
+            this.grdView.TabIndex = 2;
             this.grdView.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwView});
             // 
             // gvwView
             // 
-            this.gvwView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gvwView.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvwView.Appearance.BandPanel.Options.UseFont = true;
+            this.gvwView.Appearance.BandPanel.Options.UseTextOptions = true;
+            this.gvwView.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gvwView.Appearance.BandPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gvwView.Appearance.HeaderPanel.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.gvwView.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.gvwView.Appearance.Row.Font = new System.Drawing.Font("Calibri", 14F);
             this.gvwView.Appearance.Row.Options.UseFont = true;
-            this.gvwView.ColumnPanelRowHeight = 50;
+            this.gvwView.BandPanelRowHeight = 35;
+            this.gvwView.ColumnPanelRowHeight = 40;
             this.gvwView.GridControl = this.grdView;
             this.gvwView.Name = "gvwView";
+            this.gvwView.OptionsBehavior.AllowPixelScrolling = DevExpress.Utils.DefaultBoolean.True;
+            this.gvwView.OptionsBehavior.AllowSortAnimation = DevExpress.Utils.DefaultBoolean.True;
             this.gvwView.OptionsBehavior.Editable = false;
-            this.gvwView.OptionsBehavior.ReadOnly = true;
-            this.gvwView.OptionsCustomization.AllowColumnMoving = false;
-            this.gvwView.OptionsCustomization.AllowFilter = false;
-            this.gvwView.OptionsCustomization.AllowGroup = false;
-            this.gvwView.OptionsView.ColumnAutoWidth = false;
+            this.gvwView.OptionsDetail.EnableMasterViewMode = false;
+            this.gvwView.OptionsView.ShowColumnHeaders = false;
             this.gvwView.OptionsView.ShowGroupPanel = false;
             this.gvwView.OptionsView.ShowIndicator = false;
-            this.gvwView.RowHeight = 50;
+            this.gvwView.OptionsView.WaitAnimationOptions = DevExpress.XtraEditors.WaitAnimationOptions.Indicator;
+            this.gvwView.RowHeight = 30;
+            this.gvwView.CustomDrawBandHeader += new DevExpress.XtraGrid.Views.BandedGrid.BandHeaderCustomDrawEventHandler(this.gvwView_CustomDrawBandHeader);
             this.gvwView.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvwView_RowCellClick);
-            this.gvwView.CustomDrawColumnHeader += new DevExpress.XtraGrid.Views.Grid.ColumnHeaderCustomDrawEventHandler(this.gvwView_CustomDrawColumnHeader);
             this.gvwView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwView_CustomDrawCell);
             this.gvwView.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwView_RowCellStyle);
             // 
@@ -598,12 +605,10 @@
             this.pnC.Controls.Add(this.label7);
             this.pnC.Controls.Add(this.label1);
             this.pnC.Controls.Add(this.label5);
-            this.pnC.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnC.Location = new System.Drawing.Point(0, 497);
             this.pnC.Name = "pnC";
-            this.pnC.Size = new System.Drawing.Size(1924, 12);
+            this.pnC.Size = new System.Drawing.Size(1920, 12);
             this.pnC.TabIndex = 13;
-            this.pnC.Paint += new System.Windows.Forms.PaintEventHandler(this.pnC_Paint);
             // 
             // label7
             // 
@@ -651,24 +656,24 @@
             // 
             this.panel1.Controls.Add(this.grdDetail);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 740);
+            this.panel1.Location = new System.Drawing.Point(0, 730);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1924, 171);
+            this.panel1.Size = new System.Drawing.Size(1920, 171);
             this.panel1.TabIndex = 79;
             // 
             // grdDetail
             // 
             this.grdDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetail.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.grdDetail.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.grdDetail.Location = new System.Drawing.Point(0, 0);
             this.grdDetail.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.grdDetail.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grdDetail.MainView = this.gvwDetail;
             this.grdDetail.Name = "grdDetail";
-            this.grdDetail.Size = new System.Drawing.Size(1924, 171);
+            this.grdDetail.Size = new System.Drawing.Size(1920, 171);
             this.grdDetail.TabIndex = 8;
             this.grdDetail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwDetail});
@@ -696,13 +701,14 @@
             this.gvwDetail.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvwDetail.Appearance.Row.Font = new System.Drawing.Font("Calibri", 15.75F);
             this.gvwDetail.Appearance.Row.Options.UseFont = true;
+            this.gvwDetail.BandPanelRowHeight = 40;
             this.gvwDetail.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.Total,
             this.gridBand1,
             this.gridBand10,
             this.gridBand3,
             this.gridBand14,
-            this.gridBand15,
-            this.Total});
+            this.gridBand15});
             this.gvwDetail.ColumnPanelRowHeight = 50;
             this.gvwDetail.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this._010,
@@ -742,133 +748,21 @@
             this.gvwDetail.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gvwDetail_CustomDrawCell);
             this.gvwDetail.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwDetail_RowCellStyle);
             // 
-            // _011
+            // Total
             // 
-            this._011.Caption = "chi thua";
-            this._011.FieldName = "011";
-            this._011.Name = "_011";
-            this._011.Visible = true;
-            this._011.Width = 128;
-            // 
-            // _010
-            // 
-            this._010.Caption = "do upper";
-            this._010.FieldName = "010";
-            this._010.Name = "_010";
-            this._010.Visible = true;
-            this._010.Width = 133;
-            // 
-            // _008
-            // 
-            this._008.Caption = "nhan upper";
-            this._008.FieldName = "008";
-            this._008.Name = "_008";
-            this._008.Visible = true;
-            this._008.Width = 167;
-            // 
-            // _014
-            // 
-            this._014.Caption = "cach mep";
-            this._014.FieldName = "_014";
-            this._014.Name = "_014";
-            this._014.Visible = true;
-            this._014.Width = 221;
-            // 
-            // _001
-            // 
-            this._001.Caption = "ho keo cb";
-            this._001.FieldName = "001";
-            this._001.Name = "_001";
-            this._001.Visible = true;
-            this._001.Width = 225;
-            // 
-            // _006
-            // 
-            this._006.Caption = "do os - de giua";
-            this._006.FieldName = "006";
-            this._006.Name = "_006";
-            this._006.Visible = true;
-            this._006.Width = 189;
-            // 
-            // _007
-            // 
-            this._007.Caption = "nhan de";
-            this._007.FieldName = "007";
-            this._007.Name = "_007";
-            this._007.Visible = true;
-            this._007.Width = 168;
-            // 
-            // _004
-            // 
-            this._004.Caption = "trai phai ko deu";
-            this._004.FieldName = "004";
-            this._004.Name = "_004";
-            this._004.Visible = true;
-            this._004.Width = 183;
-            // 
-            // _017
-            // 
-            this._017.Caption = "Meo mui got";
-            this._017.FieldName = "_017";
-            this._017.Name = "_017";
-            this._017.Visible = true;
-            this._017.Width = 257;
-            // 
-            // _016
-            // 
-            this._016.Caption = "Hong lon nho";
-            this._016.FieldName = "_016";
-            this._016.Name = "_016";
-            this._016.Visible = true;
-            this._016.Width = 230;
-            // 
-            // _015
-            // 
-            this._015.Caption = "Mui got cao thap";
-            this._015.FieldName = "_015";
-            this._015.Name = "_015";
-            this._015.Visible = true;
-            this._015.Width = 220;
-            // 
-            // _002
-            // 
-            this._002.Caption = "ho keo lap rap";
-            this._002.FieldName = "002";
-            this._002.Name = "_002";
-            this._002.Visible = true;
-            this._002.Width = 256;
-            // 
-            // _005
-            // 
-            this._005.Caption = "cao keo";
-            this._005.FieldName = "005";
-            this._005.Name = "_005";
-            this._005.Visible = true;
-            this._005.Width = 153;
-            // 
-            // _013
-            // 
-            this._013.Caption = "Dan xau";
-            this._013.FieldName = "_013";
-            this._013.Name = "_013";
-            this._013.Visible = true;
-            this._013.Width = 196;
-            // 
-            // _009
-            // 
-            this._009.Caption = "day do";
-            this._009.FieldName = "009";
-            this._009.Name = "_009";
-            this._009.Visible = true;
-            this._009.Width = 157;
-            // 
-            // _012
-            // 
-            this._012.Caption = "loi khac";
-            this._012.FieldName = "012";
-            this._012.Name = "_012";
-            this._012.Visible = true;
-            this._012.Width = 72;
+            this.Total.AppearanceHeader.BackColor = System.Drawing.Color.White;
+            this.Total.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
+            this.Total.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.Total.AppearanceHeader.Options.UseBackColor = true;
+            this.Total.AppearanceHeader.Options.UseFont = true;
+            this.Total.AppearanceHeader.Options.UseForeColor = true;
+            this.Total.Caption = "Total";
+            this.Total.Columns.Add(this._Total);
+            this.Total.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.Total.Name = "Total";
+            this.Total.RowCount = 2;
+            this.Total.VisibleIndex = 0;
+            this.Total.Width = 100;
             // 
             // _Total
             // 
@@ -877,11 +771,6 @@
             this._Total.Name = "_Total";
             this._Total.Visible = true;
             this._Total.Width = 100;
-            // 
-            // gridBand13
-            // 
-            this.gridBand13.Name = "gridBand13";
-            this.gridBand13.VisibleIndex = -1;
             // 
             // gridBand1
             // 
@@ -894,7 +783,7 @@
             this.gridBand9,
             this.gridBand18});
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.VisibleIndex = 1;
             this.gridBand1.Width = 649;
             // 
             // gridBand2
@@ -907,6 +796,14 @@
             this.gridBand2.VisibleIndex = 0;
             this.gridBand2.Width = 128;
             // 
+            // _011
+            // 
+            this._011.Caption = "chi thua";
+            this._011.FieldName = "011";
+            this._011.Name = "_011";
+            this._011.Visible = true;
+            this._011.Width = 128;
+            // 
             // gridBand8
             // 
             this.gridBand8.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -916,6 +813,14 @@
             this.gridBand8.Name = "gridBand8";
             this.gridBand8.VisibleIndex = 1;
             this.gridBand8.Width = 133;
+            // 
+            // _010
+            // 
+            this._010.Caption = "do upper";
+            this._010.FieldName = "010";
+            this._010.Name = "_010";
+            this._010.Visible = true;
+            this._010.Width = 133;
             // 
             // gridBand9
             // 
@@ -927,6 +832,14 @@
             this.gridBand9.VisibleIndex = 2;
             this.gridBand9.Width = 167;
             // 
+            // _008
+            // 
+            this._008.Caption = "nhan upper";
+            this._008.FieldName = "008";
+            this._008.Name = "_008";
+            this._008.Visible = true;
+            this._008.Width = 167;
+            // 
             // gridBand18
             // 
             this.gridBand18.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -937,6 +850,14 @@
             this.gridBand18.VisibleIndex = 3;
             this.gridBand18.Width = 221;
             // 
+            // _014
+            // 
+            this._014.Caption = "cach mep";
+            this._014.FieldName = "_014";
+            this._014.Name = "_014";
+            this._014.Visible = true;
+            this._014.Width = 221;
+            // 
             // gridBand10
             // 
             this.gridBand10.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
@@ -946,7 +867,7 @@
             this.gridBand11,
             this.gridBand12});
             this.gridBand10.Name = "gridBand10";
-            this.gridBand10.VisibleIndex = 1;
+            this.gridBand10.VisibleIndex = 2;
             this.gridBand10.Width = 414;
             // 
             // gridBand11
@@ -959,6 +880,14 @@
             this.gridBand11.VisibleIndex = 0;
             this.gridBand11.Width = 225;
             // 
+            // _001
+            // 
+            this._001.Caption = "ho keo cb";
+            this._001.FieldName = "001";
+            this._001.Name = "_001";
+            this._001.Visible = true;
+            this._001.Width = 225;
+            // 
             // gridBand12
             // 
             this.gridBand12.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -968,6 +897,14 @@
             this.gridBand12.Name = "gridBand12";
             this.gridBand12.VisibleIndex = 1;
             this.gridBand12.Width = 189;
+            // 
+            // _006
+            // 
+            this._006.Caption = "do os - de giua";
+            this._006.FieldName = "006";
+            this._006.Name = "_006";
+            this._006.Visible = true;
+            this._006.Width = 189;
             // 
             // gridBand3
             // 
@@ -981,7 +918,7 @@
             this.gridBand20,
             this.gridBand21});
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.VisibleIndex = 2;
+            this.gridBand3.VisibleIndex = 3;
             this.gridBand3.Width = 1058;
             // 
             // gridBand4
@@ -994,6 +931,14 @@
             this.gridBand4.VisibleIndex = 0;
             this.gridBand4.Width = 168;
             // 
+            // _007
+            // 
+            this._007.Caption = "nhan de";
+            this._007.FieldName = "007";
+            this._007.Name = "_007";
+            this._007.Visible = true;
+            this._007.Width = 168;
+            // 
             // gridBand7
             // 
             this.gridBand7.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -1003,6 +948,14 @@
             this.gridBand7.Name = "gridBand7";
             this.gridBand7.VisibleIndex = 1;
             this.gridBand7.Width = 183;
+            // 
+            // _004
+            // 
+            this._004.Caption = "trai phai ko deu";
+            this._004.FieldName = "004";
+            this._004.Name = "_004";
+            this._004.Visible = true;
+            this._004.Width = 183;
             // 
             // gridBand19
             // 
@@ -1014,6 +967,14 @@
             this.gridBand19.VisibleIndex = 2;
             this.gridBand19.Width = 257;
             // 
+            // _017
+            // 
+            this._017.Caption = "Meo mui got";
+            this._017.FieldName = "_017";
+            this._017.Name = "_017";
+            this._017.Visible = true;
+            this._017.Width = 257;
+            // 
             // gridBand20
             // 
             this.gridBand20.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -1023,6 +984,14 @@
             this.gridBand20.Name = "gridBand20";
             this.gridBand20.VisibleIndex = 3;
             this.gridBand20.Width = 230;
+            // 
+            // _016
+            // 
+            this._016.Caption = "Hong lon nho";
+            this._016.FieldName = "_016";
+            this._016.Name = "_016";
+            this._016.Visible = true;
+            this._016.Width = 230;
             // 
             // gridBand21
             // 
@@ -1034,6 +1003,14 @@
             this.gridBand21.VisibleIndex = 4;
             this.gridBand21.Width = 220;
             // 
+            // _015
+            // 
+            this._015.Caption = "Mui got cao thap";
+            this._015.FieldName = "_015";
+            this._015.Name = "_015";
+            this._015.Visible = true;
+            this._015.Width = 220;
+            // 
             // gridBand14
             // 
             this.gridBand14.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
@@ -1044,7 +1021,7 @@
             this.gridBand6,
             this.gridBand22});
             this.gridBand14.Name = "gridBand14";
-            this.gridBand14.VisibleIndex = 3;
+            this.gridBand14.VisibleIndex = 4;
             this.gridBand14.Width = 605;
             // 
             // gridBand5
@@ -1057,6 +1034,14 @@
             this.gridBand5.VisibleIndex = 0;
             this.gridBand5.Width = 256;
             // 
+            // _002
+            // 
+            this._002.Caption = "ho keo lap rap";
+            this._002.FieldName = "002";
+            this._002.Name = "_002";
+            this._002.Visible = true;
+            this._002.Width = 256;
+            // 
             // gridBand6
             // 
             this.gridBand6.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
@@ -1066,6 +1051,14 @@
             this.gridBand6.Name = "gridBand6";
             this.gridBand6.VisibleIndex = 1;
             this.gridBand6.Width = 153;
+            // 
+            // _005
+            // 
+            this._005.Caption = "cao keo";
+            this._005.FieldName = "005";
+            this._005.Name = "_005";
+            this._005.Visible = true;
+            this._005.Width = 153;
             // 
             // gridBand22
             // 
@@ -1077,6 +1070,14 @@
             this.gridBand22.VisibleIndex = 2;
             this.gridBand22.Width = 196;
             // 
+            // _013
+            // 
+            this._013.Caption = "Dan xau";
+            this._013.FieldName = "_013";
+            this._013.Name = "_013";
+            this._013.Visible = true;
+            this._013.Width = 196;
+            // 
             // gridBand15
             // 
             this.gridBand15.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
@@ -1086,7 +1087,7 @@
             this.gridBand16,
             this.gridBand17});
             this.gridBand15.Name = "gridBand15";
-            this.gridBand15.VisibleIndex = 4;
+            this.gridBand15.VisibleIndex = 5;
             this.gridBand15.Width = 229;
             // 
             // gridBand16
@@ -1099,6 +1100,14 @@
             this.gridBand16.VisibleIndex = 0;
             this.gridBand16.Width = 157;
             // 
+            // _009
+            // 
+            this._009.Caption = "day do";
+            this._009.FieldName = "009";
+            this._009.Name = "_009";
+            this._009.Visible = true;
+            this._009.Width = 157;
+            // 
             // gridBand17
             // 
             this.gridBand17.AppearanceHeader.BackColor2 = System.Drawing.Color.White;
@@ -1110,28 +1119,27 @@
             this.gridBand17.VisibleIndex = 1;
             this.gridBand17.Width = 72;
             // 
-            // Total
+            // _012
             // 
-            this.Total.AppearanceHeader.BackColor = System.Drawing.Color.White;
-            this.Total.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Bold);
-            this.Total.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
-            this.Total.AppearanceHeader.Options.UseBackColor = true;
-            this.Total.AppearanceHeader.Options.UseFont = true;
-            this.Total.AppearanceHeader.Options.UseForeColor = true;
-            this.Total.Caption = "Total";
-            this.Total.Columns.Add(this._Total);
-            this.Total.Name = "Total";
-            this.Total.RowCount = 2;
-            this.Total.VisibleIndex = 5;
-            this.Total.Width = 100;
+            this._012.Caption = "loi khac";
+            this._012.FieldName = "012";
+            this._012.Name = "_012";
+            this._012.Visible = true;
+            this._012.Width = 72;
+            // 
+            // gridBand13
+            // 
+            this.gridBand13.Name = "gridBand13";
+            this.gridBand13.VisibleIndex = -1;
             // 
             // SMT_QUALITY_COCKPIT_REWORK
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1920, 1056);
             this.Controls.Add(this.pnBody1);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SMT_QUALITY_COCKPIT_REWORK";
             this.Text = "SMT_SCADA_COCKPIT_FORM2";
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_FORM1_Load);
@@ -1176,8 +1184,6 @@
         private System.Windows.Forms.Panel pnBody1;
         private System.Windows.Forms.Panel pnC;
         private System.Windows.Forms.Panel pnGrid;
-        private DevExpress.XtraGrid.GridControl grdView;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvwView;
         private System.Windows.Forms.ComboBox cboLine;
         private System.Windows.Forms.ComboBox cboPlant;
         private System.Windows.Forms.Label label4;
@@ -1211,6 +1217,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _016;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _015;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn _013;
+        private DevExpress.XtraGrid.GridControl grdView;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvwView;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand Total;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand8;
@@ -1232,6 +1241,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand15;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand16;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand17;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand Total;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

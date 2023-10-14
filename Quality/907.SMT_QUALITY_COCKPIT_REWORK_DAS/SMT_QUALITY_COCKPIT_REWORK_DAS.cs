@@ -103,7 +103,7 @@ namespace FORM
             sType = "DAY";
             lblHeader.Text = "  Rework By Day";
             clear_chart();
-            SetData();
+            _time = 30;
         }
 
         private void btnWeek_Click(object sender, EventArgs e)
@@ -335,14 +335,16 @@ namespace FORM
                 }
 
                 SetDataDetail();
+                splashScreenManager1.CloseWaitForm();
             }
             catch (Exception ex)
             {
+                splashScreenManager1.CloseWaitForm();
                 Debug.WriteLine(ex);
             }
             finally
             {
-                splashScreenManager1.CloseWaitForm();
+                
             }
         }
         private async void SetDataDetail()
