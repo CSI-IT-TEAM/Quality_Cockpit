@@ -72,7 +72,7 @@ namespace FORM
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
             if (_time >= 30)
             {              
@@ -132,7 +132,7 @@ namespace FORM
         {
             try
             {
-                splashScreenManager1.ShowWaitForm();
+                //splashScreenManager1.ShowWaitForm();
                 ChartHitInfo hit = chart1.CalcHitInfo(e.Location);
                 SeriesPoint point = hit.SeriesPoint;
                 if (point != null)
@@ -299,11 +299,11 @@ namespace FORM
                         chartControl3.DataSource = null;
                     }
                 }
-                splashScreenManager1.CloseWaitForm();
+                //splashScreenManager1.CloseWaitForm();
             }
             catch (Exception ex)
             {
-                splashScreenManager1.CloseWaitForm();
+               // splashScreenManager1.CloseWaitForm();
                 MessageBox.Show(ex.Message);
             }
         }

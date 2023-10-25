@@ -31,12 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_MAIN));
             this.tmrTime = new System.Windows.Forms.Timer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmdF1 = new System.Windows.Forms.Button();
-            this.cmdF2 = new System.Windows.Forms.Button();
-            this.cmdF3 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmdBack = new System.Windows.Forms.Button();
             this.cmdF5 = new System.Windows.Forms.Button();
             this.cmdF4 = new System.Windows.Forms.Button();
-            this.cmdBack = new System.Windows.Forms.Button();
+            this.cmdF3 = new System.Windows.Forms.Button();
+            this.cmdF2 = new System.Windows.Forms.Button();
+            this.cmdF1 = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelComponent1 = new DevExpress.XtraGauges.Win.Base.LabelComponent();
@@ -45,29 +46,11 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tblMenu = new System.Windows.Forms.TableLayoutPanel();
             this.pnLT = new System.Windows.Forms.Panel();
-            this.gpExLT = new FORM.GroupBoxEx();
-            this.advancedPanel5 = new FORM.AdvancedPanel();
-            this.label9 = new System.Windows.Forms.Label();
             this.pnF2 = new System.Windows.Forms.Panel();
-            this.gpExF1 = new FORM.GroupBoxEx();
-            this.aPn1 = new FORM.AdvancedPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnF3 = new System.Windows.Forms.Panel();
             this.pnF5 = new System.Windows.Forms.Panel();
-            this.gpExF2 = new FORM.GroupBoxEx();
-            this.advancedPanel1 = new FORM.AdvancedPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.gpExF3 = new FORM.GroupBoxEx();
-            this.advancedPanel2 = new FORM.AdvancedPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.gpExF4 = new FORM.GroupBoxEx();
-            this.advancedPanel3 = new FORM.AdvancedPanel();
-            this.label7 = new System.Windows.Forms.Label();
             this.pnF4 = new System.Windows.Forms.Panel();
             this.pnF1 = new System.Windows.Forms.Panel();
-            this.gpExF5 = new FORM.GroupBoxEx();
-            this.advancedPanel4 = new FORM.AdvancedPanel();
-            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cmdDefective = new System.Windows.Forms.Button();
             this.pnVJ3 = new System.Windows.Forms.Panel();
@@ -88,12 +71,40 @@
             this.cmdHFPA = new System.Windows.Forms.Button();
             this.cmdBCGrade = new System.Windows.Forms.Button();
             this.tmrBlink = new System.Windows.Forms.Timer();
+            this.gpExLT = new FORM.GroupBoxEx();
+            this.advancedPanel5 = new FORM.AdvancedPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.gpExF1 = new FORM.GroupBoxEx();
+            this.aPn1 = new FORM.AdvancedPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.gpExF2 = new FORM.GroupBoxEx();
+            this.advancedPanel1 = new FORM.AdvancedPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.gpExF3 = new FORM.GroupBoxEx();
+            this.advancedPanel2 = new FORM.AdvancedPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gpExF4 = new FORM.GroupBoxEx();
+            this.advancedPanel3 = new FORM.AdvancedPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.gpExF5 = new FORM.GroupBoxEx();
+            this.advancedPanel4 = new FORM.AdvancedPanel();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labelComponent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleRangeBarComponent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ascInv)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tblMenu.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.pnVJ3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.pnVJ.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.pnVJ2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.gpExLT.SuspendLayout();
             this.advancedPanel5.SuspendLayout();
             this.gpExF1.SuspendLayout();
@@ -106,15 +117,6 @@
             this.advancedPanel3.SuspendLayout();
             this.gpExF5.SuspendLayout();
             this.advancedPanel4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.pnVJ3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.pnVJ.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.pnVJ2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmrTime
@@ -124,91 +126,61 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.panel1.Controls.Add(this.cmdF1);
-            this.panel1.Controls.Add(this.cmdF2);
-            this.panel1.Controls.Add(this.cmdF3);
-            this.panel1.Controls.Add(this.cmdF5);
-            this.panel1.Controls.Add(this.cmdF4);
-            this.panel1.Controls.Add(this.cmdBack);
+            this.panel1.BackColor = System.Drawing.Color.Turquoise;
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1920, 110);
+            this.panel1.Size = new System.Drawing.Size(1920, 100);
             this.panel1.TabIndex = 21;
             // 
-            // cmdF1
+            // flowLayoutPanel1
             // 
-            this.cmdF1.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF1.BackgroundImage")));
-            this.cmdF1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF1.FlatAppearance.BorderSize = 0;
-            this.cmdF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF1.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF1.Location = new System.Drawing.Point(833, 8);
-            this.cmdF1.Name = "cmdF1";
-            this.cmdF1.Size = new System.Drawing.Size(111, 101);
-            this.cmdF1.TabIndex = 72;
-            this.cmdF1.Text = "F1";
-            this.cmdF1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF1.UseVisualStyleBackColor = false;
-            this.cmdF1.Visible = false;
+            this.flowLayoutPanel1.Controls.Add(this.cmdBack);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF5);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF4);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF3);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF2);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF1);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(985, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 100);
+            this.flowLayoutPanel1.TabIndex = 73;
             // 
-            // cmdF2
+            // cmdBack
             // 
-            this.cmdF2.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF2.BackgroundImage")));
-            this.cmdF2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF2.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF2.FlatAppearance.BorderSize = 0;
-            this.cmdF2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF2.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF2.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF2.Location = new System.Drawing.Point(943, 6);
-            this.cmdF2.Name = "cmdF2";
-            this.cmdF2.Size = new System.Drawing.Size(111, 101);
-            this.cmdF2.TabIndex = 71;
-            this.cmdF2.Text = "F2";
-            this.cmdF2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF2.UseVisualStyleBackColor = false;
-            this.cmdF2.Visible = false;
-            // 
-            // cmdF3
-            // 
-            this.cmdF3.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF3.BackgroundImage")));
-            this.cmdF3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF3.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF3.FlatAppearance.BorderSize = 0;
-            this.cmdF3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF3.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF3.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF3.Location = new System.Drawing.Point(1052, 6);
-            this.cmdF3.Name = "cmdF3";
-            this.cmdF3.Size = new System.Drawing.Size(111, 101);
-            this.cmdF3.TabIndex = 70;
-            this.cmdF3.Text = "F3";
-            this.cmdF3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF3.UseVisualStyleBackColor = false;
-            this.cmdF3.Visible = false;
+            this.cmdBack.BackColor = System.Drawing.Color.Turquoise;
+            this.cmdBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBack.BackgroundImage")));
+            this.cmdBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdBack.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdBack.FlatAppearance.BorderSize = 0;
+            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdBack.Location = new System.Drawing.Point(600, 0);
+            this.cmdBack.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdBack.Name = "cmdBack";
+            this.cmdBack.Size = new System.Drawing.Size(100, 100);
+            this.cmdBack.TabIndex = 67;
+            this.cmdBack.UseVisualStyleBackColor = false;
+            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
             // 
             // cmdF5
             // 
-            this.cmdF5.BackColor = System.Drawing.Color.Transparent;
+            this.cmdF5.BackColor = System.Drawing.Color.Turquoise;
             this.cmdF5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF5.BackgroundImage")));
             this.cmdF5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdF5.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.cmdF5.FlatAppearance.BorderSize = 0;
             this.cmdF5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdF5.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
             this.cmdF5.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF5.Location = new System.Drawing.Point(1268, 3);
+            this.cmdF5.Location = new System.Drawing.Point(507, 3);
             this.cmdF5.Name = "cmdF5";
-            this.cmdF5.Size = new System.Drawing.Size(111, 101);
+            this.cmdF5.Size = new System.Drawing.Size(90, 90);
             this.cmdF5.TabIndex = 69;
             this.cmdF5.Text = "F5";
             this.cmdF5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -217,17 +189,18 @@
             // 
             // cmdF4
             // 
-            this.cmdF4.BackColor = System.Drawing.Color.Transparent;
+            this.cmdF4.BackColor = System.Drawing.Color.Turquoise;
             this.cmdF4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF4.BackgroundImage")));
             this.cmdF4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdF4.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.cmdF4.FlatAppearance.BorderSize = 0;
             this.cmdF4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdF4.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
             this.cmdF4.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF4.Location = new System.Drawing.Point(1160, 6);
+            this.cmdF4.Location = new System.Drawing.Point(411, 3);
             this.cmdF4.Name = "cmdF4";
-            this.cmdF4.Size = new System.Drawing.Size(111, 101);
+            this.cmdF4.Size = new System.Drawing.Size(90, 90);
             this.cmdF4.TabIndex = 68;
             this.cmdF4.Text = "F4";
             this.cmdF4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -235,29 +208,74 @@
             this.cmdF4.Visible = false;
             this.cmdF4.Click += new System.EventHandler(this.cmdF4_Click);
             // 
-            // cmdBack
+            // cmdF3
             // 
-            this.cmdBack.BackColor = System.Drawing.Color.Transparent;
-            this.cmdBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBack.BackgroundImage")));
-            this.cmdBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdBack.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdBack.FlatAppearance.BorderSize = 0;
-            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdBack.Location = new System.Drawing.Point(1388, 5);
-            this.cmdBack.Name = "cmdBack";
-            this.cmdBack.Size = new System.Drawing.Size(108, 101);
-            this.cmdBack.TabIndex = 67;
-            this.cmdBack.UseVisualStyleBackColor = false;
-            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
+            this.cmdF3.BackColor = System.Drawing.Color.Turquoise;
+            this.cmdF3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF3.BackgroundImage")));
+            this.cmdF3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF3.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF3.FlatAppearance.BorderSize = 0;
+            this.cmdF3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF3.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF3.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF3.Location = new System.Drawing.Point(315, 3);
+            this.cmdF3.Name = "cmdF3";
+            this.cmdF3.Size = new System.Drawing.Size(90, 90);
+            this.cmdF3.TabIndex = 70;
+            this.cmdF3.Text = "F3";
+            this.cmdF3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF3.UseVisualStyleBackColor = false;
+            this.cmdF3.Visible = false;
+            // 
+            // cmdF2
+            // 
+            this.cmdF2.BackColor = System.Drawing.Color.Turquoise;
+            this.cmdF2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF2.BackgroundImage")));
+            this.cmdF2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF2.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF2.FlatAppearance.BorderSize = 0;
+            this.cmdF2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF2.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF2.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF2.Location = new System.Drawing.Point(219, 3);
+            this.cmdF2.Name = "cmdF2";
+            this.cmdF2.Size = new System.Drawing.Size(90, 90);
+            this.cmdF2.TabIndex = 71;
+            this.cmdF2.Text = "F2";
+            this.cmdF2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF2.UseVisualStyleBackColor = false;
+            this.cmdF2.Visible = false;
+            // 
+            // cmdF1
+            // 
+            this.cmdF1.BackColor = System.Drawing.Color.Turquoise;
+            this.cmdF1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF1.BackgroundImage")));
+            this.cmdF1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF1.FlatAppearance.BorderSize = 0;
+            this.cmdF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF1.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF1.Location = new System.Drawing.Point(123, 3);
+            this.cmdF1.Name = "cmdF1";
+            this.cmdF1.Size = new System.Drawing.Size(90, 90);
+            this.cmdF1.TabIndex = 72;
+            this.cmdF1.Text = "F1";
+            this.cmdF1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF1.UseVisualStyleBackColor = false;
+            this.cmdF1.Visible = false;
             // 
             // lblDate
             // 
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDate.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold);
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(1614, 0);
+            this.lblDate.Location = new System.Drawing.Point(1695, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(306, 110);
+            this.lblDate.Size = new System.Drawing.Size(225, 100);
             this.lblDate.TabIndex = 1;
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblDate.DoubleClick += new System.EventHandler(this.lblDate_DoubleClick);
@@ -266,11 +284,11 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Calibri", 62F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1065, 110);
+            this.label1.Size = new System.Drawing.Size(1065, 100);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quality Cockpit";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -323,12 +341,12 @@
             this.tableLayoutPanel2.Controls.Add(this.tblMenu, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 110);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1920, 970);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1920, 980);
             this.tableLayoutPanel2.TabIndex = 23;
             // 
             // tblMenu
@@ -364,386 +382,56 @@
             this.tblMenu.RowCount = 2;
             this.tblMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.35437F));
             this.tblMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.64563F));
-            this.tblMenu.Size = new System.Drawing.Size(1914, 824);
+            this.tblMenu.Size = new System.Drawing.Size(1914, 834);
             this.tblMenu.TabIndex = 23;
             // 
             // pnLT
             // 
             this.pnLT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnLT.Location = new System.Drawing.Point(1598, 146);
+            this.pnLT.Location = new System.Drawing.Point(1598, 147);
             this.pnLT.Name = "pnLT";
-            this.pnLT.Size = new System.Drawing.Size(313, 675);
+            this.pnLT.Size = new System.Drawing.Size(313, 684);
             this.pnLT.TabIndex = 19;
-            // 
-            // gpExLT
-            // 
-            this.gpExLT.BackgroundPanelImage = null;
-            this.gpExLT.Controls.Add(this.advancedPanel5);
-            this.gpExLT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpExLT.DrawGroupBorder = true;
-            this.gpExLT.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpExLT.ForeColor = System.Drawing.Color.DarkOrange;
-            this.gpExLT.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExLT.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExLT.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
-            this.gpExLT.GroupPanelWith = 0F;
-            this.gpExLT.Location = new System.Drawing.Point(1598, 3);
-            this.gpExLT.Name = "gpExLT";
-            this.gpExLT.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExLT.Size = new System.Drawing.Size(313, 137);
-            this.gpExLT.TabIndex = 18;
-            this.gpExLT.TabStop = false;
-            this.gpExLT.TextBackColor = System.Drawing.Color.White;
-            this.gpExLT.TextBorderColor = System.Drawing.Color.Blue;
-            this.gpExLT.TextBorderWith = 2F;
-            // 
-            // advancedPanel5
-            // 
-            this.advancedPanel5.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel5.Controls.Add(this.label9);
-            this.advancedPanel5.EdgeWidth = 1;
-            this.advancedPanel5.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel5.FlatBorderColor = System.Drawing.Color.Turquoise;
-            this.advancedPanel5.Location = new System.Drawing.Point(27, 3);
-            this.advancedPanel5.Name = "advancedPanel5";
-            this.advancedPanel5.Padding = new System.Windows.Forms.Padding(2);
-            this.advancedPanel5.RectRadius = 0;
-            this.advancedPanel5.ShadowColor = System.Drawing.Color.DimGray;
-            this.advancedPanel5.ShadowShift = 5;
-            this.advancedPanel5.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel5.Size = new System.Drawing.Size(260, 52);
-            this.advancedPanel5.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel5.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel5.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(2, 2);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(256, 48);
-            this.label9.TabIndex = 0;
-            this.label9.Tag = "VJ2";
-            this.label9.Text = "Long Thanh";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label9.Click += new System.EventHandler(this.lblFTY_Click);
             // 
             // pnF2
             // 
             this.pnF2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF2.Location = new System.Drawing.Point(322, 146);
+            this.pnF2.Location = new System.Drawing.Point(322, 147);
             this.pnF2.Name = "pnF2";
-            this.pnF2.Size = new System.Drawing.Size(311, 675);
+            this.pnF2.Size = new System.Drawing.Size(311, 684);
             this.pnF2.TabIndex = 10;
-            // 
-            // gpExF1
-            // 
-            this.gpExF1.BackgroundPanelImage = null;
-            this.gpExF1.Controls.Add(this.aPn1);
-            this.gpExF1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpExF1.DrawGroupBorder = true;
-            this.gpExF1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpExF1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.gpExF1.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF1.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF1.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
-            this.gpExF1.GroupPanelWith = 0F;
-            this.gpExF1.Location = new System.Drawing.Point(3, 3);
-            this.gpExF1.Name = "gpExF1";
-            this.gpExF1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF1.Size = new System.Drawing.Size(311, 137);
-            this.gpExF1.TabIndex = 3;
-            this.gpExF1.TabStop = false;
-            this.gpExF1.TextBackColor = System.Drawing.Color.White;
-            this.gpExF1.TextBorderColor = System.Drawing.Color.Blue;
-            this.gpExF1.TextBorderWith = 2F;
-            // 
-            // aPn1
-            // 
-            this.aPn1.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.aPn1.Controls.Add(this.label2);
-            this.aPn1.EdgeWidth = 1;
-            this.aPn1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.aPn1.FlatBorderColor = System.Drawing.Color.Turquoise;
-            this.aPn1.Location = new System.Drawing.Point(25, 3);
-            this.aPn1.Name = "aPn1";
-            this.aPn1.Padding = new System.Windows.Forms.Padding(2);
-            this.aPn1.RectRadius = 0;
-            this.aPn1.ShadowColor = System.Drawing.Color.DimGray;
-            this.aPn1.ShadowShift = 5;
-            this.aPn1.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.aPn1.Size = new System.Drawing.Size(260, 52);
-            this.aPn1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.aPn1.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.aPn1.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(2, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 48);
-            this.label2.TabIndex = 0;
-            this.label2.Tag = "F1";
-            this.label2.Text = "Factory 1";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Click += new System.EventHandler(this.lblFTY_Click);
             // 
             // pnF3
             // 
             this.pnF3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF3.Location = new System.Drawing.Point(641, 146);
+            this.pnF3.Location = new System.Drawing.Point(641, 147);
             this.pnF3.Name = "pnF3";
-            this.pnF3.Size = new System.Drawing.Size(311, 675);
+            this.pnF3.Size = new System.Drawing.Size(311, 684);
             this.pnF3.TabIndex = 11;
             // 
             // pnF5
             // 
             this.pnF5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF5.Location = new System.Drawing.Point(1279, 146);
+            this.pnF5.Location = new System.Drawing.Point(1279, 147);
             this.pnF5.Name = "pnF5";
-            this.pnF5.Size = new System.Drawing.Size(311, 675);
+            this.pnF5.Size = new System.Drawing.Size(311, 684);
             this.pnF5.TabIndex = 13;
-            // 
-            // gpExF2
-            // 
-            this.gpExF2.BackgroundPanelImage = null;
-            this.gpExF2.Controls.Add(this.advancedPanel1);
-            this.gpExF2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpExF2.DrawGroupBorder = true;
-            this.gpExF2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpExF2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.gpExF2.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF2.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF2.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
-            this.gpExF2.GroupPanelWith = 0F;
-            this.gpExF2.Location = new System.Drawing.Point(322, 3);
-            this.gpExF2.Name = "gpExF2";
-            this.gpExF2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF2.Size = new System.Drawing.Size(311, 137);
-            this.gpExF2.TabIndex = 14;
-            this.gpExF2.TabStop = false;
-            this.gpExF2.TextBackColor = System.Drawing.Color.White;
-            this.gpExF2.TextBorderColor = System.Drawing.Color.Blue;
-            this.gpExF2.TextBorderWith = 2F;
-            // 
-            // advancedPanel1
-            // 
-            this.advancedPanel1.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel1.Controls.Add(this.label5);
-            this.advancedPanel1.EdgeWidth = 1;
-            this.advancedPanel1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel1.FlatBorderColor = System.Drawing.Color.Turquoise;
-            this.advancedPanel1.Location = new System.Drawing.Point(26, 3);
-            this.advancedPanel1.Name = "advancedPanel1";
-            this.advancedPanel1.Padding = new System.Windows.Forms.Padding(2);
-            this.advancedPanel1.RectRadius = 0;
-            this.advancedPanel1.ShadowColor = System.Drawing.Color.DimGray;
-            this.advancedPanel1.ShadowShift = 5;
-            this.advancedPanel1.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel1.Size = new System.Drawing.Size(260, 52);
-            this.advancedPanel1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel1.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel1.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(2, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(256, 48);
-            this.label5.TabIndex = 0;
-            this.label5.Tag = "F2";
-            this.label5.Text = "Factory 2";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label5.Click += new System.EventHandler(this.lblFTY_Click);
-            // 
-            // gpExF3
-            // 
-            this.gpExF3.BackgroundPanelImage = null;
-            this.gpExF3.Controls.Add(this.advancedPanel2);
-            this.gpExF3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpExF3.DrawGroupBorder = true;
-            this.gpExF3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpExF3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.gpExF3.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF3.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF3.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
-            this.gpExF3.GroupPanelWith = 0F;
-            this.gpExF3.Location = new System.Drawing.Point(641, 3);
-            this.gpExF3.Name = "gpExF3";
-            this.gpExF3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF3.Size = new System.Drawing.Size(311, 137);
-            this.gpExF3.TabIndex = 15;
-            this.gpExF3.TabStop = false;
-            this.gpExF3.TextBackColor = System.Drawing.Color.White;
-            this.gpExF3.TextBorderColor = System.Drawing.Color.Blue;
-            this.gpExF3.TextBorderWith = 2F;
-            // 
-            // advancedPanel2
-            // 
-            this.advancedPanel2.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel2.Controls.Add(this.label6);
-            this.advancedPanel2.EdgeWidth = 1;
-            this.advancedPanel2.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel2.FlatBorderColor = System.Drawing.Color.Turquoise;
-            this.advancedPanel2.Location = new System.Drawing.Point(26, 3);
-            this.advancedPanel2.Name = "advancedPanel2";
-            this.advancedPanel2.Padding = new System.Windows.Forms.Padding(2);
-            this.advancedPanel2.RectRadius = 0;
-            this.advancedPanel2.ShadowColor = System.Drawing.Color.DimGray;
-            this.advancedPanel2.ShadowShift = 5;
-            this.advancedPanel2.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel2.Size = new System.Drawing.Size(260, 52);
-            this.advancedPanel2.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel2.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel2.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(2, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(256, 48);
-            this.label6.TabIndex = 0;
-            this.label6.Tag = "F3";
-            this.label6.Text = "Factory 3";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label6.Click += new System.EventHandler(this.lblFTY_Click);
-            // 
-            // gpExF4
-            // 
-            this.gpExF4.BackgroundPanelImage = null;
-            this.gpExF4.Controls.Add(this.advancedPanel3);
-            this.gpExF4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpExF4.DrawGroupBorder = true;
-            this.gpExF4.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpExF4.ForeColor = System.Drawing.Color.DarkOrange;
-            this.gpExF4.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF4.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF4.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
-            this.gpExF4.GroupPanelWith = 0F;
-            this.gpExF4.Location = new System.Drawing.Point(960, 3);
-            this.gpExF4.Name = "gpExF4";
-            this.gpExF4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF4.Size = new System.Drawing.Size(311, 137);
-            this.gpExF4.TabIndex = 16;
-            this.gpExF4.TabStop = false;
-            this.gpExF4.TextBackColor = System.Drawing.Color.White;
-            this.gpExF4.TextBorderColor = System.Drawing.Color.Blue;
-            this.gpExF4.TextBorderWith = 2F;
-            // 
-            // advancedPanel3
-            // 
-            this.advancedPanel3.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel3.Controls.Add(this.label7);
-            this.advancedPanel3.EdgeWidth = 1;
-            this.advancedPanel3.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel3.FlatBorderColor = System.Drawing.Color.Turquoise;
-            this.advancedPanel3.Location = new System.Drawing.Point(24, 3);
-            this.advancedPanel3.Name = "advancedPanel3";
-            this.advancedPanel3.Padding = new System.Windows.Forms.Padding(2);
-            this.advancedPanel3.RectRadius = 0;
-            this.advancedPanel3.ShadowColor = System.Drawing.Color.DimGray;
-            this.advancedPanel3.ShadowShift = 5;
-            this.advancedPanel3.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel3.Size = new System.Drawing.Size(260, 52);
-            this.advancedPanel3.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel3.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel3.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(2, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(256, 48);
-            this.label7.TabIndex = 0;
-            this.label7.Tag = "F4";
-            this.label7.Text = "Factory 4";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label7.Click += new System.EventHandler(this.lblFTY_Click);
             // 
             // pnF4
             // 
             this.pnF4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF4.Location = new System.Drawing.Point(960, 146);
+            this.pnF4.Location = new System.Drawing.Point(960, 147);
             this.pnF4.Name = "pnF4";
-            this.pnF4.Size = new System.Drawing.Size(311, 675);
+            this.pnF4.Size = new System.Drawing.Size(311, 684);
             this.pnF4.TabIndex = 12;
             // 
             // pnF1
             // 
             this.pnF1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF1.Location = new System.Drawing.Point(3, 146);
+            this.pnF1.Location = new System.Drawing.Point(3, 147);
             this.pnF1.Name = "pnF1";
-            this.pnF1.Size = new System.Drawing.Size(311, 675);
+            this.pnF1.Size = new System.Drawing.Size(311, 684);
             this.pnF1.TabIndex = 9;
-            // 
-            // gpExF5
-            // 
-            this.gpExF5.BackgroundPanelImage = null;
-            this.gpExF5.Controls.Add(this.advancedPanel4);
-            this.gpExF5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpExF5.DrawGroupBorder = true;
-            this.gpExF5.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpExF5.ForeColor = System.Drawing.Color.DarkOrange;
-            this.gpExF5.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF5.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
-            this.gpExF5.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
-            this.gpExF5.GroupPanelWith = 0F;
-            this.gpExF5.Location = new System.Drawing.Point(1279, 3);
-            this.gpExF5.Name = "gpExF5";
-            this.gpExF5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF5.Size = new System.Drawing.Size(311, 137);
-            this.gpExF5.TabIndex = 17;
-            this.gpExF5.TabStop = false;
-            this.gpExF5.TextBackColor = System.Drawing.Color.White;
-            this.gpExF5.TextBorderColor = System.Drawing.Color.Blue;
-            this.gpExF5.TextBorderWith = 2F;
-            // 
-            // advancedPanel4
-            // 
-            this.advancedPanel4.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
-            this.advancedPanel4.Controls.Add(this.label8);
-            this.advancedPanel4.EdgeWidth = 1;
-            this.advancedPanel4.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel4.FlatBorderColor = System.Drawing.Color.Turquoise;
-            this.advancedPanel4.Location = new System.Drawing.Point(27, 3);
-            this.advancedPanel4.Name = "advancedPanel4";
-            this.advancedPanel4.Padding = new System.Windows.Forms.Padding(2);
-            this.advancedPanel4.RectRadius = 0;
-            this.advancedPanel4.ShadowColor = System.Drawing.Color.DimGray;
-            this.advancedPanel4.ShadowShift = 5;
-            this.advancedPanel4.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
-            this.advancedPanel4.Size = new System.Drawing.Size(260, 52);
-            this.advancedPanel4.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
-            this.advancedPanel4.Style = FORM.AdvancedPanel.BevelStyle.Flat;
-            this.advancedPanel4.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(2, 2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(256, 48);
-            this.label8.TabIndex = 0;
-            this.label8.Tag = "F5";
-            this.label8.Text = "Factory 5";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label8.Click += new System.EventHandler(this.lblFTY_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -781,6 +469,7 @@
             this.cmdDefective.BackColor = System.Drawing.SystemColors.Control;
             this.cmdDefective.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdDefective.BackgroundImage")));
             this.cmdDefective.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDefective.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdDefective.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdDefective.FlatAppearance.BorderSize = 0;
             this.cmdDefective.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -870,6 +559,7 @@
             this.pnVJ2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnVJ2.BackgroundImage")));
             this.pnVJ2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnVJ2.Controls.Add(this.panel4);
+            this.pnVJ2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnVJ2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnVJ2.Location = new System.Drawing.Point(194, 3);
             this.pnVJ2.Name = "pnVJ2";
@@ -908,6 +598,7 @@
             this.cmdDasboard.BackColor = System.Drawing.SystemColors.Control;
             this.cmdDasboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdDasboard.BackgroundImage")));
             this.cmdDasboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDasboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdDasboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdDasboard.FlatAppearance.BorderSize = 0;
             this.cmdDasboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -932,6 +623,7 @@
             this.cmdExternal.BackColor = System.Drawing.SystemColors.Control;
             this.cmdExternal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdExternal.BackgroundImage")));
             this.cmdExternal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdExternal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdExternal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdExternal.FlatAppearance.BorderSize = 0;
             this.cmdExternal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -959,6 +651,7 @@
             this.btnHumidity.BackColor = System.Drawing.SystemColors.Control;
             this.btnHumidity.BackgroundImage = global::FORM.Properties.Resources.humidity;
             this.btnHumidity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHumidity.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHumidity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHumidity.FlatAppearance.BorderSize = 0;
             this.btnHumidity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -977,6 +670,7 @@
             this.cmdRework.BackColor = System.Drawing.SystemColors.Control;
             this.cmdRework.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdRework.BackgroundImage")));
             this.cmdRework.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdRework.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdRework.FlatAppearance.BorderSize = 0;
             this.cmdRework.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdRework.Location = new System.Drawing.Point(767, 3);
@@ -991,6 +685,7 @@
             this.cmdHFPA.BackColor = System.Drawing.SystemColors.Control;
             this.cmdHFPA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdHFPA.BackgroundImage")));
             this.cmdHFPA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdHFPA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdHFPA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdHFPA.FlatAppearance.BorderSize = 0;
             this.cmdHFPA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1009,6 +704,7 @@
             this.cmdBCGrade.BackColor = System.Drawing.SystemColors.Control;
             this.cmdBCGrade.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBCGrade.BackgroundImage")));
             this.cmdBCGrade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdBCGrade.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdBCGrade.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdBCGrade.FlatAppearance.BorderSize = 0;
             this.cmdBCGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1026,6 +722,336 @@
             this.tmrBlink.Interval = 500;
             this.tmrBlink.Tick += new System.EventHandler(this.tmrBlink_Tick);
             // 
+            // gpExLT
+            // 
+            this.gpExLT.BackgroundPanelImage = null;
+            this.gpExLT.Controls.Add(this.advancedPanel5);
+            this.gpExLT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpExLT.DrawGroupBorder = true;
+            this.gpExLT.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpExLT.ForeColor = System.Drawing.Color.DarkOrange;
+            this.gpExLT.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExLT.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExLT.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
+            this.gpExLT.GroupPanelWith = 0F;
+            this.gpExLT.Location = new System.Drawing.Point(1598, 3);
+            this.gpExLT.Name = "gpExLT";
+            this.gpExLT.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.gpExLT.Size = new System.Drawing.Size(313, 138);
+            this.gpExLT.TabIndex = 18;
+            this.gpExLT.TabStop = false;
+            this.gpExLT.TextBackColor = System.Drawing.Color.White;
+            this.gpExLT.TextBorderColor = System.Drawing.Color.Blue;
+            this.gpExLT.TextBorderWith = 2F;
+            // 
+            // advancedPanel5
+            // 
+            this.advancedPanel5.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
+            this.advancedPanel5.Controls.Add(this.label9);
+            this.advancedPanel5.EdgeWidth = 1;
+            this.advancedPanel5.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel5.FlatBorderColor = System.Drawing.Color.Turquoise;
+            this.advancedPanel5.Location = new System.Drawing.Point(27, 3);
+            this.advancedPanel5.Name = "advancedPanel5";
+            this.advancedPanel5.Padding = new System.Windows.Forms.Padding(2);
+            this.advancedPanel5.RectRadius = 0;
+            this.advancedPanel5.ShadowColor = System.Drawing.Color.DimGray;
+            this.advancedPanel5.ShadowShift = 5;
+            this.advancedPanel5.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.advancedPanel5.Size = new System.Drawing.Size(260, 52);
+            this.advancedPanel5.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel5.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.advancedPanel5.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(2, 2);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(256, 48);
+            this.label9.TabIndex = 0;
+            this.label9.Tag = "VJ2";
+            this.label9.Text = "Long Thanh";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label9.Click += new System.EventHandler(this.lblFTY_Click);
+            // 
+            // gpExF1
+            // 
+            this.gpExF1.BackgroundPanelImage = null;
+            this.gpExF1.Controls.Add(this.aPn1);
+            this.gpExF1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpExF1.DrawGroupBorder = true;
+            this.gpExF1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpExF1.ForeColor = System.Drawing.Color.DarkOrange;
+            this.gpExF1.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF1.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF1.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
+            this.gpExF1.GroupPanelWith = 0F;
+            this.gpExF1.Location = new System.Drawing.Point(3, 3);
+            this.gpExF1.Name = "gpExF1";
+            this.gpExF1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.gpExF1.Size = new System.Drawing.Size(311, 138);
+            this.gpExF1.TabIndex = 3;
+            this.gpExF1.TabStop = false;
+            this.gpExF1.TextBackColor = System.Drawing.Color.White;
+            this.gpExF1.TextBorderColor = System.Drawing.Color.Blue;
+            this.gpExF1.TextBorderWith = 2F;
+            // 
+            // aPn1
+            // 
+            this.aPn1.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
+            this.aPn1.Controls.Add(this.label2);
+            this.aPn1.EdgeWidth = 1;
+            this.aPn1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.aPn1.FlatBorderColor = System.Drawing.Color.Turquoise;
+            this.aPn1.Location = new System.Drawing.Point(25, 3);
+            this.aPn1.Name = "aPn1";
+            this.aPn1.Padding = new System.Windows.Forms.Padding(2);
+            this.aPn1.RectRadius = 0;
+            this.aPn1.ShadowColor = System.Drawing.Color.DimGray;
+            this.aPn1.ShadowShift = 5;
+            this.aPn1.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.aPn1.Size = new System.Drawing.Size(260, 52);
+            this.aPn1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.aPn1.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.aPn1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(2, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(256, 48);
+            this.label2.TabIndex = 0;
+            this.label2.Tag = "F1";
+            this.label2.Text = "Factory 1";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Click += new System.EventHandler(this.lblFTY_Click);
+            // 
+            // gpExF2
+            // 
+            this.gpExF2.BackgroundPanelImage = null;
+            this.gpExF2.Controls.Add(this.advancedPanel1);
+            this.gpExF2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpExF2.DrawGroupBorder = true;
+            this.gpExF2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpExF2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.gpExF2.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF2.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF2.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
+            this.gpExF2.GroupPanelWith = 0F;
+            this.gpExF2.Location = new System.Drawing.Point(322, 3);
+            this.gpExF2.Name = "gpExF2";
+            this.gpExF2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.gpExF2.Size = new System.Drawing.Size(311, 138);
+            this.gpExF2.TabIndex = 14;
+            this.gpExF2.TabStop = false;
+            this.gpExF2.TextBackColor = System.Drawing.Color.White;
+            this.gpExF2.TextBorderColor = System.Drawing.Color.Blue;
+            this.gpExF2.TextBorderWith = 2F;
+            // 
+            // advancedPanel1
+            // 
+            this.advancedPanel1.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
+            this.advancedPanel1.Controls.Add(this.label5);
+            this.advancedPanel1.EdgeWidth = 1;
+            this.advancedPanel1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel1.FlatBorderColor = System.Drawing.Color.Turquoise;
+            this.advancedPanel1.Location = new System.Drawing.Point(26, 3);
+            this.advancedPanel1.Name = "advancedPanel1";
+            this.advancedPanel1.Padding = new System.Windows.Forms.Padding(2);
+            this.advancedPanel1.RectRadius = 0;
+            this.advancedPanel1.ShadowColor = System.Drawing.Color.DimGray;
+            this.advancedPanel1.ShadowShift = 5;
+            this.advancedPanel1.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.advancedPanel1.Size = new System.Drawing.Size(260, 52);
+            this.advancedPanel1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel1.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.advancedPanel1.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(2, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(256, 48);
+            this.label5.TabIndex = 0;
+            this.label5.Tag = "F2";
+            this.label5.Text = "Factory 2";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.Click += new System.EventHandler(this.lblFTY_Click);
+            // 
+            // gpExF3
+            // 
+            this.gpExF3.BackgroundPanelImage = null;
+            this.gpExF3.Controls.Add(this.advancedPanel2);
+            this.gpExF3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpExF3.DrawGroupBorder = true;
+            this.gpExF3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpExF3.ForeColor = System.Drawing.Color.DarkOrange;
+            this.gpExF3.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF3.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF3.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
+            this.gpExF3.GroupPanelWith = 0F;
+            this.gpExF3.Location = new System.Drawing.Point(641, 3);
+            this.gpExF3.Name = "gpExF3";
+            this.gpExF3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.gpExF3.Size = new System.Drawing.Size(311, 138);
+            this.gpExF3.TabIndex = 15;
+            this.gpExF3.TabStop = false;
+            this.gpExF3.TextBackColor = System.Drawing.Color.White;
+            this.gpExF3.TextBorderColor = System.Drawing.Color.Blue;
+            this.gpExF3.TextBorderWith = 2F;
+            // 
+            // advancedPanel2
+            // 
+            this.advancedPanel2.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
+            this.advancedPanel2.Controls.Add(this.label6);
+            this.advancedPanel2.EdgeWidth = 1;
+            this.advancedPanel2.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel2.FlatBorderColor = System.Drawing.Color.Turquoise;
+            this.advancedPanel2.Location = new System.Drawing.Point(26, 3);
+            this.advancedPanel2.Name = "advancedPanel2";
+            this.advancedPanel2.Padding = new System.Windows.Forms.Padding(2);
+            this.advancedPanel2.RectRadius = 0;
+            this.advancedPanel2.ShadowColor = System.Drawing.Color.DimGray;
+            this.advancedPanel2.ShadowShift = 5;
+            this.advancedPanel2.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.advancedPanel2.Size = new System.Drawing.Size(260, 52);
+            this.advancedPanel2.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel2.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.advancedPanel2.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(2, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(256, 48);
+            this.label6.TabIndex = 0;
+            this.label6.Tag = "F3";
+            this.label6.Text = "Factory 3";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label6.Click += new System.EventHandler(this.lblFTY_Click);
+            // 
+            // gpExF4
+            // 
+            this.gpExF4.BackgroundPanelImage = null;
+            this.gpExF4.Controls.Add(this.advancedPanel3);
+            this.gpExF4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpExF4.DrawGroupBorder = true;
+            this.gpExF4.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpExF4.ForeColor = System.Drawing.Color.DarkOrange;
+            this.gpExF4.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF4.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF4.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
+            this.gpExF4.GroupPanelWith = 0F;
+            this.gpExF4.Location = new System.Drawing.Point(960, 3);
+            this.gpExF4.Name = "gpExF4";
+            this.gpExF4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.gpExF4.Size = new System.Drawing.Size(311, 138);
+            this.gpExF4.TabIndex = 16;
+            this.gpExF4.TabStop = false;
+            this.gpExF4.TextBackColor = System.Drawing.Color.White;
+            this.gpExF4.TextBorderColor = System.Drawing.Color.Blue;
+            this.gpExF4.TextBorderWith = 2F;
+            // 
+            // advancedPanel3
+            // 
+            this.advancedPanel3.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
+            this.advancedPanel3.Controls.Add(this.label7);
+            this.advancedPanel3.EdgeWidth = 1;
+            this.advancedPanel3.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel3.FlatBorderColor = System.Drawing.Color.Turquoise;
+            this.advancedPanel3.Location = new System.Drawing.Point(24, 3);
+            this.advancedPanel3.Name = "advancedPanel3";
+            this.advancedPanel3.Padding = new System.Windows.Forms.Padding(2);
+            this.advancedPanel3.RectRadius = 0;
+            this.advancedPanel3.ShadowColor = System.Drawing.Color.DimGray;
+            this.advancedPanel3.ShadowShift = 5;
+            this.advancedPanel3.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.advancedPanel3.Size = new System.Drawing.Size(260, 52);
+            this.advancedPanel3.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel3.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.advancedPanel3.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(2, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(256, 48);
+            this.label7.TabIndex = 0;
+            this.label7.Tag = "F4";
+            this.label7.Text = "Factory 4";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label7.Click += new System.EventHandler(this.lblFTY_Click);
+            // 
+            // gpExF5
+            // 
+            this.gpExF5.BackgroundPanelImage = null;
+            this.gpExF5.Controls.Add(this.advancedPanel4);
+            this.gpExF5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpExF5.DrawGroupBorder = true;
+            this.gpExF5.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpExF5.ForeColor = System.Drawing.Color.DarkOrange;
+            this.gpExF5.GroupBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF5.GroupPanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(32)))), ((int)(((byte)(74)))));
+            this.gpExF5.GroupPanelShape = FORM.GroupBoxEx.PanelType.Rounded;
+            this.gpExF5.GroupPanelWith = 0F;
+            this.gpExF5.Location = new System.Drawing.Point(1279, 3);
+            this.gpExF5.Name = "gpExF5";
+            this.gpExF5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.gpExF5.Size = new System.Drawing.Size(311, 138);
+            this.gpExF5.TabIndex = 17;
+            this.gpExF5.TabStop = false;
+            this.gpExF5.TextBackColor = System.Drawing.Color.White;
+            this.gpExF5.TextBorderColor = System.Drawing.Color.Blue;
+            this.gpExF5.TextBorderWith = 2F;
+            // 
+            // advancedPanel4
+            // 
+            this.advancedPanel4.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.Vertical;
+            this.advancedPanel4.Controls.Add(this.label8);
+            this.advancedPanel4.EdgeWidth = 1;
+            this.advancedPanel4.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel4.FlatBorderColor = System.Drawing.Color.Turquoise;
+            this.advancedPanel4.Location = new System.Drawing.Point(27, 3);
+            this.advancedPanel4.Name = "advancedPanel4";
+            this.advancedPanel4.Padding = new System.Windows.Forms.Padding(2);
+            this.advancedPanel4.RectRadius = 0;
+            this.advancedPanel4.ShadowColor = System.Drawing.Color.DimGray;
+            this.advancedPanel4.ShadowShift = 5;
+            this.advancedPanel4.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.advancedPanel4.Size = new System.Drawing.Size(260, 52);
+            this.advancedPanel4.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(228)))), ((int)(((byte)(234)))));
+            this.advancedPanel4.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.advancedPanel4.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Calibri", 25.25F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(2, 2);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(256, 48);
+            this.label8.TabIndex = 0;
+            this.label8.Tag = "F5";
+            this.label8.Text = "Factory 5";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label8.Click += new System.EventHandler(this.lblFTY_Click);
+            // 
             // SMT_QUALITY_COCKPIT_MAIN
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1039,11 +1065,21 @@
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_MAIN_Load);
             this.VisibleChanged += new System.EventHandler(this.SMT_SCADA_COCKPIT_MENU_VisibleChanged);
             this.panel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.labelComponent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleRangeBarComponent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ascInv)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tblMenu.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.pnVJ3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.pnVJ.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.pnVJ2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.gpExLT.ResumeLayout(false);
             this.advancedPanel5.ResumeLayout(false);
             this.gpExF1.ResumeLayout(false);
@@ -1056,15 +1092,6 @@
             this.advancedPanel3.ResumeLayout(false);
             this.gpExF5.ResumeLayout(false);
             this.advancedPanel4.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.pnVJ3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.pnVJ.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.pnVJ2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1132,5 +1159,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button cmdExternal;
         private System.Windows.Forms.Button btnHumidity;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

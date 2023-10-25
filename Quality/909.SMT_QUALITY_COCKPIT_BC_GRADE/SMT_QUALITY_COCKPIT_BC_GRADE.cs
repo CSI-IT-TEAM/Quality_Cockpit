@@ -15,7 +15,7 @@ namespace FORM
 
         #region ========= [Global Variable] ==============================================
 
-        private readonly string _strHeader = "  Monthly B&&C Grade";
+        private readonly string _strHeader = "  B&&C Grade By Day";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "Q";
@@ -102,7 +102,7 @@ namespace FORM
         {
             try
             {
-                splashScreenManager1.ShowWaitForm();
+                //splashScreenManager1.ShowWaitForm();
                 ChartHitInfo hit = chart1.CalcHitInfo(e.Location);
                 SeriesPoint point = hit.SeriesPoint;
                 if (point != null)
@@ -290,12 +290,12 @@ namespace FORM
                         chart3.DataSource = null;
                     }
                 }
-                splashScreenManager1.CloseWaitForm();
+                //splashScreenManager1.CloseWaitForm();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                splashScreenManager1.CloseWaitForm();
+                //splashScreenManager1.CloseWaitForm();
             }
         }
 

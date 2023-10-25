@@ -26,7 +26,7 @@ namespace FORM
         bool isFirstLoad = true;
         List<AdvancedPanel> advLst = new List<AdvancedPanel>();
         #endregion
-        private readonly string _strHeader = "       Humidity Tracking";
+        private readonly string _strHeader = "  Humidity Tracking";
         int _time = 0;
         string strPlant = "2110";
         DataTable dtWarn = null;
@@ -234,7 +234,7 @@ namespace FORM
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             MyOraDB.ConnectName = COM.OraDB.ConnectDB.SEPHIROTH;
-            string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_HUMIDITY_TRACKING";
+            string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_HUMIDITY_TRACKING";
 
             try
             {
@@ -275,7 +275,7 @@ namespace FORM
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
             if (_time >= 60)
             {

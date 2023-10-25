@@ -15,13 +15,10 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_DASBOARD : Form
     {
-        public SMT_QUALITY_COCKPIT_DASBOARD()
-        {
-            InitializeComponent();
-            AddUc();
-        }
+
+        #region ========= [Global Variable] ==============================================
         int _time = 0;
-          
+
         Dictionary<Grp, UC.UCTitle> _dntTitle = new Dictionary<Grp, UC.UCTitle>();
 
         enum Grp
@@ -36,12 +33,17 @@ namespace FORM
             MOLD_REPAIR,
             DR_FCPP
         }
+        #endregion ========= [Global Variable] ==============================================
 
-        #region Event
-
+        #region ========= [Form Init] ==============================================
+        public SMT_QUALITY_COCKPIT_DASBOARD()
+        {
+            InitializeComponent();
+            AddUc();
+        }
         private void Form_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Form_VisibleChanged(object sender, EventArgs e)
@@ -58,10 +60,12 @@ namespace FORM
             }
 
         }
+        #endregion ========= [Form Init] ==============================================
 
+        #region ========= [Timer Event] ==========================================
         private void tmrTime_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
             if (_time >= 30)
             {
@@ -70,16 +74,21 @@ namespace FORM
             }
         }
 
+        #endregion ========= [Timer Event] ==========================================
+
+        #region ========= [Control Event] ==========================================
         private void cmdBack_Click(object sender, EventArgs e)
         {
             ComVar.Var.callForm = "back";
         }
 
-        #endregion Event
+        #endregion ========= [Control Event] ==========================================
 
+        #region ========= [Method] ==========================================
 
         private void LoadDataChart()
         {
+            splashScreenManager1.ShowWaitForm();
             SetChart_MRIssues();
             SetChart_RamUp();
             SetChart_Overall();
@@ -89,6 +98,7 @@ namespace FORM
             SetChart_MoldRepair();
             SetChart_MI();
             SetChart_ExtOsd();
+            splashScreenManager1.CloseWaitForm();
         }
 
         
@@ -189,14 +199,14 @@ namespace FORM
                     chtMrIssues.SeriesTemplate.ArgumentScaleType = ScaleType.Qualitative;
                     chtMrIssues.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "QTY" });
                     chtMrIssues.SeriesTemplate.ChangeView(ViewType.Bar);
-                    chtMrIssues.SeriesTemplate.Label.Font = new Font("Calibri", 10, FontStyle.Bold);
+                    chtMrIssues.SeriesTemplate.Label.Font = new Font("Calibri", 12F, FontStyle.Regular);
                     chtMrIssues.PaletteName = "doit";
                     chtMrIssues.SeriesTemplate.LabelsVisibility = DefaultBoolean.True;
                     chtMrIssues.SeriesTemplate.Label.TextPattern = "{S} : {V : #,#}";
                     chtMrIssues.SeriesTemplate.Label.TextOrientation = TextOrientation.BottomToTop;
                     ((SideBySideBarSeriesView)chtMrIssues.SeriesTemplate.View).BarWidth = 2;
                     chtMrIssues.Legend.Visibility = DefaultBoolean.False;
-                    chtMrIssues.Legend.Font = new System.Drawing.Font("Times New Roman", 12.25F, FontStyle.Bold | FontStyle.Italic);
+                    chtMrIssues.Legend.Font = new Font("Calibri", 12F, FontStyle.Regular); ;// new System.Drawing.Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic);
                     XYDiagram diagram = (XYDiagram)chtMrIssues.Diagram;
                 }
 
@@ -532,7 +542,9 @@ namespace FORM
 
         #endregion
 
-        #region Database
+        #endregion ========= [Method] ==========================================
+
+        #region ========= [Procedure Call] ===========================================
 
         public async Task<DataTable> Fn_SelectDataChart(string argType, string argYm)
         {
@@ -542,14 +554,14 @@ namespace FORM
                 MyOraDB.ShowErr = true;
                 try
                 {
-                    string process_name = "PKG_SMT_QUALITY_COCKPIT_02.DASBOARD_DATA_SELECT";
+                    string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_DASBOARD";
 
                     MyOraDB.ReDim_Parameter(4);
                     MyOraDB.Process_Name = process_name;
 
-                    MyOraDB.Parameter_Name[0] = "ARG_TYPE";
-                    MyOraDB.Parameter_Name[1] = "ARG_FACTORY";
-                    MyOraDB.Parameter_Name[2] = "ARG_YM";
+                    MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                    MyOraDB.Parameter_Name[1] = "V_P_FACTORY";
+                    MyOraDB.Parameter_Name[2] = "V_P_YM";
                     MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
 
                     MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
@@ -576,7 +588,7 @@ namespace FORM
             });
         }
 
-        #endregion DB
-        
+        #endregion ========= [Procedure Call] ===========================================
+
     }
 }

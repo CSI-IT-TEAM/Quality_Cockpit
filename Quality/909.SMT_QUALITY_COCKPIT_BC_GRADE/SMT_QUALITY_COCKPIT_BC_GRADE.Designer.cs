@@ -183,10 +183,10 @@
             // 
             this.cboDateTo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboDateTo.EditValue = new System.DateTime(2017, 12, 15, 16, 0, 56, 917);
-            this.cboDateTo.Location = new System.Drawing.Point(417, 7);
+            this.cboDateTo.Location = new System.Drawing.Point(416, 7);
             this.cboDateTo.Name = "cboDateTo";
             this.cboDateTo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboDateTo.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.cboDateTo.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboDateTo.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cboDateTo.Properties.Appearance.Options.UseFont = true;
             this.cboDateTo.Properties.Appearance.Options.UseForeColor = true;
@@ -253,9 +253,9 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(376, 7);
+            this.label1.Location = new System.Drawing.Point(375, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 41);
             this.label1.TabIndex = 795;
@@ -269,7 +269,7 @@
             this.cboDateFr.Location = new System.Drawing.Point(147, 7);
             this.cboDateFr.Name = "cboDateFr";
             this.cboDateFr.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboDateFr.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.cboDateFr.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboDateFr.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cboDateFr.Properties.Appearance.Options.UseFont = true;
             this.cboDateFr.Properties.Appearance.Options.UseForeColor = true;
@@ -336,7 +336,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Black;
-            this.label6.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(10, 7);
             this.label6.Name = "label6";

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -74,7 +73,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.pn_Main = new System.Windows.Forms.Panel();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -492,7 +491,7 @@
             this.cboDateTo.Location = new System.Drawing.Point(416, 7);
             this.cboDateTo.Name = "cboDateTo";
             this.cboDateTo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboDateTo.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.cboDateTo.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboDateTo.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cboDateTo.Properties.Appearance.Options.UseFont = true;
             this.cboDateTo.Properties.Appearance.Options.UseForeColor = true;
@@ -563,7 +562,7 @@
             this.cboDateFr.Location = new System.Drawing.Point(147, 7);
             this.cboDateFr.Name = "cboDateFr";
             this.cboDateFr.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboDateFr.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.cboDateFr.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboDateFr.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cboDateFr.Properties.Appearance.Options.UseFont = true;
             this.cboDateFr.Properties.Appearance.Options.UseForeColor = true;
@@ -630,7 +629,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Black;
-            this.label3.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(375, 7);
             this.label3.Name = "label3";
@@ -648,9 +647,9 @@
             this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(644, 7);
+            this.btnSearch.Location = new System.Drawing.Point(645, 7);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(123, 39);
+            this.btnSearch.Size = new System.Drawing.Size(131, 41);
             this.btnSearch.TabIndex = 23;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Visible = false;
@@ -658,7 +657,7 @@
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.Black;
-            this.label6.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(10, 7);
             this.label6.Name = "label6";

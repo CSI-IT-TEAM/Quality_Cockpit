@@ -19,24 +19,375 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_INTERNAL_OSD : Form
     {
-        public SMT_QUALITY_COCKPIT_INTERNAL_OSD()
-        {
-            InitializeComponent();
-            lblHeader.Text = _strHeader;
-        }
-        private readonly string _strHeader = "       Internal OS&&D";
-        //  private UC.UC_COMPARE_WEEK uc_compare_week = new UC.UC_COMPARE_WEEK();
+
+        #region ========= [Global Variable] ==============================================
+
+        private readonly string _strHeader = "  Internal OS&&D";
         string _strType = "Q";
         string _plant = ComVar.Var._strValue1;  // "";// 
         string _line = ComVar.Var._strValue2;  //"";//
         int _time = 0;
         string _CurrentDay = "";
 
+        #endregion ========= [Global Variable] ==============================================
+
+        #region ========= [Form Init] ==============================================
+
+        public SMT_QUALITY_COCKPIT_INTERNAL_OSD()
+        {
+            InitializeComponent();
+            lblHeader.Text = _strHeader;
+        }
+
+        private void SMT_QUALITY_COCKPIT_INTERNAL_OSD_Load(object sender, EventArgs e)
+        {
+            LoadForm();
+        }
+
+        private void SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                _strType = "Q";
+
+                cbo_Plant.SelectedValue = ComVar.Var._strValue1;
+                cbo_line.SelectedValue = ComVar.Var._strValue2;
+
+                //_plant = cbo_Plant.SelectedValue.ToString(); //
+                //_line = cbo_line.SelectedValue.ToString(); //  
+
+                _time = 30;
+                timer1.Start();
+               
+
+            }
+            else
+            {
+                timer1.Stop();
+                Dispose();
+            }
+        }
+
+        #endregion ========= [Form Init] ==============================================
+
+        #region ========= [Timer Event] ==========================================
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
+            _time++;
+            if (_time >= 30)
+            {
+                _time = 0;
+                SetData(_strType, cbo_Plant.SelectedValue.ToString(), cbo_line.SelectedValue.ToString(), false);
+            }
+
+        }
+        #endregion ========= [Timer Event] ==========================================
+
+        #region ========= [Control Event] ==========================================
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "back";
+        }
+
+        private void lblDate_DoubleClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        private void rdByDay_CheckedChanged(object sender, EventArgs e)
+        {
+            pnBody2.Visible = true;
+            pnBody1.Visible = false;
+            cmdDay.Visible = false;
+            cmdWeek.Visible = false;
+            btn_Search.Visible = false;
+        }
+        private void cbo_Plant_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbo_Plant.SelectedValue.ToString() != null)
+                    GET_COMBO_DATA("COMBO_LINE", cbo_Plant.SelectedValue.ToString());
+
+                else
+                    return;
+
+            }
+            catch { }
+        }
+
+        private void cbo_Plant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbo_Plant.SelectedValue.ToString() != null)
+                    GET_COMBO_DATA("CLINE", cbo_Plant.SelectedValue.ToString());
+                else
+                    return;
+
+            }
+            catch { }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            _time = 30;
+        }
+
+        private void gvwBase_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+
+            try
+            {
+                if (e.Column.AbsoluteIndex > 0)
+                {
+                    if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("REPLENISHMENT RATE (%)") ||
+                        gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
+                    {
+                        if (e.CellValue == DBNull.Value) return;
+                        e.DisplayText = double.Parse(e.CellValue.ToString()).ToString("0.0#");
+                    }
+
+                    if (gvwBase.Columns[e.Column.FieldName].OwnerBand.Caption == _CurrentDay)
+                    {
+                        //return;
+                        Rectangle rect = e.Bounds;
+                        rect.Inflate(new Size(1, 1));
+
+                        Brush brush = new SolidBrush(e.Appearance.BackColor);
+                        e.Graphics.FillRectangle(brush, rect);
+                        Pen pen_horizental = new Pen(Color.Orange, 3F);
+                        Pen pen_vertical = new Pen(Color.Orange, 4F);
+
+                        ////draw bottom
+                        //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+                        //// draw top
+                        //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+
+                        //if (e.RowHandle == 0)
+                        //{
+                        //    e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+                        //}
+                        //else 
+                        if (e.RowHandle == gvwBase.RowCount - 1)
+                        {
+                            e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
+                        }
+                        // draw right
+                        e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
+
+
+                        // draw left
+                        e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X, rect.Y + rect.Height);
+
+                        string[] ls = e.DisplayText.Split('\n');
+
+                        e.Graphics.DrawString(ls[0], e.Appearance.Font, new SolidBrush(e.Appearance.ForeColor), rect, e.Appearance.GetStringFormat());
+
+                        e.Handled = true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+
+        }
+
+        private void gvwBase_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            if (e.CellValue == DBNull.Value) return;
+            if (e.Column.AbsoluteIndex > 0)
+            {
+                if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
+                {
+                    double rate = double.Parse(e.CellValue.ToString());
+                    if (rate <= 1)
+                    {
+                        e.Appearance.BackColor = Color.Green;
+                        e.Appearance.ForeColor = Color.White;
+
+                    }
+
+                    else if (rate > 2)
+                    {
+                        e.Appearance.ForeColor = Color.White;
+                        e.Appearance.BackColor = Color.Red;
+                    }
+                    else
+
+                        e.Appearance.BackColor = Color.Yellow;
+
+                }
+                if (e.Column.FieldName.ToUpper().Contains("TOTAL") && e.RowHandle != gvwBase.RowCount - 1)
+                {
+                    e.Appearance.BackColor = Color.LightYellow;
+                    e.Appearance.Font = new System.Drawing.Font("Calibri", 14F, FontStyle.Bold);
+                }
+            }
+
+        }
+        private void gvwBase_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+
+            if (e.CellValue == null) return;
+            if (e.Column.AbsoluteIndex < 2) return;
+
+            string strdate = gvwBase.Columns[e.Column.ColumnHandle - 1].FieldName.ToString();
+            string strplant = cbo_Plant.SelectedValue.ToString();
+            string strline = cbo_line.SelectedValue.ToString();
+
+            try
+            {
+                if (e.Column.ColumnHandle > 2)
+                {
+                    if (gvwBase.GetRowCellValue(e.RowHandle, "ITEM").ToString().ToUpper().Equals("OS&D RATE (%)"))
+                    {
+                        double rate = double.Parse(e.CellValue.ToString());
+                        string date = e.Column.FieldName.ToString();
+                        string plant = cbo_Plant.SelectedValue.ToString();
+                        string line = cbo_line.SelectedValue.ToString();
+                        if (rate > 0)
+                        {
+                            using (SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(date, plant, line))
+                            {
+
+                                view1.ShowDialog();
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        Cursor.Current = Cursors.WaitCursor;
+                        using (SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP(strdate, strplant, strline))
+                        {
+                            view.ShowDialog();
+                        }
+
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+
+
+        }
+
+        private void gvwBase_CustomDrawBandHeader(object sender, BandHeaderCustomDrawEventArgs e)
+        {
+            try
+            {
+                if (e.Band == null) return;
+                bool boBorder = false;
+
+
+                if (e.Band.HasChildren)
+                {
+                    if (e.Band.Children[0].Columns.Count > 0)
+                        if (e.Band.Children[0].Columns[0].Caption == _CurrentDay)
+                        {
+                            boBorder = true;
+
+                        }
+                }
+                else
+                {
+                    if (e.Band.Columns.Count > 0)
+                        if (e.Band.Columns[0].Caption == _CurrentDay)
+                        {
+                            boBorder = true;
+
+                        }
+                }
+
+                if (boBorder)
+                {
+                    Rectangle rect = e.Bounds;
+                    rect.Inflate(new Size(1, 1));
+
+                    Brush brush = new SolidBrush(Color.Orange);
+                    e.Graphics.FillRectangle(brush, rect);
+                    Pen pen_horizental = new Pen(Color.Orange, 3F);
+                    Pen pen_vertical = new Pen(Color.Orange, 4F);
+
+
+                    // e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
+                    // draw right
+                    // e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width - 2, rect.Y, rect.X + rect.Width - 2, rect.Y + rect.Height);
+
+
+                    // draw left
+                    //  e.Graphics.DrawLine(pen_horizental, rect.X + 1, rect.Y, rect.X + 1, rect.Y + rect.Height);
+
+
+                    e.Graphics.DrawString(_CurrentDay, e.Appearance.Font, new SolidBrush(Color.White), rect, e.Appearance.GetStringFormat());
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+
+            }
+        }
+        #endregion ========= [Control Event] ==========================================
+
+        #region ========= [Method] ==========================================
+        private void LoadForm()
+        {
+
+            GET_COMBO_DATA("COMBO_PLANT", "");
+            GET_COMBO_DATA("DATE", "");
+        }
+        private void GET_COMBO_DATA(string type, string plant)
+        {
+            if (type == "COMBO_PLANT")
+            {
+                DataSet dtSet = Data_Select(type, "", "");
+                DataTable dt = dtSet.Tables[0];
+                cbo_Plant.DataSource = dt;
+                cbo_Plant.DisplayMember = "NAME";
+                cbo_Plant.ValueMember = "CODE";
+                cbo_Plant.SelectedIndex = 0;
+            }
+            if (type == "COMBO_LINE")
+            {
+                plant = cbo_Plant.SelectedValue.ToString();
+                DataSet dtSet = Data_Select(type, plant, "");
+                DataTable dt = dtSet.Tables[0];
+                cbo_line.DataSource = dt;
+                cbo_line.DisplayMember = "NAME";
+                cbo_line.ValueMember = "CODE";
+                cbo_line.SelectedIndex = 0;
+            }
+            if (type == "DATE")
+            {
+                DataSet dtSet = Data_Select(type, "", "");
+                DataTable dt = dtSet.Tables[0];
+                _CurrentDay = dt.Rows[0]["CURRENTDAY"].ToString();
+                dtpDateT.EditValue = dt.Rows[0]["TODAY"];
+                dtpDateF.EditValue = dt.Rows[0]["PREV_DAY"];
+
+            }
+
+        }
         private void SetData(string arg_type, string plant, string line, bool arg_load = true)
         {
             try
             {
-                this.Cursor = Cursors.WaitCursor;
+                splashScreenManager1.ShowWaitForm();
 
                 grdBase.DataSource = null;
                 DataSet ds = Data_Select(arg_type, plant, line);
@@ -64,10 +415,10 @@ namespace FORM
                         gvwBase.Columns[i].OwnerBand.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                         gvwBase.Columns[i].OwnerBand.Width = 80;
                         gvwBase.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-                        gvwBase.Columns[i].OwnerBand.AppearanceHeader.Font = new Font("Calibri", 18, FontStyle.Bold);
+                        gvwBase.Columns[i].OwnerBand.AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
 
                         //Data
-                        gvwBase.Columns[i].AppearanceCell.Font = new Font("Calibri", 16, FontStyle.Bold);
+                        gvwBase.Columns[i].AppearanceCell.Font = new Font("Calibri", 14, FontStyle.Regular);
                         gvwBase.Columns[i].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Far;
                         gvwBase.Columns[i].AppearanceCell.TextOptions.VAlignment = VertAlignment.Center;
 
@@ -81,23 +432,24 @@ namespace FORM
                         {
                             gvwBase.Columns[i].OwnerBand.Width = 100;
                             gvwBase.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
-                            gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.#";
+                            gvwBase.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                              
                         }
                      //   gvwBase.Columns[i].Caption = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(gvwBase.Columns[i].GetCaption().Replace("-", " ").Replace("'", " ").ToLower()).Split(',')[0];
                      
                     }
-                }             
-
+                }
+                splashScreenManager1.CloseWaitForm();
             }
             catch (Exception ex)
             {
-                this.Cursor = Cursors.Default;
+                splashScreenManager1.CloseWaitForm();
                 Debug.WriteLine(ex.ToString());
                 //throw;
             }
             finally
             {
-                this.Cursor = Cursors.Default;
+                
             }
 
         }
@@ -119,17 +471,17 @@ namespace FORM
                 double rate;
                 double.TryParse(argData.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 0.05)
+                if (rate > 2)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate <= 0.04)
+                else if (rate > 1)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
                 else
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
+                    chartControl1.Series[0].Points[i].Color = Color.Green;
                 }
             }
         }
@@ -191,7 +543,7 @@ namespace FORM
                 column_Band1.Width = 0;
                 column_Band1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
 
-                gridBand2.Caption = "";
+                gridBand2.Caption = "Date";
                 gridBand2.Name = "ITEM";
                 gridBand2.VisibleIndex = 0;
                 gridBand2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -225,28 +577,32 @@ namespace FORM
 
                 for (int i = 0; i < distinctValues.Rows.Count; i++)
                 {
-                        GridBand gridBand = new GridBand();
-                        BandedGridColumn column_Band = new BandedGridColumn();
+                    GridBand gridBand = new GridBand();
+                    BandedGridColumn column_Band = new BandedGridColumn();
 
-                       // gvwBase.Columns[i].Caption = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(gvwBase.Columns[i].GetCaption().Replace("-", " ").Replace("'", " ").ToLower()).Split(',')[0];
+                    // gvwBase.Columns[i].Caption = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(gvwBase.Columns[i].GetCaption().Replace("-", " ").Replace("'", " ").ToLower()).Split(',')[0];
 
-                        gridBand.Caption = distinctValues.Rows[i]["MON"].ToString();
-                        gridBand.Name = string.Concat("MON", i);
-                        gridBand.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-                        gridBand.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                    gridBand.Caption = distinctValues.Rows[i]["MON"].ToString();
+                    gridBand.Name = string.Concat("MON", i);
+                    gridBand.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+                    gridBand.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 
-                        gridBand.VisibleIndex = i;
+                    gridBand.VisibleIndex = i;
 
-                        column_Band.Caption = distinctValues.Rows[i]["MON"].ToString();
-                        column_Band.FieldName = distinctValues.Rows[i]["YMD"].ToString();
-                        column_Band.Name = distinctValues.Rows[i]["MON"].ToString();
-                        column_Band.Visible = true;
-                        column_Band.Width = 120;
+                    column_Band.Caption = distinctValues.Rows[i]["MON"].ToString();
+                    column_Band.FieldName = distinctValues.Rows[i]["YMD"].ToString();
+                    column_Band.Name = distinctValues.Rows[i]["MON"].ToString();
+                    column_Band.Visible = true;
+                    column_Band.Width = 120;
 
-                        gridBand.Columns.Add(column_Band);
-                        gvwBase.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] { column_Band });
-                        gvwBase.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] { gridBand });
-                        gridBand.AppearanceHeader.TextOptions.WordWrap = WordWrap.Wrap;
+                    gridBand.Columns.Add(column_Band);
+                    gvwBase.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] { column_Band });
+                    gvwBase.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] { gridBand });
+                    gridBand.AppearanceHeader.TextOptions.WordWrap = WordWrap.Wrap;
+                    if (gridBand.ToString().ToUpper() == "TOTAL")
+                    {
+                        gridBand.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+                    }
                 }
 
             }
@@ -297,57 +653,19 @@ namespace FORM
             catch (Exception ex) { return null; }
         }
 
-        //===================load com bo ===============
+        #endregion ========= [Method] ==========================================
 
-        private void GET_COMBO_DATA(string type, string plant)
-        {
-            if (type == "CPLANT")
-            {
-                DataTable dt = LOAD_COMBO_V2(type, "","");
-                cbo_Plant.DataSource = dt;
-                cbo_Plant.DisplayMember = "NAME";
-                cbo_Plant.ValueMember = "CODE";
-                cbo_Plant.SelectedIndex = 0;
-            }
-            if (type == "CLINE")
-            {
-                plant = cbo_Plant.SelectedValue.ToString();
-                DataTable dt = LOAD_COMBO_V2(type, plant,"");
-
-                cbo_line.DataSource = dt;
-                cbo_line.DisplayMember = "NAME";
-                cbo_line.ValueMember = "CODE";
-                cbo_line.SelectedIndex = 0;
-            }
-            if (type == "DATE")
-            {
-                DataTable dt = LOAD_COMBO_V2(type, "", "");
-                _CurrentDay = dt.Rows[0]["CURRENTDAY"].ToString();
-                dtpDateT.EditValue = dt.Rows[0]["TODAY"];
-                dtpDateF.EditValue = dt.Rows[0]["PREV_DAY"];
-
-            }
-
-        }       
-
-        private void LoadForm()
-        {
-
-            GET_COMBO_DATA("CPLANT", "");
-            GET_COMBO_DATA("DATE", "");
-        }
-
-        #region DB
+        #region ========= [Procedure Call] ===========================================
         private DataSet Data_Select(string argType, string plant, string line)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
 
             MyOraDB.ReDim_Parameter(7);
-            MyOraDB.Process_Name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_INTERNAL_OSD";//
+            MyOraDB.Process_Name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_INTERNAL_OSD";//
 
             MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-            MyOraDB.Parameter_Name[1] = "V_P_DATEF";
-            MyOraDB.Parameter_Name[2] = "V_P_DATET";
+            MyOraDB.Parameter_Name[1] = "V_P_DATE_FR";
+            MyOraDB.Parameter_Name[2] = "V_P_DATE_TO";
             MyOraDB.Parameter_Name[3] = "V_P_PLANT";
             MyOraDB.Parameter_Name[4] = "V_P_LINE";
             MyOraDB.Parameter_Name[5] = "OUT_CURSOR";
@@ -376,351 +694,7 @@ namespace FORM
             return retDS;
         }
 
+        #endregion ========= [Procedure Call] ===========================================
 
-        public DataTable LOAD_COMBO_V2(string type, string plant, string line)
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-            DataSet ds_ret;
-
-            try
-            {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_SET_COMBO";
-
-                MyOraDB.ReDim_Parameter(4);
-                MyOraDB.Process_Name = process_name;
-
-                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-                MyOraDB.Parameter_Name[1] = "V_P_PLANT";
-                MyOraDB.Parameter_Name[2] = "V_P_LINE";
-                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
-
-                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
-
-                MyOraDB.Parameter_Values[0] = type;
-                MyOraDB.Parameter_Values[1] = plant;
-                MyOraDB.Parameter_Values[2] = line;
-                MyOraDB.Parameter_Values[3] = "";
-
-                MyOraDB.Add_Select_Parameter(true);
-                ds_ret = MyOraDB.Exe_Select_Procedure();
-
-                if (ds_ret == null) return null;
-                return ds_ret.Tables[process_name];
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        #endregion DB
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
-            _time++;
-            if(_time >=30)
-            {
-                _time = 0;             
-                SetData(_strType,_plant, _line, false);
-            }
-            
-        }
-
-        private void cmdBack_Click(object sender, EventArgs e)
-        {
-            ComVar.Var.callForm = "back";
-        } 
-
-        private void lblDate_DoubleClick(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }        
-
-
-        private void rdByDay_CheckedChanged(object sender, EventArgs e)
-        {
-                pnBody2.Visible = true;
-                pnBody1.Visible = false;
-                cmdDay.Visible = false;
-                cmdWeek.Visible = false;
-                btn_Search.Visible = false;
-        }
-
-       
-
-     
-        private void cbo_Plant_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cbo_Plant.SelectedValue.ToString() != null)
-                    GET_COMBO_DATA("CLINE", cbo_Plant.SelectedValue.ToString());
-                else
-                    return;
-
-            }
-            catch { }
-        }
-
-        private void SMT_QUALITY_COCKPIT_INTERNAL_OSD_VisibleChanged(object sender, EventArgs e)
-        {
-            if (Visible)
-            {
-                _time = 0;
-                _strType = "Q";
-
-                cbo_Plant.SelectedValue = ComVar.Var._strValue1;
-                cbo_line.SelectedValue = ComVar.Var._strValue2;
-
-                _plant = cbo_Plant.SelectedValue.ToString(); //
-                _line = cbo_line.SelectedValue.ToString(); //  
-
-                timer1.Start();
-                SetData(_strType, _plant, _line, false);
-
-            }
-            else
-            {
-                timer1.Stop();
-                Dispose();
-            }
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {        
-            SetData(_strType, _plant, _line,false);
-            
-
-        }
-
-        private void gvwBase_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
-        {
-          
-            try
-            {
-                if (e.Column.AbsoluteIndex > 0)
-                {
-                    if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("REPLENISHMENT RATE (%)") ||
-                        gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
-                    {
-                        if (e.CellValue == DBNull.Value) return;
-                        e.DisplayText = double.Parse(e.CellValue.ToString()).ToString("0.0#");
-                    }
-
-                    if (gvwBase.Columns[e.Column.FieldName].OwnerBand.Caption == _CurrentDay)
-                    {
-                        //return;
-                        Rectangle rect = e.Bounds;
-                        rect.Inflate(new Size(1, 1));
-
-                        Brush brush = new SolidBrush(e.Appearance.BackColor);
-                        e.Graphics.FillRectangle(brush, rect);
-                        Pen pen_horizental = new Pen(Color.Blue, 3F);
-                        Pen pen_vertical = new Pen(Color.Blue, 4F);
-
-                        ////draw bottom
-                        //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
-                        //// draw top
-                        //e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
-
-                        //if (e.RowHandle == 0)
-                        //{
-                        //    e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
-                        //}
-                        //else 
-                        if (e.RowHandle == gvwBase.RowCount - 1)
-                        {
-                            e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y + rect.Height - 1, rect.X + rect.Width, rect.Y + rect.Height - 1);
-                        }
-                        // draw right
-                        e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
-
-
-                        // draw left
-                        e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X, rect.Y + rect.Height);
-
-                        string[] ls = e.DisplayText.Split('\n');
-
-                        e.Graphics.DrawString(ls[0], e.Appearance.Font, new SolidBrush(e.Appearance.ForeColor), rect, e.Appearance.GetStringFormat());
-
-                        e.Handled = true;
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
-           
-        }
-
-        private void gvwBase_RowCellStyle(object sender, RowCellStyleEventArgs e)
-        {
-            if (e.CellValue == DBNull.Value) return;
-            if (e.Column.AbsoluteIndex > 0)
-            {
-                if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
-                {
-                    double rate = double.Parse(e.CellValue.ToString());
-                    if (rate <= 0.04)
-                    {
-                        e.Appearance.BackColor = Color.Green;
-                        e.Appearance.ForeColor = Color.White;
-
-                    }
-
-                    else if (rate > 0.05)
-                    {
-                        e.Appearance.ForeColor = Color.White;
-                        e.Appearance.BackColor = Color.Red;
-                    }
-                    else                  
-                       
-                        e.Appearance.BackColor = Color.Yellow;
-
-                }
-                if (e.Column.FieldName.ToUpper().Contains("TOTAL") && e.RowHandle != gvwBase.RowCount - 1)
-                {
-                    e.Appearance.ForeColor = Color.Blue;
-                }
-            }
-          
-        }
-
-        private void cbo_Plant_SelectedValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cbo_Plant.SelectedValue.ToString() != null)
-                    GET_COMBO_DATA("CLINE", cbo_Plant.SelectedValue.ToString());
-
-                else
-                    return;
-
-            }
-            catch { }
-        }
-
-        private void SMT_QUALITY_COCKPIT_INTERNAL_OSD_Load(object sender, EventArgs e)
-        {
-            LoadForm();
-        }
-
-        private void gvwBase_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        {
-
-            if (e.CellValue == null) return;
-            if (e.Column.AbsoluteIndex < 2) return;
-
-            string strdate = gvwBase.Columns[e.Column.ColumnHandle - 1].FieldName.ToString();
-            string strplant = cbo_Plant.SelectedValue.ToString();
-            string strline = cbo_line.SelectedValue.ToString();
-
-            try
-            {
-                if (e.Column.ColumnHandle > 2)
-                {
-                    if (gvwBase.GetRowCellValue(e.RowHandle, "ITEM").ToString().ToUpper().Equals("OS&D RATE (%)"))
-                    {
-                        double rate = double.Parse(e.CellValue.ToString());
-                        string date = e.Column.FieldName.ToString();
-                        string plant = cbo_Plant.SelectedValue.ToString();
-                        string line = cbo_line.SelectedValue.ToString();
-                        if (rate > 0)
-                        {
-                            using (SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP view1 = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POPUP(date, plant, line))
-                            {
-                                
-                                view1.ShowDialog();
-                            }
-                        }
-                    }
-
-                    else
-                    {
-                        Cursor.Current = Cursors.WaitCursor;
-                        using (SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP view = new SMT_QUALITY_COCKPIT_INTERNAL_OSD_POP(strdate, strplant, strline))
-                        {
-                            view.ShowDialog();
-                        }
-                            
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                Cursor.Current = Cursors.Default;
-            }
-
-
-        }
-
-        private void gvwBase_CustomDrawBandHeader(object sender, BandHeaderCustomDrawEventArgs e)
-        {
-            try
-            {
-                if (e.Band == null) return;
-                bool boBorder = false;
-
-
-                if (e.Band.HasChildren)
-                {
-                    if (e.Band.Children[0].Columns.Count > 0)
-                        if (e.Band.Children[0].Columns[0].Caption == _CurrentDay)
-                        {
-                            boBorder = true;
-
-                        }
-                }
-                else
-                {
-                    if (e.Band.Columns.Count > 0)
-                        if (e.Band.Columns[0].Caption == _CurrentDay)
-                        {
-                            boBorder = true;
-
-                        }
-                }
-
-                if (boBorder)
-                {
-                    Rectangle rect = e.Bounds;
-                    rect.Inflate(new Size(1, 1));
-
-                    Brush brush = new SolidBrush(Color.DodgerBlue);
-                    e.Graphics.FillRectangle(brush, rect);
-                    Pen pen_horizental = new Pen(Color.Blue, 3F);
-                    Pen pen_vertical = new Pen(Color.Blue, 4F);
-
-
-                    // e.Graphics.DrawLine(pen_horizental, rect.X, rect.Y, rect.X + rect.Width, rect.Y);
-                    // draw right
-                    // e.Graphics.DrawLine(pen_vertical, rect.X + rect.Width - 2, rect.Y, rect.X + rect.Width - 2, rect.Y + rect.Height);
-
-
-                    // draw left
-                    //  e.Graphics.DrawLine(pen_horizental, rect.X + 1, rect.Y, rect.X + 1, rect.Y + rect.Height);
-
-
-                    e.Graphics.DrawString(_CurrentDay, e.Appearance.Font, new SolidBrush(Color.White), rect, e.Appearance.GetStringFormat());
-                    e.Handled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-
-            }
-        }
     }
 }
