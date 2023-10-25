@@ -162,6 +162,9 @@
             xyDiagram1.AxisY.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.WholeRange.Auto = false;
+            xyDiagram1.AxisY.WholeRange.MaxValueSerializable = "10";
+            xyDiagram1.AxisY.WholeRange.MinValueSerializable = "0";
             secondaryAxisY1.AxisID = 0;
             secondaryAxisY1.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             secondaryAxisY1.Name = "Secondary AxisY 1";
@@ -1060,7 +1063,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 40);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Rate > 2";
+            this.label7.Text = "Rate > 0.05";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -1069,11 +1072,11 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(1577, 5);
+            this.label6.Location = new System.Drawing.Point(1509, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 40);
+            this.label6.Size = new System.Drawing.Size(229, 40);
             this.label6.TabIndex = 8;
-            this.label6.Text = "1 > Rate <= 2";
+            this.label6.Text = "0.04 > Rate <= 0.05";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -1082,11 +1085,11 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1438, 5);
+            this.label5.Location = new System.Drawing.Point(1370, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 40);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Rate <= 1";
+            this.label5.Text = "Rate <= 0.04";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SMT_QUALITY_COCKPIT_INTERNAL_OSD
