@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -86,7 +85,7 @@
             this.pnBody2 = new System.Windows.Forms.Panel();
             this.cmdExportDetail = new System.Windows.Forms.Button();
             this.cmdExportIssue = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdBase = new DevExpress.XtraGrid.GridControl();
@@ -164,6 +163,8 @@
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.GridLines.Visible = false;
             xyDiagram1.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            xyDiagram1.AxisY.Label.TextPattern = "{V:#,#}";
+            xyDiagram1.AxisY.NumericScaleOptions.AutoGrid = false;
             xyDiagram1.AxisY.Tickmarks.MinorVisible = false;
             xyDiagram1.AxisY.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             xyDiagram1.AxisY.Title.Text = "OS&D Quatity (Pairs)";
@@ -1074,7 +1075,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 41);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Rate > 2";
+            this.label7.Text = "Rate > 0.05";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -1083,11 +1084,11 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(1589, 7);
+            this.label6.Location = new System.Drawing.Point(1528, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 41);
+            this.label6.Size = new System.Drawing.Size(222, 41);
             this.label6.TabIndex = 8;
-            this.label6.Text = "1 < Rate <= 2";
+            this.label6.Text = "0.04 < Rate <= 0.05";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -1096,11 +1097,11 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1452, 7);
+            this.label5.Location = new System.Drawing.Point(1385, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 41);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Rate <= 1";
+            this.label5.Text = "Rate <= 0.04";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SMT_QUALITY_COCKPIT_INTERNAL_OSD

@@ -206,14 +206,14 @@ namespace FORM
                 if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
                 {
                     double rate = double.Parse(e.CellValue.ToString());
-                    if (rate <= 1)
+                    if (rate <= 0.04)
                     {
                         e.Appearance.BackColor = Color.Green;
                         e.Appearance.ForeColor = Color.White;
 
                     }
 
-                    else if (rate > 2)
+                    else if (rate > 0.05)
                     {
                         e.Appearance.ForeColor = Color.White;
                         e.Appearance.BackColor = Color.Red;
@@ -471,17 +471,17 @@ namespace FORM
                 double rate;
                 double.TryParse(argData.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 2)
+                if (rate > 0.05)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.Red;
                 }
-                else if (rate > 1)
+                else if (rate <= 0.04)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
+                    chartControl1.Series[0].Points[i].Color = Color.Green;
                 }
                 else
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
                 }
             }
         }
