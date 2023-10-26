@@ -110,11 +110,7 @@ namespace FORM
         {
             if (grdView.Columns.Count > 0)
             {
-                grdView.LeftCoord = (int)(
-                          (grdView.Columns.Count)
-                          *
-                          (120.0 + (1.0 * hScrollBar1.LargeChange / hScrollBar1.Maximum)) * hScrollBar1.Value / hScrollBar1.Maximum
-                         );
+                grdView.LeftCoord = (int)( (grdView.Columns.Count) * (120.0 + (1.0 * hScrollBar1.LargeChange / hScrollBar1.Maximum)) * hScrollBar1.Value / hScrollBar1.Maximum );
             }
         }
         private void grdView_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
@@ -133,17 +129,17 @@ namespace FORM
                     }
                     if (e.CellValue.ToString().Contains("RED"))
                     {
-                        e.Appearance.BackColor = Color.Red;
+                        e.Appearance.BackColor = Color.FromArgb(250,55,30);
                         e.Appearance.ForeColor = Color.White;
                     }
                     if (e.CellValue.ToString().Contains("YELLOW"))
                     {
-                        e.Appearance.BackColor = Color.Yellow;
-                        e.Appearance.ForeColor = Color.Black;
+                        e.Appearance.BackColor = Color.FromArgb(255,180,15);
+                        e.Appearance.ForeColor = Color.White;
                     }
                     if (e.CellValue.ToString().Contains("GREEN"))
                     {
-                        e.Appearance.BackColor = Color.Green;
+                        e.Appearance.BackColor = Color.FromArgb(20,200,110);
                         e.Appearance.ForeColor = Color.White;
                     }
                     if (e.CellValue.ToString().Contains("BLUE"))
@@ -160,16 +156,16 @@ namespace FORM
                     //    switch (ValueCell)
                     //{
                     //    case "Y":
-                    //        e.Appearance.BackColor = Color.Yellow;
-                    //        e.Appearance.ForeColor = Color.Yellow;
+                    //        e.Appearance.BackColor = Color.FromArgb(255,180,15);
+                    //        e.Appearance.ForeColor = Color.FromArgb(255,180,15);
                     //        break;
                     //    case "G":
-                    //        e.Appearance.BackColor = Color.Green;
-                    //        e.Appearance.ForeColor = Color.Green;
+                    //        e.Appearance.BackColor = Color.FromArgb(20,200,110);
+                    //        e.Appearance.ForeColor = Color.FromArgb(20,200,110);
                     //        break;
                     //    case "R":
-                    //        e.Appearance.BackColor = Color.Red;
-                    //        e.Appearance.ForeColor = Color.Red;
+                    //        e.Appearance.BackColor = Color.FromArgb(250,55,30);
+                    //        e.Appearance.ForeColor = Color.FromArgb(250,55,30);
                     //        break;
                     //    case "S":
                     //        e.Appearance.BackColor = Color.SkyBlue;

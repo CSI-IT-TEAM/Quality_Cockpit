@@ -251,7 +251,7 @@ namespace FORM
                 //}
                 //else
                 //{
-                chartControl1.Series[0].Points[i].Color = Color.Green;
+                chartControl1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                 //}
             }
         }
@@ -328,9 +328,6 @@ namespace FORM
                     lblTotalRework.Text = Convert.ToDouble(_dtLabel.Rows[0]["REW_QTY"].ToString()).ToString("###,##0.##") + " Pairs";
                     lblTotalProd.Text = Convert.ToDouble(_dtLabel.Rows[0]["PROD_QY"].ToString()).ToString("###,##0.##") + " Pairs";
                     lblTotalRate.Text = _dtLabel.Rows[0]["RATE"].ToString() + " %";
-
-
-
 
                 }
 

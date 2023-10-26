@@ -191,22 +191,21 @@ namespace FORM
             {
                 if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("RATE"))
                 {
+                    e.Appearance.ForeColor = Color.White;
                     double rate = double.Parse(e.CellValue.ToString());
                     if (rate <= 1)
                     {
-                        e.Appearance.BackColor = Color.Green;
-                        e.Appearance.ForeColor = Color.White;
+                        e.Appearance.BackColor = Color.FromArgb(20,200,110);                        
                     }
                     else if (rate > 2)
                     {
-                        e.Appearance.BackColor = Color.Red;
-                        e.Appearance.ForeColor = Color.White;
+                        e.Appearance.BackColor = Color.FromArgb(250,55,30);
+                       
                     }
 
                     else
                     {
-                        e.Appearance.BackColor = Color.Yellow;
-                        e.Appearance.ForeColor = Color.Black;
+                        e.Appearance.BackColor = Color.FromArgb(255,180,15);                        
                     }
                 }
                 if (e.Column.FieldName.ToUpper().Contains("TOTAL") && e.RowHandle != gvwBase.RowCount - 1)
@@ -243,15 +242,15 @@ namespace FORM
 
             if (val > 17)
             {
-                drawOptions.Color = Color.Red;                
+                drawOptions.Color = Color.FromArgb(250,55,30);                
             }
             else if (val > 2)
             {
-                drawOptions.Color = Color.Yellow;
+                drawOptions.Color = Color.FromArgb(255,180,15);
             }
             else
             {
-                drawOptions.Color = Color.Green;
+                drawOptions.Color = Color.FromArgb(20,200,110);
             }
             drawOptions.FillStyle.FillMode = FillMode.Solid;
             */
@@ -486,15 +485,15 @@ namespace FORM
 
                 if (rate > 2)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Red;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                 }
                 else if (rate > 1)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
                 }
                 else 
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                 }
             }
         }

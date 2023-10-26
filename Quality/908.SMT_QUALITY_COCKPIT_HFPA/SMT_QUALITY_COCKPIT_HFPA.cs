@@ -391,15 +391,15 @@ namespace FORM
                 chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["QTY"]));
                 if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) >= 98)
                 {
-                    chart1.Series[0].Points[i].Color = Color.LimeGreen;
+                    chart1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                 }
                 else if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) < 97)
                 {
-                    chart1.Series[0].Points[i].Color = Color.Red;
+                    chart1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                 }
                 else
                 {
-                    chart1.Series[0].Points[i].Color = Color.Yellow;
+                    chart1.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
                 }
             }
             chart1.RuntimeHitTesting = true;
@@ -419,11 +419,11 @@ namespace FORM
                 chartControl2.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["DEFECT_RATE"]));
                 if (i >= 5)
                 {
-                    chartControl2.Series[0].Points[i].Color = Color.Red;
+                    chartControl2.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                 }
                 else
                 {
-                    chartControl2.Series[0].Points[i].Color = Color.Green;
+                    chartControl2.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                 }
             }
         }

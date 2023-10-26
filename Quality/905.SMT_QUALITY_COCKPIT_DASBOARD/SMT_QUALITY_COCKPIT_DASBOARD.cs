@@ -394,11 +394,11 @@ namespace FORM
 
                     chtNewColor.Series[0].Points.Add(new SeriesPoint(lable, value));
                     if (value >= green)
-                        chtNewColor.Series[0].Points[i].Color = Color.Green;
+                        chtNewColor.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                     else if (value >= yellow)
-                        chtNewColor.Series[0].Points[i].Color = Color.Yellow;
+                        chtNewColor.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
                     else
-                        chtNewColor.Series[0].Points[i].Color = Color.Red;
+                        chtNewColor.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                 }
             }
             catch (Exception ex)

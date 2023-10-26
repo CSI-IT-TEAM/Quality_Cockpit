@@ -206,21 +206,18 @@ namespace FORM
                 if (gvwBase.GetRowCellValue(e.RowHandle, gvwBase.Columns["ITEM"]).ToString().ToUpper().Contains("OS&D RATE (%)"))
                 {
                     double rate = double.Parse(e.CellValue.ToString());
-                    if (rate <= 0.04)
+                    e.Appearance.ForeColor = Color.White;
+                    if (rate <= 0.3)
                     {
-                        e.Appearance.BackColor = Color.Green;
-                        e.Appearance.ForeColor = Color.White;
-
+                        e.Appearance.BackColor = Color.FromArgb(20,200,110);   
                     }
 
-                    else if (rate > 0.05)
-                    {
-                        e.Appearance.ForeColor = Color.White;
-                        e.Appearance.BackColor = Color.Red;
+                    else if (rate > 0.4)
+                    {                       
+                        e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
                     }
                     else
-
-                        e.Appearance.BackColor = Color.Yellow;
+                        e.Appearance.BackColor = Color.FromArgb(255, 180, 15);
 
                 }
                 if (e.Column.FieldName.ToUpper().Contains("TOTAL") && e.RowHandle != gvwBase.RowCount - 1)
@@ -471,17 +468,17 @@ namespace FORM
                 double rate;
                 double.TryParse(argData.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 0.05)
+                if (rate > 0.4)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Red;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                 }
-                else if (rate <= 0.04)
+                else if (rate <= 0.3)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                 }
                 else
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
                 }
             }
         }
