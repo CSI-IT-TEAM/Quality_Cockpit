@@ -184,8 +184,8 @@ namespace FORM
                             }
                             else
                             {
-                                _cht.Series[0].View.Color = Color.Red;
-                                _cht.Series[0].Points[i].Color = Color.Red;
+                                _cht.Series[0].View.Color = Color.FromArgb(250,55,30);
+                                _cht.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                             }
                         }
 
@@ -374,7 +374,7 @@ namespace FORM
                     }
                     else
                     {
-                        c = Color.Red;
+                        c = Color.FromArgb(250,55,30);
                     }
                     if (!progressBarColor.ContainsKey(c))
                         progressBarColor.Add(c, CreateProgressBar(c));
@@ -573,7 +573,7 @@ namespace FORM
                     {
                         lblHumi.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
                         if (iHumidity > 70)
-                            lblHumi.ForeColor = Color.Red;
+                            lblHumi.ForeColor = Color.FromArgb(250,55,30);
                         else
                             lblHumi.ForeColor = Color.Lime;
                     }
@@ -581,7 +581,7 @@ namespace FORM
                     {
                         lblHumiLT.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
                         if (iHumidity > 70)
-                            lblHumiLT.ForeColor = Color.Red;
+                            lblHumiLT.ForeColor = Color.FromArgb(250,55,30);
                         else
                             lblHumiLT.ForeColor = Color.Lime;
                     }
@@ -614,8 +614,8 @@ namespace FORM
                                 if (btn.EndColor == Color.Lime && btn.FlatBorderColor == Color.LimeGreen && btn.StartColor == Color.LimeGreen)
                                 {
                                     btn.EndColor = Color.FromArgb(255, 102, 0);
-                                    btn.FlatBorderColor = Color.Red;
-                                    btn.StartColor = Color.Red;
+                                    btn.FlatBorderColor = Color.FromArgb(250,55,30);
+                                    btn.StartColor = Color.FromArgb(250,55,30);
                                 }
                                 else
                                 {
