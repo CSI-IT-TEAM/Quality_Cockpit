@@ -199,7 +199,7 @@
             series1.Label = sideBySideBarSeriesLabel1;
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series1.Name = "Rework";
-            sideBySideBarSeriesView1.Color = System.Drawing.Color.Green;
+            sideBySideBarSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
             sideBySideBarSeriesView1.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
             series1.View = sideBySideBarSeriesView1;
             pointSeriesLabel1.Font = new System.Drawing.Font("Calibri", 14F);
@@ -248,7 +248,7 @@
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnControl.Location = new System.Drawing.Point(0, 100);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(1920, 55);
+            this.pnControl.Size = new System.Drawing.Size(1920, 97);
             this.pnControl.TabIndex = 2;
             // 
             // lblTotalProd
@@ -325,7 +325,7 @@
             // 
             // label7
             // 
-            this.label7.BackColor = System.Drawing.Color.Red;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(55)))), ((int)(((byte)(30)))));
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
@@ -333,23 +333,21 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 39);
             this.label7.TabIndex = 421;
-            this.label7.Text = "Rate >= 5%";
+            this.label7.Text = "Rate >= 15%";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label7.Visible = false;
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Yellow;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(15)))));
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1561, 53);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(1554, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 39);
+            this.label1.Size = new System.Drawing.Size(203, 39);
             this.label1.TabIndex = 420;
-            this.label1.Text = "4% > Rate <= 4.9%";
+            this.label1.Text = "9.1% > Rate < 15%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Visible = false;
             // 
             // dtpYMD
             // 
@@ -435,17 +433,16 @@
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.Color.Green;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1383, 53);
+            this.label5.Location = new System.Drawing.Point(1375, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 39);
             this.label5.TabIndex = 419;
-            this.label5.Text = "Rate <= 3.9%";
+            this.label5.Text = "Rate <= 9%";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Visible = false;
             // 
             // dtpYMDT
             // 
@@ -785,9 +782,9 @@
             this.pnBody1.Controls.Add(this.tableLayoutPanel1);
             this.pnBody1.Controls.Add(this.pnExport);
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody1.Location = new System.Drawing.Point(0, 155);
+            this.pnBody1.Location = new System.Drawing.Point(0, 197);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1920, 901);
+            this.pnBody1.Size = new System.Drawing.Size(1920, 859);
             this.pnBody1.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -803,7 +800,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1920, 404);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1920, 362);
             this.tableLayoutPanel1.TabIndex = 78;
             // 
             // panel1
@@ -812,7 +809,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 398);
+            this.panel1.Size = new System.Drawing.Size(954, 356);
             this.panel1.TabIndex = 0;
             // 
             // chartControl2
@@ -891,7 +888,7 @@
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series3,
         series4};
-            this.chartControl2.Size = new System.Drawing.Size(954, 398);
+            this.chartControl2.Size = new System.Drawing.Size(954, 356);
             this.chartControl2.TabIndex = 13;
             chartTitle2.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             chartTitle2.Text = "Top 5 Plant";
@@ -905,7 +902,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(963, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(954, 398);
+            this.panel2.Size = new System.Drawing.Size(954, 356);
             this.panel2.TabIndex = 1;
             // 
             // chartControl3
@@ -934,7 +931,7 @@
             series5.View = pieSeriesView1;
             this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series5};
-            this.chartControl3.Size = new System.Drawing.Size(954, 398);
+            this.chartControl3.Size = new System.Drawing.Size(954, 356);
             this.chartControl3.TabIndex = 3;
             chartTitle3.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             chartTitle3.Text = "Rework by Reason";

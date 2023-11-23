@@ -232,7 +232,18 @@ namespace FORM
                 if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["DIV"]).ToString().ToUpper().Contains("RATE"))
                 {
                     double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
-                    e.Appearance.BackColor = Color.Green;
+                    if (temp >= 15)
+                    {
+                        e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
+                    }
+                    else if (temp <= 9)
+                    {
+                        e.Appearance.BackColor = Color.FromArgb(20, 200, 110);
+                    }
+                    else
+                    {
+                        e.Appearance.BackColor = Color.FromArgb(255, 180, 15);
+                    }
                     e.Appearance.ForeColor = Color.White;
                 }
                 if (e.Column.FieldName.Contains("00000000") && e.RowHandle != gvwView.RowCount - 1)
@@ -357,18 +368,18 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                //if (rate >= 5)
-                //{
-                //    chartControl1.Series[0].Points[i].Color = Color.Red;
-                //}
-                //else if (rate >= 4 && rate < 5)
-                //{
-                //    chartControl1.Series[0].Points[i].Color = Color.Yellow;
-                //}
-                //else
-                //{
-                chartControl1.Series[0].Points[i].Color = Color.Green;
-                //}
+                if (rate >= 15)
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
+                }
+                else if (rate >= 9.1 && rate < 15)
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
+                }
+                else
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
+                }
             }
         }
 

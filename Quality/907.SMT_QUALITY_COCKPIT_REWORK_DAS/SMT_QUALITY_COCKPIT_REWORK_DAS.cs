@@ -241,18 +241,18 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                //if (rate >= 5)
-                //{
-                //    chartControl1.Series[0].Points[i].Color = Color.Red;
-                //}
-                //else if (rate >= 4 && rate < 5)
-                //{
-                //    chartControl1.Series[0].Points[i].Color = Color.Yellow;
-                //}
-                //else
-                //{
-                chartControl1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
-                //}
+                if (rate >= 15)
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
+                }
+                else if (rate > 9 && rate < 15)
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
+                }
+                else
+                {
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+                }
             }
         }
 
