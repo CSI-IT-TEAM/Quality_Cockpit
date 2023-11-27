@@ -981,7 +981,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 41);
             this.label8.TabIndex = 424;
-            this.label8.Text = "Rate > 2%";
+            this.label8.Text = "Rate > 5%";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -994,7 +994,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(181, 41);
             this.label9.TabIndex = 423;
-            this.label9.Text = "1% < Rate <=2%";
+            this.label9.Text = "3% < Rate <=5%";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -1007,7 +1007,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(137, 41);
             this.label10.TabIndex = 422;
-            this.label10.Text = "Rate <= 1%";
+            this.label10.Text = "Rate <= 3%";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SMT_QUALITY_COCKPIT_BONDING

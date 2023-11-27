@@ -333,7 +333,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 39);
             this.label7.TabIndex = 421;
-            this.label7.Text = "Rate >= 15%";
+            this.label7.Text = "Rate >= 12%";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -346,7 +346,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(203, 39);
             this.label1.TabIndex = 420;
-            this.label1.Text = "9.1% > Rate < 15%";
+            this.label1.Text = "9.1% > Rate < 12%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtpYMD

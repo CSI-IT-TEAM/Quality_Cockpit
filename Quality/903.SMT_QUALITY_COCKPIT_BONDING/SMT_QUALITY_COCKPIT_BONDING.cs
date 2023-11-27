@@ -193,14 +193,13 @@ namespace FORM
                 {
                     e.Appearance.ForeColor = Color.White;
                     double rate = double.Parse(e.CellValue.ToString());
-                    if (rate <= 1)
+                    if (rate <= 3)
                     {
                         e.Appearance.BackColor = Color.FromArgb(20,200,110);                        
                     }
-                    else if (rate > 2)
+                    else if (rate > 5)
                     {
                         e.Appearance.BackColor = Color.FromArgb(250,55,30);
-                       
                     }
 
                     else
@@ -483,17 +482,18 @@ namespace FORM
                 double rate;
                 double.TryParse(argData.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate > 2)
+                if (rate > 5)
                 {
                     chartControl1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                 }
-                else if (rate > 1)
+                else if (rate >= 3)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
+                   
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                 }
-                else 
+                else
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
                 }
             }
         }
