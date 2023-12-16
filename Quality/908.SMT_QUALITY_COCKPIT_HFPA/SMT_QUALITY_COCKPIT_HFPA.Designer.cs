@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_HFPA));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -91,7 +92,7 @@
             this.cmdPm1 = new System.Windows.Forms.Button();
             this.pnExport = new System.Windows.Forms.Panel();
             this.chart1 = new DevExpress.XtraCharts.ChartControl();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -304,7 +305,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 41);
             this.label7.TabIndex = 421;
-            this.label7.Text = "Rate < 97%";
+            this.label7.Text = "Rate < 80%";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -315,9 +316,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(1543, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 41);
+            this.label1.Size = new System.Drawing.Size(218, 41);
             this.label1.TabIndex = 420;
-            this.label1.Text = "97% <= Rate < 98%";
+            this.label1.Text = "80% <= Rate <= 90%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -338,11 +339,11 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1750, 7);
+            this.label5.Location = new System.Drawing.Point(1762, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 41);
             this.label5.TabIndex = 419;
-            this.label5.Text = "Rate >= 98%";
+            this.label5.Text = "Rate > 90%";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSearch

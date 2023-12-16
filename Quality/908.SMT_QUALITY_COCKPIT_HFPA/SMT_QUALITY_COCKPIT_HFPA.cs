@@ -389,11 +389,11 @@ namespace FORM
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
                 chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["QTY"]));
-                if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) >= 98)
+                if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) > 90)
                 {
                     chart1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                 }
-                else if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) < 97)
+                else if (Convert.ToDouble(argDtChart.Rows[i]["QTY"]) < 80)
                 {
                     chart1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                 }
