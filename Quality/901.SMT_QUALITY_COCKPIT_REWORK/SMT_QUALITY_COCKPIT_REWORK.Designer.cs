@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -76,7 +75,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
             this.pnExport = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdView = new DevExpress.XtraGrid.GridControl();
@@ -632,11 +631,11 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1548, 1);
+            this.label1.Location = new System.Drawing.Point(1537, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 39);
+            this.label1.Size = new System.Drawing.Size(215, 39);
             this.label1.TabIndex = 420;
-            this.label1.Text = "9.1% > Rate < 12%";
+            this.label1.Text = "9.1% <= Rate < 12%";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -645,7 +644,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1369, 2);
+            this.label5.Location = new System.Drawing.Point(1359, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 39);
             this.label5.TabIndex = 419;
