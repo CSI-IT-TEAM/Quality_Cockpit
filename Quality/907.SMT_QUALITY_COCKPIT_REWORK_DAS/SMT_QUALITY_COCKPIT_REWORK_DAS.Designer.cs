@@ -28,27 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraCharts.XYDiagram xyDiagram3 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY3 = new DevExpress.XtraCharts.SecondaryAxisY();
-            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel3 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView3 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
-            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel2 = new DevExpress.XtraCharts.PointSeriesLabel();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_REWORK_DAS));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraCharts.XYDiagram xyDiagram10 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY10 = new DevExpress.XtraCharts.SecondaryAxisY();
+            DevExpress.XtraCharts.Series series22 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel10 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView10 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraCharts.Series series23 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel7 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView10 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle13 = new DevExpress.XtraCharts.ChartTitle();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_REWORK_DAS));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -58,19 +49,39 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraCharts.XYDiagram xyDiagram4 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY4 = new DevExpress.XtraCharts.SecondaryAxisY();
-            DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel4 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView4 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
-            DevExpress.XtraCharts.Series series9 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView4 = new DevExpress.XtraCharts.LineSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle5 = new DevExpress.XtraCharts.ChartTitle();
-            DevExpress.XtraCharts.SimpleDiagram simpleDiagram2 = new DevExpress.XtraCharts.SimpleDiagram();
-            DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel2 = new DevExpress.XtraCharts.PieSeriesLabel();
-            DevExpress.XtraCharts.PieSeriesView pieSeriesView2 = new DevExpress.XtraCharts.PieSeriesView();
-            DevExpress.XtraCharts.ChartTitle chartTitle6 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraCharts.XYDiagram xyDiagram11 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY11 = new DevExpress.XtraCharts.SecondaryAxisY();
+            DevExpress.XtraCharts.Series series24 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel11 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView11 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraCharts.Series series25 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView11 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle14 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.SimpleDiagram simpleDiagram4 = new DevExpress.XtraCharts.SimpleDiagram();
+            DevExpress.XtraCharts.Series series26 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PieSeriesLabel pieSeriesLabel4 = new DevExpress.XtraCharts.PieSeriesLabel();
+            DevExpress.XtraCharts.PieSeriesView pieSeriesView4 = new DevExpress.XtraCharts.PieSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle15 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram12 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY12 = new DevExpress.XtraCharts.SecondaryAxisY();
+            DevExpress.XtraCharts.Series series27 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel12 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView12 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraCharts.Series series28 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel8 = new DevExpress.XtraCharts.PointSeriesLabel();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView12 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle16 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.pnControl = new System.Windows.Forms.Panel();
             this.lblTotalProd = new System.Windows.Forms.Label();
@@ -90,7 +101,7 @@
             this.cboPlant = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPlant = new System.Windows.Forms.Label();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pn_UC = new OS_DSF.A1Panel();
             this.btnYear = new DevExpress.XtraEditors.SimpleButton();
@@ -101,7 +112,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
             this.pnExport = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -110,15 +121,50 @@
             this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
             this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::FORM.WaitForm1), true, true);
+            this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.tabPlant = new DevExpress.XtraTab.XtraTabPage();
+            this.pnVinhCuu = new System.Windows.Forms.Panel();
+            this.tabModel = new DevExpress.XtraTab.XtraTabPage();
+            this.pnLT = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.chkAll = new DevExpress.XtraEditors.CheckEdit();
+            this.treeList = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.ID_NAME = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.a1Panel10 = new OS_DSF.A1Panel();
+            this.chart1 = new DevExpress.XtraCharts.ChartControl();
+            this.grdBase = new DevExpress.XtraGrid.GridControl();
+            this.gvwBase = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.LINE_CD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.LINE_NM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.MLINE_CD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.MODEL_CD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.MODEL_NAME = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.STYLE_CD = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.REW_QTY = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.PROD_QY = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.RATE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView10)).BeginInit();
             this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMD.Properties)).BeginInit();
@@ -131,19 +177,46 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView11)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
+            this.tabControl.SuspendLayout();
+            this.tabPlant.SuspendLayout();
+            this.pnVinhCuu.SuspendLayout();
+            this.tabModel.SuspendLayout();
+            this.pnLT.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.a1Panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwBase)).BeginInit();
             this.SuspendLayout();
             // 
             // chartControl1
@@ -151,35 +224,35 @@
             this.chartControl1.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
             this.chartControl1.AppearanceNameSerializable = "Light";
             this.chartControl1.DataBindings = null;
-            xyDiagram3.AxisX.Label.Font = new System.Drawing.Font("Calibri", 14F);
-            xyDiagram3.AxisX.Tickmarks.MinorVisible = false;
-            xyDiagram3.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            xyDiagram3.AxisX.Title.Text = "Plant";
-            xyDiagram3.AxisX.Title.TextColor = System.Drawing.Color.DodgerBlue;
-            xyDiagram3.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram3.AxisY.GridLines.Visible = false;
-            xyDiagram3.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14F);
-            xyDiagram3.AxisY.Label.TextPattern = "{V : #,#}";
-            xyDiagram3.AxisY.Tickmarks.MinorVisible = false;
-            xyDiagram3.AxisY.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            xyDiagram3.AxisY.Title.Text = "Rework Quantity (Pairs)";
-            xyDiagram3.AxisY.Title.TextColor = System.Drawing.Color.Orange;
-            xyDiagram3.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
-            secondaryAxisY3.AxisID = 0;
-            secondaryAxisY3.Label.Font = new System.Drawing.Font("Calibri", 14F);
-            secondaryAxisY3.Name = "Secondary AxisY 1";
-            secondaryAxisY3.Tickmarks.MinorVisible = false;
-            secondaryAxisY3.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            secondaryAxisY3.Title.Text = "Rework Rate (%)";
-            secondaryAxisY3.Title.TextColor = System.Drawing.Color.Orange;
-            secondaryAxisY3.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            secondaryAxisY3.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            secondaryAxisY3.VisibleInPanesSerializable = "-1";
-            xyDiagram3.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
-            secondaryAxisY3});
-            this.chartControl1.Diagram = xyDiagram3;
+            xyDiagram10.AxisX.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            xyDiagram10.AxisX.Tickmarks.MinorVisible = false;
+            xyDiagram10.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            xyDiagram10.AxisX.Title.Text = "Plant";
+            xyDiagram10.AxisX.Title.TextColor = System.Drawing.Color.DodgerBlue;
+            xyDiagram10.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram10.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram10.AxisY.GridLines.Visible = false;
+            xyDiagram10.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            xyDiagram10.AxisY.Label.TextPattern = "{V : #,#}";
+            xyDiagram10.AxisY.Tickmarks.MinorVisible = false;
+            xyDiagram10.AxisY.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            xyDiagram10.AxisY.Title.Text = "Rework Quantity (Pairs)";
+            xyDiagram10.AxisY.Title.TextColor = System.Drawing.Color.Orange;
+            xyDiagram10.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram10.AxisY.VisibleInPanesSerializable = "-1";
+            secondaryAxisY10.AxisID = 0;
+            secondaryAxisY10.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            secondaryAxisY10.Name = "Secondary AxisY 1";
+            secondaryAxisY10.Tickmarks.MinorVisible = false;
+            secondaryAxisY10.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            secondaryAxisY10.Title.Text = "Rework Rate (%)";
+            secondaryAxisY10.Title.TextColor = System.Drawing.Color.Orange;
+            secondaryAxisY10.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            secondaryAxisY10.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            secondaryAxisY10.VisibleInPanesSerializable = "-1";
+            xyDiagram10.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
+            secondaryAxisY10});
+            this.chartControl1.Diagram = xyDiagram10;
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
             this.chartControl1.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
@@ -193,58 +266,58 @@
             this.chartControl1.Name = "chartControl1";
             this.chartControl1.PaletteName = "Marquee";
             this.chartControl1.RuntimeHitTesting = true;
-            sideBySideBarSeriesLabel3.Font = new System.Drawing.Font("Calibri", 14F);
-            sideBySideBarSeriesLabel3.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
-            sideBySideBarSeriesLabel3.TextPattern = "{V : #,#}";
-            series6.Label = sideBySideBarSeriesLabel3;
-            series6.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series6.Name = "Rework";
-            sideBySideBarSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
-            sideBySideBarSeriesView3.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
-            series6.View = sideBySideBarSeriesView3;
-            pointSeriesLabel2.Font = new System.Drawing.Font("Calibri", 14F);
-            pointSeriesLabel2.TextPattern = "{V : #,#.#}";
-            series7.Label = pointSeriesLabel2;
-            series7.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series7.Name = "Rework Rate";
-            lineSeriesView3.AxisYName = "Secondary AxisY 1";
-            lineSeriesView3.Color = System.Drawing.Color.Blue;
-            lineSeriesView3.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            lineSeriesView3.LineMarkerOptions.Size = 9;
-            lineSeriesView3.LineStyle.Thickness = 3;
-            lineSeriesView3.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series7.View = lineSeriesView3;
+            sideBySideBarSeriesLabel10.Font = new System.Drawing.Font("Calibri", 14F);
+            sideBySideBarSeriesLabel10.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
+            sideBySideBarSeriesLabel10.TextPattern = "{V : #,#}";
+            series22.Label = sideBySideBarSeriesLabel10;
+            series22.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series22.Name = "Rework";
+            sideBySideBarSeriesView10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
+            sideBySideBarSeriesView10.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
+            series22.View = sideBySideBarSeriesView10;
+            pointSeriesLabel7.Font = new System.Drawing.Font("Calibri", 14F);
+            pointSeriesLabel7.TextPattern = "{V : #,#.#}";
+            series23.Label = pointSeriesLabel7;
+            series23.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series23.Name = "Rework Rate";
+            lineSeriesView10.AxisYName = "Secondary AxisY 1";
+            lineSeriesView10.Color = System.Drawing.Color.Blue;
+            lineSeriesView10.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            lineSeriesView10.LineMarkerOptions.Size = 9;
+            lineSeriesView10.LineStyle.Thickness = 3;
+            lineSeriesView10.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series23.View = lineSeriesView10;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series6,
-        series7};
-            this.chartControl1.Size = new System.Drawing.Size(1920, 497);
+        series22,
+        series23};
+            this.chartControl1.Size = new System.Drawing.Size(1918, 497);
             this.chartControl1.TabIndex = 12;
-            chartTitle4.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            chartTitle13.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle4});
+            chartTitle13});
             this.chartControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chartControl1_MouseClick);
             // 
             // pnControl
             // 
             this.pnControl.BackColor = System.Drawing.Color.Transparent;
+            this.pnControl.Controls.Add(this.label7);
+            this.pnControl.Controls.Add(this.label1);
+            this.pnControl.Controls.Add(this.label5);
             this.pnControl.Controls.Add(this.lblTotalProd);
             this.pnControl.Controls.Add(this.label8);
             this.pnControl.Controls.Add(this.lblTotalRate);
             this.pnControl.Controls.Add(this.label9);
             this.pnControl.Controls.Add(this.lblTotalRework);
             this.pnControl.Controls.Add(this.label10);
-            this.pnControl.Controls.Add(this.label7);
-            this.pnControl.Controls.Add(this.label1);
             this.pnControl.Controls.Add(this.dtpYMD);
             this.pnControl.Controls.Add(this.label3);
-            this.pnControl.Controls.Add(this.label5);
             this.pnControl.Controls.Add(this.dtpYMDT);
             this.pnControl.Controls.Add(this.btnSearch);
             this.pnControl.Controls.Add(this.cboLine);
             this.pnControl.Controls.Add(this.cboPlant);
             this.pnControl.Controls.Add(this.label4);
             this.pnControl.Controls.Add(this.label6);
-            this.pnControl.Controls.Add(this.label2);
+            this.pnControl.Controls.Add(this.lblPlant);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnControl.Location = new System.Drawing.Point(0, 100);
             this.pnControl.Name = "pnControl";
@@ -257,7 +330,7 @@
             this.lblTotalProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalProd.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalProd.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalProd.Location = new System.Drawing.Point(1189, 7);
+            this.lblTotalProd.Location = new System.Drawing.Point(1437, 6);
             this.lblTotalProd.Name = "lblTotalProd";
             this.lblTotalProd.Size = new System.Drawing.Size(220, 41);
             this.lblTotalProd.TabIndex = 787;
@@ -268,7 +341,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
             this.label8.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(1012, 7);
+            this.label8.Location = new System.Drawing.Point(1260, 6);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(177, 41);
             this.label8.TabIndex = 786;
@@ -281,9 +354,9 @@
             this.lblTotalRate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalRate.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalRate.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalRate.Location = new System.Drawing.Point(1554, 7);
+            this.lblTotalRate.Location = new System.Drawing.Point(1796, 6);
             this.lblTotalRate.Name = "lblTotalRate";
-            this.lblTotalRate.Size = new System.Drawing.Size(220, 41);
+            this.lblTotalRate.Size = new System.Drawing.Size(120, 41);
             this.lblTotalRate.TabIndex = 785;
             this.lblTotalRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -292,7 +365,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
             this.label9.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(1417, 7);
+            this.label9.Location = new System.Drawing.Point(1659, 6);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(137, 41);
             this.label9.TabIndex = 784;
@@ -305,9 +378,9 @@
             this.lblTotalRework.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTotalRework.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.lblTotalRework.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalRework.Location = new System.Drawing.Point(783, 7);
+            this.lblTotalRework.Location = new System.Drawing.Point(1073, 6);
             this.lblTotalRework.Name = "lblTotalRework";
-            this.lblTotalRework.Size = new System.Drawing.Size(220, 41);
+            this.lblTotalRework.Size = new System.Drawing.Size(185, 41);
             this.lblTotalRework.TabIndex = 783;
             this.lblTotalRework.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -316,7 +389,7 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
             this.label10.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(646, 7);
+            this.label10.Location = new System.Drawing.Point(936, 6);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(137, 41);
             this.label10.TabIndex = 782;
@@ -329,7 +402,7 @@
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1758, 53);
+            this.label7.Location = new System.Drawing.Point(1752, 55);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 39);
             this.label7.TabIndex = 421;
@@ -342,7 +415,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1546, 53);
+            this.label1.Location = new System.Drawing.Point(1540, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(212, 39);
             this.label1.TabIndex = 420;
@@ -375,32 +448,32 @@
             this.dtpYMD.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.dtpYMD.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.dtpYMD.Properties.AutoHeight = false;
-            editorButtonImageOptions5.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions5.Image")));
-            serializableAppearanceObject17.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject17.Options.UseFont = true;
-            serializableAppearanceObject18.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject18.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            serializableAppearanceObject18.Options.UseFont = true;
-            serializableAppearanceObject19.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject19.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            serializableAppearanceObject19.Options.UseFont = true;
-            serializableAppearanceObject20.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject20.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            serializableAppearanceObject20.Options.UseFont = true;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject2.Options.UseFont = true;
+            serializableAppearanceObject3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject3.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject4.Options.UseFont = true;
             this.dtpYMD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 50, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 50, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null)});
             this.dtpYMD.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            editorButtonImageOptions6.Location = DevExpress.XtraEditors.ImageLocation.Default;
-            serializableAppearanceObject21.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject21.Options.UseFont = true;
-            serializableAppearanceObject22.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject22.Options.UseFont = true;
-            serializableAppearanceObject23.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject23.Options.UseFont = true;
-            serializableAppearanceObject24.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject24.Options.UseFont = true;
+            editorButtonImageOptions2.Location = DevExpress.XtraEditors.ImageLocation.Default;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject5.Options.UseFont = true;
+            serializableAppearanceObject6.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject6.Options.UseFont = true;
+            serializableAppearanceObject7.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject7.Options.UseFont = true;
+            serializableAppearanceObject8.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject8.Options.UseFont = true;
             this.dtpYMD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", 50, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", 50, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null)});
             this.dtpYMD.Properties.CalendarTimeProperties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.dtpYMD.Properties.CalendarTimeProperties.ReadOnly = true;
             this.dtpYMD.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -437,7 +510,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1369, 53);
+            this.label5.Location = new System.Drawing.Point(1363, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 39);
             this.label5.TabIndex = 419;
@@ -470,32 +543,32 @@
             this.dtpYMDT.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.dtpYMDT.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.dtpYMDT.Properties.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            serializableAppearanceObject1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject1.Options.UseFont = true;
-            serializableAppearanceObject2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            serializableAppearanceObject2.Options.UseFont = true;
-            serializableAppearanceObject3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            serializableAppearanceObject3.Options.UseFont = true;
-            serializableAppearanceObject4.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            serializableAppearanceObject4.Options.UseFont = true;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            serializableAppearanceObject9.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject9.Options.UseFont = true;
+            serializableAppearanceObject10.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject10.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject10.Options.UseFont = true;
+            serializableAppearanceObject11.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject11.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject11.Options.UseFont = true;
+            serializableAppearanceObject12.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject12.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            serializableAppearanceObject12.Options.UseFont = true;
             this.dtpYMDT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 50, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 50, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null)});
             this.dtpYMDT.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            editorButtonImageOptions2.Location = DevExpress.XtraEditors.ImageLocation.Default;
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject6.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject6.Options.UseFont = true;
-            serializableAppearanceObject7.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject7.Options.UseFont = true;
-            serializableAppearanceObject8.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject8.Options.UseFont = true;
+            editorButtonImageOptions4.Location = DevExpress.XtraEditors.ImageLocation.Default;
+            serializableAppearanceObject13.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject13.Options.UseFont = true;
+            serializableAppearanceObject14.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject14.Options.UseFont = true;
+            serializableAppearanceObject15.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject15.Options.UseFont = true;
+            serializableAppearanceObject16.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject16.Options.UseFont = true;
             this.dtpYMDT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", 50, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", 50, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null)});
             this.dtpYMDT.Properties.CalendarTimeProperties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.dtpYMDT.Properties.CalendarTimeProperties.ReadOnly = true;
             this.dtpYMDT.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -535,7 +608,7 @@
             this.cboLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLine.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.cboLine.FormattingEnabled = true;
-            this.cboLine.Location = new System.Drawing.Point(1161, 53);
+            this.cboLine.Location = new System.Drawing.Point(1124, 6);
             this.cboLine.Name = "cboLine";
             this.cboLine.Size = new System.Drawing.Size(205, 41);
             this.cboLine.TabIndex = 21;
@@ -546,18 +619,19 @@
             this.cboPlant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlant.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.cboPlant.FormattingEnabled = true;
-            this.cboPlant.Location = new System.Drawing.Point(811, 53);
+            this.cboPlant.Location = new System.Drawing.Point(778, 6);
             this.cboPlant.Name = "cboPlant";
-            this.cboPlant.Size = new System.Drawing.Size(205, 41);
+            this.cboPlant.Size = new System.Drawing.Size(156, 41);
             this.cboPlant.TabIndex = 21;
             this.cboPlant.Visible = false;
+            this.cboPlant.SelectedIndexChanged += new System.EventHandler(this.cboPlant_SelectedIndexChanged);
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.Black;
-            this.label4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1023, 53);
+            this.label4.Location = new System.Drawing.Point(986, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 40);
             this.label4.TabIndex = 19;
@@ -577,18 +651,18 @@
             this.label6.Text = "Date";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblPlant
             // 
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(673, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 40);
-            this.label2.TabIndex = 19;
-            this.label2.Text = " Plant";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Visible = false;
+            this.lblPlant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.lblPlant.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.lblPlant.ForeColor = System.Drawing.Color.White;
+            this.lblPlant.Location = new System.Drawing.Point(640, 6);
+            this.lblPlant.Name = "lblPlant";
+            this.lblPlant.Size = new System.Drawing.Size(137, 40);
+            this.lblPlant.TabIndex = 19;
+            this.lblPlant.Text = " Plant";
+            this.lblPlant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlant.Visible = false;
             // 
             // pnTop
             // 
@@ -768,7 +842,7 @@
             this.pnExport.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnExport.Location = new System.Drawing.Point(0, 0);
             this.pnExport.Name = "pnExport";
-            this.pnExport.Size = new System.Drawing.Size(1920, 497);
+            this.pnExport.Size = new System.Drawing.Size(1918, 497);
             this.pnExport.TabIndex = 77;
             // 
             // timer1
@@ -782,9 +856,9 @@
             this.pnBody1.Controls.Add(this.tableLayoutPanel1);
             this.pnBody1.Controls.Add(this.pnExport);
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody1.Location = new System.Drawing.Point(0, 197);
+            this.pnBody1.Location = new System.Drawing.Point(0, 0);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1920, 859);
+            this.pnBody1.Size = new System.Drawing.Size(1918, 788);
             this.pnBody1.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -800,7 +874,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1920, 362);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1918, 291);
             this.tableLayoutPanel1.TabIndex = 78;
             // 
             // panel1
@@ -809,7 +883,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 356);
+            this.panel1.Size = new System.Drawing.Size(953, 285);
             this.panel1.TabIndex = 0;
             // 
             // chartControl2
@@ -817,43 +891,43 @@
             this.chartControl2.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
             this.chartControl2.AppearanceNameSerializable = "Light";
             this.chartControl2.DataBindings = null;
-            xyDiagram4.AxisX.Label.Font = new System.Drawing.Font("Calibri", 14F);
-            xyDiagram4.AxisX.Tickmarks.MinorVisible = false;
-            xyDiagram4.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            xyDiagram4.AxisX.Title.Text = "Plant";
-            xyDiagram4.AxisX.Title.TextColor = System.Drawing.Color.DodgerBlue;
-            xyDiagram4.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram4.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram4.AxisY.GridLines.Visible = false;
-            xyDiagram4.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram4.AxisY.Label.TextPattern = "{V}";
-            xyDiagram4.AxisY.Tickmarks.MinorVisible = false;
-            xyDiagram4.AxisY.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            xyDiagram4.AxisY.Title.Text = "Rework Rate (%)";
-            xyDiagram4.AxisY.Title.TextColor = System.Drawing.Color.Orange;
-            xyDiagram4.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram4.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram4.DefaultPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            xyDiagram4.PaneLayoutDirection = DevExpress.XtraCharts.PaneLayoutDirection.Horizontal;
-            xyDiagram4.Rotated = true;
-            secondaryAxisY4.AxisID = 0;
-            secondaryAxisY4.Color = System.Drawing.Color.White;
-            secondaryAxisY4.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            secondaryAxisY4.Name = "Secondary AxisY 1";
-            secondaryAxisY4.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            secondaryAxisY4.Title.Text = "Rework Rate (%)";
-            secondaryAxisY4.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(108)))), ((int)(((byte)(9)))));
-            secondaryAxisY4.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            secondaryAxisY4.VisibleInPanesSerializable = "-1";
-            secondaryAxisY4.VisualRange.Auto = false;
-            secondaryAxisY4.VisualRange.MaxValueSerializable = "9.8";
-            secondaryAxisY4.VisualRange.MinValueSerializable = "0";
-            secondaryAxisY4.WholeRange.Auto = false;
-            secondaryAxisY4.WholeRange.MaxValueSerializable = "9.8";
-            secondaryAxisY4.WholeRange.MinValueSerializable = "0";
-            xyDiagram4.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
-            secondaryAxisY4});
-            this.chartControl2.Diagram = xyDiagram4;
+            xyDiagram11.AxisX.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            xyDiagram11.AxisX.Tickmarks.MinorVisible = false;
+            xyDiagram11.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            xyDiagram11.AxisX.Title.Text = "Plant";
+            xyDiagram11.AxisX.Title.TextColor = System.Drawing.Color.DodgerBlue;
+            xyDiagram11.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram11.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram11.AxisY.GridLines.Visible = false;
+            xyDiagram11.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram11.AxisY.Label.TextPattern = "{V}";
+            xyDiagram11.AxisY.Tickmarks.MinorVisible = false;
+            xyDiagram11.AxisY.Title.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            xyDiagram11.AxisY.Title.Text = "Rework Rate (%)";
+            xyDiagram11.AxisY.Title.TextColor = System.Drawing.Color.Orange;
+            xyDiagram11.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram11.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram11.DefaultPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            xyDiagram11.PaneLayoutDirection = DevExpress.XtraCharts.PaneLayoutDirection.Horizontal;
+            xyDiagram11.Rotated = true;
+            secondaryAxisY11.AxisID = 0;
+            secondaryAxisY11.Color = System.Drawing.Color.White;
+            secondaryAxisY11.Label.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            secondaryAxisY11.Name = "Secondary AxisY 1";
+            secondaryAxisY11.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            secondaryAxisY11.Title.Text = "Rework Rate (%)";
+            secondaryAxisY11.Title.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(108)))), ((int)(((byte)(9)))));
+            secondaryAxisY11.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            secondaryAxisY11.VisibleInPanesSerializable = "-1";
+            secondaryAxisY11.VisualRange.Auto = false;
+            secondaryAxisY11.VisualRange.MaxValueSerializable = "9.8";
+            secondaryAxisY11.VisualRange.MinValueSerializable = "0";
+            secondaryAxisY11.WholeRange.Auto = false;
+            secondaryAxisY11.WholeRange.MaxValueSerializable = "9.8";
+            secondaryAxisY11.WholeRange.MinValueSerializable = "0";
+            xyDiagram11.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
+            secondaryAxisY11});
+            this.chartControl2.Diagram = xyDiagram11;
             this.chartControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl2.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
             this.chartControl2.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
@@ -866,51 +940,51 @@
             this.chartControl2.Location = new System.Drawing.Point(0, 0);
             this.chartControl2.Name = "chartControl2";
             this.chartControl2.PaletteName = "Marquee";
-            sideBySideBarSeriesLabel4.Font = new System.Drawing.Font("Calibri", 14F);
-            sideBySideBarSeriesLabel4.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
-            sideBySideBarSeriesLabel4.TextPattern = "{V : #.#}";
-            series8.Label = sideBySideBarSeriesLabel4;
-            series8.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series8.Name = "Rework";
-            sideBySideBarSeriesView4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(192)))));
-            sideBySideBarSeriesView4.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
-            series8.View = sideBySideBarSeriesView4;
-            series9.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series9.Name = "Rework Rate";
-            lineSeriesView4.AxisYName = "Secondary AxisY 1";
-            lineSeriesView4.Color = System.Drawing.Color.Blue;
-            lineSeriesView4.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            lineSeriesView4.LineMarkerOptions.Size = 9;
-            lineSeriesView4.LineStyle.Thickness = 3;
-            lineSeriesView4.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series9.View = lineSeriesView4;
-            series9.Visible = false;
+            sideBySideBarSeriesLabel11.Font = new System.Drawing.Font("Calibri", 14F);
+            sideBySideBarSeriesLabel11.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Top;
+            sideBySideBarSeriesLabel11.TextPattern = "{V : #.#}";
+            series24.Label = sideBySideBarSeriesLabel11;
+            series24.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series24.Name = "Rework";
+            sideBySideBarSeriesView11.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(192)))));
+            sideBySideBarSeriesView11.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
+            series24.View = sideBySideBarSeriesView11;
+            series25.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series25.Name = "Rework Rate";
+            lineSeriesView11.AxisYName = "Secondary AxisY 1";
+            lineSeriesView11.Color = System.Drawing.Color.Blue;
+            lineSeriesView11.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            lineSeriesView11.LineMarkerOptions.Size = 9;
+            lineSeriesView11.LineStyle.Thickness = 3;
+            lineSeriesView11.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series25.View = lineSeriesView11;
+            series25.Visible = false;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series8,
-        series9};
-            this.chartControl2.Size = new System.Drawing.Size(954, 356);
+        series24,
+        series25};
+            this.chartControl2.Size = new System.Drawing.Size(953, 285);
             this.chartControl2.TabIndex = 13;
-            chartTitle5.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            chartTitle5.Text = "Top 5 Plant";
-            chartTitle5.TextColor = System.Drawing.Color.Blue;
+            chartTitle14.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            chartTitle14.Text = "Top 5 Plant";
+            chartTitle14.TextColor = System.Drawing.Color.Blue;
             this.chartControl2.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle5});
+            chartTitle14});
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.chartControl3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(963, 3);
+            this.panel2.Location = new System.Drawing.Point(962, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(954, 356);
+            this.panel2.Size = new System.Drawing.Size(953, 285);
             this.panel2.TabIndex = 1;
             // 
             // chartControl3
             // 
             this.chartControl3.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
             this.chartControl3.DataBindings = null;
-            simpleDiagram2.LabelsResolveOverlappingMinIndent = 50;
-            this.chartControl3.Diagram = simpleDiagram2;
+            simpleDiagram4.LabelsResolveOverlappingMinIndent = 50;
+            this.chartControl3.Diagram = simpleDiagram4;
             this.chartControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl3.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
             this.chartControl3.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
@@ -920,25 +994,25 @@
             this.chartControl3.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl3.Location = new System.Drawing.Point(0, 0);
             this.chartControl3.Name = "chartControl3";
-            pieSeriesLabel2.Font = new System.Drawing.Font("Calibri", 14F);
-            pieSeriesLabel2.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.TwoColumns;
-            pieSeriesLabel2.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.Default;
-            pieSeriesLabel2.TextPattern = "{A} -  ({VP:0.00%})";
-            series10.Label = pieSeriesLabel2;
-            series10.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series10.Name = "Series 1";
-            pieSeriesView2.Rotation = 90;
-            series10.View = pieSeriesView2;
+            pieSeriesLabel4.Font = new System.Drawing.Font("Calibri", 14F);
+            pieSeriesLabel4.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.TwoColumns;
+            pieSeriesLabel4.ResolveOverlappingMode = DevExpress.XtraCharts.ResolveOverlappingMode.Default;
+            pieSeriesLabel4.TextPattern = "{A} -  ({VP:0.00%})";
+            series26.Label = pieSeriesLabel4;
+            series26.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series26.Name = "Series 1";
+            pieSeriesView4.Rotation = 90;
+            series26.View = pieSeriesView4;
             this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series10};
-            this.chartControl3.Size = new System.Drawing.Size(954, 356);
+        series26};
+            this.chartControl3.Size = new System.Drawing.Size(953, 285);
             this.chartControl3.TabIndex = 3;
-            chartTitle6.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            chartTitle6.Text = "Rework by Reason";
-            chartTitle6.TextColor = System.Drawing.Color.Blue;
-            chartTitle6.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            chartTitle15.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            chartTitle15.Text = "Rework by Reason";
+            chartTitle15.TextColor = System.Drawing.Color.Blue;
+            chartTitle15.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chartControl3.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle6});
+            chartTitle15});
             // 
             // gridBand13
             // 
@@ -949,11 +1023,546 @@
             // 
             this.splashScreenManager1.ClosingDelay = 500;
             // 
+            // tabControl
+            // 
+            this.tabControl.AppearancePage.Header.Font = new System.Drawing.Font("Calibri", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.tabControl.AppearancePage.Header.Options.UseFont = true;
+            this.tabControl.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Calibri", 22F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.tabControl.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 197);
+            this.tabControl.LookAndFeel.SkinName = "VS2010";
+            this.tabControl.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tabControl.Name = "tabControl";
+            this.tabControl.PaintStyleName = "PropertyView";
+            this.tabControl.SelectedTabPage = this.tabPlant;
+            this.tabControl.Size = new System.Drawing.Size(1920, 859);
+            this.tabControl.TabIndex = 61;
+            this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabPlant,
+            this.tabModel});
+            this.tabControl.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tabControl_SelectedPageChanged);
+            // 
+            // tabPlant
+            // 
+            this.tabPlant.Appearance.Header.Font = new System.Drawing.Font("Calibri", 33.75F, System.Drawing.FontStyle.Bold);
+            this.tabPlant.Appearance.Header.Options.UseFont = true;
+            this.tabPlant.Appearance.HeaderActive.Font = new System.Drawing.Font("Calibri", 38.25F, System.Drawing.FontStyle.Bold);
+            this.tabPlant.Appearance.HeaderActive.Options.UseFont = true;
+            this.tabPlant.Controls.Add(this.pnVinhCuu);
+            this.tabPlant.Name = "tabPlant";
+            this.tabPlant.Size = new System.Drawing.Size(1918, 788);
+            this.tabPlant.Text = "     Plant      ";
+            // 
+            // pnVinhCuu
+            // 
+            this.pnVinhCuu.Controls.Add(this.pnBody1);
+            this.pnVinhCuu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnVinhCuu.Location = new System.Drawing.Point(0, 0);
+            this.pnVinhCuu.Name = "pnVinhCuu";
+            this.pnVinhCuu.Size = new System.Drawing.Size(1918, 788);
+            this.pnVinhCuu.TabIndex = 3;
+            // 
+            // tabModel
+            // 
+            this.tabModel.Appearance.Header.Font = new System.Drawing.Font("Calibri", 33.75F, System.Drawing.FontStyle.Bold);
+            this.tabModel.Appearance.Header.Options.UseFont = true;
+            this.tabModel.Appearance.HeaderActive.Font = new System.Drawing.Font("Calibri", 38.25F, System.Drawing.FontStyle.Bold);
+            this.tabModel.Appearance.HeaderActive.Options.UseFont = true;
+            this.tabModel.Controls.Add(this.pnLT);
+            this.tabModel.Name = "tabModel";
+            this.tabModel.Size = new System.Drawing.Size(1918, 788);
+            this.tabModel.Text = "     Model      ";
+            // 
+            // pnLT
+            // 
+            this.pnLT.Controls.Add(this.tableLayoutPanel2);
+            this.pnLT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnLT.Location = new System.Drawing.Point(0, 0);
+            this.pnLT.Name = "pnLT";
+            this.pnLT.Size = new System.Drawing.Size(1918, 788);
+            this.pnLT.TabIndex = 4;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.87383F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.12617F));
+            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.splitContainer2, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1918, 788);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.panel3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(356, 782);
+            this.panel4.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.chkAll);
+            this.panel3.Controls.Add(this.treeList);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(356, 782);
+            this.panel3.TabIndex = 15;
+            // 
+            // chkAll
+            // 
+            this.chkAll.Location = new System.Drawing.Point(8, 5);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.chkAll.Properties.Appearance.Options.UseBackColor = true;
+            this.chkAll.Properties.AutoHeight = false;
+            this.chkAll.Properties.Caption = "";
+            this.chkAll.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.chkAll.Size = new System.Drawing.Size(25, 28);
+            this.chkAll.TabIndex = 20;
+            this.chkAll.Visible = false;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
+            // 
+            // treeList
+            // 
+            this.treeList.Appearance.Row.Font = new System.Drawing.Font("Calibri", 13F);
+            this.treeList.Appearance.Row.Options.UseFont = true;
+            this.treeList.BandPanelRowHeight = 40;
+            this.treeList.BestFitVisibleOnly = true;
+            this.treeList.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.treeList.ColumnPanelRowHeight = 40;
+            this.treeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1,
+            this.ID_NAME});
+            this.treeList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.treeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeList.Location = new System.Drawing.Point(0, 0);
+            this.treeList.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.treeList.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.treeList.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.treeList.Name = "treeList";
+            this.treeList.OptionsBehavior.Editable = false;
+            this.treeList.OptionsBehavior.ReadOnly = true;
+            this.treeList.OptionsCustomization.AllowBandMoving = false;
+            this.treeList.OptionsCustomization.AllowColumnMoving = false;
+            this.treeList.OptionsCustomization.AllowFilter = false;
+            this.treeList.OptionsCustomization.AllowSort = false;
+            this.treeList.OptionsFilter.AllowColumnMRUFilterList = false;
+            this.treeList.OptionsFilter.AllowFilterEditor = false;
+            this.treeList.OptionsFilter.AllowMRUFilterList = false;
+            this.treeList.OptionsSelection.MultiSelect = true;
+            this.treeList.OptionsView.AnimationType = DevExpress.XtraTreeList.TreeListAnimationType.AnimateAllContent;
+            this.treeList.OptionsView.AutoWidth = false;
+            this.treeList.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.RowFocus;
+            this.treeList.OptionsView.ShowCheckBoxes = true;
+            this.treeList.OptionsView.ShowHorzLines = false;
+            this.treeList.OptionsView.ShowIndicator = false;
+            this.treeList.OptionsView.ShowVertLines = false;
+            this.treeList.RowHeight = 45;
+            this.treeList.Size = new System.Drawing.Size(356, 782);
+            this.treeList.TabIndex = 1;
+            this.treeList.TreeLineStyle = DevExpress.XtraTreeList.LineStyle.Large;
+            this.treeList.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.treeList_NodeCellStyle);
+            this.treeList.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList_AfterCheckNode);
+            // 
+            // treeListColumn1
+            // 
+            this.treeListColumn1.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn1.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.treeListColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.treeListColumn1.Caption = "Model";
+            this.treeListColumn1.FieldName = "MENU_NM";
+            this.treeListColumn1.MinWidth = 34;
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.Visible = true;
+            this.treeListColumn1.VisibleIndex = 0;
+            this.treeListColumn1.Width = 356;
+            // 
+            // ID_NAME
+            // 
+            this.ID_NAME.Caption = "ID_NAME";
+            this.ID_NAME.FieldName = "ID_NAME";
+            this.ID_NAME.Name = "ID_NAME";
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(365, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.a1Panel10);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.grdBase);
+            this.splitContainer2.Size = new System.Drawing.Size(1550, 782);
+            this.splitContainer2.SplitterDistance = 381;
+            this.splitContainer2.TabIndex = 10;
+            // 
+            // a1Panel10
+            // 
+            this.a1Panel10.BorderColor = System.Drawing.Color.Silver;
+            this.a1Panel10.Controls.Add(this.chart1);
+            this.a1Panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.a1Panel10.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a1Panel10.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.a1Panel10.Image = null;
+            this.a1Panel10.ImageLocation = new System.Drawing.Point(4, 4);
+            this.a1Panel10.Location = new System.Drawing.Point(0, 0);
+            this.a1Panel10.Name = "a1Panel10";
+            this.a1Panel10.RoundCornerRadius = 20;
+            this.a1Panel10.ShadowOffSet = 10;
+            this.a1Panel10.Size = new System.Drawing.Size(1550, 381);
+            this.a1Panel10.TabIndex = 28;
+            // 
+            // chart1
+            // 
+            this.chart1.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
+            this.chart1.AppearanceNameSerializable = "Light";
+            this.chart1.DataBindings = null;
+            xyDiagram12.AxisX.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            xyDiagram12.AxisX.Tickmarks.MinorVisible = false;
+            xyDiagram12.AxisX.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            xyDiagram12.AxisX.Title.Text = "Rework Name";
+            xyDiagram12.AxisX.Title.TextColor = System.Drawing.Color.DodgerBlue;
+            xyDiagram12.AxisX.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram12.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram12.AxisY.GridLines.Visible = false;
+            xyDiagram12.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            xyDiagram12.AxisY.Label.TextPattern = "{V : #,#}";
+            xyDiagram12.AxisY.Tickmarks.MinorVisible = false;
+            xyDiagram12.AxisY.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            xyDiagram12.AxisY.Title.Text = "Rework Quantity (Pairs)";
+            xyDiagram12.AxisY.Title.TextColor = System.Drawing.Color.Orange;
+            xyDiagram12.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram12.AxisY.VisibleInPanesSerializable = "-1";
+            secondaryAxisY12.AxisID = 0;
+            secondaryAxisY12.Label.Font = new System.Drawing.Font("Calibri", 14F);
+            secondaryAxisY12.Name = "Secondary AxisY 1";
+            secondaryAxisY12.Tickmarks.MinorVisible = false;
+            secondaryAxisY12.Title.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            secondaryAxisY12.Title.Text = "Rework Rate (%)";
+            secondaryAxisY12.Title.TextColor = System.Drawing.Color.Orange;
+            secondaryAxisY12.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            secondaryAxisY12.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            secondaryAxisY12.VisibleInPanesSerializable = "-1";
+            xyDiagram12.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
+            secondaryAxisY12});
+            this.chart1.Diagram = xyDiagram12;
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
+            this.chart1.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
+            this.chart1.Legend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.chart1.Legend.Direction = DevExpress.XtraCharts.LegendDirection.LeftToRight;
+            this.chart1.Legend.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chart1.Legend.MarkerSize = new System.Drawing.Size(18, 12);
+            this.chart1.Legend.Name = "Default Legend";
+            this.chart1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.PaletteName = "Marquee";
+            this.chart1.RuntimeHitTesting = true;
+            sideBySideBarSeriesLabel12.Font = new System.Drawing.Font("Calibri", 14F);
+            sideBySideBarSeriesLabel12.Position = DevExpress.XtraCharts.BarSeriesLabelPosition.Center;
+            sideBySideBarSeriesLabel12.TextPattern = "{V : #,#}";
+            series27.Label = sideBySideBarSeriesLabel12;
+            series27.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series27.Name = "Rework";
+            sideBySideBarSeriesView12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
+            sideBySideBarSeriesView12.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Solid;
+            series27.View = sideBySideBarSeriesView12;
+            pointSeriesLabel8.Font = new System.Drawing.Font("Calibri", 14F);
+            pointSeriesLabel8.TextPattern = "{V:#0.##}";
+            series28.Label = pointSeriesLabel8;
+            series28.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series28.Name = "Rework Rate";
+            lineSeriesView12.AxisYName = "Secondary AxisY 1";
+            lineSeriesView12.Color = System.Drawing.Color.Blue;
+            lineSeriesView12.LineMarkerOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            lineSeriesView12.LineMarkerOptions.Size = 9;
+            lineSeriesView12.LineStyle.Thickness = 3;
+            lineSeriesView12.MarkerVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series28.View = lineSeriesView12;
+            this.chart1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series27,
+        series28};
+            this.chart1.Size = new System.Drawing.Size(1550, 381);
+            this.chart1.TabIndex = 13;
+            chartTitle16.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chart1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle16});
+            // 
+            // grdBase
+            // 
+            this.grdBase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdBase.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            gridLevelNode2.RelationName = "Level1";
+            this.grdBase.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            this.grdBase.Location = new System.Drawing.Point(0, 0);
+            this.grdBase.MainView = this.gvwBase;
+            this.grdBase.Name = "grdBase";
+            this.grdBase.Size = new System.Drawing.Size(1550, 397);
+            this.grdBase.TabIndex = 10;
+            this.grdBase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvwBase});
+            // 
+            // gvwBase
+            // 
+            this.gvwBase.Appearance.Row.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.gvwBase.Appearance.Row.Options.UseFont = true;
+            this.gvwBase.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand1,
+            this.gridBand2,
+            this.gridBand3,
+            this.gridBand4,
+            this.gridBand5,
+            this.gridBand7,
+            this.gridBand6,
+            this.gridBand8,
+            this.gridBand9});
+            this.gvwBase.ColumnPanelRowHeight = 50;
+            this.gvwBase.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.LINE_CD,
+            this.LINE_NM,
+            this.MLINE_CD,
+            this.MODEL_CD,
+            this.MODEL_NAME,
+            this.STYLE_CD,
+            this.REW_QTY,
+            this.PROD_QY,
+            this.RATE});
+            this.gvwBase.GridControl = this.grdBase;
+            this.gvwBase.Name = "gvwBase";
+            this.gvwBase.OptionsBehavior.Editable = false;
+            this.gvwBase.OptionsBehavior.ReadOnly = true;
+            this.gvwBase.OptionsCustomization.AllowColumnMoving = false;
+            this.gvwBase.OptionsCustomization.AllowFilter = false;
+            this.gvwBase.OptionsCustomization.AllowGroup = false;
+            this.gvwBase.OptionsView.ColumnAutoWidth = false;
+            this.gvwBase.OptionsView.ShowColumnHeaders = false;
+            this.gvwBase.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.gvwBase.OptionsView.ShowGroupPanel = false;
+            this.gvwBase.OptionsView.ShowIndicator = false;
+            this.gvwBase.RowHeight = 50;
+            this.gvwBase.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvwBase_RowCellStyle);
+            // 
+            // LINE_CD
+            // 
+            this.LINE_CD.Caption = "LINE_CD";
+            this.LINE_CD.FieldName = "LINE_CD";
+            this.LINE_CD.Name = "LINE_CD";
+            this.LINE_CD.Visible = true;
+            this.LINE_CD.Width = 111;
+            // 
+            // LINE_NM
+            // 
+            this.LINE_NM.Caption = "LINE_NM";
+            this.LINE_NM.FieldName = "LINE_NM";
+            this.LINE_NM.Name = "LINE_NM";
+            this.LINE_NM.Visible = true;
+            this.LINE_NM.Width = 141;
+            // 
+            // MLINE_CD
+            // 
+            this.MLINE_CD.Caption = "MLINE_CD";
+            this.MLINE_CD.FieldName = "MLINE_CD";
+            this.MLINE_CD.Name = "MLINE_CD";
+            this.MLINE_CD.Visible = true;
+            this.MLINE_CD.Width = 113;
+            // 
+            // MODEL_CD
+            // 
+            this.MODEL_CD.Caption = "MODEL_CD";
+            this.MODEL_CD.FieldName = "MODEL_CD";
+            this.MODEL_CD.Name = "MODEL_CD";
+            this.MODEL_CD.Visible = true;
+            // 
+            // MODEL_NAME
+            // 
+            this.MODEL_NAME.Caption = "MODEL_NAME";
+            this.MODEL_NAME.FieldName = "MODEL_NAME";
+            this.MODEL_NAME.Name = "MODEL_NAME";
+            this.MODEL_NAME.Visible = true;
+            this.MODEL_NAME.Width = 320;
+            // 
+            // STYLE_CD
+            // 
+            this.STYLE_CD.Caption = "STYLE_CD";
+            this.STYLE_CD.FieldName = "STYLE_CD";
+            this.STYLE_CD.Name = "STYLE_CD";
+            this.STYLE_CD.Visible = true;
+            this.STYLE_CD.Width = 167;
+            // 
+            // REW_QTY
+            // 
+            this.REW_QTY.Caption = "REW_QTY";
+            this.REW_QTY.FieldName = "REW_QTY";
+            this.REW_QTY.Name = "REW_QTY";
+            this.REW_QTY.Visible = true;
+            this.REW_QTY.Width = 162;
+            // 
+            // PROD_QY
+            // 
+            this.PROD_QY.Caption = "PROD_QY";
+            this.PROD_QY.FieldName = "PROD_QY";
+            this.PROD_QY.Name = "PROD_QY";
+            this.PROD_QY.Visible = true;
+            this.PROD_QY.Width = 167;
+            // 
+            // RATE
+            // 
+            this.RATE.Caption = "RATE";
+            this.RATE.FieldName = "RATE";
+            this.RATE.Name = "RATE";
+            this.RATE.Visible = true;
+            this.RATE.Width = 133;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Line CD";
+            this.gridBand1.Columns.Add(this.LINE_CD);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Visible = false;
+            this.gridBand1.VisibleIndex = -1;
+            this.gridBand1.Width = 111;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand2.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand2.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand2.AppearanceHeader.Options.UseFont = true;
+            this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand2.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand2.Caption = "Plant";
+            this.gridBand2.Columns.Add(this.LINE_NM);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.RowCount = 2;
+            this.gridBand2.VisibleIndex = 0;
+            this.gridBand2.Width = 141;
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand3.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.gridBand3.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand3.AppearanceHeader.Options.UseFont = true;
+            this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand3.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand3.Caption = "Line";
+            this.gridBand3.Columns.Add(this.MLINE_CD);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.VisibleIndex = 1;
+            this.gridBand3.Width = 113;
+            // 
+            // gridBand4
+            // 
+            this.gridBand4.Caption = "Model CD";
+            this.gridBand4.Columns.Add(this.MODEL_CD);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.Visible = false;
+            this.gridBand4.VisibleIndex = -1;
+            this.gridBand4.Width = 75;
+            // 
+            // gridBand5
+            // 
+            this.gridBand5.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand5.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.gridBand5.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand5.AppearanceHeader.Options.UseFont = true;
+            this.gridBand5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand5.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand5.Caption = "Model Name";
+            this.gridBand5.Columns.Add(this.MODEL_NAME);
+            this.gridBand5.Name = "gridBand5";
+            this.gridBand5.VisibleIndex = 2;
+            this.gridBand5.Width = 320;
+            // 
+            // gridBand7
+            // 
+            this.gridBand7.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand7.AppearanceHeader.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand7.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.gridBand7.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand7.AppearanceHeader.Options.UseFont = true;
+            this.gridBand7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand7.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand7.Caption = "Style ";
+            this.gridBand7.Columns.Add(this.STYLE_CD);
+            this.gridBand7.Name = "gridBand7";
+            this.gridBand7.VisibleIndex = 3;
+            this.gridBand7.Width = 167;
+            // 
+            // gridBand6
+            // 
+            this.gridBand6.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand6.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.gridBand6.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand6.AppearanceHeader.Options.UseFont = true;
+            this.gridBand6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand6.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand6.Caption = "Production";
+            this.gridBand6.Columns.Add(this.PROD_QY);
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.VisibleIndex = 4;
+            this.gridBand6.Width = 167;
+            // 
+            // gridBand8
+            // 
+            this.gridBand8.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand8.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.gridBand8.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand8.AppearanceHeader.Options.UseFont = true;
+            this.gridBand8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand8.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand8.Caption = "Rework";
+            this.gridBand8.Columns.Add(this.REW_QTY);
+            this.gridBand8.Name = "gridBand8";
+            this.gridBand8.VisibleIndex = 5;
+            this.gridBand8.Width = 162;
+            // 
+            // gridBand9
+            // 
+            this.gridBand9.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.gridBand9.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.gridBand9.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand9.AppearanceHeader.Options.UseFont = true;
+            this.gridBand9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand9.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridBand9.Caption = "Rate";
+            this.gridBand9.Columns.Add(this.RATE);
+            this.gridBand9.Name = "gridBand9";
+            this.gridBand9.VisibleIndex = 6;
+            this.gridBand9.Width = 133;
+            // 
             // SMT_QUALITY_COCKPIT_REWORK_DAS
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1920, 1056);
-            this.Controls.Add(this.pnBody1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -961,14 +1570,14 @@
             this.Text = "SMT_SCADA_COCKPIT_FORM2";
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_FORM1_Load);
             this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_REWORK_VisibleChanged);
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.pnControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMD.Properties.CalendarTimeProperties)).EndInit();
@@ -981,20 +1590,47 @@
             this.pnBody1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pieSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pieSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.tabPlant.ResumeLayout(false);
+            this.pnVinhCuu.ResumeLayout(false);
+            this.tabModel.ResumeLayout(false);
+            this.pnLT.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList)).EndInit();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.a1Panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(secondaryAxisY12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdBase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwBase)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1013,7 +1649,7 @@
         private System.Windows.Forms.ComboBox cboPlant;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPlant;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
@@ -1039,5 +1675,40 @@
         private System.Windows.Forms.Label lblTotalRework;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraTab.XtraTabControl tabControl;
+        private DevExpress.XtraTab.XtraTabPage tabPlant;
+        private System.Windows.Forms.Panel pnVinhCuu;
+        private DevExpress.XtraTab.XtraTabPage tabModel;
+        private System.Windows.Forms.Panel pnLT;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Panel panel4;
+        private DevExpress.XtraEditors.CheckEdit chkAll;
+        private DevExpress.XtraTreeList.TreeList treeList;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn ID_NAME;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private OS_DSF.A1Panel a1Panel10;
+        private DevExpress.XtraGrid.GridControl grdBase;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvwBase;
+        private DevExpress.XtraCharts.ChartControl chart1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn LINE_CD;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn LINE_NM;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn MLINE_CD;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn MODEL_CD;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn MODEL_NAME;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn STYLE_CD;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn PROD_QY;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn REW_QTY;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn RATE;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand8;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand9;
     }
 }

@@ -262,14 +262,13 @@
             this.tabControl.AppearancePage.Header.Options.UseFont = true;
             this.tabControl.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Calibri", 22F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.tabControl.AppearancePage.HeaderActive.Options.UseFont = true;
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Location = new System.Drawing.Point(0, 62);
             this.tabControl.LookAndFeel.SkinName = "VS2010";
             this.tabControl.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tabControl.Name = "tabControl";
             this.tabControl.PaintStyleName = "PropertyView";
             this.tabControl.SelectedTabPage = this.tabVC;
-            this.tabControl.Size = new System.Drawing.Size(1920, 930);
+            this.tabControl.Size = new System.Drawing.Size(1824, 868);
             this.tabControl.TabIndex = 58;
             this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabVC,
@@ -284,7 +283,7 @@
             this.tabVC.Appearance.HeaderActive.Options.UseFont = true;
             this.tabVC.Controls.Add(this.pnVinhCuu);
             this.tabVC.Name = "tabVC";
-            this.tabVC.Size = new System.Drawing.Size(1918, 859);
+            this.tabVC.Size = new System.Drawing.Size(1822, 797);
             this.tabVC.Text = "     Vinh Cuu      ";
             // 
             // pnVinhCuu
@@ -293,7 +292,7 @@
             this.pnVinhCuu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnVinhCuu.Location = new System.Drawing.Point(0, 0);
             this.pnVinhCuu.Name = "pnVinhCuu";
-            this.pnVinhCuu.Size = new System.Drawing.Size(1918, 859);
+            this.pnVinhCuu.Size = new System.Drawing.Size(1822, 797);
             this.pnVinhCuu.TabIndex = 3;
             // 
             // tblBody
@@ -309,7 +308,7 @@
             this.tblBody.Name = "tblBody";
             this.tblBody.RowCount = 1;
             this.tblBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblBody.Size = new System.Drawing.Size(1918, 859);
+            this.tblBody.Size = new System.Drawing.Size(1822, 797);
             this.tblBody.TabIndex = 1;
             // 
             // pnLeft
@@ -333,7 +332,7 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnLeft.Location = new System.Drawing.Point(3, 3);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(1240, 853);
+            this.pnLeft.Size = new System.Drawing.Size(1178, 791);
             this.pnLeft.TabIndex = 0;
             // 
             // btnLocation_N
@@ -662,9 +661,9 @@
             // 
             this.pnRight.Controls.Add(this.tblRight);
             this.pnRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnRight.Location = new System.Drawing.Point(1249, 3);
+            this.pnRight.Location = new System.Drawing.Point(1187, 3);
             this.pnRight.Name = "pnRight";
-            this.pnRight.Size = new System.Drawing.Size(666, 853);
+            this.pnRight.Size = new System.Drawing.Size(632, 791);
             this.pnRight.TabIndex = 1;
             // 
             // tblRight
@@ -681,7 +680,7 @@
             this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblRight.Size = new System.Drawing.Size(666, 853);
+            this.tblRight.Size = new System.Drawing.Size(632, 791);
             this.tblRight.TabIndex = 0;
             // 
             // lbl_title
@@ -692,7 +691,7 @@
             this.lbl_title.ForeColor = System.Drawing.Color.Transparent;
             this.lbl_title.Location = new System.Drawing.Point(3, 0);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(660, 30);
+            this.lbl_title.Size = new System.Drawing.Size(626, 30);
             this.lbl_title.TabIndex = 11;
             this.lbl_title.Text = "Humidity Average By Line";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -713,7 +712,7 @@
             this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 231F));
             this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblLine.Size = new System.Drawing.Size(660, 817);
+            this.tblLine.Size = new System.Drawing.Size(626, 755);
             this.tblLine.TabIndex = 13;
             // 
             // pnGrid
@@ -721,9 +720,9 @@
             this.pnGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnGrid.Controls.Add(this.grdMain);
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnGrid.Location = new System.Drawing.Point(3, 589);
+            this.pnGrid.Location = new System.Drawing.Point(3, 527);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(654, 225);
+            this.pnGrid.Size = new System.Drawing.Size(620, 225);
             this.pnGrid.TabIndex = 13;
             // 
             // grdMain
@@ -736,7 +735,7 @@
             this.grdMain.MainView = this.gvwMain;
             this.grdMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grdMain.Name = "grdMain";
-            this.grdMain.Size = new System.Drawing.Size(652, 223);
+            this.grdMain.Size = new System.Drawing.Size(618, 223);
             this.grdMain.TabIndex = 92;
             this.grdMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwMain,
@@ -843,9 +842,9 @@
             this.pnChart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnChart.Controls.Add(this.a1Panel1);
             this.pnChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnChart.Location = new System.Drawing.Point(3, 141);
+            this.pnChart.Location = new System.Drawing.Point(3, 79);
             this.pnChart.Name = "pnChart";
-            this.pnChart.Size = new System.Drawing.Size(654, 442);
+            this.pnChart.Size = new System.Drawing.Size(620, 442);
             this.pnChart.TabIndex = 0;
             // 
             // a1Panel1
@@ -859,7 +858,7 @@
             this.a1Panel1.ImageLocation = new System.Drawing.Point(4, 4);
             this.a1Panel1.Location = new System.Drawing.Point(0, 0);
             this.a1Panel1.Name = "a1Panel1";
-            this.a1Panel1.Size = new System.Drawing.Size(652, 440);
+            this.a1Panel1.Size = new System.Drawing.Size(618, 440);
             this.a1Panel1.TabIndex = 0;
             // 
             // chtHumi
@@ -942,7 +941,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(654, 132);
+            this.panel1.Size = new System.Drawing.Size(620, 70);
             this.panel1.TabIndex = 14;
             // 
             // label5
