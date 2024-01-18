@@ -232,9 +232,82 @@ namespace FORM
             }
         }
 
+        private void chartControl1_MouseDoubleClickAsync(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartControl1.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                string strdate = dtpYMD.DateTime.ToString("yyyyMMdd");
+                string strdateto = dtpYMDT.DateTime.ToString("yyyyMMdd");
+                string strplant = "";
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    sLine_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
+                        {
+                            sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    if (hit.AxisLabelItem == null)
+                    {
+                        sLine = "ALL";
+                    }
+                    else
+                    {
+                        sLine_nm = hit.AxisLabelItem.AxisValue.ToString();
+                        for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                        {
+                            if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sLine_nm)
+                            {
+                                sLine = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                            }
+                        }
+                    }
+
+                }
+                
+                SMT_QUALITY_COCKPIT_REWORK_POP view = new SMT_QUALITY_COCKPIT_REWORK_POP(sDateF,sDateT, strplant, sLine);
+                view.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
         #endregion ========= [Control Event] ==========================================
 
         #region ========= [Method] ==========================================
+
+        private DataTable chartPop = null;
+        private async void SetDataPop(string TYPE, string LINE )
+        {
+            try
+            {
+                splashScreenManager1.ShowWaitForm();
+                sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
+                sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+
+                DataSet dsData = await sbGetRework(TYPE, sDateF, sDateT, sPlant, LINE);
+                if (dsData == null) return;
+                chartPop = dsData.Tables[0];
+
+                splashScreenManager1.CloseWaitForm();
+            }
+            catch
+            {
+            }
+        }
 
         private void clear_chart()
         {
@@ -867,6 +940,8 @@ namespace FORM
 
             return level;
         }
+
+      
         private void Loaddata(List<DataTable> lstData, List<string> listSeriesName)
         {
             try
