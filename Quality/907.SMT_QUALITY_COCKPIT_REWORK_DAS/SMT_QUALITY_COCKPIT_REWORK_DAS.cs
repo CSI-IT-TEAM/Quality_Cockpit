@@ -56,7 +56,7 @@ namespace FORM
         {
             if (Visible)
             {
-                cboPlant.SelectedValue = ComVar.Var._strValue1;
+                cboModel.SelectedValue = ComVar.Var._strValue1;
                 cboLine.SelectedValue = ComVar.Var._strValue2;
                 tabControl.SelectedTabPage = tabControl.TabPages[0];
                 clear_chart();
@@ -91,11 +91,12 @@ namespace FORM
                         SetData();
                         break;
                     case "1":
+                        SetChartRework("ALL");
+                        SetChartModel();
 
-
-                        load_data_model();
-                        setTreelist();
-                        GetDataTable();
+                        //load_data_model();
+                        //setTreelist();
+                        //GetDataTable();
                         break;
                     default:
                         break;
@@ -146,13 +147,13 @@ namespace FORM
 
         private void dtpYMD_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
-            LoadCombo("PLANT");
+            LoadCombo("C_MODEL");
             _time = 30;
         }
 
         private void dtpYMDT_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
-            LoadCombo("PLANT");
+            LoadCombo("C_MODEL");
             _time = 30;
 
         }
@@ -594,7 +595,7 @@ namespace FORM
         }
 
         private DataTable Fn_SelectDataGrid(string ARG_QTYPE, string ARG_DATEF, string ARG_DATET, string ARG_PLANT,
-            string ARG_LINE, string ARG_MODEL)
+            string ARG_LINE, string ARG_MODEL, string ARG_REWORK)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             DataSet ds_ret;
@@ -602,7 +603,7 @@ namespace FORM
             {
                 string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_REWORK_BY_MODEL";
 
-                MyOraDB.ReDim_Parameter(7);
+                MyOraDB.ReDim_Parameter(8);
                 MyOraDB.Process_Name = process_name;
 
                 MyOraDB.Parameter_Name[0] = "V_P_TYPE";
@@ -611,7 +612,8 @@ namespace FORM
                 MyOraDB.Parameter_Name[3] = "V_P_PLANT";
                 MyOraDB.Parameter_Name[4] = "V_P_LINE";
                 MyOraDB.Parameter_Name[5] = "V_P_MODEL";
-                MyOraDB.Parameter_Name[6] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[6] = "V_P_REWORK_CD";
+                MyOraDB.Parameter_Name[7] = "OUT_CURSOR";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
@@ -619,7 +621,8 @@ namespace FORM
                 MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[4] = (int)OracleType.VarChar;
                 MyOraDB.Parameter_Type[5] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[6] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[6] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[7] = (int)OracleType.Cursor;
 
                 MyOraDB.Parameter_Values[0] = ARG_QTYPE;
                 MyOraDB.Parameter_Values[1] = ARG_DATEF;
@@ -627,7 +630,8 @@ namespace FORM
                 MyOraDB.Parameter_Values[3] = ARG_PLANT;
                 MyOraDB.Parameter_Values[4] = ARG_LINE;
                 MyOraDB.Parameter_Values[5] = ARG_MODEL;
-                MyOraDB.Parameter_Values[6] = "";
+                MyOraDB.Parameter_Values[6] = ARG_REWORK;
+                MyOraDB.Parameter_Values[7] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -654,18 +658,20 @@ namespace FORM
                 {
                     case "0":
                         lblPlant.Visible = false;
-                        cboPlant.Visible = false;
+                        cboModel.Visible = false;
                         SetData();
                         //  strPlant = "2110";
                         //  BindingData();
                         break;
                     case "1":
                         lblPlant.Visible = true;
-                        cboPlant.Visible = true;
-                        LoadCombo("PLANT");
-                        load_data_model();
-                        setTreelist();
-                        GetDataTable();
+                        cboModel.Visible = true;
+                        LoadCombo("C_MODEL");
+                        SetChartRework("ALL");
+                        SetChartModel();
+                        //load_data_model();
+                        //setTreelist();
+                        // GetDataTable();
                         break;
                     default:
                         break;
@@ -793,8 +799,8 @@ namespace FORM
                 sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
                 sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
 
-                DataTable dtModel = Fn_SelectDataGrid("TREE", sDateF, sDateT, cboPlant.SelectedValue.ToString().Trim(),
-                    "", "");
+                DataTable dtModel = Fn_SelectDataGrid("TREE", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(),
+                    "", "","");
 
                 if (dtModel != null && dtModel.Rows.Count > 0)
                 {
@@ -837,7 +843,7 @@ namespace FORM
             {
                 sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
                 sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
-                dtModel = Fn_SelectDataGrid("TREE", sDateF, sDateT, cboPlant.SelectedValue.ToString().Trim(), "", "");
+               // dtModel = Fn_SelectDataGrid("TREE", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", "");
             }
             catch (Exception ex)
             {
@@ -873,7 +879,7 @@ namespace FORM
                 }
             }
 
-            Loaddata(lstData, lstSeriesName);
+           // Loaddata(lstData, lstSeriesName);
         }
 
         public int GetDeepestNodeLevel(DevExpress.XtraTreeList.TreeList treeView)
@@ -941,38 +947,104 @@ namespace FORM
             return level;
         }
 
-      
-        private void Loaddata(List<DataTable> lstData, List<string> listSeriesName)
+        private void chartControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Loaddata()
         {
             try
             {
-                chart1.DataSource = null;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-               // DataTable dtarg = new DataTable();
-                for (int i = 0; i < lstData.Count; i++) //Khoi tao so luong series & add vao list Series
-                {
-                   // dtarg = lstData[i];
-                    list += string.Concat(listSeriesName[i].ToString(), ", ");
-                }
-
-                DataTable argDtGrid = Fn_SelectDataGrid("Q", sDateF, sDateT, cboPlant.SelectedValue.ToString().Trim(),  "", list);
-                fn_BindingData(argDtGrid);
-                DataTable _dtLabel = null;
-                _dtLabel = argDtGrid.Select("LINE_CD = 'G.Total'", "").CopyToDataTable();
-                lblTotalRework.Text = Convert.ToDouble(_dtLabel.Rows[0]["REW_QTY"].ToString()).ToString("###,##0.##") + " Pairs";
-                lblTotalProd.Text = Convert.ToDouble(_dtLabel.Rows[0]["PROD_QY"].ToString()).ToString("###,##0.##") + " Pairs";
-                lblTotalRate.Text = _dtLabel.Rows[0]["RATE"].ToString() + " %";
+                chartRework.DataSource = null;
+                chartRework.Series[0].Points.Clear();
+                chartRework.Series[1].Points.Clear();
 
 
+                chartModel.DataSource = null;
+                chartModel.Series[0].Points.Clear();
+                chartModel.Series[1].Points.Clear();
+                // DataTable dtarg = new DataTable();
+                //for (int i = 0; i < lstData.Count; i++) //Khoi tao so luong series & add vao list Series
+                //{
+                //   // dtarg = lstData[i];
+                //    list += string.Concat(listSeriesName[i].ToString(), ", ");
+                //}
 
-                DataTable argDtChart = null;
-                argDtChart = Fn_SelectDataGrid("C", sDateF, sDateT, cboPlant.SelectedValue.ToString().Trim(), "", list);
-                SetChartModel(argDtChart);
-                list = "";
+                //DataTable argDtGrid = Fn_SelectDataGrid("Q", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(),  "", list);
+                //fn_BindingData(argDtGrid);
+                //DataTable _dtLabel = null;
+                //_dtLabel = argDtGrid.Select("LINE_CD = 'G.Total'", "").CopyToDataTable();
+                //lblTotalRework.Text = Convert.ToDouble(_dtLabel.Rows[0]["REW_QTY"].ToString()).ToString("###,##0.##") + " Pairs";
+                //lblTotalProd.Text = Convert.ToDouble(_dtLabel.Rows[0]["PROD_QY"].ToString()).ToString("###,##0.##") + " Pairs";
+                //lblTotalRate.Text = _dtLabel.Rows[0]["RATE"].ToString() + " %";
+
+
+
+                //DataTable argDtChart = null;
+                //argDtChart = Fn_SelectDataGrid("CHART_MODEL", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", cboModel.SelectedValue.ToString(),"");
+                //SetChartModel(argDtChart);
+
+
+                //DataTable argDtRework = null;
+                //argDtRework = Fn_SelectDataGrid("CHART_REWORK", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", "ALL", "");
+
+                //SetChartRework(argDtRework);
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void chartModel_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartControl1.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    sLine_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < dtModel.Rows.Count; iRow++)
+                    {
+                        if (dtModel.Rows[iRow]["MODEL_NAME"].ToString() == sLine_nm)
+                        {
+                            sLine = dtModel.Rows[iRow]["MODEL_CD"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    if (hit.AxisLabelItem == null)
+                    {
+                        sLine = "ALL";
+                    }
+                    else
+                    {
+                        sLine_nm = hit.AxisLabelItem.AxisValue.ToString();
+                        for (int iRow = 0; iRow < dtModel.Rows.Count; iRow++)
+                        {
+                            if (dtModel.Rows[iRow]["MODEL_NAME"].ToString() == sLine_nm)
+                            {
+                                sLine = dtModel.Rows[iRow]["MODEL_CD"].ToString();
+                            }
+                        }
+                    }
+
+                }
+
+                //else
+                //    sLine = "ALL";
+                _time = 10;
+                SetChartRework(sLine);
+                //SetDataDetail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -1026,14 +1098,21 @@ namespace FORM
             }
         }
 
-        private void SetChartModel(DataTable argDtChart)
+        private void SetChartRework(string model)
         {
           
-            chart1.DataSource = null;
-            chart1.Series[0].Points.Clear();
-            chart1.Series[1].Points.Clear();
-            chart1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
-            chart1.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+            chartRework.DataSource = null;
+            chartRework.Series[0].Points.Clear();
+            chartRework.Series[1].Points.Clear();
+            chartRework.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chartRework.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+
+            sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
+            sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+
+            DataTable argDtChart = null;
+            argDtChart = Fn_SelectDataGrid("CHART_REWORK", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", model, "");
+
             if (argDtChart == null) return;
 
             XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
@@ -1051,25 +1130,97 @@ namespace FORM
 
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
-                chart1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["REWORK_NAME"].ToString(),argDtChart.Rows[i]["REW_QTY"]));
-                chart1.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["REWORK_NAME"].ToString(),argDtChart.Rows[i]["RATE"]));
+                chartRework.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["REWORK_NAME"].ToString(),argDtChart.Rows[i]["REW_QTY"]));
+                chartRework.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["REWORK_NAME"].ToString(),argDtChart.Rows[i]["RATE"]));
 
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
                 if (rate >= 12)
                 {
-                    chart1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
+                    chartRework.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                 }
                 else if (rate <= 9)
                 {
-                    chart1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+                    chartRework.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                 }
                 else
                 {
-                    chart1.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                    chartRework.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
                 }
             }
+        }
+
+        private void SetChartModel()
+        {
+
+            chartModel.DataSource = null;
+            chartModel.Series[0].Points.Clear();
+            chartModel.Series[1].Points.Clear();
+            chartModel.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+            chartModel.Series[1].ArgumentScaleType = ScaleType.Qualitative;
+
+            sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
+            sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+            DataTable argDtChart = null;
+            argDtChart = Fn_SelectDataGrid("CHART_MODEL", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", cboModel.SelectedValue.ToString(), "");
+
+            dtModel = argDtChart;
+
+            if (argDtChart == null) return;
+
+            XYDiagram diagram = (XYDiagram)chartModel.Diagram;
+
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
+            lineSeriesView3.LineStyle.Thickness = 1;
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView2 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+
+           
+
+
+            for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
+            {
+                sideBySideBarSeriesView2.BarWidth = 0.5;
+                chartModel.Series[0].View = sideBySideBarSeriesView2;
+                chartModel.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["MODEL_NAME"].ToString(), argDtChart.Rows[i]["REW_QTY"]));
+                chartModel.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["MODEL_NAME"].ToString(), argDtChart.Rows[i]["RATE"]));
+
+                double rate;
+                double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
+
+                if (rate >= 12)
+                {
+                    chartModel.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
+                }
+                else if (rate <= 9)
+                {
+                    chartModel.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+                }
+                else
+                {
+                    chartModel.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                }
+            }
+
+            ((XYDiagram)chartModel.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+          
+
+            if (argDtChart.Rows.Count > 20)
+            {
+                ((XYDiagram)chartModel.Diagram).AxisX.VisualRange.SetMinMaxValues(
+                    argDtChart.Rows[0]["MODEL_NAME"].ToString(), argDtChart.Rows[30]["MODEL_NAME"].ToString());
+            }
+            else
+            {
+                ((XYDiagram)chartModel.Diagram).AxisX.VisualRange.SetMinMaxValues(
+                    argDtChart.Rows[0]["MODEL_NAME"].ToString(), argDtChart.Rows[argDtChart.Rows.Count - 1]["MODEL_NAME"].ToString());
+            }
+
+            ((XYDiagram)chartModel.Diagram).AxisX.WholeRange.SetMinMaxValues(
+                argDtChart.Rows[0]["MODEL_NAME"].ToString(), argDtChart.Rows[argDtChart.Rows.Count - 1]["MODEL_NAME"].ToString());
+
+            
+
         }
 
 
@@ -1078,15 +1229,18 @@ namespace FORM
             try
             {
 
-                if (arg_type == "PLANT")
+                if (arg_type == "C_MODEL")
                 {
-                    DataTable dt = Fn_SelectDataGrid("PLANT", sDateF, sDateT, "", "", "");
+                    sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
+                    sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+
+                    DataTable dt = Fn_SelectDataGrid("C_MODEL", sDateF, sDateT, "", "", "","");
 
                     if (dt != null && dt.Rows.Count > 0)
                     {
-                        cboPlant.DataSource = dt;
-                        cboPlant.DisplayMember = "LINE_NM";
-                        cboPlant.ValueMember = "LINE_CD";
+                        cboModel.DataSource = dt;
+                        cboModel.DisplayMember = "MODEL_NAME";
+                        cboModel.ValueMember = "MODEL_CD";
                     }
                 }
                 //if (arg_type == "COMBO_LINE")
