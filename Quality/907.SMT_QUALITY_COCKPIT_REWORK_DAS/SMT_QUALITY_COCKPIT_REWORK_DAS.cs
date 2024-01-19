@@ -19,7 +19,7 @@ namespace FORM
 
         #region ========= [Global Variable] ==============================================
 
-        private readonly string _strHeader = "  Rework By Day";
+        private readonly string _strHeader = "  Rework";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sType = "DAY";
@@ -127,7 +127,7 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
             sType = "DAY";
-            lblHeader.Text = "  Rework By Day";
+            lblHeader.Text = "  Rework";
             clear_chart();
             _time = 30;
         }
@@ -139,7 +139,7 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
             sType = "WEEK";
-            lblHeader.Text = "  Rework By Week";
+            lblHeader.Text = "  Rework";
             clear_chart();
             _time = 30;
         }
@@ -164,7 +164,7 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = true;
             sType = "MONTH";
-            lblHeader.Text = "  Rework By Month";
+            lblHeader.Text = "  Rework";
             clear_chart();
             _time = 30;
         }
@@ -176,7 +176,7 @@ namespace FORM
             btnMonth.Enabled = true;
             btnYear.Enabled = false;
             sType = "YEAR";
-            lblHeader.Text = "  Rework By Year";
+            lblHeader.Text = "  Rework";
             clear_chart();
             _time = 30;
         }
