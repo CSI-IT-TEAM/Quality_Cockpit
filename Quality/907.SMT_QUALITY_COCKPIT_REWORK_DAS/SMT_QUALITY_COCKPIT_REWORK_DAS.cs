@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Xpf.Core;
 
 namespace FORM
 {
@@ -23,7 +24,7 @@ namespace FORM
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sType = "DAY";
-        string sLine = "ALL", sLine_nm = "ALL", sPlant = "ALL", sDateF = "", sDateT = "";
+        string sLine = "ALL", sLine_nm = "ALL", sPlant = "ALL", sDateF = "", sDateT = "" , sReName = "", sReCode = "";
         DataTable _dtArea = null;
         DataTable dtModel = null;
         string _tabIndex = "0";
@@ -46,10 +47,10 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
 
-            dtpYMDT.EditValue = DateTime.Now;
+            dtpYMDT.EditValue = DateTime.Now.AddDays(-1);
             DateTime dt = DateTime.Now;
             DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            dtpYMD.EditValue = DateTime.Now;
+            dtpYMD.EditValue = DateTime.Now.AddDays(-1);
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
@@ -148,12 +149,14 @@ namespace FORM
         private void dtpYMD_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             LoadCombo("C_MODEL");
+            model = "";
             _time = 30;
         }
 
         private void dtpYMDT_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             LoadCombo("C_MODEL");
+            model = "";
             _time = 30;
 
         }
@@ -693,97 +696,97 @@ namespace FORM
             }
         }
 
-        private void chkAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkAll.Checked)
-            {
-                foreach (TreeListNode node in treeList.Nodes)
-                {
-                    node.Checked = true;
-                    foreach (TreeListNode node1 in node.RootNode.Nodes)
-                    {
-                        node1.Checked = true;
-                    }
-                }
-            }
-            else
-            {
-                foreach (TreeListNode node in treeList.Nodes)
-                {
-                    node.Checked = false;
-                    foreach (TreeListNode node1 in node.RootNode.Nodes)
-                    {
-                        node1.Checked = false;
-                    }
-                }
-            }
-        }
+        //private void chkAll_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (chkAll.Checked)
+        //    {
+        //        foreach (TreeListNode node in treeList.Nodes)
+        //        {
+        //            node.Checked = true;
+        //            foreach (TreeListNode node1 in node.RootNode.Nodes)
+        //            {
+        //                node1.Checked = true;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        foreach (TreeListNode node in treeList.Nodes)
+        //        {
+        //            node.Checked = false;
+        //            foreach (TreeListNode node1 in node.RootNode.Nodes)
+        //            {
+        //                node1.Checked = false;
+        //            }
+        //        }
+        //    }
+        //}
 
-        private void treeList_AfterCheckNode(object sender, NodeEventArgs e)
-        {
-            if (e.Node.ParentNode != null)
-                e.Node.ParentNode.Checked = IsAllChecked(e.Node.ParentNode.Nodes);
-            else
-                SetCheckedChildNodes(e.Node.Nodes);
-            GetDataTable();
-        }
+        //private void treeList_AfterCheckNode(object sender, NodeEventArgs e)
+        //{
+        //    if (e.Node.ParentNode != null)
+        //        e.Node.ParentNode.Checked = IsAllChecked(e.Node.ParentNode.Nodes);
+        //    else
+        //        SetCheckedChildNodes(e.Node.Nodes);
+        //    GetDataTable();
+        //}
 
-        private void SetCheckedChildNodes(TreeListNodes nodes)
-        {
-            foreach (TreeListNode node in nodes)
-                node.Checked = node.ParentNode.Checked;
-        }
+        //private void SetCheckedChildNodes(TreeListNodes nodes)
+        //{
+        //    foreach (TreeListNode node in nodes)
+        //        node.Checked = node.ParentNode.Checked;
+        //}
 
-        private bool IsAllChecked(TreeListNodes nodes)
-        {
-            bool value = true;
-            foreach (TreeListNode node in nodes)
-            {
-                if (!node.Checked)
-                {
-                    value = false;
-                    break;
-                }
-            }
+        //private bool IsAllChecked(TreeListNodes nodes)
+        //{
+        //    bool value = true;
+        //    foreach (TreeListNode node in nodes)
+        //    {
+        //        if (!node.Checked)
+        //        {
+        //            value = false;
+        //            break;
+        //        }
+        //    }
 
-            return value;
-        }
+        //    return value;
+        //}
 
-        private void setTreelist()
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                DataTable dt = CreateDataTable_Tree();
-                treeList.DataSource = null;
-                treeList.DataSource = dt;
-                treeList.KeyFieldName = "ID";
-                treeList.ParentFieldName = "PARENTID";
-                treeList.Columns["ID_NAME"].Visible = false;
-                Skin skin = GridSkins.GetSkin(treeList.LookAndFeel);
-                skin.Properties[GridSkins.OptShowTreeLine] = true;
-                chkAll.Checked = true;
-                foreach (TreeListNode node in treeList.Nodes)
-                {
-                    var dataRow = treeList.GetDataRecordByNode(node);
-                    node.Tag = dataRow;
-                    node.Checked = true;
-                    node.Expanded = true;
-                    foreach (TreeListNode node1 in node.RootNode.Nodes)
-                    {
-                        if (node.Checked)
-                            node1.Checked = true;
-                    }
-                }
+        //private void setTreelist()
+        //{
+        //    try
+        //    {
+        //        this.Cursor = Cursors.WaitCursor;
+        //        DataTable dt = CreateDataTable_Tree();
+        //        treeList.DataSource = null;
+        //        treeList.DataSource = dt;
+        //        treeList.KeyFieldName = "ID";
+        //        treeList.ParentFieldName = "PARENTID";
+        //        treeList.Columns["ID_NAME"].Visible = false;
+        //        Skin skin = GridSkins.GetSkin(treeList.LookAndFeel);
+        //        skin.Properties[GridSkins.OptShowTreeLine] = true;
+        //        chkAll.Checked = true;
+        //        foreach (TreeListNode node in treeList.Nodes)
+        //        {
+        //            var dataRow = treeList.GetDataRecordByNode(node);
+        //            node.Tag = dataRow;
+        //            node.Checked = true;
+        //            node.Expanded = true;
+        //            foreach (TreeListNode node1 in node.RootNode.Nodes)
+        //            {
+        //                if (node.Checked)
+        //                    node1.Checked = true;
+        //            }
+        //        }
 
-                this.Cursor = Cursors.Default;
-            }
-            catch (Exception ex)
-            {
-                this.Cursor = Cursors.Default;
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //        this.Cursor = Cursors.Default;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        this.Cursor = Cursors.Default;
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private DataTable CreateDataTable_Tree()
         {
@@ -852,35 +855,35 @@ namespace FORM
         }
 
 
-        private void GetDataTable()
-        {
-            List<DataTable> lstData = new List<DataTable>();
-            List<string> lstSeriesName = new List<string>();
-            DataTable dt = new DataTable();
-            isCheckState = false;
-            dt = dtModel.Copy(); //Giu lai datatable goc, de su dung lai.
-            var AllCheckedNode = treeList.GetAllCheckedNodes();
-            var TreeMaxLevel = GetDeepestNodeLevel(treeList);
-            foreach (var item in AllCheckedNode)
-            {
-                if (item.Level == TreeMaxLevel) //Lấy Node trong cùng.
-                {
-                    string NodeID = item.GetValue("ID").ToString().Split('_')[1];
-                    string NodeName = item.GetValue("MENU_NM").ToString();
-                    if (dt.Rows.Count > 1)
-                    {
-                        if (dt.Select("MODEL_CD = '" + NodeID + "'").Count() > 0)
-                        {
-                            DataTable dtTmp = dt.Select("MODEL_CD = '" + NodeID + "'").CopyToDataTable();
-                            lstData.Add(dtTmp);
-                            lstSeriesName.Add(NodeID);
-                        }
-                    }
-                }
-            }
+        //private void GetDataTable()
+        //{
+        //    List<DataTable> lstData = new List<DataTable>();
+        //    List<string> lstSeriesName = new List<string>();
+        //    DataTable dt = new DataTable();
+        //    isCheckState = false;
+        //    dt = dtModel.Copy(); //Giu lai datatable goc, de su dung lai.
+        //    var AllCheckedNode = treeList.GetAllCheckedNodes();
+        //    var TreeMaxLevel = GetDeepestNodeLevel(treeList);
+        //    foreach (var item in AllCheckedNode)
+        //    {
+        //        if (item.Level == TreeMaxLevel) //Lấy Node trong cùng.
+        //        {
+        //            string NodeID = item.GetValue("ID").ToString().Split('_')[1];
+        //            string NodeName = item.GetValue("MENU_NM").ToString();
+        //            if (dt.Rows.Count > 1)
+        //            {
+        //                if (dt.Select("MODEL_CD = '" + NodeID + "'").Count() > 0)
+        //                {
+        //                    DataTable dtTmp = dt.Select("MODEL_CD = '" + NodeID + "'").CopyToDataTable();
+        //                    lstData.Add(dtTmp);
+        //                    lstSeriesName.Add(NodeID);
+        //                }
+        //            }
+        //        }
+        //    }
 
-           // Loaddata(lstData, lstSeriesName);
-        }
+        //   // Loaddata(lstData, lstSeriesName);
+        //}
 
         public int GetDeepestNodeLevel(DevExpress.XtraTreeList.TreeList treeView)
         {
@@ -921,7 +924,7 @@ namespace FORM
                     e.Appearance.ForeColor = Color.White;
                 }
 
-                if (gvwBase.GetRowCellDisplayText(e.RowHandle, gvwBase.Columns["MODEL_NAME"]).ToString().ToUpper().Contains("TOTAL"))
+                if (gvwBase.GetRowCellDisplayText(e.RowHandle, gvwBase.Columns["MLINE_CD"]).ToString().ToUpper().Contains("TOTAL"))
                 {
                     e.Appearance.ForeColor = Color.Blue;
                 }
@@ -979,12 +982,9 @@ namespace FORM
                 //lblTotalProd.Text = Convert.ToDouble(_dtLabel.Rows[0]["PROD_QY"].ToString()).ToString("###,##0.##") + " Pairs";
                 //lblTotalRate.Text = _dtLabel.Rows[0]["RATE"].ToString() + " %";
 
-
-
                 //DataTable argDtChart = null;
                 //argDtChart = Fn_SelectDataGrid("CHART_MODEL", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", cboModel.SelectedValue.ToString(),"");
                 //SetChartModel(argDtChart);
-
 
                 //DataTable argDtRework = null;
                 //argDtRework = Fn_SelectDataGrid("CHART_REWORK", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", "ALL", "");
@@ -1000,8 +1000,9 @@ namespace FORM
         {
             try
             {
+                model = "";
                 this.Cursor = Cursors.Hand;
-                ChartHitInfo hit = chartControl1.CalcHitInfo(e.X, e.Y);
+                ChartHitInfo hit = chartModel.CalcHitInfo(e.X, e.Y);
                 SeriesPoint point = hit.SeriesPoint;
                 // Check whether the series point was clicked or not.
                 if (point != null)
@@ -1033,19 +1034,96 @@ namespace FORM
                             }
                         }
                     }
-
                 }
 
-                //else
-                //    sLine = "ALL";
+                model = sLine;
                 _time = 10;
                 SetChartRework(sLine);
-                //SetDataDetail();
+              
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnLT.Visible = false;
+        }
+
+        private DataTable _dtchart = null;
+        private string model = "";
+        private void chartRework_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            pnLT.Visible = true;
+
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartRework.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    sReName = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtchart.Rows.Count; iRow++)
+                    {
+                        if (_dtchart.Rows[iRow]["REWORK_NAME"].ToString() == sReName)
+                        {
+                            sReCode = _dtchart.Rows[iRow]["REWORK_CD"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    if (hit.AxisLabelItem == null)
+                    {
+                        sReCode = "ALL";
+                    }
+                    else
+                    {
+                        sReName = hit.AxisLabelItem.AxisValue.ToString();
+                        for (int iRow = 0; iRow < _dtchart.Rows.Count; iRow++)
+                        {
+                            if (_dtchart.Rows[iRow]["REWORK_NAME"].ToString() == sReName)
+                            {
+                                sReCode = _dtchart.Rows[iRow]["REWORK_CD"].ToString();
+                            }
+                        }
+                    }
+
+                }
+
+                if (model == "")
+                    model = "ALL";
+                
+
+                //else
+                //    sLine = "ALL";
+                _time = 10;
+
+                sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
+                sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+
+                DataTable argGrid = null;
+                argGrid = Fn_SelectDataGrid("POPUP", sDateF, sDateT, "", "", model, sReCode);
+
+                if (argGrid != null || argGrid.Rows.Count > 1)
+                    fn_BindingData(argGrid);
+               
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+           
+
         }
 
         private void fn_BindingData(DataTable dtgrid)
@@ -1086,7 +1164,7 @@ namespace FORM
                 }
                 gvwBase.Columns["LINE_NM"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 gvwBase.Columns["MLINE_CD"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
+                gvwBase.Columns["REWORK_NAME"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             }
             catch (Exception ex)
             {
@@ -1112,6 +1190,7 @@ namespace FORM
 
             DataTable argDtChart = null;
             argDtChart = Fn_SelectDataGrid("CHART_REWORK", sDateF, sDateT, cboModel.SelectedValue.ToString().Trim(), "", model, "");
+            _dtchart = argDtChart;
 
             if (argDtChart == null) return;
 
@@ -1266,6 +1345,7 @@ namespace FORM
         private void cboPlant_SelectedIndexChanged(object sender, EventArgs e)
         {
             _time = 30;
+            model = "";
         }
 
         #endregion ========= [add tab model] ===========================================
