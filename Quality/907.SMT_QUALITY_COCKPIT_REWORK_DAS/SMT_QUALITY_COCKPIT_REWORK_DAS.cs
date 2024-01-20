@@ -1250,17 +1250,17 @@ namespace FORM
 
             XYDiagram diagram = (XYDiagram)chartModel.Diagram;
 
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
-            lineSeriesView3.LineStyle.Thickness = 1;
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView2 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            //DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
+            //lineSeriesView3.LineStyle.Thickness = 1;
+            //DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView2 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
 
            
 
 
             for (int i = 0; i <= argDtChart.Rows.Count - 1; i++)
             {
-                sideBySideBarSeriesView2.BarWidth = 0.5;
-                chartModel.Series[0].View = sideBySideBarSeriesView2;
+                //sideBySideBarSeriesView2.BarWidth = 0.5;
+                //chartModel.Series[0].View = sideBySideBarSeriesView2;
                 chartModel.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["MODEL_NAME"].ToString(), argDtChart.Rows[i]["REW_QTY"]));
                 chartModel.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["MODEL_NAME"].ToString(), argDtChart.Rows[i]["RATE"]));
 
