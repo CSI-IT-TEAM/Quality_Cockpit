@@ -132,6 +132,233 @@ namespace FORM
         {
             try
             {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chart1.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                string strdate = cboDateFr.DateTime.ToString("yyyyMMdd");
+                string strdateto = cboDateTo.DateTime.ToString("yyyyMMdd");
+                string sYM = "";
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    sYM = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sYM)
+                        {
+                            _Line = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    if (hit.AxisLabelItem == null)
+                    {
+                        _Line = "TOT";
+                    }
+                    else
+                    {
+                        sYM = hit.AxisLabelItem.AxisValue.ToString();
+                        for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                        {
+                            if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sYM)
+                            {
+                                _Line = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+                            }
+                        }
+                    }
+
+                }
+
+                SMT_QUALITY_COCKPIT_HFPA_POP view = new SMT_QUALITY_COCKPIT_HFPA_POP(strdate, strdateto, _Line);
+                view.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //try
+            //{
+            //    //splashScreenManager1.ShowWaitForm();
+            //    ChartHitInfo hit = chart1.CalcHitInfo(e.Location);
+            //    SeriesPoint point = hit.SeriesPoint;
+            //    if (point != null)
+            //    {
+            //        string sYM = point.Argument;
+
+            //        for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+            //        {
+            //            if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sYM)
+            //            {
+            //                _Line = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+            //            }
+            //        }
+
+            //        DataSet dsData = await sbGetHFPA(sDate, _Line);
+            //        if (dsData == null) return;
+            //        DataTable dtChart = dsData.Tables[0];
+            //        DataTable dtChart1 = dsData.Tables[1];
+            //        DataTable dtChart2 = dsData.Tables[2];
+            //        dtWeek = dsData.Tables[3];
+            //        if (sDate == "WEEK")
+            //            lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
+
+            //        //SetChart(dtChart);
+            //        //SetChart1(dtChart1);
+            //        if (dtChart2 != null && dtChart2.Rows.Count > 0)
+            //        {
+            //            DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+            //            chartControl3.Titles.Clear();
+            //            if (sYM != null)
+
+            //                if (sYM == "iD")
+            //                    chartTitle.Text = "Plant ID" + " HFPA by Reason";
+            //                else if (sYM == "Vj" || sYM == "VJ")
+            //                    chartTitle.Text = "HFPA by Reason";
+            //                else
+            //                    chartTitle.Text = "Plant " + sYM + " HFPA by Reason";
+            //            else
+            //                chartTitle.Text = "HFPA by Reason";
+
+            //            chartControl3.DataSource = dtChart2;
+            //            chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+            //            chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+
+            //            // Define the alignment of the titles.
+            //            chartTitle.Alignment = StringAlignment.Center;
+
+            //            // Place the titles where it's required.
+            //            chartTitle.Dock = ChartTitleDockStyle.Top;
+
+            //            // Customize a title's appearance.
+            //            chartTitle.Antialiasing = true;
+            //            chartTitle.Font = new Font("Times New Roman", 20F, FontStyle.Bold ^ FontStyle.Italic);
+            //            chartTitle.TextColor = Color.Blue;
+            //            chartTitle.Indent = 10;
+            //            this.chartControl3.Titles.Add(chartTitle);
+            //            //chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle});
+            //        }
+            //        else
+            //        {
+            //            chartControl3.DataSource = null;
+            //        }
+            //    }
+            //    else if (hit.ChartTitle != null)
+            //    {
+            //        DataSet dsData = await sbGetHFPA(sDate, "TOT");
+
+            //        if (dsData == null) return;
+            //        DataTable dtChart = dsData.Tables[0];
+            //        DataTable dtChart1 = dsData.Tables[1];
+            //        DataTable dtChart2 = dsData.Tables[2];
+            //        dtWeek = dsData.Tables[3];
+            //        if (sDate == "WEEK")
+            //            lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
+
+            //        //SetChart(dtChart);
+            //        //SetChart1(dtChart1);
+            //        if (dtChart2 != null && dtChart2.Rows.Count > 0)
+            //        {
+            //            DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+            //            chartControl3.Titles.Clear();
+            //            chartTitle.Text = "HFPA by Reason";
+            //            chartControl3.DataSource = dtChart2;
+            //            chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+            //            chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+
+            //            // Define the alignment of the titles.
+            //            chartTitle.Alignment = StringAlignment.Center;
+
+            //            // Place the titles where it's required.
+            //            chartTitle.Dock = ChartTitleDockStyle.Top;
+
+            //            // Customize a title's appearance.
+            //            chartTitle.Antialiasing = true;
+            //            chartTitle.Font = new Font("Times New Roman", 20F, FontStyle.Bold ^ FontStyle.Italic);
+            //            chartTitle.TextColor = Color.Blue;
+            //            chartTitle.Indent = 10;
+            //            this.chartControl3.Titles.Add(chartTitle);
+            //            //chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle});
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (hit.AxisLabelItem == null) return;
+            //        string sYM = hit.AxisLabelItem.AxisValue.ToString();
+
+            //        for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+            //        {
+            //            if (_dtArea.Rows[iRow]["LINE_NM"].ToString() == sYM)
+            //            {
+            //                _Line = _dtArea.Rows[iRow]["LINE_CD"].ToString();
+            //            }
+            //        }
+
+            //        DataSet dsData = await sbGetHFPA(sDate, _Line);
+            //        if (dsData == null) return;
+            //        DataTable dtChart = dsData.Tables[0];
+            //        DataTable dtChart1 = dsData.Tables[1];
+            //        DataTable dtChart2 = dsData.Tables[2];
+            //        dtWeek = dsData.Tables[3];
+            //        if (sDate == "WEEK")
+            //            lblHeader.Text = string.Concat("HFPA by week", dtWeek.Rows[0]["TXT"].ToString());
+
+            //        //SetChart(dtChart);
+            //        //SetChart1(dtChart1);
+            //        if (dtChart2 != null && dtChart2.Rows.Count > 0)
+            //        {
+            //            DevExpress.XtraCharts.ChartTitle chartTitle = new DevExpress.XtraCharts.ChartTitle();
+            //            chartControl3.Titles.Clear();
+            //            if (sYM != null)
+            //                if (sYM == "iD")
+            //                {
+            //                    chartTitle.Text = "Plant ID" + " HFPA by Reason";
+            //                }
+            //                else if (sYM == "Vj" || sYM == "VJ")
+            //                    chartTitle.Text = "HFPA by Reason";
+            //                else
+            //                {
+            //                    chartTitle.Text = "Plant " + sYM + " HFPA by Reason";
+            //                }
+
+            //            else
+            //                chartTitle.Text = "HFPA by Reason";
+            //            chartControl3.DataSource = dtChart2;
+            //            chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+            //            chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+
+            //            // Define the alignment of the titles.
+            //            chartTitle.Alignment = StringAlignment.Center;
+
+            //            // Place the titles where it's required.
+            //            chartTitle.Dock = ChartTitleDockStyle.Top;
+
+            //            // Customize a title's appearance.
+            //            chartTitle.Antialiasing = true;
+            //            chartTitle.Font = new Font("Times New Roman", 20F, FontStyle.Bold ^ FontStyle.Italic);
+            //            chartTitle.TextColor = Color.Blue;
+            //            chartTitle.Indent = 10;
+            //            this.chartControl3.Titles.Add(chartTitle);
+            //            //chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle});
+            //        }
+            //        else
+            //        {
+            //            chartControl3.DataSource = null;
+            //        }
+            //    }
+            //    //splashScreenManager1.CloseWaitForm();
+            //}
+            //catch (Exception ex)
+            //{
+            //   // splashScreenManager1.CloseWaitForm();
+            //    MessageBox.Show(ex.Message);
+            //}
+        }
+        private async void chart1_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
                 //splashScreenManager1.ShowWaitForm();
                 ChartHitInfo hit = chart1.CalcHitInfo(e.Location);
                 SeriesPoint point = hit.SeriesPoint;
@@ -303,10 +530,11 @@ namespace FORM
             }
             catch (Exception ex)
             {
-               // splashScreenManager1.CloseWaitForm();
+                // splashScreenManager1.CloseWaitForm();
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         #endregion ========= [Control Event] ==========================================
 
@@ -493,7 +721,9 @@ namespace FORM
                 }
             });
         }
+
         #endregion ========= [Procedure Call] ===========================================
 
+       
     }
 }

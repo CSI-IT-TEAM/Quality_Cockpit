@@ -674,6 +674,7 @@
             chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chart1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle1});
+            this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
             this.chart1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.chartControl1_MouseDoubleClick);
             // 
             // timer1
