@@ -41,21 +41,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tblMenu = new System.Windows.Forms.TableLayoutPanel();
             this.pnLT = new System.Windows.Forms.Panel();
-            this.pnF2 = new System.Windows.Forms.Panel();
-            this.pnF3 = new System.Windows.Forms.Panel();
-            this.pnF5 = new System.Windows.Forms.Panel();
-            this.pnF4 = new System.Windows.Forms.Panel();
-            this.pnF1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tmrBlink = new System.Windows.Forms.Timer(this.components);
             this.gpExLT = new FORM.GroupBoxEx();
             this.advancedPanel5 = new FORM.AdvancedPanel();
             this.label9 = new System.Windows.Forms.Label();
+            this.pnF2 = new System.Windows.Forms.Panel();
             this.gpExF1 = new FORM.GroupBoxEx();
             this.aPn1 = new FORM.AdvancedPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pnF3 = new System.Windows.Forms.Panel();
+            this.pnF5 = new System.Windows.Forms.Panel();
             this.gpExF2 = new FORM.GroupBoxEx();
             this.advancedPanel1 = new FORM.AdvancedPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,9 +59,16 @@
             this.gpExF4 = new FORM.GroupBoxEx();
             this.advancedPanel3 = new FORM.AdvancedPanel();
             this.label7 = new System.Windows.Forms.Label();
+            this.pnF4 = new System.Windows.Forms.Panel();
+            this.pnF1 = new System.Windows.Forms.Panel();
             this.gpExF5 = new FORM.GroupBoxEx();
             this.advancedPanel4 = new FORM.AdvancedPanel();
             this.label8 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tmrBlink = new System.Windows.Forms.Timer(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
             this.cmdDefective = new System.Windows.Forms.Button();
             this.pnVJ3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -80,16 +81,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmdDasboard = new System.Windows.Forms.Button();
             this.cmdExternal = new System.Windows.Forms.Button();
-            this.btnHumidity = new System.Windows.Forms.Button();
             this.cmdRework = new System.Windows.Forms.Button();
             this.cmdHFPA = new System.Windows.Forms.Button();
             this.cmdBCGrade = new System.Windows.Forms.Button();
+            this.btnHumidity = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdF5 = new System.Windows.Forms.Button();
             this.cmdF4 = new System.Windows.Forms.Button();
             this.cmdF3 = new System.Windows.Forms.Button();
             this.cmdF2 = new System.Windows.Forms.Button();
             this.cmdF1 = new System.Windows.Forms.Button();
+            this.btnVendor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labelComponent1)).BeginInit();
@@ -97,9 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ascInv)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tblMenu.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.gpExLT.SuspendLayout();
             this.advancedPanel5.SuspendLayout();
             this.gpExF1.SuspendLayout();
@@ -112,6 +111,10 @@
             this.advancedPanel3.SuspendLayout();
             this.gpExF5.SuspendLayout();
             this.advancedPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.pnVJ3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnVJ.SuspendLayout();
@@ -276,100 +279,6 @@
             this.pnLT.Size = new System.Drawing.Size(313, 684);
             this.pnLT.TabIndex = 19;
             // 
-            // pnF2
-            // 
-            this.pnF2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF2.Location = new System.Drawing.Point(322, 147);
-            this.pnF2.Name = "pnF2";
-            this.pnF2.Size = new System.Drawing.Size(311, 684);
-            this.pnF2.TabIndex = 10;
-            // 
-            // pnF3
-            // 
-            this.pnF3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF3.Location = new System.Drawing.Point(641, 147);
-            this.pnF3.Name = "pnF3";
-            this.pnF3.Size = new System.Drawing.Size(311, 684);
-            this.pnF3.TabIndex = 11;
-            // 
-            // pnF5
-            // 
-            this.pnF5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF5.Location = new System.Drawing.Point(1279, 147);
-            this.pnF5.Name = "pnF5";
-            this.pnF5.Size = new System.Drawing.Size(311, 684);
-            this.pnF5.TabIndex = 13;
-            // 
-            // pnF4
-            // 
-            this.pnF4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF4.Location = new System.Drawing.Point(960, 147);
-            this.pnF4.Name = "pnF4";
-            this.pnF4.Size = new System.Drawing.Size(311, 684);
-            this.pnF4.TabIndex = 12;
-            // 
-            // pnF1
-            // 
-            this.pnF1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF1.Location = new System.Drawing.Point(3, 147);
-            this.pnF1.Name = "pnF1";
-            this.pnF1.Size = new System.Drawing.Size(311, 684);
-            this.pnF1.TabIndex = 9;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 10;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.Controls.Add(this.cmdDefective, 7, 0);
-            this.tableLayoutPanel3.Controls.Add(this.pnVJ3, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.pnVJ, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.pnVJ2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.cmdDasboard, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel2, 8, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel6, 9, 0);
-            this.tableLayoutPanel3.Controls.Add(this.cmdRework, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.cmdHFPA, 5, 0);
-            this.tableLayoutPanel3.Controls.Add(this.cmdBCGrade, 6, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1914, 134);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cmdExternal);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(1531, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 128);
-            this.panel2.TabIndex = 86;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnHumidity);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(1722, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(189, 128);
-            this.panel6.TabIndex = 86;
-            // 
-            // tmrBlink
-            // 
-            this.tmrBlink.Interval = 500;
-            this.tmrBlink.Tick += new System.EventHandler(this.tmrBlink_Tick);
-            // 
             // gpExLT
             // 
             this.gpExLT.BackgroundPanelImage = null;
@@ -425,6 +334,14 @@
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label9.Click += new System.EventHandler(this.lblFTY_Click);
             // 
+            // pnF2
+            // 
+            this.pnF2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnF2.Location = new System.Drawing.Point(322, 147);
+            this.pnF2.Name = "pnF2";
+            this.pnF2.Size = new System.Drawing.Size(311, 684);
+            this.pnF2.TabIndex = 10;
+            // 
             // gpExF1
             // 
             this.gpExF1.BackgroundPanelImage = null;
@@ -479,6 +396,22 @@
             this.label2.Text = "Factory 1";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Click += new System.EventHandler(this.lblFTY_Click);
+            // 
+            // pnF3
+            // 
+            this.pnF3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnF3.Location = new System.Drawing.Point(641, 147);
+            this.pnF3.Name = "pnF3";
+            this.pnF3.Size = new System.Drawing.Size(311, 684);
+            this.pnF3.TabIndex = 11;
+            // 
+            // pnF5
+            // 
+            this.pnF5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnF5.Location = new System.Drawing.Point(1279, 147);
+            this.pnF5.Name = "pnF5";
+            this.pnF5.Size = new System.Drawing.Size(311, 684);
+            this.pnF5.TabIndex = 13;
             // 
             // gpExF2
             // 
@@ -645,6 +578,22 @@
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label7.Click += new System.EventHandler(this.lblFTY_Click);
             // 
+            // pnF4
+            // 
+            this.pnF4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnF4.Location = new System.Drawing.Point(960, 147);
+            this.pnF4.Name = "pnF4";
+            this.pnF4.Size = new System.Drawing.Size(311, 684);
+            this.pnF4.TabIndex = 12;
+            // 
+            // pnF1
+            // 
+            this.pnF1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnF1.Location = new System.Drawing.Point(3, 147);
+            this.pnF1.Name = "pnF1";
+            this.pnF1.Size = new System.Drawing.Size(311, 684);
+            this.pnF1.TabIndex = 9;
+            // 
             // gpExF5
             // 
             this.gpExF5.BackgroundPanelImage = null;
@@ -700,6 +649,71 @@
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label8.Click += new System.EventHandler(this.lblFTY_Click);
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 11;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.Controls.Add(this.panel7, 9, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cmdDefective, 7, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pnVJ3, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pnVJ, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pnVJ2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cmdDasboard, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel2, 8, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cmdRework, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cmdHFPA, 5, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cmdBCGrade, 6, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel6, 10, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1914, 134);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cmdExternal);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(1387, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(167, 128);
+            this.panel2.TabIndex = 86;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnHumidity);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(1733, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(178, 128);
+            this.panel6.TabIndex = 86;
+            // 
+            // tmrBlink
+            // 
+            this.tmrBlink.Interval = 500;
+            this.tmrBlink.Tick += new System.EventHandler(this.tmrBlink_Tick);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnVendor);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1560, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(167, 128);
+            this.panel7.TabIndex = 87;
+            // 
             // cmdDefective
             // 
             this.cmdDefective.BackColor = System.Drawing.SystemColors.Control;
@@ -711,9 +725,9 @@
             this.cmdDefective.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDefective.Font = new System.Drawing.Font("Calibri", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDefective.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdDefective.Location = new System.Drawing.Point(1340, 3);
+            this.cmdDefective.Location = new System.Drawing.Point(1214, 3);
             this.cmdDefective.Name = "cmdDefective";
-            this.cmdDefective.Size = new System.Drawing.Size(185, 128);
+            this.cmdDefective.Size = new System.Drawing.Size(167, 128);
             this.cmdDefective.TabIndex = 86;
             this.cmdDefective.UseVisualStyleBackColor = false;
             this.cmdDefective.Click += new System.EventHandler(this.cmdDefective_Click);
@@ -724,9 +738,9 @@
             this.pnVJ3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnVJ3.Controls.Add(this.panel5);
             this.pnVJ3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnVJ3.Location = new System.Drawing.Point(385, 3);
+            this.pnVJ3.Location = new System.Drawing.Point(349, 3);
             this.pnVJ3.Name = "pnVJ3";
-            this.pnVJ3.Size = new System.Drawing.Size(185, 128);
+            this.pnVJ3.Size = new System.Drawing.Size(167, 128);
             this.pnVJ3.TabIndex = 81;
             this.pnVJ3.Tag = "VJ3";
             // 
@@ -737,7 +751,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(185, 26);
+            this.panel5.Size = new System.Drawing.Size(167, 26);
             this.panel5.TabIndex = 10;
             // 
             // label4
@@ -746,7 +760,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(72, 0);
+            this.label4.Location = new System.Drawing.Point(54, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 26);
             this.label4.TabIndex = 7;
@@ -762,7 +776,7 @@
             this.pnVJ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnVJ.Location = new System.Drawing.Point(3, 3);
             this.pnVJ.Name = "pnVJ";
-            this.pnVJ.Size = new System.Drawing.Size(185, 128);
+            this.pnVJ.Size = new System.Drawing.Size(167, 128);
             this.pnVJ.TabIndex = 79;
             this.pnVJ.Tag = "VJ1";
             // 
@@ -773,7 +787,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 26);
+            this.panel3.Size = new System.Drawing.Size(167, 26);
             this.panel3.TabIndex = 8;
             // 
             // lblVinhCuu
@@ -782,7 +796,7 @@
             this.lblVinhCuu.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblVinhCuu.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVinhCuu.ForeColor = System.Drawing.Color.White;
-            this.lblVinhCuu.Location = new System.Drawing.Point(72, 0);
+            this.lblVinhCuu.Location = new System.Drawing.Point(54, 0);
             this.lblVinhCuu.Name = "lblVinhCuu";
             this.lblVinhCuu.Size = new System.Drawing.Size(113, 26);
             this.lblVinhCuu.TabIndex = 7;
@@ -797,9 +811,9 @@
             this.pnVJ2.Controls.Add(this.panel4);
             this.pnVJ2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnVJ2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnVJ2.Location = new System.Drawing.Point(194, 3);
+            this.pnVJ2.Location = new System.Drawing.Point(176, 3);
             this.pnVJ2.Name = "pnVJ2";
-            this.pnVJ2.Size = new System.Drawing.Size(185, 128);
+            this.pnVJ2.Size = new System.Drawing.Size(167, 128);
             this.pnVJ2.TabIndex = 80;
             this.pnVJ2.Tag = "VJ2";
             this.pnVJ2.Click += new System.EventHandler(this.cmd_FTY_OSD_Click);
@@ -811,7 +825,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(185, 26);
+            this.panel4.Size = new System.Drawing.Size(167, 26);
             this.panel4.TabIndex = 9;
             // 
             // label3
@@ -820,7 +834,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(72, 0);
+            this.label3.Location = new System.Drawing.Point(54, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 26);
             this.label3.TabIndex = 8;
@@ -838,9 +852,9 @@
             this.cmdDasboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdDasboard.FlatAppearance.BorderSize = 0;
             this.cmdDasboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDasboard.Location = new System.Drawing.Point(576, 3);
+            this.cmdDasboard.Location = new System.Drawing.Point(522, 3);
             this.cmdDasboard.Name = "cmdDasboard";
-            this.cmdDasboard.Size = new System.Drawing.Size(185, 128);
+            this.cmdDasboard.Size = new System.Drawing.Size(167, 128);
             this.cmdDasboard.TabIndex = 82;
             this.cmdDasboard.UseVisualStyleBackColor = false;
             this.cmdDasboard.Click += new System.EventHandler(this.CmdDasboard_Click);
@@ -858,30 +872,11 @@
             this.cmdExternal.ForeColor = System.Drawing.Color.White;
             this.cmdExternal.Location = new System.Drawing.Point(0, 0);
             this.cmdExternal.Name = "cmdExternal";
-            this.cmdExternal.Size = new System.Drawing.Size(185, 128);
+            this.cmdExternal.Size = new System.Drawing.Size(167, 128);
             this.cmdExternal.TabIndex = 87;
             this.cmdExternal.Text = "External OS&&D";
             this.cmdExternal.UseVisualStyleBackColor = false;
             this.cmdExternal.Click += new System.EventHandler(this.cmdExternal_Click);
-            // 
-            // btnHumidity
-            // 
-            this.btnHumidity.BackColor = System.Drawing.SystemColors.Control;
-            this.btnHumidity.BackgroundImage = global::FORM.Properties.Resources.humidity;
-            this.btnHumidity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnHumidity.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHumidity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHumidity.FlatAppearance.BorderSize = 0;
-            this.btnHumidity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHumidity.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHumidity.ForeColor = System.Drawing.Color.Black;
-            this.btnHumidity.Location = new System.Drawing.Point(0, 0);
-            this.btnHumidity.Name = "btnHumidity";
-            this.btnHumidity.Size = new System.Drawing.Size(189, 128);
-            this.btnHumidity.TabIndex = 87;
-            this.btnHumidity.Text = "Humidity Tracking";
-            this.btnHumidity.UseVisualStyleBackColor = false;
-            this.btnHumidity.Click += new System.EventHandler(this.btnHumidity_Click);
             // 
             // cmdRework
             // 
@@ -891,9 +886,9 @@
             this.cmdRework.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdRework.FlatAppearance.BorderSize = 0;
             this.cmdRework.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRework.Location = new System.Drawing.Point(767, 3);
+            this.cmdRework.Location = new System.Drawing.Point(695, 3);
             this.cmdRework.Name = "cmdRework";
-            this.cmdRework.Size = new System.Drawing.Size(185, 128);
+            this.cmdRework.Size = new System.Drawing.Size(167, 128);
             this.cmdRework.TabIndex = 82;
             this.cmdRework.UseVisualStyleBackColor = false;
             this.cmdRework.Click += new System.EventHandler(this.cmdRework_Click);
@@ -909,9 +904,9 @@
             this.cmdHFPA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdHFPA.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdHFPA.ForeColor = System.Drawing.Color.White;
-            this.cmdHFPA.Location = new System.Drawing.Point(958, 3);
+            this.cmdHFPA.Location = new System.Drawing.Point(868, 3);
             this.cmdHFPA.Name = "cmdHFPA";
-            this.cmdHFPA.Size = new System.Drawing.Size(185, 128);
+            this.cmdHFPA.Size = new System.Drawing.Size(167, 128);
             this.cmdHFPA.TabIndex = 84;
             this.cmdHFPA.Text = "HFPA";
             this.cmdHFPA.UseVisualStyleBackColor = false;
@@ -928,12 +923,31 @@
             this.cmdBCGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdBCGrade.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdBCGrade.ForeColor = System.Drawing.Color.White;
-            this.cmdBCGrade.Location = new System.Drawing.Point(1149, 3);
+            this.cmdBCGrade.Location = new System.Drawing.Point(1041, 3);
             this.cmdBCGrade.Name = "cmdBCGrade";
-            this.cmdBCGrade.Size = new System.Drawing.Size(185, 128);
+            this.cmdBCGrade.Size = new System.Drawing.Size(167, 128);
             this.cmdBCGrade.TabIndex = 85;
             this.cmdBCGrade.UseVisualStyleBackColor = false;
             this.cmdBCGrade.Click += new System.EventHandler(this.cmdBCGrade_Click);
+            // 
+            // btnHumidity
+            // 
+            this.btnHumidity.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHumidity.BackgroundImage = global::FORM.Properties.Resources.humidity;
+            this.btnHumidity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHumidity.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHumidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHumidity.FlatAppearance.BorderSize = 0;
+            this.btnHumidity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHumidity.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHumidity.ForeColor = System.Drawing.Color.Black;
+            this.btnHumidity.Location = new System.Drawing.Point(0, 0);
+            this.btnHumidity.Name = "btnHumidity";
+            this.btnHumidity.Size = new System.Drawing.Size(178, 128);
+            this.btnHumidity.TabIndex = 87;
+            this.btnHumidity.Text = "Humidity Tracking";
+            this.btnHumidity.UseVisualStyleBackColor = false;
+            this.btnHumidity.Click += new System.EventHandler(this.btnHumidity_Click);
             // 
             // cmdBack
             // 
@@ -1053,6 +1067,25 @@
             this.cmdF1.UseVisualStyleBackColor = false;
             this.cmdF1.Visible = false;
             // 
+            // btnVendor
+            // 
+            this.btnVendor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnVendor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVendor.BackgroundImage")));
+            this.btnVendor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVendor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVendor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVendor.FlatAppearance.BorderSize = 0;
+            this.btnVendor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendor.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold);
+            this.btnVendor.ForeColor = System.Drawing.Color.Yellow;
+            this.btnVendor.Location = new System.Drawing.Point(0, 0);
+            this.btnVendor.Name = "btnVendor";
+            this.btnVendor.Size = new System.Drawing.Size(167, 128);
+            this.btnVendor.TabIndex = 85;
+            this.btnVendor.Text = "Vendor Quality";
+            this.btnVendor.UseVisualStyleBackColor = false;
+            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
+            // 
             // SMT_QUALITY_COCKPIT_MAIN
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1072,9 +1105,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ascInv)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tblMenu.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.gpExLT.ResumeLayout(false);
             this.advancedPanel5.ResumeLayout(false);
             this.gpExF1.ResumeLayout(false);
@@ -1087,6 +1117,10 @@
             this.advancedPanel3.ResumeLayout(false);
             this.gpExF5.ResumeLayout(false);
             this.advancedPanel4.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.pnVJ3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.pnVJ.ResumeLayout(false);
@@ -1161,5 +1195,7 @@
         private System.Windows.Forms.Button cmdExternal;
         private System.Windows.Forms.Button btnHumidity;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnVendor;
     }
 }

@@ -28,21 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_HFPA_POP));
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PointSeriesLabel pointSeriesLabel1 = new DevExpress.XtraCharts.PointSeriesLabel();
             DevExpress.XtraCharts.SplineSeriesView splineSeriesView1 = new DevExpress.XtraCharts.SplineSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
-            this.pnTop = new System.Windows.Forms.Panel();
-            this.cmdPm1 = new System.Windows.Forms.Button();
-            this.lblHeader = new DevExpress.XtraEditors.LabelControl();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.gridBand13 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.pnTop.SuspendLayout();
             this.pnBody1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
@@ -50,48 +44,6 @@
             ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(splineSeriesView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnTop
-            // 
-            this.pnTop.Controls.Add(this.cmdPm1);
-            this.pnTop.Controls.Add(this.lblHeader);
-            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(0, 0);
-            this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1254, 76);
-            this.pnTop.TabIndex = 2;
-            // 
-            // cmdPm1
-            // 
-            this.cmdPm1.BackColor = System.Drawing.Color.Transparent;
-            this.cmdPm1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdPm1.BackgroundImage")));
-            this.cmdPm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdPm1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdPm1.FlatAppearance.BorderSize = 0;
-            this.cmdPm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPm1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdPm1.ForeColor = System.Drawing.Color.Navy;
-            this.cmdPm1.Location = new System.Drawing.Point(3, 3);
-            this.cmdPm1.Name = "cmdPm1";
-            this.cmdPm1.Size = new System.Drawing.Size(77, 70);
-            this.cmdPm1.TabIndex = 88;
-            this.cmdPm1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdPm1.UseVisualStyleBackColor = false;
-            this.cmdPm1.Visible = false;
-            this.cmdPm1.Click += new System.EventHandler(this.cmdBack_Click);
-            // 
-            // lblHeader
-            // 
-            this.lblHeader.Appearance.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Appearance.Options.UseFont = true;
-            this.lblHeader.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblHeader.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblHeader.LineVisible = true;
-            this.lblHeader.Location = new System.Drawing.Point(0, 0);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(1622, 76);
-            this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "Daily HFPA";
             // 
             // timer1
             // 
@@ -108,9 +60,9 @@
             // 
             this.pnBody1.Controls.Add(this.chartControl1);
             this.pnBody1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody1.Location = new System.Drawing.Point(0, 76);
+            this.pnBody1.Location = new System.Drawing.Point(0, 0);
             this.pnBody1.Name = "pnBody1";
-            this.pnBody1.Size = new System.Drawing.Size(1254, 477);
+            this.pnBody1.Size = new System.Drawing.Size(1254, 553);
             this.pnBody1.TabIndex = 3;
             // 
             // chartControl1
@@ -159,7 +111,7 @@
             series1.View = splineSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControl1.Size = new System.Drawing.Size(1254, 477);
+            this.chartControl1.Size = new System.Drawing.Size(1254, 553);
             this.chartControl1.TabIndex = 727;
             chartTitle1.Font = new System.Drawing.Font("Times New Roman", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             chartTitle1.Text = "Inventory (Finish Goods)";
@@ -172,13 +124,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1254, 553);
             this.Controls.Add(this.pnBody1);
-            this.Controls.Add(this.pnTop);
             this.Name = "SMT_QUALITY_COCKPIT_HFPA_POP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Rework Detail";
+            this.Text = "Daily HFPA";
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_FORM1_Load);
             this.VisibleChanged += new System.EventHandler(this.SMT_QUALITY_COCKPIT_REWORK_POP_VisibleChanged);
-            this.pnTop.ResumeLayout(false);
             this.pnBody1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pointSeriesLabel1)).EndInit();
@@ -190,9 +140,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnTop;
-        public System.Windows.Forms.Button cmdPm1;
-        private DevExpress.XtraEditors.LabelControl lblHeader;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand13;
         private System.Windows.Forms.Panel pnBody1;

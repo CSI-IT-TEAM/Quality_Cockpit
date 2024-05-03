@@ -16,7 +16,7 @@ namespace FORM
         public SMT_QUALITY_COCKPIT_HFPA_POP()
         {
             InitializeComponent();
-            lblHeader.Text = _strHeader;
+            //lblHeader.Text = _strHeader;
         }
         string _date,_dateto, _plant_code, _line_code;
         public SMT_QUALITY_COCKPIT_HFPA_POP(string date,string dateto, string line)
@@ -26,7 +26,7 @@ namespace FORM
             _line_code = line;
             _dateto = dateto;
         }
-        private readonly string _strHeader = "       Daily HFOA";
+        private readonly string _strHeader = "       Daily HFPA";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
 

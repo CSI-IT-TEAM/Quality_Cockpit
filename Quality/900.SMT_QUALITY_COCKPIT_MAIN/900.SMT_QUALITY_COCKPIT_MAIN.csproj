@@ -233,6 +233,11 @@
     <None Include="Resources\shoe.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\images-removebg-preview %281%29.png" />
+    <Content Include="Resources\images-removebg-preview.png" />
+    <Content Include="Resources\images__1_-removebg-preview.png" />
+    <Content Include="Resources\pngtree.png" />
+    <None Include="Resources\button.png" />
     <Content Include="Resources\humidity.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
