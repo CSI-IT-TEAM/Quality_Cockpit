@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -75,15 +76,15 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
             this.pnExport = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
             this.grdView = new DevExpress.XtraGrid.GridControl();
             this.gvwView = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.pnC = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblRed = new System.Windows.Forms.Label();
+            this.lblYellow = new System.Windows.Forms.Label();
+            this.lblGreen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.grdDetail = new DevExpress.XtraGrid.GridControl();
             this.gvwDetail = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
@@ -603,53 +604,54 @@
             // 
             // pnC
             // 
-            this.pnC.Controls.Add(this.label7);
-            this.pnC.Controls.Add(this.label1);
-            this.pnC.Controls.Add(this.label5);
+            this.pnC.Controls.Add(this.lblRed);
+            this.pnC.Controls.Add(this.lblYellow);
+            this.pnC.Controls.Add(this.lblGreen);
             this.pnC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnC.Location = new System.Drawing.Point(0, 497);
             this.pnC.Name = "pnC";
             this.pnC.Size = new System.Drawing.Size(1920, 233);
             this.pnC.TabIndex = 13;
             // 
-            // label7
+            // lblRed
             // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(55)))), ((int)(((byte)(30)))));
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1753, 1);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(163, 39);
-            this.label7.TabIndex = 421;
-            this.label7.Text = "Rate >= 12%";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(55)))), ((int)(((byte)(30)))));
+            this.lblRed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRed.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.lblRed.ForeColor = System.Drawing.Color.White;
+            this.lblRed.Location = new System.Drawing.Point(1753, 1);
+            this.lblRed.Name = "lblRed";
+            this.lblRed.Size = new System.Drawing.Size(163, 39);
+            this.lblRed.TabIndex = 421;
+            this.lblRed.Text = "Rate >= ";
+            this.lblRed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRed.Visible = false;
             // 
-            // label1
+            // lblYellow
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(15)))));
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1537, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 39);
-            this.label1.TabIndex = 420;
-            this.label1.Text = "9.1% <= Rate < 12%";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblYellow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(15)))));
+            this.lblYellow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblYellow.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.lblYellow.ForeColor = System.Drawing.Color.White;
+            this.lblYellow.Location = new System.Drawing.Point(1537, 1);
+            this.lblYellow.Name = "lblYellow";
+            this.lblYellow.Size = new System.Drawing.Size(215, 39);
+            this.lblYellow.TabIndex = 420;
+            this.lblYellow.Text = "9.1% <= Rate < ";
+            this.lblYellow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // lblGreen
             // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1359, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 39);
-            this.label5.TabIndex = 419;
-            this.label5.Text = "Rate <= 9%";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
+            this.lblGreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGreen.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.lblGreen.ForeColor = System.Drawing.Color.White;
+            this.lblGreen.Location = new System.Drawing.Point(1359, 1);
+            this.lblGreen.Name = "lblGreen";
+            this.lblGreen.Size = new System.Drawing.Size(177, 39);
+            this.lblGreen.TabIndex = 419;
+            this.lblGreen.Text = "Rate <=";
+            this.lblGreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -1189,9 +1191,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblRed;
+        private System.Windows.Forms.Label lblYellow;
+        private System.Windows.Forms.Label lblGreen;
         private DevExpress.XtraEditors.DateEdit dtpYMDT;
         private DevExpress.XtraEditors.DateEdit dtpYMD;
         private System.Windows.Forms.Label label3;

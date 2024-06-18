@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraPrinting.BrickExporters;
 
 namespace FORM
 {
@@ -24,6 +25,8 @@ namespace FORM
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         bool _isLoad = true;
         int _start_column = 0;
+        private DataTable dtTarget = null;
+        private string status = "Y";
 
         #endregion ========= [Global Variable] ==============================================
 
@@ -38,6 +41,7 @@ namespace FORM
             LoadCombo("DATE");
             LoadCombo("COMBO_PLANT");
             LoadCombo("COMBO_LINE");
+            
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
@@ -49,6 +53,7 @@ namespace FORM
                 //chartControl1.Series[0].Points.Clear();
                 //chartControl1.Series[1].Points.Clear();
                 //grdView.DataSource = null;
+                loadControl();
                 _time = 30;
 
                 timer1.Start();
@@ -231,7 +236,13 @@ namespace FORM
             {
                 if (gvwView.GetRowCellDisplayText(e.RowHandle, gvwView.Columns["DIV"]).ToString().ToUpper().Contains("RATE"))
                 {
+                   
                     double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
+                    if (status == "N") return;
+                    if (temp > 0)
+                    {
+                        e.Appearance.BackColor = Color.White;
+                    }
                     if (temp >= 12)
                     {
                         e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
@@ -305,6 +316,26 @@ namespace FORM
             //}
         }
 
+
+        private void loadControl()
+        {
+            dtTarget = DataTarget("Q", "2110");
+            if (dtTarget != null)
+            {
+                status = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                if (status == "Y")
+                {
+                    lblGreen.Visible = lblRed.Visible = lblYellow.Visible = true;
+                    lblGreen.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblRed.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblYellow.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                }
+                else
+                {
+                    lblGreen.Visible = lblRed.Visible = lblYellow.Visible = false;
+                }
+            }
+        }
         #endregion ========= [Control Event] ==========================================
 
         #region ========= [Method] ==========================================
@@ -368,20 +399,28 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate >= 12)
+                if (status == "Y")
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
-                }
-                else if (rate <= 9)
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
-                   
+                    if (rate >= 12)
+                    {
+                        chartControl1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
+                    }
+                    else if (rate <= 9)
+                    {
+                        chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+
+                    }
+                    else
+                    {
+                        chartControl1.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+
+                    }
                 }
                 else
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
-
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                 }
+                   
             }
         }
 
@@ -770,44 +809,41 @@ namespace FORM
         #endregion ========= [Method] ==========================================
 
         #region ========= [Procedure Call] ===========================================
-        //private DataTable Data_Select_Combo(string argType, string argPlant, string argLine )
-        //{           
-        //    COM.OraDB MyOraDB = new COM.OraDB();
-        //    DataSet ds_ret;
-        //    try
-        //    {
-        //        string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_03.SP_SET_COMBO";
+        private DataTable DataTarget(string argType, string argPlant)
+        {
+            COM.OraDB MyOraDB = new COM.OraDB();
+            DataSet ds_ret;
+            try
+            {
+                string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_REWORK_STATUS";
 
-        //        MyOraDB.ReDim_Parameter(4);
-        //        MyOraDB.Process_Name = process_name;
+                MyOraDB.ReDim_Parameter(3);
+                MyOraDB.Process_Name = process_name;
 
-        //        MyOraDB.Parameter_Name[0] = "V_P_TYPE";
-        //        MyOraDB.Parameter_Name[1] = "V_P_PLANT";
-        //        MyOraDB.Parameter_Name[2] = "V_P_LINE";
-        //        MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                MyOraDB.Parameter_Name[1] = "V_P_PLANT";
+                MyOraDB.Parameter_Name[2] =  "OUT_CURSOR";
 
-        //        MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-        //        MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-        //        MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-        //        MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] =  (int)OracleType.Cursor;
 
-        //        MyOraDB.Parameter_Values[0] = argType;
-        //        MyOraDB.Parameter_Values[1] = argPlant;
-        //        MyOraDB.Parameter_Values[2] = argLine;
-        //        MyOraDB.Parameter_Values[3] = "";
+                MyOraDB.Parameter_Values[0] = argType;
+                MyOraDB.Parameter_Values[1] = argPlant;
+                MyOraDB.Parameter_Values[2] = "";
 
-        //        MyOraDB.Add_Select_Parameter(true);
-        //        ds_ret = MyOraDB.Exe_Select_Procedure();
+                MyOraDB.Add_Select_Parameter(true);
+                ds_ret = MyOraDB.Exe_Select_Procedure();
 
-        //        if (ds_ret == null) return null;
-        //        return ds_ret.Tables[process_name];
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
+                if (ds_ret == null) return null;
+                return ds_ret.Tables[process_name];
+            }
+            catch
+            {
+                return null;
+            }
 
-        //}
+        }
 
         public DataSet sbGetRework(string ARG_QTYPE, string ARG_YMDF, string ARG_YMDT, string ARG_PLANT, string ARG_LINE)
         {

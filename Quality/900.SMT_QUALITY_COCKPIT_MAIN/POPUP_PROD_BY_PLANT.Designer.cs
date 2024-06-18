@@ -57,9 +57,9 @@
             this.grdMain = new DevExpress.XtraGrid.GridControl();
             this.gvwMain = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pnMonth = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblRed = new System.Windows.Forms.Label();
+            this.lblYellow = new System.Windows.Forms.Label();
+            this.lblGreen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPlanAvg = new System.Windows.Forms.Label();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
@@ -127,52 +127,53 @@
             // 
             // pnMonth
             // 
-            this.pnMonth.Controls.Add(this.label3);
-            this.pnMonth.Controls.Add(this.label2);
-            this.pnMonth.Controls.Add(this.label1);
+            this.pnMonth.Controls.Add(this.lblRed);
+            this.pnMonth.Controls.Add(this.lblYellow);
+            this.pnMonth.Controls.Add(this.lblGreen);
             this.pnMonth.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMonth.Location = new System.Drawing.Point(0, 0);
             this.pnMonth.Name = "pnMonth";
             this.pnMonth.Size = new System.Drawing.Size(1714, 46);
             this.pnMonth.TabIndex = 7;
             // 
-            // label3
+            // lblRed
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Green;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Font = new System.Drawing.Font("Calibri", 18.25F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1290, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 31);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Rate <= 3%";
+            this.lblRed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(55)))), ((int)(((byte)(30)))));
+            this.lblRed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRed.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.lblRed.ForeColor = System.Drawing.Color.White;
+            this.lblRed.Location = new System.Drawing.Point(1539, 4);
+            this.lblRed.Name = "lblRed";
+            this.lblRed.Size = new System.Drawing.Size(163, 39);
+            this.lblRed.TabIndex = 424;
+            this.lblRed.Text = "Rate >= 12%";
+            this.lblRed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblYellow
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Yellow;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Font = new System.Drawing.Font("Calibri", 18.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(1419, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(178, 31);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "3% > Rate <=4%";
+            this.lblYellow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(15)))));
+            this.lblYellow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblYellow.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.lblYellow.ForeColor = System.Drawing.Color.White;
+            this.lblYellow.Location = new System.Drawing.Point(1323, 4);
+            this.lblYellow.Name = "lblYellow";
+            this.lblYellow.Size = new System.Drawing.Size(215, 39);
+            this.lblYellow.TabIndex = 423;
+            this.lblYellow.Text = "9.1% <= Rate < 12%";
+            this.lblYellow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lblGreen
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Red;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Calibri", 18.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1597, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Rate > 4%";
+            this.lblGreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
+            this.lblGreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGreen.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.lblGreen.ForeColor = System.Drawing.Color.White;
+            this.lblGreen.Location = new System.Drawing.Point(1145, 4);
+            this.lblGreen.Name = "lblGreen";
+            this.lblGreen.Size = new System.Drawing.Size(177, 39);
+            this.lblGreen.TabIndex = 422;
+            this.lblGreen.Text = "Rate <= 9%";
+            this.lblGreen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -219,9 +220,11 @@
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisualRange.Auto = false;
-            xyDiagram1.AxisY.VisualRange.MaxValueSerializable = "8.67333333333333";
-            xyDiagram1.AxisY.VisualRange.MinValueSerializable = "0";
+            xyDiagram1.AxisY.WholeRange.Auto = false;
+            xyDiagram1.AxisY.WholeRange.AutoSideMargins = false;
+            xyDiagram1.AxisY.WholeRange.MaxValueSerializable = "8";
+            xyDiagram1.AxisY.WholeRange.MinValueSerializable = "2";
+            xyDiagram1.AxisY.WholeRange.SideMarginsValue = 2D;
             xyDiagram1.DefaultPane.BorderVisible = false;
             xyDiagram1.DefaultPane.Shadow.Size = 5;
             this.chartControl1.Diagram = xyDiagram1;
@@ -358,7 +361,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwMain)).EndInit();
             this.pnMonth.ResumeLayout(false);
-            this.pnMonth.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
@@ -393,11 +395,11 @@
         private DevExpress.XtraGrid.GridControl grdMain;
         private DevExpress.XtraGrid.Views.Grid.GridView gvwMain;
         private System.Windows.Forms.Panel pnMonth;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraCharts.ChartControl chartControl1;
         private System.Windows.Forms.Label lblPlanAvg;
+        private System.Windows.Forms.Label lblRed;
+        private System.Windows.Forms.Label lblYellow;
+        private System.Windows.Forms.Label lblGreen;
     }
 }

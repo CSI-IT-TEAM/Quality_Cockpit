@@ -23,10 +23,10 @@ namespace FORM
         private readonly string _strHeader = "  Rework";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
-        string sType = "DAY";
+        string sType = "DAY", status = "Y";
         string sLine = "ALL", sLine_nm = "ALL", sPlant = "ALL", sDateF = "", sDateT = "" , sReName = "", sReCode = "";
         DataTable _dtArea = null;
-        DataTable dtModel = null;
+        private DataTable dtModel = null, dtTarget = null;
         string _tabIndex = "0";
         bool isHasChild = false, isCheckState = true;
         string list = "";
@@ -57,6 +57,7 @@ namespace FORM
         {
             if (Visible)
             {
+                loadControl();
                 cboModel.SelectedValue = ComVar.Var._strValue1;
                 cboLine.SelectedValue = ComVar.Var._strValue2;
                 tabControl.SelectedTabPage = tabControl.TabPages[0];
@@ -288,7 +289,25 @@ namespace FORM
             }
         }
 
-
+        private void loadControl()
+        {
+            dtTarget = DataTarget("Q", "2110");
+            if (dtTarget != null)
+            {
+                status = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                if (status == "Y")
+                {
+                    lblGreen.Visible = lblRed.Visible = lblYellow.Visible = true;
+                    lblGreen.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblRed.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblYellow.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                }
+                else
+                {
+                    lblGreen.Visible = lblRed.Visible = lblYellow.Visible = false;
+                }
+            }
+        }
         #endregion ========= [Control Event] ==========================================
 
         #region ========= [Method] ==========================================
@@ -354,19 +373,28 @@ namespace FORM
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate >= 12)
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
-                }
-                else if (rate <= 9)
-                {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
 
+                if (status == "Y")
+                {
+                    if (rate >= 12)
+                    {
+                        chartControl1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
+                    }
+                    else if (rate <= 9)
+                    {
+                        chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+
+                    }
+                    else
+                    {
+                        chartControl1.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                    }
                 }
                 else
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                 }
+
             }
         }
 
@@ -648,6 +676,42 @@ namespace FORM
             }
         }
 
+
+        private DataTable DataTarget(string argType, string argPlant)
+        {
+            COM.OraDB MyOraDB = new COM.OraDB();
+            DataSet ds_ret;
+            try
+            {
+                string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_REWORK_STATUS";
+
+                MyOraDB.ReDim_Parameter(3);
+                MyOraDB.Process_Name = process_name;
+
+                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                MyOraDB.Parameter_Name[1] = "V_P_PLANT";
+                MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
+
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
+
+                MyOraDB.Parameter_Values[0] = argType;
+                MyOraDB.Parameter_Values[1] = argPlant;
+                MyOraDB.Parameter_Values[2] = "";
+
+                MyOraDB.Add_Select_Parameter(true);
+                ds_ret = MyOraDB.Exe_Select_Procedure();
+
+                if (ds_ret == null) return null;
+                return ds_ret.Tables[process_name];
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
         #endregion ========= [Procedure Call] ===========================================
 
         #region ========= [add tab model] ===========================================
@@ -906,22 +970,28 @@ namespace FORM
             {
                 if (e.Column.FieldName.Contains("RATE")) //&& e.RowHandle != gvwBase.RowCount - 1)
                 {
+                    
                     double.TryParse(
                         gvwBase.GetRowCellDisplayText(gvwBase.RowCount - 1, gvwBase.Columns[e.Column.ColumnHandle])
                             .ToString(), out temp); //out
-                    if (temp >= 12)
-                    {
-                        e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
-                    }
-                    else if (temp <= 9)
-                    {
-                        e.Appearance.BackColor = Color.FromArgb(20, 200, 110);
-                    }
+                    if (status == "N") return;
                     else
                     {
-                        e.Appearance.BackColor = Color.FromArgb(255, 180, 15);
+                        if (temp >= 12)
+                        {
+                            e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
+                        }
+                        else if (temp <= 9)
+                        {
+                            e.Appearance.BackColor = Color.FromArgb(20, 200, 110);
+                        }
+                        else
+                        {
+                            e.Appearance.BackColor = Color.FromArgb(255, 180, 15);
+                        }
                     }
-                    e.Appearance.ForeColor = Color.White;
+                    
+                   
                 }
 
                 if (gvwBase.GetRowCellDisplayText(e.RowHandle, gvwBase.Columns["MLINE_CD"]).ToString().ToUpper().Contains("TOTAL"))
@@ -1211,22 +1281,30 @@ namespace FORM
             {
                 chartRework.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["REWORK_NAME"].ToString(),argDtChart.Rows[i]["REW_QTY"]));
                 chartRework.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["REWORK_NAME"].ToString(),argDtChart.Rows[i]["RATE"]));
-
+                
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
 
-                if (rate >= 12)
+                if (status == "Y")
                 {
-                    chartRework.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
-                }
-                else if (rate <= 9)
-                {
-                    chartRework.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+                    if (rate >= 12)
+                    {
+                        chartRework.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
+                    }
+                    else if (rate <= 9)
+                    {
+                        chartRework.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+                    }
+                    else
+                    {
+                        chartRework.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                    }
                 }
                 else
                 {
-                    chartRework.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                    chartRework.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                 }
+
             }
         }
 
@@ -1263,22 +1341,31 @@ namespace FORM
                 //chartModel.Series[0].View = sideBySideBarSeriesView2;
                 chartModel.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["MODEL_NAME"].ToString(), argDtChart.Rows[i]["REW_QTY"]));
                 chartModel.Series[1].Points.Add(new SeriesPoint(argDtChart.Rows[i]["MODEL_NAME"].ToString(), argDtChart.Rows[i]["RATE"]));
-
+              
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
-
-                if (rate >= 12)
+               
+                if (status == "Y")
                 {
-                    chartModel.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
-                }
-                else if (rate <= 9)
-                {
-                    chartModel.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+                    if (rate >= 12)
+                    {
+                        chartModel.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
+                    }
+                    else if (rate <= 9)
+                    {
+                        chartModel.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+                    }
+                    else
+                    {
+                        chartModel.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                    }
                 }
                 else
                 {
-                    chartModel.Series[0].Points[i].Color = Color.FromArgb(255, 180, 15);
+                        chartModel.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
+
                 }
+               
             }
 
             ((XYDiagram)chartModel.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;

@@ -29,9 +29,10 @@ namespace FORM
 
         public string Plant ;
         public string PlantName;
-        string Line = "";
+        string Line = "", status = "Y";
         UC.UC_MONTH_SELECTION UcMonth = new UC.UC_MONTH_SELECTION();
         bool ShowTree = false;
+        private DataTable dtTarget = null;
         private void BindingData()
         {
             try
@@ -103,7 +104,7 @@ namespace FORM
 
                 XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
                 diagram.AxisY.WholeRange.Auto = false;
-                diagram.AxisY.WholeRange.SetMinMaxValues(minValue - 1, maxValue + 1);
+                diagram.AxisY.WholeRange.SetMinMaxValues(minValue - 1, maxValue + 3);
             }
             catch (Exception ex)
             {
@@ -274,6 +275,7 @@ namespace FORM
 
                 string[] dataArray = gvwMain.GetRowCellValue(e.RowHandle, e.Column.FieldName).ToString().Split('\n');
                 if (dataArray.Length < 2) return;
+                if (status == "N") return;
                 string color = dataArray[1];
                 e.Appearance.BackColor = Color.FromName(color);
                 switch (color.ToUpper())
@@ -411,7 +413,41 @@ namespace FORM
                 return null;
             }
         }
+        private DataTable DataTarget(string argType, string argPlant)
+        {
+            COM.OraDB MyOraDB = new COM.OraDB();
+            DataSet ds_ret;
+            try
+            {
+                string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_REWORK_STATUS";
 
+                MyOraDB.ReDim_Parameter(3);
+                MyOraDB.Process_Name = process_name;
+
+                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                MyOraDB.Parameter_Name[1] = "V_P_PLANT";
+                MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
+
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
+
+                MyOraDB.Parameter_Values[0] = argType;
+                MyOraDB.Parameter_Values[1] = argPlant;
+                MyOraDB.Parameter_Values[2] = "";
+
+                MyOraDB.Add_Select_Parameter(true);
+                ds_ret = MyOraDB.Exe_Select_Procedure();
+
+                if (ds_ret == null) return null;
+                return ds_ret.Tables[process_name];
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
         private void LoadScreen()
         {
             int iScreen = 1;
@@ -445,6 +481,7 @@ namespace FORM
         private void POPUP_PROD_BY_PLANT_Load(object sender, EventArgs e)
         {
             LoadScreen();
+            loadControl();
             UcMonth.ValueChangeEvent += UcMonth_ValueChangeEvent;
             pnMonth.Controls.Add(UcMonth);
             Text = PlantName;// + " Production";
@@ -553,6 +590,26 @@ namespace FORM
 
             dt = ShowTree? dt.Select($"PARENTID = '{Plant}' or id = '{Plant}'").CopyToDataTable() :dt;
             return dt;
+        }
+
+        private void loadControl()
+        {
+            dtTarget = DataTarget("Q", "2110");
+            if (dtTarget != null)
+            {
+                status = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                if (status == "Y")
+                {
+                    lblGreen.Visible = lblRed.Visible = lblYellow.Visible = true;
+                    lblGreen.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblRed.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblYellow.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                }
+                else
+                {
+                    lblGreen.Visible = lblRed.Visible = lblYellow.Visible = false;
+                }
+            }
         }
 
         #endregion
