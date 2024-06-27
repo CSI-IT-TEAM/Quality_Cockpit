@@ -328,6 +328,7 @@ namespace FORM
             {
                 Button cmd = new Button();
 
+                cmd.Cursor = System.Windows.Forms.Cursors.Hand;
 
                 cmd.FlatAppearance.BorderSize = 0;
                 cmd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -341,7 +342,6 @@ namespace FORM
                 cmd.Text = value["TEXT"];
                 cmd.UseVisualStyleBackColor = true;
                 cmd.Click += new EventHandler(Button_Line_Click);
-
 
 
                 if (value["TAG"] != "")
@@ -639,9 +639,9 @@ namespace FORM
                 COM.OraDB MyOraDB = new COM.OraDB();
 
                 MyOraDB.ReDim_Parameter(2);
-                MyOraDB.Process_Name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_02.MASTER_PLANT_SELECT";
+                MyOraDB.Process_Name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_MAIN_PLANT_SELECT";
 
-                MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
+                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
                 MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
@@ -667,9 +667,9 @@ namespace FORM
             MyOraDB.ShowErr = true;
 
             MyOraDB.ReDim_Parameter(2);
-            MyOraDB.Process_Name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_02.MAIN_SELECT";
+            MyOraDB.Process_Name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_MAIN_DATA_SELECT";
 
-            MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
+            MyOraDB.Parameter_Name[0] = "V_P_TYPE";
             MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
 
             MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
@@ -722,7 +722,7 @@ namespace FORM
         #region Event
         private void tmrTime_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _iReload++;
             if (_iReload >= 20)
             {
@@ -962,6 +962,12 @@ namespace FORM
         {
             ComVar.Var._IsBack = true;
             ComVar.Var.callForm = "913";
+        }
+
+        private void btnVendor_Click(object sender, EventArgs e)
+        {
+            ComVar.Var._IsBack = true;
+            ComVar.Var.callForm = "917";
         }
     }
 

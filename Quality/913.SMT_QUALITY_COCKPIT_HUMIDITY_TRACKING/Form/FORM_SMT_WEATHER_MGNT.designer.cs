@@ -217,7 +217,7 @@ namespace FORM
             // 
             // splMain.Panel1
             // 
-            this.splMain.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.splMain.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(95)))));
             this.splMain.Panel1.Controls.Add(this.cmdBack);
             this.splMain.Panel1.Controls.Add(this.advancedPanel3);
             this.splMain.Panel1.Controls.Add(this.btnStatistics);

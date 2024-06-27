@@ -70,8 +70,8 @@ namespace FORM
                         }
                         else
                         {
-                            _chart.Series[1].View.Color = Color.Red;
-                            _chart.Series[1].Points[i].Color = Color.Red;
+                            _chart.Series[1].View.Color = Color.FromArgb(250,55,30);
+                            _chart.Series[1].Points[i].Color = Color.FromArgb(250,55,30);
                         }
                     }
                 }

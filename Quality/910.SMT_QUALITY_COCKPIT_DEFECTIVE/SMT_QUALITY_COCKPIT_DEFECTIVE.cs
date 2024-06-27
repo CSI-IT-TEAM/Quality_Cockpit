@@ -19,6 +19,8 @@ namespace FORM
 {
     public partial class SMT_QUALITY_COCKPIT_DEFECTIVE : Form
     {
+        #region ========= [Global Variable] ==============================================
+
         //private readonly string _strHeader = " Defective Report";
         int _time = 0;
         string _crr_date = "";
@@ -26,31 +28,195 @@ namespace FORM
         DataTable _dtArea = null;
         bool _is_All_Load = false;
 
+        #endregion ========= [Global Variable] ==============================================
+
+        #region ========= [Form Init] ==============================================
+
         public SMT_QUALITY_COCKPIT_DEFECTIVE()
         {
             InitializeComponent();
-            //lblHeader.Text = _strHeader;
         }
 
-        #region Load-Visible Change-Timer
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_Load(object sender, EventArgs e)
         {
-            btnDay.Enabled = false;
-            btnWeek.Enabled = true;
-            btnMonth.Enabled = false;
-            btnYear.Enabled = false;
+            cboDateTo.EditValue = DateTime.Now.AddDays(-1);
+            cboDateFr.EditValue = DateTime.Now.AddDays(-1);
+            //DateTime dt = DateTime.Now;
+            //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
+            //cboDateFr.EditValue = fistdate;
+        }
 
-            DataTable _dtDate = GetOracleData("Q_DATE");
-            if (_dtDate != null && _dtDate.Rows.Count > 0)
+        private void SMT_QUALITY_COCKPIT_DEFECTIVE_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
             {
-                _crr_date = _dtDate.Rows[0]["CAL_DATE"].ToString();
+                _time = 30;
+
+                timer1.Start();
             }
             else
             {
-                _crr_date = DateTime.Now.ToString();
+                timer1.Stop();
+                Dispose();
             }
-            cbo_Date.EditValue = _crr_date;
+
         }
+        #endregion ========= [Form Init] ==============================================
+
+        #region ========= [Timer Event] ==========================================
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
+            _time++;
+            if (_time >= 30)
+            {
+                SetData();
+                _time = 0;
+            }
+        }
+
+        #endregion ========= [Timer Event] ==========================================
+
+        #region ========= [Control Event] ==========================================
+
+        private void cboDateFr_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            _time = 30;
+        }
+        private void cboDateTo_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            _time = 30;
+        }
+        private void cmdBack_Click(object sender, EventArgs e)
+        {
+            ComVar.Var.callForm = "back";
+        }
+
+        private void lblDate_DoubleClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void gvwMain_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            try
+            {
+                BandedGridView _gvw = sender as BandedGridView;
+
+                if (e.RowHandle < 0 || _gvw.RowCount == 0)
+                    return;
+
+                if (e.Column.FieldName != "DIV" && e.RowHandle == _gvw.RowCount - 1)
+                {
+                    e.DisplayText = e.CellValue + "%";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void gvwMain_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            try
+            {
+                if (grdMain.DataSource == null || gvwMain.RowCount < 1) return;
+
+                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("DEFECTIVE RATE"))
+                {
+                    e.Appearance.BackColor = Color.LightYellow;
+
+                    if (e.Column.FieldName != "DIV")
+                    {
+                        e.Appearance.ForeColor = Color.Blue;
+                    }
+                }
+
+                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("DEFECTIVE QUANTITY"))
+                {
+                    e.Appearance.BackColor = Color.FromArgb(255, 218, 153);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private void chartMain_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    _div_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    if (hit.AxisLabelItem == null) return;
+                    _div_nm = hit.AxisLabelItem.AxisValue.ToString();
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
+                        }
+                    }
+                }
+
+                _time = 10;
+                SetDataDetail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void chartMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.Hand;
+                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
+                SeriesPoint point = hit.SeriesPoint;
+                // Check whether the series point was clicked or not.
+                if (point != null)
+                {
+                    _div_nm = point.Argument;
+
+                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    {
+                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
+                        {
+                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
+                        }
+                    }
+                }
+
+                _time = 10;
+                SetDataDetail();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion ========= [Control Event] ==========================================
+
+        #region ========= [Method] ==========================================
 
         public void SetData()
         {
@@ -159,20 +325,23 @@ namespace FORM
                 {
                     gvwMain.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     gvwMain.Columns[i].AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-                    gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                    gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
                     gvwMain.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
                     gvwMain.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
                     gvwMain.Columns[i].OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
                     gvwMain.Columns[i].OptionsColumn.ReadOnly = true;
                     gvwMain.Columns[i].OptionsColumn.AllowEdit = false;
-
-                    if (gvwMain.Columns[i].FieldName == "DIV")
+                    gvwMain.Columns[i].Width = 200;
+                    if (i>0)
                     {
-                        gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                        gvwMain.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                        gvwMain.Columns[i].DisplayFormat.FormatType = FormatType.Numeric;
+                        gvwMain.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                        gvwMain.Columns[i].Width = 125;
                     }
 
                     gvwMain.Columns[i].AppearanceCell.Font = new Font("Calibri", 14, FontStyle.Regular);
-                    gvwMain.Columns[i].AppearanceHeader.Font = new Font("Calibri", 20, FontStyle.Bold);
+                    gvwMain.Columns[i].AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
                 }
                 gvwMain.RowHeight = 45;
                 gvwMain.TopRowIndex = 0;
@@ -194,7 +363,7 @@ namespace FORM
                                         {
                                             DIV = row.Field<string>("DIV"),
                                             OP_CD = row.Field<string>("OP_CD"),
-                                            QTY = row.Field<string>("QTY"),
+                                            QTY = row.Field<decimal>("QTY"),
                                         })
                                         .Distinct();
                 DataTable _dtf = LINQResultToDataTable(distinctValues).Select("").CopyToDataTable();
@@ -234,7 +403,7 @@ namespace FORM
                 gridBand.AppearanceHeader.TextOptions.WordWrap = WordWrap.Wrap;
                 gridBand.AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
                 gridBand.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-                gridBand.AppearanceHeader.Font = new Font("Calibri", 20, FontStyle.Bold);
+                gridBand.AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
                 gridBand.AppearanceHeader.BackColor = Color.FromArgb(64, 64, 64);
 
                 colBand = new BandedGridColumn() { FieldName = "DIV", Visible = true };
@@ -249,7 +418,7 @@ namespace FORM
                     gridView.Bands.Add(gridBand);
                     gridBand.AppearanceHeader.TextOptions.WordWrap = WordWrap.Wrap;
                     gridBand.AppearanceHeader.TextOptions.HAlignment = HorzAlignment.Center;
-                    gridBand.AppearanceHeader.Font = new Font("Calibri", 20, FontStyle.Bold);
+                    gridBand.AppearanceHeader.Font = new Font("Calibri", 16, FontStyle.Bold);
                     gridBand.AppearanceHeader.BackColor = Color.Teal;
 
                     colBand = new BandedGridColumn() { FieldName = dtSource.Rows[iRow]["COL_NM"].ToString(), Visible = true };
@@ -273,7 +442,7 @@ namespace FORM
             try
             {
                 DataTable _dtData = null;
-                _dtData = GetBotDefective(qtype, _crr_date, _crr_div);
+                _dtData = GetBotDefective(qtype, cboDateFr.DateTime.ToString("yyyyMMdd"), cboDateTo.DateTime.ToString("yyyyMMdd"), _crr_div);
 
                 return _dtData;
             }
@@ -348,16 +517,16 @@ namespace FORM
                     chartTitle.Dock = ChartTitleDockStyle.Top;
 
                     // Customize a title's appearance.
-                    chartTitle.Font = new Font("Times New Roman", 26F, FontStyle.Bold ^ FontStyle.Italic);
+                    chartTitle.Font = new Font("Times New Roman", 20F, FontStyle.Bold ^ FontStyle.Italic);
                     chartModel.Titles.Add(chartTitle);
 
                     if (_dtSource.Rows.Count <= 6)
                     {
-                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 14, FontStyle.Regular);
+                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 12F, FontStyle.Regular);
                     }
                     else
                     {
-                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 11, FontStyle.Regular);
+                        ((XYDiagram)chartModel.Diagram).AxisX.Label.Font = new Font("Calibri", 12F, FontStyle.Regular);
                     }
                     ((XYDiagram)chartModel.Diagram).AxisX.Label.Staggered = false;
                 }
@@ -378,7 +547,7 @@ namespace FORM
                     chartTitle.Dock = ChartTitleDockStyle.Top;
 
                     // Customize a title's appearance.
-                    chartTitle.Font = new Font("Times New Roman", 26F, FontStyle.Bold ^ FontStyle.Italic);
+                    chartTitle.Font = new Font("Times New Roman", 20F, FontStyle.Bold ^ FontStyle.Italic);
                     chartReason.Titles.Add(chartTitle);
                 }
             }
@@ -387,131 +556,6 @@ namespace FORM
                 Debug.WriteLine(ex.Message);
             }
         }
-
-        #endregion
-
-        #region
-        private void cmdBack_Click(object sender, EventArgs e)
-        {
-            ComVar.Var.callForm = "back";
-        }
-
-        private void lblDate_DoubleClick(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        #endregion
-
-
-        #region Database
-
-        public DataTable GetBotDefective(string ARG_QTYPE, string ARG_DATE, string ARG_DIV)
-        {
-            COM.OraDB MyOraDB = new COM.OraDB();
-            DataSet ds_ret;
-            MyOraDB.ShowErr = true;
-            MyOraDB.ConnectName = COM.OraDB.ConnectDB.SEPHIROTH;
-            try
-            {
-                string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_05.SP_GET_DEFECTIVE";
-
-                MyOraDB.ReDim_Parameter(4);
-                MyOraDB.Process_Name = process_name;
-
-                MyOraDB.Parameter_Name[0] = "ARG_QTYPE";
-                MyOraDB.Parameter_Name[1] = "ARG_DATE";
-                MyOraDB.Parameter_Name[2] = "ARG_DIV";
-                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
-
-                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
-
-                MyOraDB.Parameter_Values[0] = ARG_QTYPE;
-                MyOraDB.Parameter_Values[1] = ARG_DATE;
-                MyOraDB.Parameter_Values[2] = ARG_DIV;
-                MyOraDB.Parameter_Values[3] = "";
-
-                MyOraDB.Add_Select_Parameter(true);
-                ds_ret = MyOraDB.Exe_Select_Procedure();
-
-                if (ds_ret == null) return null;
-                return ds_ret.Tables[process_name];
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                return null;
-            }
-        }
-
-        #endregion DB
-
-        #region Events
-
-        private void SMT_QUALITY_COCKPIT_DEFECTIVE_VisibleChanged(object sender, EventArgs e)
-        {
-            if (Visible)
-            {
-                //clear_chart();
-                _time = 28;
-
-                timer1.Start();
-            }
-            else
-            {
-                timer1.Stop();
-                Dispose();
-            }
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
-            _time++;
-            if (_time >= 30)
-            {
-                SetData();
-                _time = 0;
-            }
-        }
-
-        private void chartMain_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.Hand;
-                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
-                SeriesPoint point = hit.SeriesPoint;
-                // Check whether the series point was clicked or not.
-                if (point != null)
-                {
-                    _div_nm = point.Argument;
-
-                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
-                    {
-                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
-                        {
-                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
-                        }
-                    }
-                }
-
-                _time = 10;
-                SetDataDetail();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        #endregion
-
-        #region [Start Control Event]
         public static DataTable ToDataTable<T>(List<T> items)
         {
             DataTable dataTable = new DataTable(typeof(T).Name);
@@ -588,6 +632,8 @@ namespace FORM
             return dt;
         }
 
+
+
         DataTable Pivot(DataTable dt, DataColumn pivotColumn, DataColumn pivotValue)
         {
             // find primary key columns 
@@ -624,76 +670,55 @@ namespace FORM
             return result;
         }
 
-        private void chartMain_MouseClick(object sender, MouseEventArgs e)
+       
+        #endregion ========= [Method] ==========================================
+
+        #region ========= [Procedure Call] ===========================================
+
+        public DataTable GetBotDefective(string V_P_TYPE, string V_P_DATE_FR, string V_P_DATE_TO, string V_P_DIV)
         {
+            COM.OraDB MyOraDB = new COM.OraDB();
+            DataSet ds_ret;
+            MyOraDB.ShowErr = true;
             try
             {
-                this.Cursor = Cursors.Hand;
-                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
-                SeriesPoint point = hit.SeriesPoint;
-                // Check whether the series point was clicked or not.
-                if (point != null)
-                {
-                    _div_nm = point.Argument;
+                string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_DEFECTIVE";
 
-                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
-                    {
-                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
-                        {
-                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
-                        }
-                    }
-                }
-                else
-                {
-                    if (hit.AxisLabelItem == null) return;
-                    _div_nm = hit.AxisLabelItem.AxisValue.ToString();
+                MyOraDB.ReDim_Parameter(5);
+                MyOraDB.Process_Name = process_name;
 
-                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
-                    {
-                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
-                        {
-                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
-                        }
-                    }
-                }
+                MyOraDB.Parameter_Name[0] = "V_P_TYPE";
+                MyOraDB.Parameter_Name[1] = "V_P_DATE_FR";
+                MyOraDB.Parameter_Name[2] = "V_P_DATE_TO";
+                MyOraDB.Parameter_Name[3] = "V_P_DIV";
+                MyOraDB.Parameter_Name[4] = "OUT_CURSOR";
 
-                _time = 10;
-                SetDataDetail();
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[4] = (int)OracleType.Cursor;
+
+                MyOraDB.Parameter_Values[0] = V_P_TYPE;
+                MyOraDB.Parameter_Values[1] = V_P_DATE_FR;
+                MyOraDB.Parameter_Values[2] = V_P_DATE_TO;
+                MyOraDB.Parameter_Values[3] = V_P_DIV;
+                MyOraDB.Parameter_Values[4] = "";
+
+                MyOraDB.Add_Select_Parameter(true);
+                ds_ret = MyOraDB.Exe_Select_Procedure();
+
+                if (ds_ret == null) return null;
+                return ds_ret.Tables[process_name];
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Debug.WriteLine(ex);
+                return null;
             }
         }
 
-        private void gvwMain_RowCellStyle(object sender, RowCellStyleEventArgs e)
-        {
-            try
-            {
-                if (grdMain.DataSource == null || gvwMain.RowCount < 1) return;
+        #endregion ========= [Procedure Call] ===========================================
 
-                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("RATE"))
-                {
-                    e.Appearance.BackColor = Color.LightYellow;
-
-                    if (e.Column.FieldName != "DIV")
-                    {
-                        e.Appearance.ForeColor = Color.Blue;
-                    }
-                }
-
-                if (gvwMain.GetRowCellValue(e.RowHandle, "DIV").ToString().ToUpper().Contains("DEFECTIVE"))
-                {
-                    e.Appearance.BackColor = Color.FromArgb(255, 218, 153);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        #endregion [End Control Event]
     }
 }

@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_MAIN));
-            this.tmrTime = new System.Windows.Forms.Timer();
+            this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmdF1 = new System.Windows.Forms.Button();
-            this.cmdF2 = new System.Windows.Forms.Button();
-            this.cmdF3 = new System.Windows.Forms.Button();
-            this.cmdF5 = new System.Windows.Forms.Button();
-            this.cmdF4 = new System.Windows.Forms.Button();
-            this.cmdBack = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelComponent1 = new DevExpress.XtraGauges.Win.Base.LabelComponent();
@@ -69,6 +65,10 @@
             this.advancedPanel4 = new FORM.AdvancedPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tmrBlink = new System.Windows.Forms.Timer(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
             this.cmdDefective = new System.Windows.Forms.Button();
             this.pnVJ3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -80,15 +80,20 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cmdDasboard = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.cmdExternal = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnHumidity = new System.Windows.Forms.Button();
             this.cmdRework = new System.Windows.Forms.Button();
             this.cmdHFPA = new System.Windows.Forms.Button();
             this.cmdBCGrade = new System.Windows.Forms.Button();
-            this.tmrBlink = new System.Windows.Forms.Timer();
+            this.btnHumidity = new System.Windows.Forms.Button();
+            this.cmdBack = new System.Windows.Forms.Button();
+            this.cmdF5 = new System.Windows.Forms.Button();
+            this.cmdF4 = new System.Windows.Forms.Button();
+            this.cmdF3 = new System.Windows.Forms.Button();
+            this.cmdF2 = new System.Windows.Forms.Button();
+            this.cmdF1 = new System.Windows.Forms.Button();
+            this.btnVendor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.labelComponent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleRangeBarComponent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ascInv)).BeginInit();
@@ -107,14 +112,15 @@
             this.gpExF5.SuspendLayout();
             this.advancedPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.pnVJ3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnVJ.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnVJ2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmrTime
@@ -124,140 +130,38 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.panel1.Controls.Add(this.cmdF1);
-            this.panel1.Controls.Add(this.cmdF2);
-            this.panel1.Controls.Add(this.cmdF3);
-            this.panel1.Controls.Add(this.cmdF5);
-            this.panel1.Controls.Add(this.cmdF4);
-            this.panel1.Controls.Add(this.cmdBack);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(95)))));
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1920, 110);
+            this.panel1.Size = new System.Drawing.Size(1920, 100);
             this.panel1.TabIndex = 21;
             // 
-            // cmdF1
+            // flowLayoutPanel1
             // 
-            this.cmdF1.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF1.BackgroundImage")));
-            this.cmdF1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF1.FlatAppearance.BorderSize = 0;
-            this.cmdF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF1.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF1.Location = new System.Drawing.Point(833, 8);
-            this.cmdF1.Name = "cmdF1";
-            this.cmdF1.Size = new System.Drawing.Size(111, 101);
-            this.cmdF1.TabIndex = 72;
-            this.cmdF1.Text = "F1";
-            this.cmdF1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF1.UseVisualStyleBackColor = false;
-            this.cmdF1.Visible = false;
-            // 
-            // cmdF2
-            // 
-            this.cmdF2.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF2.BackgroundImage")));
-            this.cmdF2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF2.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF2.FlatAppearance.BorderSize = 0;
-            this.cmdF2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF2.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF2.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF2.Location = new System.Drawing.Point(943, 6);
-            this.cmdF2.Name = "cmdF2";
-            this.cmdF2.Size = new System.Drawing.Size(111, 101);
-            this.cmdF2.TabIndex = 71;
-            this.cmdF2.Text = "F2";
-            this.cmdF2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF2.UseVisualStyleBackColor = false;
-            this.cmdF2.Visible = false;
-            // 
-            // cmdF3
-            // 
-            this.cmdF3.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF3.BackgroundImage")));
-            this.cmdF3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF3.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF3.FlatAppearance.BorderSize = 0;
-            this.cmdF3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF3.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF3.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF3.Location = new System.Drawing.Point(1052, 6);
-            this.cmdF3.Name = "cmdF3";
-            this.cmdF3.Size = new System.Drawing.Size(111, 101);
-            this.cmdF3.TabIndex = 70;
-            this.cmdF3.Text = "F3";
-            this.cmdF3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF3.UseVisualStyleBackColor = false;
-            this.cmdF3.Visible = false;
-            // 
-            // cmdF5
-            // 
-            this.cmdF5.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF5.BackgroundImage")));
-            this.cmdF5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF5.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF5.FlatAppearance.BorderSize = 0;
-            this.cmdF5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF5.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF5.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF5.Location = new System.Drawing.Point(1268, 3);
-            this.cmdF5.Name = "cmdF5";
-            this.cmdF5.Size = new System.Drawing.Size(111, 101);
-            this.cmdF5.TabIndex = 69;
-            this.cmdF5.Text = "F5";
-            this.cmdF5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF5.UseVisualStyleBackColor = false;
-            this.cmdF5.Visible = false;
-            // 
-            // cmdF4
-            // 
-            this.cmdF4.BackColor = System.Drawing.Color.Transparent;
-            this.cmdF4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF4.BackgroundImage")));
-            this.cmdF4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdF4.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdF4.FlatAppearance.BorderSize = 0;
-            this.cmdF4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdF4.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
-            this.cmdF4.ForeColor = System.Drawing.Color.Navy;
-            this.cmdF4.Location = new System.Drawing.Point(1160, 6);
-            this.cmdF4.Name = "cmdF4";
-            this.cmdF4.Size = new System.Drawing.Size(111, 101);
-            this.cmdF4.TabIndex = 68;
-            this.cmdF4.Text = "F4";
-            this.cmdF4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.cmdF4.UseVisualStyleBackColor = false;
-            this.cmdF4.Visible = false;
-            this.cmdF4.Click += new System.EventHandler(this.cmdF4_Click);
-            // 
-            // cmdBack
-            // 
-            this.cmdBack.BackColor = System.Drawing.Color.Transparent;
-            this.cmdBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBack.BackgroundImage")));
-            this.cmdBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cmdBack.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.cmdBack.FlatAppearance.BorderSize = 0;
-            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdBack.Location = new System.Drawing.Point(1388, 5);
-            this.cmdBack.Name = "cmdBack";
-            this.cmdBack.Size = new System.Drawing.Size(108, 101);
-            this.cmdBack.TabIndex = 67;
-            this.cmdBack.UseVisualStyleBackColor = false;
-            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
+            this.flowLayoutPanel1.Controls.Add(this.cmdBack);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF5);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF4);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF3);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF2);
+            this.flowLayoutPanel1.Controls.Add(this.cmdF1);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(985, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 100);
+            this.flowLayoutPanel1.TabIndex = 73;
             // 
             // lblDate
             // 
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDate.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold);
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(1614, 0);
+            this.lblDate.Location = new System.Drawing.Point(1695, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(306, 110);
+            this.lblDate.Size = new System.Drawing.Size(225, 100);
             this.lblDate.TabIndex = 1;
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblDate.DoubleClick += new System.EventHandler(this.lblDate_DoubleClick);
@@ -266,11 +170,11 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Calibri", 62F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Calibri", 60F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1065, 110);
+            this.label1.Size = new System.Drawing.Size(1065, 100);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quality Cockpit";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -323,12 +227,12 @@
             this.tableLayoutPanel2.Controls.Add(this.tblMenu, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 110);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1920, 970);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1920, 980);
             this.tableLayoutPanel2.TabIndex = 23;
             // 
             // tblMenu
@@ -364,15 +268,15 @@
             this.tblMenu.RowCount = 2;
             this.tblMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.35437F));
             this.tblMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.64563F));
-            this.tblMenu.Size = new System.Drawing.Size(1914, 824);
+            this.tblMenu.Size = new System.Drawing.Size(1914, 834);
             this.tblMenu.TabIndex = 23;
             // 
             // pnLT
             // 
             this.pnLT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnLT.Location = new System.Drawing.Point(1598, 146);
+            this.pnLT.Location = new System.Drawing.Point(1598, 147);
             this.pnLT.Name = "pnLT";
-            this.pnLT.Size = new System.Drawing.Size(313, 675);
+            this.pnLT.Size = new System.Drawing.Size(313, 684);
             this.pnLT.TabIndex = 19;
             // 
             // gpExLT
@@ -390,7 +294,7 @@
             this.gpExLT.Location = new System.Drawing.Point(1598, 3);
             this.gpExLT.Name = "gpExLT";
             this.gpExLT.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExLT.Size = new System.Drawing.Size(313, 137);
+            this.gpExLT.Size = new System.Drawing.Size(313, 138);
             this.gpExLT.TabIndex = 18;
             this.gpExLT.TabStop = false;
             this.gpExLT.TextBackColor = System.Drawing.Color.White;
@@ -433,9 +337,9 @@
             // pnF2
             // 
             this.pnF2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF2.Location = new System.Drawing.Point(322, 146);
+            this.pnF2.Location = new System.Drawing.Point(322, 147);
             this.pnF2.Name = "pnF2";
-            this.pnF2.Size = new System.Drawing.Size(311, 675);
+            this.pnF2.Size = new System.Drawing.Size(311, 684);
             this.pnF2.TabIndex = 10;
             // 
             // gpExF1
@@ -453,7 +357,7 @@
             this.gpExF1.Location = new System.Drawing.Point(3, 3);
             this.gpExF1.Name = "gpExF1";
             this.gpExF1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF1.Size = new System.Drawing.Size(311, 137);
+            this.gpExF1.Size = new System.Drawing.Size(311, 138);
             this.gpExF1.TabIndex = 3;
             this.gpExF1.TabStop = false;
             this.gpExF1.TextBackColor = System.Drawing.Color.White;
@@ -496,17 +400,17 @@
             // pnF3
             // 
             this.pnF3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF3.Location = new System.Drawing.Point(641, 146);
+            this.pnF3.Location = new System.Drawing.Point(641, 147);
             this.pnF3.Name = "pnF3";
-            this.pnF3.Size = new System.Drawing.Size(311, 675);
+            this.pnF3.Size = new System.Drawing.Size(311, 684);
             this.pnF3.TabIndex = 11;
             // 
             // pnF5
             // 
             this.pnF5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF5.Location = new System.Drawing.Point(1279, 146);
+            this.pnF5.Location = new System.Drawing.Point(1279, 147);
             this.pnF5.Name = "pnF5";
-            this.pnF5.Size = new System.Drawing.Size(311, 675);
+            this.pnF5.Size = new System.Drawing.Size(311, 684);
             this.pnF5.TabIndex = 13;
             // 
             // gpExF2
@@ -524,7 +428,7 @@
             this.gpExF2.Location = new System.Drawing.Point(322, 3);
             this.gpExF2.Name = "gpExF2";
             this.gpExF2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF2.Size = new System.Drawing.Size(311, 137);
+            this.gpExF2.Size = new System.Drawing.Size(311, 138);
             this.gpExF2.TabIndex = 14;
             this.gpExF2.TabStop = false;
             this.gpExF2.TextBackColor = System.Drawing.Color.White;
@@ -579,7 +483,7 @@
             this.gpExF3.Location = new System.Drawing.Point(641, 3);
             this.gpExF3.Name = "gpExF3";
             this.gpExF3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF3.Size = new System.Drawing.Size(311, 137);
+            this.gpExF3.Size = new System.Drawing.Size(311, 138);
             this.gpExF3.TabIndex = 15;
             this.gpExF3.TabStop = false;
             this.gpExF3.TextBackColor = System.Drawing.Color.White;
@@ -634,7 +538,7 @@
             this.gpExF4.Location = new System.Drawing.Point(960, 3);
             this.gpExF4.Name = "gpExF4";
             this.gpExF4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF4.Size = new System.Drawing.Size(311, 137);
+            this.gpExF4.Size = new System.Drawing.Size(311, 138);
             this.gpExF4.TabIndex = 16;
             this.gpExF4.TabStop = false;
             this.gpExF4.TextBackColor = System.Drawing.Color.White;
@@ -677,17 +581,17 @@
             // pnF4
             // 
             this.pnF4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF4.Location = new System.Drawing.Point(960, 146);
+            this.pnF4.Location = new System.Drawing.Point(960, 147);
             this.pnF4.Name = "pnF4";
-            this.pnF4.Size = new System.Drawing.Size(311, 675);
+            this.pnF4.Size = new System.Drawing.Size(311, 684);
             this.pnF4.TabIndex = 12;
             // 
             // pnF1
             // 
             this.pnF1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnF1.Location = new System.Drawing.Point(3, 146);
+            this.pnF1.Location = new System.Drawing.Point(3, 147);
             this.pnF1.Name = "pnF1";
-            this.pnF1.Size = new System.Drawing.Size(311, 675);
+            this.pnF1.Size = new System.Drawing.Size(311, 684);
             this.pnF1.TabIndex = 9;
             // 
             // gpExF5
@@ -705,7 +609,7 @@
             this.gpExF5.Location = new System.Drawing.Point(1279, 3);
             this.gpExF5.Name = "gpExF5";
             this.gpExF5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gpExF5.Size = new System.Drawing.Size(311, 137);
+            this.gpExF5.Size = new System.Drawing.Size(311, 138);
             this.gpExF5.TabIndex = 17;
             this.gpExF5.TabStop = false;
             this.gpExF5.TextBackColor = System.Drawing.Color.White;
@@ -747,27 +651,29 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 10;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.ColumnCount = 11;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel3.Controls.Add(this.panel7, 9, 0);
             this.tableLayoutPanel3.Controls.Add(this.cmdDefective, 7, 0);
             this.tableLayoutPanel3.Controls.Add(this.pnVJ3, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.pnVJ, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.pnVJ2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.cmdDasboard, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel2, 8, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel6, 9, 0);
             this.tableLayoutPanel3.Controls.Add(this.cmdRework, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.cmdHFPA, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.cmdBCGrade, 6, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel6, 10, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -776,19 +682,52 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1914, 134);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cmdExternal);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(1387, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(167, 128);
+            this.panel2.TabIndex = 86;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnHumidity);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(1733, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(178, 128);
+            this.panel6.TabIndex = 86;
+            // 
+            // tmrBlink
+            // 
+            this.tmrBlink.Interval = 500;
+            this.tmrBlink.Tick += new System.EventHandler(this.tmrBlink_Tick);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnVendor);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1560, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(167, 128);
+            this.panel7.TabIndex = 87;
+            // 
             // cmdDefective
             // 
             this.cmdDefective.BackColor = System.Drawing.SystemColors.Control;
             this.cmdDefective.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdDefective.BackgroundImage")));
             this.cmdDefective.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDefective.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdDefective.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdDefective.FlatAppearance.BorderSize = 0;
             this.cmdDefective.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDefective.Font = new System.Drawing.Font("Calibri", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDefective.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdDefective.Location = new System.Drawing.Point(1340, 3);
+            this.cmdDefective.Location = new System.Drawing.Point(1214, 3);
             this.cmdDefective.Name = "cmdDefective";
-            this.cmdDefective.Size = new System.Drawing.Size(185, 128);
+            this.cmdDefective.Size = new System.Drawing.Size(167, 128);
             this.cmdDefective.TabIndex = 86;
             this.cmdDefective.UseVisualStyleBackColor = false;
             this.cmdDefective.Click += new System.EventHandler(this.cmdDefective_Click);
@@ -799,9 +738,9 @@
             this.pnVJ3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnVJ3.Controls.Add(this.panel5);
             this.pnVJ3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnVJ3.Location = new System.Drawing.Point(385, 3);
+            this.pnVJ3.Location = new System.Drawing.Point(349, 3);
             this.pnVJ3.Name = "pnVJ3";
-            this.pnVJ3.Size = new System.Drawing.Size(185, 128);
+            this.pnVJ3.Size = new System.Drawing.Size(167, 128);
             this.pnVJ3.TabIndex = 81;
             this.pnVJ3.Tag = "VJ3";
             // 
@@ -812,7 +751,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(185, 26);
+            this.panel5.Size = new System.Drawing.Size(167, 26);
             this.panel5.TabIndex = 10;
             // 
             // label4
@@ -821,7 +760,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
             this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(72, 0);
+            this.label4.Location = new System.Drawing.Point(54, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 26);
             this.label4.TabIndex = 7;
@@ -837,7 +776,7 @@
             this.pnVJ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnVJ.Location = new System.Drawing.Point(3, 3);
             this.pnVJ.Name = "pnVJ";
-            this.pnVJ.Size = new System.Drawing.Size(185, 128);
+            this.pnVJ.Size = new System.Drawing.Size(167, 128);
             this.pnVJ.TabIndex = 79;
             this.pnVJ.Tag = "VJ1";
             // 
@@ -848,7 +787,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 26);
+            this.panel3.Size = new System.Drawing.Size(167, 26);
             this.panel3.TabIndex = 8;
             // 
             // lblVinhCuu
@@ -857,7 +796,7 @@
             this.lblVinhCuu.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblVinhCuu.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVinhCuu.ForeColor = System.Drawing.Color.White;
-            this.lblVinhCuu.Location = new System.Drawing.Point(72, 0);
+            this.lblVinhCuu.Location = new System.Drawing.Point(54, 0);
             this.lblVinhCuu.Name = "lblVinhCuu";
             this.lblVinhCuu.Size = new System.Drawing.Size(113, 26);
             this.lblVinhCuu.TabIndex = 7;
@@ -870,10 +809,11 @@
             this.pnVJ2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnVJ2.BackgroundImage")));
             this.pnVJ2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnVJ2.Controls.Add(this.panel4);
+            this.pnVJ2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnVJ2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnVJ2.Location = new System.Drawing.Point(194, 3);
+            this.pnVJ2.Location = new System.Drawing.Point(176, 3);
             this.pnVJ2.Name = "pnVJ2";
-            this.pnVJ2.Size = new System.Drawing.Size(185, 128);
+            this.pnVJ2.Size = new System.Drawing.Size(167, 128);
             this.pnVJ2.TabIndex = 80;
             this.pnVJ2.Tag = "VJ2";
             this.pnVJ2.Click += new System.EventHandler(this.cmd_FTY_OSD_Click);
@@ -885,7 +825,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(185, 26);
+            this.panel4.Size = new System.Drawing.Size(167, 26);
             this.panel4.TabIndex = 9;
             // 
             // label3
@@ -894,7 +834,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(72, 0);
+            this.label3.Location = new System.Drawing.Point(54, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 26);
             this.label3.TabIndex = 8;
@@ -908,30 +848,23 @@
             this.cmdDasboard.BackColor = System.Drawing.SystemColors.Control;
             this.cmdDasboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdDasboard.BackgroundImage")));
             this.cmdDasboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdDasboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdDasboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdDasboard.FlatAppearance.BorderSize = 0;
             this.cmdDasboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdDasboard.Location = new System.Drawing.Point(576, 3);
+            this.cmdDasboard.Location = new System.Drawing.Point(522, 3);
             this.cmdDasboard.Name = "cmdDasboard";
-            this.cmdDasboard.Size = new System.Drawing.Size(185, 128);
+            this.cmdDasboard.Size = new System.Drawing.Size(167, 128);
             this.cmdDasboard.TabIndex = 82;
             this.cmdDasboard.UseVisualStyleBackColor = false;
             this.cmdDasboard.Click += new System.EventHandler(this.CmdDasboard_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cmdExternal);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(1531, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 128);
-            this.panel2.TabIndex = 86;
             // 
             // cmdExternal
             // 
             this.cmdExternal.BackColor = System.Drawing.SystemColors.Control;
             this.cmdExternal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdExternal.BackgroundImage")));
             this.cmdExternal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdExternal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdExternal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdExternal.FlatAppearance.BorderSize = 0;
             this.cmdExternal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -939,49 +872,23 @@
             this.cmdExternal.ForeColor = System.Drawing.Color.White;
             this.cmdExternal.Location = new System.Drawing.Point(0, 0);
             this.cmdExternal.Name = "cmdExternal";
-            this.cmdExternal.Size = new System.Drawing.Size(185, 128);
+            this.cmdExternal.Size = new System.Drawing.Size(167, 128);
             this.cmdExternal.TabIndex = 87;
             this.cmdExternal.Text = "External OS&&D";
             this.cmdExternal.UseVisualStyleBackColor = false;
             this.cmdExternal.Click += new System.EventHandler(this.cmdExternal_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnHumidity);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(1722, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(189, 128);
-            this.panel6.TabIndex = 86;
-            // 
-            // btnHumidity
-            // 
-            this.btnHumidity.BackColor = System.Drawing.SystemColors.Control;
-            this.btnHumidity.BackgroundImage = global::FORM.Properties.Resources.humidity;
-            this.btnHumidity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnHumidity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHumidity.FlatAppearance.BorderSize = 0;
-            this.btnHumidity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHumidity.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHumidity.ForeColor = System.Drawing.Color.Black;
-            this.btnHumidity.Location = new System.Drawing.Point(0, 0);
-            this.btnHumidity.Name = "btnHumidity";
-            this.btnHumidity.Size = new System.Drawing.Size(189, 128);
-            this.btnHumidity.TabIndex = 87;
-            this.btnHumidity.Text = "Humidity Tracking";
-            this.btnHumidity.UseVisualStyleBackColor = false;
-            this.btnHumidity.Click += new System.EventHandler(this.btnHumidity_Click);
             // 
             // cmdRework
             // 
             this.cmdRework.BackColor = System.Drawing.SystemColors.Control;
             this.cmdRework.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdRework.BackgroundImage")));
             this.cmdRework.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdRework.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdRework.FlatAppearance.BorderSize = 0;
             this.cmdRework.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRework.Location = new System.Drawing.Point(767, 3);
+            this.cmdRework.Location = new System.Drawing.Point(695, 3);
             this.cmdRework.Name = "cmdRework";
-            this.cmdRework.Size = new System.Drawing.Size(185, 128);
+            this.cmdRework.Size = new System.Drawing.Size(167, 128);
             this.cmdRework.TabIndex = 82;
             this.cmdRework.UseVisualStyleBackColor = false;
             this.cmdRework.Click += new System.EventHandler(this.cmdRework_Click);
@@ -991,14 +898,15 @@
             this.cmdHFPA.BackColor = System.Drawing.SystemColors.Control;
             this.cmdHFPA.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdHFPA.BackgroundImage")));
             this.cmdHFPA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdHFPA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdHFPA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdHFPA.FlatAppearance.BorderSize = 0;
             this.cmdHFPA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdHFPA.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdHFPA.ForeColor = System.Drawing.Color.White;
-            this.cmdHFPA.Location = new System.Drawing.Point(958, 3);
+            this.cmdHFPA.Location = new System.Drawing.Point(868, 3);
             this.cmdHFPA.Name = "cmdHFPA";
-            this.cmdHFPA.Size = new System.Drawing.Size(185, 128);
+            this.cmdHFPA.Size = new System.Drawing.Size(167, 128);
             this.cmdHFPA.TabIndex = 84;
             this.cmdHFPA.Text = "HFPA";
             this.cmdHFPA.UseVisualStyleBackColor = false;
@@ -1009,22 +917,174 @@
             this.cmdBCGrade.BackColor = System.Drawing.SystemColors.Control;
             this.cmdBCGrade.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBCGrade.BackgroundImage")));
             this.cmdBCGrade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdBCGrade.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdBCGrade.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdBCGrade.FlatAppearance.BorderSize = 0;
             this.cmdBCGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdBCGrade.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdBCGrade.ForeColor = System.Drawing.Color.White;
-            this.cmdBCGrade.Location = new System.Drawing.Point(1149, 3);
+            this.cmdBCGrade.Location = new System.Drawing.Point(1041, 3);
             this.cmdBCGrade.Name = "cmdBCGrade";
-            this.cmdBCGrade.Size = new System.Drawing.Size(185, 128);
+            this.cmdBCGrade.Size = new System.Drawing.Size(167, 128);
             this.cmdBCGrade.TabIndex = 85;
             this.cmdBCGrade.UseVisualStyleBackColor = false;
             this.cmdBCGrade.Click += new System.EventHandler(this.cmdBCGrade_Click);
             // 
-            // tmrBlink
+            // btnHumidity
             // 
-            this.tmrBlink.Interval = 500;
-            this.tmrBlink.Tick += new System.EventHandler(this.tmrBlink_Tick);
+            this.btnHumidity.BackColor = System.Drawing.SystemColors.Control;
+            this.btnHumidity.BackgroundImage = global::FORM.Properties.Resources.humidity;
+            this.btnHumidity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHumidity.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHumidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHumidity.FlatAppearance.BorderSize = 0;
+            this.btnHumidity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHumidity.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHumidity.ForeColor = System.Drawing.Color.Black;
+            this.btnHumidity.Location = new System.Drawing.Point(0, 0);
+            this.btnHumidity.Name = "btnHumidity";
+            this.btnHumidity.Size = new System.Drawing.Size(178, 128);
+            this.btnHumidity.TabIndex = 87;
+            this.btnHumidity.Text = "Humidity Tracking";
+            this.btnHumidity.UseVisualStyleBackColor = false;
+            this.btnHumidity.Click += new System.EventHandler(this.btnHumidity_Click);
+            // 
+            // cmdBack
+            // 
+            this.cmdBack.BackColor = System.Drawing.Color.Transparent;
+            this.cmdBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBack.BackgroundImage")));
+            this.cmdBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdBack.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdBack.FlatAppearance.BorderSize = 0;
+            this.cmdBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdBack.Location = new System.Drawing.Point(600, 0);
+            this.cmdBack.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdBack.Name = "cmdBack";
+            this.cmdBack.Size = new System.Drawing.Size(100, 100);
+            this.cmdBack.TabIndex = 67;
+            this.cmdBack.UseVisualStyleBackColor = false;
+            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
+            // 
+            // cmdF5
+            // 
+            this.cmdF5.BackColor = System.Drawing.Color.Transparent;
+            this.cmdF5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF5.BackgroundImage")));
+            this.cmdF5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF5.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF5.FlatAppearance.BorderSize = 0;
+            this.cmdF5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF5.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF5.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF5.Location = new System.Drawing.Point(507, 3);
+            this.cmdF5.Name = "cmdF5";
+            this.cmdF5.Size = new System.Drawing.Size(90, 90);
+            this.cmdF5.TabIndex = 69;
+            this.cmdF5.Text = "F5";
+            this.cmdF5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF5.UseVisualStyleBackColor = false;
+            this.cmdF5.Visible = false;
+            // 
+            // cmdF4
+            // 
+            this.cmdF4.BackColor = System.Drawing.Color.Transparent;
+            this.cmdF4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF4.BackgroundImage")));
+            this.cmdF4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF4.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF4.FlatAppearance.BorderSize = 0;
+            this.cmdF4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF4.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF4.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF4.Location = new System.Drawing.Point(411, 3);
+            this.cmdF4.Name = "cmdF4";
+            this.cmdF4.Size = new System.Drawing.Size(90, 90);
+            this.cmdF4.TabIndex = 68;
+            this.cmdF4.Text = "F4";
+            this.cmdF4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF4.UseVisualStyleBackColor = false;
+            this.cmdF4.Visible = false;
+            this.cmdF4.Click += new System.EventHandler(this.cmdF4_Click);
+            // 
+            // cmdF3
+            // 
+            this.cmdF3.BackColor = System.Drawing.Color.Transparent;
+            this.cmdF3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF3.BackgroundImage")));
+            this.cmdF3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF3.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF3.FlatAppearance.BorderSize = 0;
+            this.cmdF3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF3.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF3.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF3.Location = new System.Drawing.Point(315, 3);
+            this.cmdF3.Name = "cmdF3";
+            this.cmdF3.Size = new System.Drawing.Size(90, 90);
+            this.cmdF3.TabIndex = 70;
+            this.cmdF3.Text = "F3";
+            this.cmdF3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF3.UseVisualStyleBackColor = false;
+            this.cmdF3.Visible = false;
+            // 
+            // cmdF2
+            // 
+            this.cmdF2.BackColor = System.Drawing.Color.Transparent;
+            this.cmdF2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF2.BackgroundImage")));
+            this.cmdF2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF2.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF2.FlatAppearance.BorderSize = 0;
+            this.cmdF2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF2.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF2.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF2.Location = new System.Drawing.Point(219, 3);
+            this.cmdF2.Name = "cmdF2";
+            this.cmdF2.Size = new System.Drawing.Size(90, 90);
+            this.cmdF2.TabIndex = 71;
+            this.cmdF2.Text = "F2";
+            this.cmdF2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF2.UseVisualStyleBackColor = false;
+            this.cmdF2.Visible = false;
+            // 
+            // cmdF1
+            // 
+            this.cmdF1.BackColor = System.Drawing.Color.Transparent;
+            this.cmdF1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdF1.BackgroundImage")));
+            this.cmdF1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cmdF1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdF1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.cmdF1.FlatAppearance.BorderSize = 0;
+            this.cmdF1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdF1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
+            this.cmdF1.ForeColor = System.Drawing.Color.Navy;
+            this.cmdF1.Location = new System.Drawing.Point(123, 3);
+            this.cmdF1.Name = "cmdF1";
+            this.cmdF1.Size = new System.Drawing.Size(90, 90);
+            this.cmdF1.TabIndex = 72;
+            this.cmdF1.Text = "F1";
+            this.cmdF1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cmdF1.UseVisualStyleBackColor = false;
+            this.cmdF1.Visible = false;
+            // 
+            // btnVendor
+            // 
+            this.btnVendor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnVendor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVendor.BackgroundImage")));
+            this.btnVendor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVendor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVendor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVendor.FlatAppearance.BorderSize = 0;
+            this.btnVendor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendor.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold);
+            this.btnVendor.ForeColor = System.Drawing.Color.Yellow;
+            this.btnVendor.Location = new System.Drawing.Point(0, 0);
+            this.btnVendor.Name = "btnVendor";
+            this.btnVendor.Size = new System.Drawing.Size(167, 128);
+            this.btnVendor.TabIndex = 85;
+            this.btnVendor.Text = "Vendor Quality";
+            this.btnVendor.UseVisualStyleBackColor = false;
+            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
             // 
             // SMT_QUALITY_COCKPIT_MAIN
             // 
@@ -1039,6 +1099,7 @@
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_MAIN_Load);
             this.VisibleChanged += new System.EventHandler(this.SMT_SCADA_COCKPIT_MENU_VisibleChanged);
             this.panel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.labelComponent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleRangeBarComponent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ascInv)).EndInit();
@@ -1057,14 +1118,15 @@
             this.gpExF5.ResumeLayout(false);
             this.advancedPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.pnVJ3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.pnVJ.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.pnVJ2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1132,5 +1194,8 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button cmdExternal;
         private System.Windows.Forms.Button btnHumidity;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnVendor;
     }
 }

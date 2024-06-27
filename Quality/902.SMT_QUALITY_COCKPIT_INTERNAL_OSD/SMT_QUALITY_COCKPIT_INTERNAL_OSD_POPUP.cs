@@ -136,7 +136,7 @@ namespace FORM
                 {
                     if (!gvwBase.GetRowCellValue(e.RowHandle, "C_QTY").Equals(gvwBase.GetRowCellValue(e.RowHandle, "RE_QTY")))
                     {
-                        e.Appearance.BackColor = Color.Red;
+                        e.Appearance.BackColor = Color.FromArgb(250,55,30);
                         e.Appearance.ForeColor = Color.White;
                     }
 

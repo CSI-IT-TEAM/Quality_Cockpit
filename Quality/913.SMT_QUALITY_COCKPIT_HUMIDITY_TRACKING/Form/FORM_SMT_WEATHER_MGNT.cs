@@ -312,7 +312,7 @@ namespace FORM
                         double rate;
                         double.TryParse(dtChart.Rows[i]["HUMI_VL"].ToString(), out rate);
 
-                        _chart.Series[0].Points[i].Color = Color.Yellow;
+                        _chart.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
 
                         if (rate <= 70)
                         {
@@ -321,8 +321,8 @@ namespace FORM
                         }
                         else
                         {
-                            _chart.Series[1].View.Color = Color.Red;
-                            _chart.Series[1].Points[i].Color = Color.Red;
+                            _chart.Series[1].View.Color = Color.FromArgb(250,55,30);
+                            _chart.Series[1].Points[i].Color = Color.FromArgb(250,55,30);
                         }
                     }
                     double _drawColor;
@@ -371,9 +371,9 @@ namespace FORM
             {
                 if(lblHu_Qty.ForeColor == Color.Lime)
                 {
-                    lblHu_Qty.ForeColor = Color.Red;
+                    lblHu_Qty.ForeColor = Color.FromArgb(250,55,30);
                     lblHu_Qty.BackColor = Color.White;
-                    lblpt.ForeColor = Color.Red;
+                    lblpt.ForeColor = Color.FromArgb(250,55,30);
                 }
                 else
                 {

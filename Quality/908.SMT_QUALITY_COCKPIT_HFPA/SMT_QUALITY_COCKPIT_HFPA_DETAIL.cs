@@ -366,15 +366,15 @@ namespace FORM
 
                 if (rate > 5)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Red;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                 }
                 else if (rate > 2)
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Yellow;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(255,180,15);
                 }
                 else
                 {
-                    chartControl1.Series[0].Points[i].Color = Color.Green;
+                    chartControl1.Series[0].Points[i].Color = Color.FromArgb(20,200,110);
                 }
             }
         }
@@ -501,19 +501,19 @@ namespace FORM
                     double.TryParse(gvwView.GetRowCellDisplayText(gvwView.RowCount - 1, gvwView.Columns[e.Column.ColumnHandle]).ToString(), out temp); //out
                     if (temp > 5)
                     {
-                        e.Appearance.BackColor = Color.Red;
+                        e.Appearance.BackColor = Color.FromArgb(250,55,30);
                         e.Appearance.ForeColor = Color.White;
                     }
                     else if (temp > 2)
                     {
 
-                        e.Appearance.BackColor = Color.Yellow;
+                        e.Appearance.BackColor = Color.FromArgb(255,180,15);
                         e.Appearance.ForeColor = Color.Black;
                     }
                     else
                     {
 
-                        e.Appearance.BackColor = Color.Green;
+                        e.Appearance.BackColor = Color.FromArgb(20,200,110);
                         e.Appearance.ForeColor = Color.White;
                     }
                 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_NPI));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -52,12 +51,12 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.pnControl = new System.Windows.Forms.Panel();
+            this.cboLine = new System.Windows.Forms.ComboBox();
+            this.cboPlant = new System.Windows.Forms.ComboBox();
             this.dtpYMD = new DevExpress.XtraEditors.DateEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpYMDT = new DevExpress.XtraEditors.DateEdit();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.cboLine = new System.Windows.Forms.ComboBox();
-            this.cboPlant = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,9 +64,10 @@
             this.cmdPm1 = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
-            this.tmrTime = new System.Windows.Forms.Timer(this.components);
+            this.tmrTime = new System.Windows.Forms.Timer();
             this.pnBody = new System.Windows.Forms.Panel();
             this.pnGrid = new System.Windows.Forms.Panel();
+            this.hScrollBar1 = new DevExpress.XtraEditors.HScrollBar();
             this.grdBase = new DevExpress.XtraGrid.GridControl();
             this.grdView = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -77,7 +77,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.hScrollBar1 = new DevExpress.XtraEditors.HScrollBar();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::FORM.WaitForm1), true, true);
             this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpYMD.Properties)).BeginInit();
@@ -94,29 +94,50 @@
             // pnControl
             // 
             this.pnControl.BackColor = System.Drawing.Color.Transparent;
+            this.pnControl.Controls.Add(this.cboLine);
+            this.pnControl.Controls.Add(this.cboPlant);
             this.pnControl.Controls.Add(this.dtpYMD);
             this.pnControl.Controls.Add(this.label3);
             this.pnControl.Controls.Add(this.dtpYMDT);
             this.pnControl.Controls.Add(this.btnSearch);
-            this.pnControl.Controls.Add(this.cboLine);
-            this.pnControl.Controls.Add(this.cboPlant);
             this.pnControl.Controls.Add(this.label4);
             this.pnControl.Controls.Add(this.label6);
             this.pnControl.Controls.Add(this.label2);
             this.pnControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnControl.Location = new System.Drawing.Point(0, 76);
+            this.pnControl.Location = new System.Drawing.Point(0, 100);
             this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(1924, 50);
+            this.pnControl.Size = new System.Drawing.Size(1920, 55);
             this.pnControl.TabIndex = 2;
+            // 
+            // cboLine
+            // 
+            this.cboLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLine.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.cboLine.FormattingEnabled = true;
+            this.cboLine.Location = new System.Drawing.Point(1149, 7);
+            this.cboLine.Name = "cboLine";
+            this.cboLine.Size = new System.Drawing.Size(220, 41);
+            this.cboLine.TabIndex = 708;
+            // 
+            // cboPlant
+            // 
+            this.cboPlant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPlant.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
+            this.cboPlant.FormattingEnabled = true;
+            this.cboPlant.Location = new System.Drawing.Point(783, 7);
+            this.cboPlant.Name = "cboPlant";
+            this.cboPlant.Size = new System.Drawing.Size(220, 41);
+            this.cboPlant.TabIndex = 707;
+            this.cboPlant.SelectedIndexChanged += new System.EventHandler(this.cboPlant_SelectedIndexChanged);
             // 
             // dtpYMD
             // 
-            this.dtpYMD.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtpYMD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpYMD.EditValue = new System.DateTime(2017, 12, 15, 16, 0, 56, 917);
-            this.dtpYMD.Location = new System.Drawing.Point(150, 5);
+            this.dtpYMD.Location = new System.Drawing.Point(147, 7);
             this.dtpYMD.Name = "dtpYMD";
             this.dtpYMD.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpYMD.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMD.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.dtpYMD.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.dtpYMD.Properties.Appearance.Options.UseFont = true;
             this.dtpYMD.Properties.Appearance.Options.UseForeColor = true;
@@ -171,32 +192,33 @@
             this.dtpYMD.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtpYMD.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtpYMD.Properties.ShowNullValuePromptWhenFocused = true;
+            this.dtpYMD.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpYMD.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView;
-            this.dtpYMD.Size = new System.Drawing.Size(237, 40);
+            this.dtpYMD.Size = new System.Drawing.Size(220, 41);
             this.dtpYMD.TabIndex = 706;
             this.dtpYMD.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.dtpYMD.ToolTipTitle = "Click vào để chọn ngày";
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.label3.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(388, 5);
+            this.label3.Location = new System.Drawing.Point(375, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 39);
+            this.label3.Size = new System.Drawing.Size(41, 41);
             this.label3.TabIndex = 705;
             this.label3.Text = "~";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtpYMDT
             // 
-            this.dtpYMDT.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtpYMDT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpYMDT.EditValue = new System.DateTime(2017, 12, 15, 16, 0, 56, 917);
-            this.dtpYMDT.Location = new System.Drawing.Point(429, 5);
+            this.dtpYMDT.Location = new System.Drawing.Point(416, 7);
             this.dtpYMDT.Name = "dtpYMDT";
             this.dtpYMDT.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpYMDT.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYMDT.Properties.Appearance.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.dtpYMDT.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.dtpYMDT.Properties.Appearance.Options.UseFont = true;
             this.dtpYMDT.Properties.Appearance.Options.UseForeColor = true;
@@ -251,8 +273,9 @@
             this.dtpYMDT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtpYMDT.Properties.Mask.EditMask = "yyyy/MM/dd";
             this.dtpYMDT.Properties.ShowNullValuePromptWhenFocused = true;
+            this.dtpYMDT.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtpYMDT.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.MonthView;
-            this.dtpYMDT.Size = new System.Drawing.Size(237, 40);
+            this.dtpYMDT.Size = new System.Drawing.Size(220, 41);
             this.dtpYMDT.TabIndex = 704;
             this.dtpYMDT.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.dtpYMDT.ToolTipTitle = "Click vào để chọn ngày";
@@ -261,99 +284,81 @@
             // 
             this.btnSearch.BackgroundImage = global::FORM.Properties.Resources.btnSearch1;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(1377, 5);
+            this.btnSearch.Location = new System.Drawing.Point(1380, 7);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(123, 39);
+            this.btnSearch.Size = new System.Drawing.Size(131, 41);
             this.btnSearch.TabIndex = 23;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // cboLine
-            // 
-            this.cboLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLine.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            this.cboLine.FormattingEnabled = true;
-            this.cboLine.Location = new System.Drawing.Point(1161, 5);
-            this.cboLine.Name = "cboLine";
-            this.cboLine.Size = new System.Drawing.Size(205, 41);
-            this.cboLine.TabIndex = 21;
-            // 
-            // cboPlant
-            // 
-            this.cboPlant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPlant.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
-            this.cboPlant.FormattingEnabled = true;
-            this.cboPlant.Location = new System.Drawing.Point(811, 5);
-            this.cboPlant.Name = "cboPlant";
-            this.cboPlant.Size = new System.Drawing.Size(205, 41);
-            this.cboPlant.TabIndex = 21;
-            this.cboPlant.SelectedIndexChanged += new System.EventHandler(this.cboPlant_SelectedIndexChanged);
-            // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.Black;
-            this.label4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1023, 5);
+            this.label4.Location = new System.Drawing.Point(1012, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 40);
+            this.label4.Size = new System.Drawing.Size(137, 41);
             this.label4.TabIndex = 19;
             this.label4.Text = " Line";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.Color.Black;
-            this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.label6.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 5);
+            this.label6.Location = new System.Drawing.Point(10, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 40);
+            this.label6.Size = new System.Drawing.Size(137, 41);
             this.label6.TabIndex = 20;
             this.label6.Text = "Date";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(80)))), ((int)(((byte)(240)))));
+            this.label2.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(673, 5);
+            this.label2.Location = new System.Drawing.Point(646, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 40);
+            this.label2.Size = new System.Drawing.Size(137, 41);
             this.label2.TabIndex = 19;
             this.label2.Text = " Plant";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnHeader
             // 
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(95)))));
             this.pnHeader.Controls.Add(this.cmdPm1);
             this.pnHeader.Controls.Add(this.lblDate);
             this.pnHeader.Controls.Add(this.lblHeader);
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
             this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(1924, 76);
+            this.pnHeader.Size = new System.Drawing.Size(1920, 100);
             this.pnHeader.TabIndex = 2;
             // 
             // cmdPm1
             // 
-            this.cmdPm1.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(0)))), ((int)(((byte)(95)))));
             this.cmdPm1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdPm1.BackgroundImage")));
             this.cmdPm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdPm1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmdPm1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.cmdPm1.FlatAppearance.BorderSize = 0;
             this.cmdPm1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdPm1.Font = new System.Drawing.Font("Calibri", 32.75F, System.Drawing.FontStyle.Bold);
             this.cmdPm1.ForeColor = System.Drawing.Color.Navy;
-            this.cmdPm1.Location = new System.Drawing.Point(3, 3);
+            this.cmdPm1.Location = new System.Drawing.Point(0, 0);
             this.cmdPm1.Name = "cmdPm1";
-            this.cmdPm1.Size = new System.Drawing.Size(77, 70);
+            this.cmdPm1.Size = new System.Drawing.Size(100, 100);
             this.cmdPm1.TabIndex = 88;
             this.cmdPm1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.cmdPm1.UseVisualStyleBackColor = false;
@@ -362,27 +367,27 @@
             // lblDate
             // 
             this.lblDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblDate.Font = new System.Drawing.Font("Calibri", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.Black;
-            this.lblDate.Location = new System.Drawing.Point(1689, 0);
+            this.lblDate.Font = new System.Drawing.Font("Calibri", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(1695, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(235, 76);
+            this.lblDate.Size = new System.Drawing.Size(225, 100);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "2020-07-22\r\n10:00:00";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblHeader
             // 
-            this.lblHeader.Appearance.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Appearance.Font = new System.Drawing.Font("Calibri", 60F, System.Drawing.FontStyle.Bold);
+            this.lblHeader.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblHeader.Appearance.Options.UseFont = true;
+            this.lblHeader.Appearance.Options.UseForeColor = true;
             this.lblHeader.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblHeader.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblHeader.LineVisible = true;
-            this.lblHeader.Location = new System.Drawing.Point(0, 0);
+            this.lblHeader.Location = new System.Drawing.Point(100, 0);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(1622, 76);
+            this.lblHeader.Size = new System.Drawing.Size(1600, 100);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "        NPI Tracking";
+            this.lblHeader.Text = "  NPI Tracking";
             // 
             // tmrTime
             // 
@@ -395,9 +400,9 @@
             this.pnBody.Controls.Add(this.pnGrid);
             this.pnBody.Controls.Add(this.pnStatus);
             this.pnBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody.Location = new System.Drawing.Point(0, 126);
+            this.pnBody.Location = new System.Drawing.Point(0, 155);
             this.pnBody.Name = "pnBody";
-            this.pnBody.Size = new System.Drawing.Size(1924, 935);
+            this.pnBody.Size = new System.Drawing.Size(1920, 901);
             this.pnBody.TabIndex = 3;
             // 
             // pnGrid
@@ -405,10 +410,21 @@
             this.pnGrid.Controls.Add(this.hScrollBar1);
             this.pnGrid.Controls.Add(this.grdBase);
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnGrid.Location = new System.Drawing.Point(0, 54);
+            this.pnGrid.Location = new System.Drawing.Point(0, 55);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(1924, 881);
+            this.pnGrid.Size = new System.Drawing.Size(1920, 846);
             this.pnGrid.TabIndex = 78;
+            // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.hScrollBar1.Location = new System.Drawing.Point(0, 806);
+            this.hScrollBar1.LookAndFeel.SkinName = "Office 2010 Blue";
+            this.hScrollBar1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(1920, 40);
+            this.hScrollBar1.TabIndex = 308;
+            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
             // grdBase
             // 
@@ -420,7 +436,7 @@
             this.grdBase.Location = new System.Drawing.Point(0, 0);
             this.grdBase.MainView = this.grdView;
             this.grdBase.Name = "grdBase";
-            this.grdBase.Size = new System.Drawing.Size(1924, 881);
+            this.grdBase.Size = new System.Drawing.Size(1920, 846);
             this.grdBase.TabIndex = 9;
             this.grdBase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdView});
@@ -465,17 +481,17 @@
             this.pnStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnStatus.Location = new System.Drawing.Point(0, 0);
             this.pnStatus.Name = "pnStatus";
-            this.pnStatus.Size = new System.Drawing.Size(1924, 54);
+            this.pnStatus.Size = new System.Drawing.Size(1920, 55);
             this.pnStatus.TabIndex = 13;
             // 
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.Silver;
-            this.label10.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label10.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(1735, 8);
+            this.label10.Location = new System.Drawing.Point(1735, 7);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(177, 39);
+            this.label10.Size = new System.Drawing.Size(177, 41);
             this.label10.TabIndex = 424;
             this.label10.Text = "None";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -483,69 +499,63 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.SkyBlue;
-            this.label9.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label9.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(1557, 8);
+            this.label9.Location = new System.Drawing.Point(1558, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(177, 39);
+            this.label9.Size = new System.Drawing.Size(177, 41);
             this.label9.TabIndex = 425;
             this.label9.Text = "Late 3 Days";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
-            this.label8.BackColor = System.Drawing.Color.Green;
-            this.label8.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(200)))), ((int)(((byte)(110)))));
+            this.label8.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(1020, 8);
+            this.label8.Location = new System.Drawing.Point(1027, 7);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(177, 39);
+            this.label8.Size = new System.Drawing.Size(177, 41);
             this.label8.TabIndex = 426;
             this.label8.Text = "On Time";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
             // 
-            this.label11.BackColor = System.Drawing.Color.Red;
-            this.label11.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(55)))), ((int)(((byte)(30)))));
+            this.label11.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(1379, 8);
+            this.label11.Location = new System.Drawing.Point(1381, 7);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(177, 39);
+            this.label11.Size = new System.Drawing.Size(177, 41);
             this.label11.TabIndex = 423;
-            this.label11.Text = "Late >=2 Days";
+            this.label11.Text = "Late >= 2 Days";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
             // 
-            this.label12.BackColor = System.Drawing.Color.Yellow;
-            this.label12.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(1199, 8);
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(15)))));
+            this.label12.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(1204, 7);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(177, 39);
+            this.label12.Size = new System.Drawing.Size(177, 41);
             this.label12.TabIndex = 422;
             this.label12.Text = "Late 1 Day";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // hScrollBar1
+            // splashScreenManager1
             // 
-            this.hScrollBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.hScrollBar1.Location = new System.Drawing.Point(0, 841);
-            this.hScrollBar1.LookAndFeel.SkinName = "Office 2010 Blue";
-            this.hScrollBar1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(1924, 40);
-            this.hScrollBar1.TabIndex = 308;
-            this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // SMT_QUALITY_COCKPIT_NPI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1920, 1056);
             this.Controls.Add(this.pnBody);
             this.Controls.Add(this.pnControl);
             this.Controls.Add(this.pnHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SMT_QUALITY_COCKPIT_NPI";
             this.Text = "SMT_SCADA_COCKPIT_FORM2";
             this.Load += new System.EventHandler(this.SMT_QUALITY_COCKPIT_FORM1_Load);
@@ -575,8 +585,6 @@
         private System.Windows.Forms.Panel pnBody;
         private System.Windows.Forms.Panel pnStatus;
         private System.Windows.Forms.Panel pnGrid;
-        private System.Windows.Forms.ComboBox cboLine;
-        private System.Windows.Forms.ComboBox cboPlant;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
@@ -593,5 +601,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.HScrollBar hScrollBar1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private System.Windows.Forms.ComboBox cboPlant;
+        private System.Windows.Forms.ComboBox cboLine;
     }
 }

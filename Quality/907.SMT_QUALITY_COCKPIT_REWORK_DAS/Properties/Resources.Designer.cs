@@ -63,6 +63,16 @@ namespace FORM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _936342 {
+            get {
+                object obj = ResourceManager.GetObject("936342", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Back_Icon {
             get {
                 object obj = ResourceManager.GetObject("Back_Icon", resourceCulture);
@@ -86,6 +96,16 @@ namespace FORM.Properties {
         internal static System.Drawing.Bitmap btnSearch1 {
             get {
                 object obj = ResourceManager.GetObject("btnSearch1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading1 {
+            get {
+                object obj = ResourceManager.GetObject("loading1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

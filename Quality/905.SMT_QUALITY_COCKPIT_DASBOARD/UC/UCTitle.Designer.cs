@@ -126,6 +126,7 @@
             // 
             // btnNextYear
             // 
+            this.btnNextYear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNextYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNextYear.Location = new System.Drawing.Point(165, 0);
             this.btnNextYear.Name = "btnNextYear";
@@ -137,6 +138,7 @@
             // 
             // btnPrevYear
             // 
+            this.btnPrevYear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrevYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrevYear.Location = new System.Drawing.Point(1, 0);
             this.btnPrevYear.Name = "btnPrevYear";
@@ -148,7 +150,6 @@
             // 
             // UCTitle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UCTitle";

@@ -26,7 +26,7 @@ namespace FORM
         bool isFirstLoad = true;
         List<AdvancedPanel> advLst = new List<AdvancedPanel>();
         #endregion
-        private readonly string _strHeader = "       Humidity Tracking";
+        private readonly string _strHeader = "  Humidity Tracking";
         int _time = 0;
         string strPlant = "2110";
         DataTable dtWarn = null;
@@ -184,8 +184,8 @@ namespace FORM
                             }
                             else
                             {
-                                _cht.Series[0].View.Color = Color.Red;
-                                _cht.Series[0].Points[i].Color = Color.Red;
+                                _cht.Series[0].View.Color = Color.FromArgb(250,55,30);
+                                _cht.Series[0].Points[i].Color = Color.FromArgb(250,55,30);
                             }
                         }
 
@@ -234,7 +234,7 @@ namespace FORM
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             MyOraDB.ConnectName = COM.OraDB.ConnectDB.SEPHIROTH;
-            string process_name = "SEPHIROTH.PKG_SMT_QUALITY_COCKPIT_04.SP_GET_HUMIDITY_TRACKING";
+            string process_name = "MES.PKG_SMT_QUALITY_COCKPIT.SMT_QUA_HUMIDITY_TRACKING";
 
             try
             {
@@ -275,7 +275,7 @@ namespace FORM
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd\nHH:mm:ss"));
+            lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             _time++;
             if (_time >= 60)
             {
@@ -374,7 +374,7 @@ namespace FORM
                     }
                     else
                     {
-                        c = Color.Red;
+                        c = Color.FromArgb(250,55,30);
                     }
                     if (!progressBarColor.ContainsKey(c))
                         progressBarColor.Add(c, CreateProgressBar(c));
@@ -573,7 +573,7 @@ namespace FORM
                     {
                         lblHumi.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
                         if (iHumidity > 70)
-                            lblHumi.ForeColor = Color.Red;
+                            lblHumi.ForeColor = Color.FromArgb(250,55,30);
                         else
                             lblHumi.ForeColor = Color.Lime;
                     }
@@ -581,7 +581,7 @@ namespace FORM
                     {
                         lblHumiLT.Text = string.Concat(string.Format("{0:n0}", iHumidity), "%");
                         if (iHumidity > 70)
-                            lblHumiLT.ForeColor = Color.Red;
+                            lblHumiLT.ForeColor = Color.FromArgb(250,55,30);
                         else
                             lblHumiLT.ForeColor = Color.Lime;
                     }
@@ -614,8 +614,8 @@ namespace FORM
                                 if (btn.EndColor == Color.Lime && btn.FlatBorderColor == Color.LimeGreen && btn.StartColor == Color.LimeGreen)
                                 {
                                     btn.EndColor = Color.FromArgb(255, 102, 0);
-                                    btn.FlatBorderColor = Color.Red;
-                                    btn.StartColor = Color.Red;
+                                    btn.FlatBorderColor = Color.FromArgb(250,55,30);
+                                    btn.StartColor = Color.FromArgb(250,55,30);
                                 }
                                 else
                                 {
