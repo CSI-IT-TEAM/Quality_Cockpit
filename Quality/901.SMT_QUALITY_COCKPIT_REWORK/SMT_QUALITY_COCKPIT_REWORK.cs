@@ -27,6 +27,7 @@ namespace FORM
         int _start_column = 0;
         private DataTable dtTarget = null;
         private string status = "Y";
+        private double _lblMin = 0, _lblMax = 0;
 
         #endregion ========= [Global Variable] ==============================================
 
@@ -243,11 +244,11 @@ namespace FORM
                     {
                         e.Appearance.BackColor = Color.White;
                     }
-                    if (temp >= 12)
+                    if (temp >= _lblMax)
                     {
                         e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
                     }
-                    else if (temp <= 9)
+                    else if (temp <= _lblMin)
                     {
                         e.Appearance.BackColor = Color.FromArgb(20, 200, 110);
                     }
@@ -323,12 +324,15 @@ namespace FORM
             if (dtTarget != null)
             {
                 status = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                _lblMax = Convert.ToDouble(dtTarget.Rows[0]["LBL_MAX"].ToString());
+                _lblMin = Convert.ToDouble(dtTarget.Rows[0]["LBL_MIN"].ToString());
+
                 if (status == "Y")
                 {
                     lblGreen.Visible = lblRed.Visible = lblYellow.Visible = true;
-                    lblGreen.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblRed.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblYellow.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblGreen.Text = dtTarget.Rows[0]["LBL_GREEN"].ToString();
+                    lblRed.Text = dtTarget.Rows[0]["LBL_RED"].ToString();
+                    lblYellow.Text = dtTarget.Rows[0]["LBL_YELLOW"].ToString();
                 }
                 else
                 {
@@ -398,14 +402,14 @@ namespace FORM
 
                 double rate;
                 double.TryParse(argDtChart.Rows[i]["RATE"].ToString(), out rate); //out
-
+                
                 if (status == "Y")
                 {
-                    if (rate >= 12)
+                    if (rate >= _lblMax)
                     {
                         chartControl1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                     }
-                    else if (rate <= 9)
+                    else if (rate <= _lblMin)
                     {
                         chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
 

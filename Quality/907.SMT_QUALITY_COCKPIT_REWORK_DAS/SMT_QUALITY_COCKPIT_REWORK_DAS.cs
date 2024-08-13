@@ -30,6 +30,7 @@ namespace FORM
         string _tabIndex = "0";
         bool isHasChild = false, isCheckState = true;
         string list = "";
+        private double _lblMax = 0, _lblMin = 0;
         #endregion ========= [Global Variable] ==============================================
 
         #region ========= [Form Init] ==============================================
@@ -295,12 +296,15 @@ namespace FORM
             if (dtTarget != null)
             {
                 status = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                _lblMax = Convert.ToDouble(dtTarget.Rows[0]["LBL_MAX"].ToString());
+                _lblMin = Convert.ToDouble(dtTarget.Rows[0]["LBL_MIN"].ToString());
+
                 if (status == "Y")
                 {
                     lblGreen.Visible = lblRed.Visible = lblYellow.Visible = true;
-                    lblGreen.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblRed.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblYellow.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblGreen.Text = dtTarget.Rows[0]["LBL_GREEN"].ToString();
+                    lblRed.Text = dtTarget.Rows[0]["LBL_RED"].ToString();
+                    lblYellow.Text = dtTarget.Rows[0]["LBL_YELLOW"].ToString();
                 }
                 else
                 {
@@ -376,11 +380,11 @@ namespace FORM
 
                 if (status == "Y")
                 {
-                    if (rate >= 12)
+                    if (rate >= _lblMax)
                     {
                         chartControl1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                     }
-                    else if (rate <= 9)
+                    else if (rate <= _lblMin)
                     {
                         chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
 
@@ -977,11 +981,11 @@ namespace FORM
                     if (status == "N") return;
                     else
                     {
-                        if (temp >= 12)
+                        if (temp >= _lblMax)
                         {
                             e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
                         }
-                        else if (temp <= 9)
+                        else if (temp <= _lblMin)
                         {
                             e.Appearance.BackColor = Color.FromArgb(20, 200, 110);
                         }
@@ -1287,11 +1291,11 @@ namespace FORM
 
                 if (status == "Y")
                 {
-                    if (rate >= 12)
+                    if (rate >= _lblMax)
                     {
                         chartRework.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                     }
-                    else if (rate <= 9)
+                    else if (rate <= _lblMin)
                     {
                         chartRework.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                     }
@@ -1347,11 +1351,11 @@ namespace FORM
                
                 if (status == "Y")
                 {
-                    if (rate >= 12)
+                    if (rate >= _lblMax)
                     {
                         chartModel.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                     }
-                    else if (rate <= 9)
+                    else if (rate <= _lblMin)
                     {
                         chartModel.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                     }
