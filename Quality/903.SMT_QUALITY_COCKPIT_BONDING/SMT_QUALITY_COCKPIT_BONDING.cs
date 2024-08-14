@@ -327,9 +327,8 @@ namespace FORM
             {
                 Cursor.Current = Cursors.WaitCursor;
                 //SetData_Detail(strdate, strplant, strline);
-              //  SMT_QUALITY_COCKPIT_BONDING_POPUP view = new SMT_QUALITY_COCKPIT_BONDING_POPUP(strdate, strplant, strline);
-
-               // view.ShowDialog();
+                SMT_QUALITY_COCKPIT_BONDING_POPUP view = new SMT_QUALITY_COCKPIT_BONDING_POPUP(strdate, strplant, strline);
+                view.ShowDialog();
             }
             catch (Exception ex)
             {

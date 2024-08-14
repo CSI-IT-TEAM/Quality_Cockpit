@@ -85,11 +85,12 @@ namespace FORM
             try
             {
                 DataSet dsData = Data_Select("Q", _date, _date, _plant_code, _line_code);
+                DataSet dsDataC = Data_Select("Q_POP", _date, _date, _plant_code, _line_code);
 
                 if (dsData == null) return;
                 DataTable dtGrid = dsData.Tables[0];
                 DataTable dtChart = dsData.Tables[0];
-                SetChart(dtChart);
+                SetChart(dsDataC.Tables[0]);
             }
             catch (Exception ex)
             {
@@ -111,6 +112,49 @@ namespace FORM
                 chartControl1.Series[0].Points.Add(new SeriesPoint(argDtChart.Rows[i]["HH"].ToString(), argDtChart.Rows[i]["BOND_QTY"]));
             }
         }
+
+        //private void SetChart(DataTable argDtChart)
+        //{
+        //    chartControl1.Series[0].Points.Clear();
+        //    chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+
+        //    if (argDtChart == null || argDtChart.Rows.Count == 0) return;
+
+        //    // Bước 1: Tính toán giá trị Min và Max từ cột "REWORK_QTY"
+        //    double minValue = Convert.ToDouble(argDtChart.Rows[0]["BOND_QTY"]);
+        //    double maxValue = minValue;
+
+        //    foreach (DataRow row in argDtChart.Rows)
+        //    {
+        //        double value = Convert.ToDouble(row["BOND_QTY"]);
+        //        if (value < minValue)
+        //        {
+        //            minValue = value;
+        //        }
+        //        if (value > maxValue)
+        //        {
+        //            maxValue = value;
+        //        }
+        //    }
+
+        //    // Kiểm tra nếu biểu đồ là dạng XYDiagram
+        //    XYDiagram diagram = chartControl1.Diagram as XYDiagram;
+        //    if (diagram != null)
+        //    {
+        //        // Bước 2: Thiết lập WholeRange và VisualRange cho trục Y
+        //        diagram.AxisY.WholeRange.SetMinMaxValues(minValue, maxValue);
+        //        diagram.AxisY.VisualRange.SetMinMaxValues(minValue, maxValue);
+        //    }
+
+        //    // Bước 3: Thêm dữ liệu vào biểu đồ
+        //    foreach (DataRow row in argDtChart.Rows)
+        //    {
+        //        string argument = row["HH"].ToString();
+        //        double value = Convert.ToDouble(row["BOND_QTY"]);
+        //        chartControl1.Series[0].Points.Add(new SeriesPoint(argument, value));
+        //    }
+        //}
+
         #endregion ========= [Method] ==========================================
 
         #region ========= [Procedure Call] ===========================================

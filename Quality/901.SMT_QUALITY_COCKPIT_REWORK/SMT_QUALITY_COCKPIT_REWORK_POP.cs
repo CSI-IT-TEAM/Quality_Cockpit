@@ -86,9 +86,53 @@ namespace FORM
         #endregion ========= [Control Event] ==========================================
 
         #region ========= [Method] ==========================================
+
+        //private void SetChart(DataTable argDtChart)
+        //{
+        //    chartControl1.Series[0].Points.Clear();
+        //    chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
+
+        //    if (argDtChart == null || argDtChart.Rows.Count == 0) return;
+
+        //    // Bước 1: Tính toán giá trị Min và Max từ cột "REWORK_QTY"
+        //    double minValue = Convert.ToDouble(argDtChart.Rows[0]["REWORK_QTY"]);
+        //    double maxValue = minValue;
+
+        //    foreach (DataRow row in argDtChart.Rows)
+        //    {
+        //        double value = Convert.ToDouble(row["REWORK_QTY"]);
+        //        if (value < minValue)
+        //        {
+        //            minValue = value;
+        //        }
+        //        if (value > maxValue)
+        //        {
+        //            maxValue = value;
+        //        }
+        //    }
+
+        //    // Kiểm tra nếu biểu đồ là dạng XYDiagram
+        //    XYDiagram diagram = chartControl1.Diagram as XYDiagram;
+        //    if (diagram != null)
+        //    {
+        //        // Bước 2: Thiết lập WholeRange và VisualRange cho trục Y
+        //        diagram.AxisY.WholeRange.SetMinMaxValues(-2, maxValue);
+        //        diagram.AxisY.VisualRange.SetMinMaxValues(-2, maxValue);
+        //    }
+
+        //    // Bước 3: Thêm dữ liệu vào biểu đồ
+        //    foreach (DataRow row in argDtChart.Rows)
+        //    {
+        //        string argument = row["HH"].ToString();
+        //        double value = Convert.ToDouble(row["REWORK_QTY"]);
+        //        chartControl1.Series[0].Points.Add(new SeriesPoint(argument, value));
+        //    }
+        //}
+
+
         private void SetChart(DataTable argDtChart)
         {
-           
+
             chartControl1.Series[0].Points.Clear();
             //chartControl1.Series[1].Points.Clear();
             chartControl1.Series[0].ArgumentScaleType = ScaleType.Qualitative;
