@@ -39,8 +39,8 @@ namespace FORM
 
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_Load(object sender, EventArgs e)
         {
-            cboDateTo.EditValue = DateTime.Now.AddDays(-1);
-            cboDateFr.EditValue = DateTime.Now.AddDays(-1);
+            cboDateTo.EditValue = DateTime.Now;
+            cboDateFr.EditValue = DateTime.Now.AddDays(-7);
             //DateTime dt = DateTime.Now;
             //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
             //cboDateFr.EditValue = fistdate;
@@ -250,6 +250,8 @@ namespace FORM
                     grdMain.DataSource = _dtf;
                     FormatGrid();
 
+                    _crr_div = _dtArea.Rows[0]["COL_NM"].ToString();
+                    _div_nm = _dtArea.Rows[0]["COL_CAPTION"].ToString() ;
                     SetDataDetail();
                 }
 
@@ -280,19 +282,23 @@ namespace FORM
                     splashScreenManager1.ShowWaitForm();
                 }
 
+                
+                chartReason.DataSource = null;
+                chartModel.DataSource = null;
+
                 DataTable _dtModel = GetOracleData("Q3");
                 DataTable _dtReason = GetOracleData("Q4");
 
-                if (_dtModel != null && _dtModel.Rows.Count > 0)
-                {
+                //if (_dtModel != null && _dtModel.Rows.Count > 0)
+                //{
                     //Load Chart Model
                     LoadDataChart("Q3", _dtModel);
-                }
-                if (_dtReason != null && _dtReason.Rows.Count > 0)
-                {
+                //}
+                //if (_dtReason != null && _dtReason.Rows.Count > 0)
+                //{
                     //Load Chart Model
                     LoadDataChart("Q4", _dtReason);
-                }
+                //}
                 _dtModel = null;
                 _dtReason = null;
 

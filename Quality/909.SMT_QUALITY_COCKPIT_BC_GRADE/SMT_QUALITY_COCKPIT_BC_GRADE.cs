@@ -40,11 +40,11 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
 
-            DateTime dt = DateTime.Now;
-            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            cboDateFr.EditValue = fistdate;
+            //DateTime dt = DateTime.Now;
+            //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
+            cboDateFr.EditValue = DateTime.Now.AddDays(-7); //fistdate;
             //cboDateFr.EditValue = DateTime.Now;
-            cboDateTo.EditValue = DateTime.Now.AddDays(-1);
+            cboDateTo.EditValue = DateTime.Now;
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)

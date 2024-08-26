@@ -48,10 +48,8 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
 
-            dtpYMDT.EditValue = DateTime.Now.AddDays(-1);
-            DateTime dt = DateTime.Now;
-            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            dtpYMD.EditValue = DateTime.Now.AddDays(-1);
+            dtpYMDT.EditValue = DateTime.Now;
+            dtpYMD.EditValue = DateTime.Now.AddDays(-7);
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
