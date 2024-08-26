@@ -42,7 +42,8 @@ namespace FORM
         {        
             DateTime dt = DateTime.Now;
             DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            cboDateFr.EditValue = fistdate;
+            cboDateFr.EditValue = DateTime.Now.AddDays(-7); //fistdate;
+           
             cboDateTo.EditValue = DateTime.Now;
             LoadComboBox("C_FACTORY");
         }
