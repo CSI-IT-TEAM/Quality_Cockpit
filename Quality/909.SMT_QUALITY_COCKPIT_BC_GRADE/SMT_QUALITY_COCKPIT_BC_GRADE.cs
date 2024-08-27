@@ -15,7 +15,7 @@ namespace FORM
 
         #region ========= [Global Variable] ==============================================
 
-        private readonly string _strHeader = "  B&&C Grade By Day";
+        private readonly string _strHeader = "  B&&C Grade";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "Q";
