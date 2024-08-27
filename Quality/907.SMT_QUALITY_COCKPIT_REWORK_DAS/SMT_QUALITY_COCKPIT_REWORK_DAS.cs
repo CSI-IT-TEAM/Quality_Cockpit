@@ -398,6 +398,7 @@ namespace FORM
                 }
 
             }
+            ((XYDiagram)chartControl1.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
         }
 
         private void SetChart1(DataTable argDtChart)
@@ -431,6 +432,7 @@ namespace FORM
                     .Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["RATE"]));
 
             }
+            ((XYDiagram)chartControl2.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.False;
         }
 
         private void SetChart2(DataTable argDtChart)
@@ -543,7 +545,7 @@ namespace FORM
                     chartControl3.DataSource = dtChart2;
                     chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                     chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
-
+                    ((XYDiagram)chartControl3.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.False;
                 }
                 else
                 {
@@ -1370,7 +1372,7 @@ namespace FORM
                
             }
 
-            ((XYDiagram)chartModel.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            //((XYDiagram)chartModel.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
           
 
             if (argDtChart.Rows.Count > 20)
