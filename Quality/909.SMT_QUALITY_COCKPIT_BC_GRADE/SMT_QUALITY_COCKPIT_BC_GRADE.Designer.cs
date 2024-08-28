@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMT_QUALITY_COCKPIT_BC_GRADE));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -101,7 +102,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
             this.cmdPm1 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -283,11 +284,11 @@
             this.cboDateFr.Properties.AppearanceCalendar.DayCellSelected.Options.UseFont = true;
             this.cboDateFr.Properties.AppearanceDisabled.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
             this.cboDateFr.Properties.AppearanceDisabled.Options.UseFont = true;
-            this.cboDateFr.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDateFr.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboDateFr.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboDateFr.Properties.AppearanceFocused.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
+            this.cboDateFr.Properties.AppearanceFocused.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboDateFr.Properties.AppearanceFocused.Options.UseFont = true;
-            this.cboDateFr.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Calibri", 15.25F, System.Drawing.FontStyle.Bold);
+            this.cboDateFr.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.cboDateFr.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.cboDateFr.Properties.AutoHeight = false;
             editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
