@@ -464,9 +464,9 @@ namespace FORM
                 if (dsData == null) return;
                 DataTable dtChart = dsData.Tables[0];
 
-                if (dtChart.Select("LINE_CD <> 'TOT'", "LINE_CD").Count() > 0)
+                if (dtChart.Select("LINE_CD <> 'TOT'", "RN").Count() > 0)
                 {
-                    DataTable _dtChart = dtChart.Select("LINE_CD <> 'TOT'", "LINE_CD").CopyToDataTable();
+                    DataTable _dtChart = dtChart.Select("LINE_CD <> 'TOT'", "RN").CopyToDataTable();
 
                     _dtArea = _dtChart;
                     SetChart(_dtChart);
@@ -474,7 +474,7 @@ namespace FORM
 
                 if (dtChart.Select("LINE_CD = 'TOT'", "LINE_CD").Count() > 0)
                 {
-                    DataTable _dtLabel = dtChart.Select("LINE_CD = 'TOT'", "LINE_CD").CopyToDataTable();
+                    DataTable _dtLabel = dtChart.Select("LINE_CD = 'TOT'", "RN").CopyToDataTable();
                     lblTotalRework.Text =
                         Convert.ToDouble(_dtLabel.Rows[0]["REW_QTY"].ToString()).ToString("###,##0.##") + " Pairs";
                     lblTotalProd.Text =
