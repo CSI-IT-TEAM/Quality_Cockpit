@@ -228,7 +228,7 @@ namespace FORM
                 //else
                 //    sLine = "ALL";
                 _time = 10;
-                SetDataDetail();
+                SetDataDetail_Reason();
             }
             catch (Exception ex)
             {
@@ -510,6 +510,76 @@ namespace FORM
                 DataTable dtChart2 = _dtSet.Tables[2];
 
                 SetChart1(dtChart1);
+                if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                {
+                    DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+                    chartControl3.Titles.Clear();
+                    if (sLine == "ALL")
+                    {
+                        chartTitle2.Text = "Rework By Reason";
+                    }
+                    else
+                    {
+                        if (int.Parse(sLine) < 6)
+                        {
+                            chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
+                        }
+                        else
+                            chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
+                    }
+
+                    // Define the alignment of the titles.
+                    chartTitle2.Alignment = StringAlignment.Center;
+
+                    // Place the titles where it's required.
+                    chartTitle2.Dock = ChartTitleDockStyle.Top;
+
+                    // Customize a title's appearance.
+                    chartTitle2.Antialiasing = true;
+                    chartTitle2.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                    chartTitle2.TextColor = Color.Blue;
+                    chartTitle2.Indent = 10;
+                    chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle2 });
+
+                    if (dtChart2 == null) return;
+                    chartControl3.DataSource = dtChart2;
+                    chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+                    chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+                    ((XYDiagram)chartControl3.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.False;
+                }
+                else
+                {
+                    chartControl3.DataSource = null;
+                }
+
+                dtChart1 = null;
+                dtChart2 = null;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+
+            }
+        }
+
+        private async void SetDataDetail_Reason()
+        {
+            try
+            {
+
+                sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
+                sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+                DataSet _dtSet = await sbGetRework(sType, sDateF, sDateT, sPlant, sLine);
+
+                DataTable dtChart1 = _dtSet.Tables[1];
+                DataTable dtChart2 = _dtSet.Tables[2];
+
                 if (dtChart2 != null && dtChart2.Rows.Count > 0)
                 {
                     DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
