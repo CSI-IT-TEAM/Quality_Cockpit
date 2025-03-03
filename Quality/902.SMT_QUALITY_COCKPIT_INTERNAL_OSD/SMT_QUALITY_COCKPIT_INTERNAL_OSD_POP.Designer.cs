@@ -124,20 +124,24 @@
             constantLine1.LineStyle.Thickness = 2;
             constantLine1.Name = "";
             constantLine1.Title.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            constantLine1.Visible = false;
             constantLine2.AxisValueSerializable = "0";
             constantLine2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             constantLine2.LineStyle.Thickness = 2;
             constantLine2.Name = "";
             constantLine2.Title.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            constantLine2.Visible = false;
             constantLine3.AxisValueSerializable = "3";
             constantLine3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             constantLine3.LineStyle.Thickness = 2;
             constantLine3.Name = "";
             constantLine3.Title.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            constantLine3.Visible = false;
             xyDiagram1.AxisY.ConstantLines.AddRange(new DevExpress.XtraCharts.ConstantLine[] {
             constantLine1,
             constantLine2,
             constantLine3});
+            xyDiagram1.AxisY.GridLines.Visible = false;
             xyDiagram1.AxisY.Label.Font = new System.Drawing.Font("Calibri", 14F);
             xyDiagram1.AxisY.NumericScaleOptions.AutoGrid = false;
             xyDiagram1.AxisY.NumericScaleOptions.GridSpacing = 2D;
@@ -147,12 +151,7 @@
             xyDiagram1.AxisY.Title.TextColor = System.Drawing.Color.Orange;
             xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisualRange.Auto = false;
-            xyDiagram1.AxisY.VisualRange.MaxValueSerializable = "10";
-            xyDiagram1.AxisY.VisualRange.MinValueSerializable = "-2";
-            xyDiagram1.AxisY.WholeRange.Auto = false;
-            xyDiagram1.AxisY.WholeRange.MaxValueSerializable = "10";
-            xyDiagram1.AxisY.WholeRange.MinValueSerializable = "-2";
+            xyDiagram1.DefaultPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.chartControl1.Diagram = xyDiagram1;
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Center;
@@ -166,6 +165,7 @@
             this.chartControl1.Location = new System.Drawing.Point(0, 0);
             this.chartControl1.Name = "chartControl1";
             this.chartControl1.PaletteName = "Marquee";
+            pointSeriesLabel1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             pointSeriesLabel1.TextPattern = "{V:#,0.##}%";
             series1.Label = pointSeriesLabel1;
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
@@ -182,7 +182,7 @@
             this.chartControl1.Size = new System.Drawing.Size(1351, 548);
             this.chartControl1.TabIndex = 14;
             chartTitle1.Font = new System.Drawing.Font("Times New Roman", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            chartTitle1.Text = "SPC Chart";
+            chartTitle1.Text = "Standardize Process Chart";
             chartTitle1.TextColor = System.Drawing.Color.Blue;
             this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle1});

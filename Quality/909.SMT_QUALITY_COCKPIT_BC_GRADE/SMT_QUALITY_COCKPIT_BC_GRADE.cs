@@ -15,7 +15,7 @@ namespace FORM
 
         #region ========= [Global Variable] ==============================================
 
-        private readonly string _strHeader = "  B&&C Grade By Day";
+        private readonly string _strHeader = "  B&&C Grade";
         int _time = 0;
         string _CurrentDay = DateTime.Now.ToString("MMM - dd");
         string sDate = "Q";
@@ -40,11 +40,11 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
 
-            DateTime dt = DateTime.Now;
-            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            cboDateFr.EditValue = fistdate;
+            //DateTime dt = DateTime.Now;
+            //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
+            cboDateFr.EditValue = DateTime.Now.AddDays(-7); //fistdate;
             //cboDateFr.EditValue = DateTime.Now;
-            cboDateTo.EditValue = DateTime.Now.AddDays(-1);
+            cboDateTo.EditValue = DateTime.Now;
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)

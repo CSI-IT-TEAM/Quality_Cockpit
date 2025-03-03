@@ -30,6 +30,7 @@ namespace FORM
         string _tabIndex = "0";
         bool isHasChild = false, isCheckState = true;
         string list = "";
+        private double _lblMax = 0, _lblMin = 0;
         #endregion ========= [Global Variable] ==============================================
 
         #region ========= [Form Init] ==============================================
@@ -47,10 +48,8 @@ namespace FORM
             btnMonth.Enabled = false;
             btnYear.Enabled = false;
 
-            dtpYMDT.EditValue = DateTime.Now.AddDays(-1);
-            DateTime dt = DateTime.Now;
-            DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
-            dtpYMD.EditValue = DateTime.Now.AddDays(-1);
+            dtpYMDT.EditValue = DateTime.Now;
+            dtpYMD.EditValue = DateTime.Now.AddDays(-7);
         }
 
         private void SMT_QUALITY_COCKPIT_REWORK_VisibleChanged(object sender, EventArgs e)
@@ -229,7 +228,7 @@ namespace FORM
                 //else
                 //    sLine = "ALL";
                 _time = 10;
-                SetDataDetail();
+                SetDataDetail_Reason();
             }
             catch (Exception ex)
             {
@@ -295,12 +294,15 @@ namespace FORM
             if (dtTarget != null)
             {
                 status = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                _lblMax = Convert.ToDouble(dtTarget.Rows[0]["LBL_MAX"].ToString());
+                _lblMin = Convert.ToDouble(dtTarget.Rows[0]["LBL_MIN"].ToString());
+
                 if (status == "Y")
                 {
                     lblGreen.Visible = lblRed.Visible = lblYellow.Visible = true;
-                    lblGreen.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblRed.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblYellow.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblGreen.Text = dtTarget.Rows[0]["LBL_GREEN"].ToString();
+                    lblRed.Text = dtTarget.Rows[0]["LBL_RED"].ToString();
+                    lblYellow.Text = dtTarget.Rows[0]["LBL_YELLOW"].ToString();
                 }
                 else
                 {
@@ -376,11 +378,11 @@ namespace FORM
 
                 if (status == "Y")
                 {
-                    if (rate >= 12)
+                    if (rate >= _lblMax)
                     {
                         chartControl1.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                     }
-                    else if (rate <= 9)
+                    else if (rate <= _lblMin)
                     {
                         chartControl1.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
 
@@ -396,6 +398,7 @@ namespace FORM
                 }
 
             }
+            ((XYDiagram)chartControl1.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
         }
 
         private void SetChart1(DataTable argDtChart)
@@ -429,6 +432,7 @@ namespace FORM
                     .Add(new SeriesPoint(argDtChart.Rows[i]["LINE_NM"].ToString(), argDtChart.Rows[i]["RATE"]));
 
             }
+            ((XYDiagram)chartControl2.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.False;
         }
 
         private void SetChart2(DataTable argDtChart)
@@ -460,9 +464,9 @@ namespace FORM
                 if (dsData == null) return;
                 DataTable dtChart = dsData.Tables[0];
 
-                if (dtChart.Select("LINE_CD <> 'TOT'", "LINE_CD").Count() > 0)
+                if (dtChart.Select("LINE_CD <> 'TOT'", "RN").Count() > 0)
                 {
-                    DataTable _dtChart = dtChart.Select("LINE_CD <> 'TOT'", "LINE_CD").CopyToDataTable();
+                    DataTable _dtChart = dtChart.Select("LINE_CD <> 'TOT'", "RN").CopyToDataTable();
 
                     _dtArea = _dtChart;
                     SetChart(_dtChart);
@@ -470,7 +474,7 @@ namespace FORM
 
                 if (dtChart.Select("LINE_CD = 'TOT'", "LINE_CD").Count() > 0)
                 {
-                    DataTable _dtLabel = dtChart.Select("LINE_CD = 'TOT'", "LINE_CD").CopyToDataTable();
+                    DataTable _dtLabel = dtChart.Select("LINE_CD = 'TOT'", "RN").CopyToDataTable();
                     lblTotalRework.Text =
                         Convert.ToDouble(_dtLabel.Rows[0]["REW_QTY"].ToString()).ToString("###,##0.##") + " Pairs";
                     lblTotalProd.Text =
@@ -541,7 +545,77 @@ namespace FORM
                     chartControl3.DataSource = dtChart2;
                     chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
                     chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+                    ((XYDiagram)chartControl3.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.False;
+                }
+                else
+                {
+                    chartControl3.DataSource = null;
+                }
 
+                dtChart1 = null;
+                dtChart2 = null;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+
+            }
+        }
+
+        private async void SetDataDetail_Reason()
+        {
+            try
+            {
+
+                sDateF = dtpYMD.DateTime.ToString("yyyyMMdd");
+                sDateT = dtpYMDT.DateTime.ToString("yyyyMMdd");
+                DataSet _dtSet = await sbGetRework(sType, sDateF, sDateT, sPlant, sLine);
+
+                DataTable dtChart1 = _dtSet.Tables[1];
+                DataTable dtChart2 = _dtSet.Tables[2];
+
+                if (dtChart2 != null && dtChart2.Rows.Count > 0)
+                {
+                    DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
+                    chartControl3.Titles.Clear();
+                    if (sLine == "ALL")
+                    {
+                        chartTitle2.Text = "Rework By Reason";
+                    }
+                    else
+                    {
+                        if (int.Parse(sLine) < 6)
+                        {
+                            chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
+                        }
+                        else
+                            chartTitle2.Text = "Plant " + sLine_nm + " By Reason";
+                    }
+
+                    // Define the alignment of the titles.
+                    chartTitle2.Alignment = StringAlignment.Center;
+
+                    // Place the titles where it's required.
+                    chartTitle2.Dock = ChartTitleDockStyle.Top;
+
+                    // Customize a title's appearance.
+                    chartTitle2.Antialiasing = true;
+                    chartTitle2.Font = new Font("Calibri", 22F, FontStyle.Bold);
+                    chartTitle2.TextColor = Color.Blue;
+                    chartTitle2.Indent = 10;
+                    chartControl3.Titles.AddRange(new ChartTitle[] { chartTitle2 });
+
+                    if (dtChart2 == null) return;
+                    chartControl3.DataSource = dtChart2;
+                    chartControl3.Series[0].ArgumentDataMember = "REWORK_NAME";
+                    chartControl3.Series[0].ValueDataMembers.AddRange(new string[] { "REW_QTY" });
+                    ((XYDiagram)chartControl3.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.False;
                 }
                 else
                 {
@@ -977,11 +1051,11 @@ namespace FORM
                     if (status == "N") return;
                     else
                     {
-                        if (temp >= 12)
+                        if (temp >= _lblMax)
                         {
                             e.Appearance.BackColor = Color.FromArgb(250, 55, 30);
                         }
-                        else if (temp <= 9)
+                        else if (temp <= _lblMin)
                         {
                             e.Appearance.BackColor = Color.FromArgb(20, 200, 110);
                         }
@@ -1287,11 +1361,11 @@ namespace FORM
 
                 if (status == "Y")
                 {
-                    if (rate >= 12)
+                    if (rate >= _lblMax)
                     {
                         chartRework.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                     }
-                    else if (rate <= 9)
+                    else if (rate <= _lblMin)
                     {
                         chartRework.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                     }
@@ -1347,11 +1421,11 @@ namespace FORM
                
                 if (status == "Y")
                 {
-                    if (rate >= 12)
+                    if (rate >= _lblMax)
                     {
                         chartModel.Series[0].Points[i].Color = Color.FromArgb(250, 55, 30);
                     }
-                    else if (rate <= 9)
+                    else if (rate <= _lblMin)
                     {
                         chartModel.Series[0].Points[i].Color = Color.FromArgb(20, 200, 110);
                     }
@@ -1368,7 +1442,7 @@ namespace FORM
                
             }
 
-            ((XYDiagram)chartModel.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
+            //((XYDiagram)chartModel.Diagram).DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.True;
           
 
             if (argDtChart.Rows.Count > 20)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -73,7 +74,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pn_Main = new System.Windows.Forms.Panel();
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -397,6 +398,7 @@
             chartTitle3.Visibility = DevExpress.Utils.DefaultBoolean.True;
             this.chartMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle3});
+            this.chartMain.ObjectHotTracked += new DevExpress.XtraCharts.HotTrackEventHandler(this.chartMain_ObjectHotTracked);
             this.chartMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chartMain_MouseClick);
             // 
             // panel2
@@ -705,7 +707,7 @@
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1600, 100);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "  Bottom Defective By Day";
+            this.lblHeader.Text = "  Bottom Defective";
             // 
             // cmdPm1
             // 

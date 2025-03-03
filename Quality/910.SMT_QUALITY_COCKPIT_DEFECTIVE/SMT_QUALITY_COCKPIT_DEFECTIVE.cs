@@ -39,8 +39,8 @@ namespace FORM
 
         private void SMT_QUALITY_COCKPIT_DEFECTIVE_Load(object sender, EventArgs e)
         {
-            cboDateTo.EditValue = DateTime.Now.AddDays(-1);
-            cboDateFr.EditValue = DateTime.Now.AddDays(-1);
+            cboDateTo.EditValue = DateTime.Now;
+            cboDateFr.EditValue = DateTime.Now.AddDays(-7);
             //DateTime dt = DateTime.Now;
             //DateTime fistdate = new DateTime(dt.Year, dt.Month, 1);
             //cboDateFr.EditValue = fistdate;
@@ -142,11 +142,11 @@ namespace FORM
 
             }
         }
+
         private void chartMain_MouseClick(object sender, MouseEventArgs e)
         {
             try
             {
-                this.Cursor = Cursors.Hand;
                 ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
                 SeriesPoint point = hit.SeriesPoint;
                 // Check whether the series point was clicked or not.
@@ -185,35 +185,29 @@ namespace FORM
             }
         }
 
-        private void chartMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void chartMain_ObjectHotTracked(object sender, HotTrackEventArgs e)
         {
             try
             {
-                this.Cursor = Cursors.Hand;
-                ChartHitInfo hit = chartMain.CalcHitInfo(e.X, e.Y);
-                SeriesPoint point = hit.SeriesPoint;
-                // Check whether the series point was clicked or not.
-                if (point != null)
+                if (e.HitInfo.InSeriesPoint)
                 {
-                    _div_nm = point.Argument;
-
-                    for (int iRow = 0; iRow < _dtArea.Rows.Count; iRow++)
+                    SeriesPoint point = e.HitInfo.SeriesPoint;
+                    // Check whether the series point was clicked or not.
+                    if (point != null)
                     {
-                        if (_dtArea.Rows[iRow]["COL_CAPTION"].ToString() == _div_nm)
-                        {
-                            _crr_div = _dtArea.Rows[iRow]["COL_NM"].ToString();
-                        }
+                        this.Cursor = Cursors.Hand;
                     }
                 }
-
-                _time = 10;
-                SetDataDetail();
+                else
+                {
+                    this.Cursor = Cursors.Default;
+                }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
             }
         }
+
         #endregion ========= [Control Event] ==========================================
 
         #region ========= [Method] ==========================================
@@ -250,6 +244,8 @@ namespace FORM
                     grdMain.DataSource = _dtf;
                     FormatGrid();
 
+                    _crr_div = _dtArea.Rows[0]["COL_NM"].ToString();
+                    _div_nm = _dtArea.Rows[0]["COL_CAPTION"].ToString() ;
                     SetDataDetail();
                 }
 
@@ -280,19 +276,23 @@ namespace FORM
                     splashScreenManager1.ShowWaitForm();
                 }
 
+                
+                chartReason.DataSource = null;
+                chartModel.DataSource = null;
+
                 DataTable _dtModel = GetOracleData("Q3");
                 DataTable _dtReason = GetOracleData("Q4");
 
-                if (_dtModel != null && _dtModel.Rows.Count > 0)
-                {
+                //if (_dtModel != null && _dtModel.Rows.Count > 0)
+                //{
                     //Load Chart Model
                     LoadDataChart("Q3", _dtModel);
-                }
-                if (_dtReason != null && _dtReason.Rows.Count > 0)
-                {
+                //}
+                //if (_dtReason != null && _dtReason.Rows.Count > 0)
+                //{
                     //Load Chart Model
                     LoadDataChart("Q4", _dtReason);
-                }
+                //}
                 _dtModel = null;
                 _dtReason = null;
 
@@ -670,7 +670,6 @@ namespace FORM
             return result;
         }
 
-       
         #endregion ========= [Method] ==========================================
 
         #region ========= [Procedure Call] ===========================================

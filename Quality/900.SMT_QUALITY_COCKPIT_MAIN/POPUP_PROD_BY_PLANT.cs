@@ -33,6 +33,7 @@ namespace FORM
         UC.UC_MONTH_SELECTION UcMonth = new UC.UC_MONTH_SELECTION();
         bool ShowTree = false;
         private DataTable dtTarget = null;
+        private double _lblMax = 0, _lblMin = 0;
         private void BindingData()
         {
             try
@@ -598,12 +599,15 @@ namespace FORM
             if (dtTarget != null)
             {
                 status = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                _lblMax = Convert.ToDouble(dtTarget.Rows[0]["LBL_MAX"].ToString());
+                _lblMin = Convert.ToDouble(dtTarget.Rows[0]["LBL_MIN"].ToString());
+
                 if (status == "Y")
                 {
                     lblGreen.Visible = lblRed.Visible = lblYellow.Visible = true;
-                    lblGreen.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblRed.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
-                    lblYellow.Text = dtTarget.Rows[0]["LBL_STATUS"].ToString();
+                    lblGreen.Text = dtTarget.Rows[0]["LBL_GREEN"].ToString();
+                    lblRed.Text = dtTarget.Rows[0]["LBL_RED"].ToString();
+                    lblYellow.Text = dtTarget.Rows[0]["LBL_YELLOW"].ToString();
                 }
                 else
                 {

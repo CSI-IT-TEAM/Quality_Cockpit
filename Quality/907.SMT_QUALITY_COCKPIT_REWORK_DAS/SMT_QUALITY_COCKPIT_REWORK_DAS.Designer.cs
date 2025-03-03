@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.SecondaryAxisY secondaryAxisY1 = new DevExpress.XtraCharts.SecondaryAxisY();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
@@ -120,7 +121,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblHeader = new DevExpress.XtraEditors.LabelControl();
             this.pnExport = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnBody1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -238,6 +239,7 @@
             // 
             this.chartControl1.AnimationStartMode = DevExpress.XtraCharts.ChartAnimationMode.OnDataChanged;
             this.chartControl1.AppearanceNameSerializable = "Light";
+            this.chartControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chartControl1.DataBindings = null;
             xyDiagram1.AxisX.Label.Font = new System.Drawing.Font("Calibri", 14F);
             xyDiagram1.AxisX.Tickmarks.MinorVisible = false;
@@ -634,6 +636,7 @@
             // 
             // cboModel
             // 
+            this.cboModel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cboModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboModel.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.cboModel.FormattingEnabled = true;
@@ -1047,6 +1050,7 @@
             this.tabControl.AppearancePage.Header.Options.UseFont = true;
             this.tabControl.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Calibri", 22F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.tabControl.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.tabControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 197);
             this.tabControl.LookAndFeel.SkinName = "VS2010";
@@ -1491,6 +1495,11 @@
             secondaryAxisY3.Title.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY3.Visibility = DevExpress.Utils.DefaultBoolean.True;
             secondaryAxisY3.VisibleInPanesSerializable = "-1";
+            secondaryAxisY3.VisualRange.Auto = false;
+            secondaryAxisY3.VisualRange.AutoSideMargins = false;
+            secondaryAxisY3.VisualRange.MaxValueSerializable = "7.1";
+            secondaryAxisY3.VisualRange.MinValueSerializable = "0";
+            secondaryAxisY3.VisualRange.SideMarginsValue = 0.88000000000000012D;
             secondaryAxisY3.WholeRange.AutoSideMargins = false;
             secondaryAxisY3.WholeRange.SideMarginsValue = 0.88000000000000012D;
             xyDiagram3.SecondaryAxesY.AddRange(new DevExpress.XtraCharts.SecondaryAxisY[] {
@@ -1514,6 +1523,7 @@
             sideBySideBarSeriesLabel3.TextPattern = "{V : #,#}";
             series6.Label = sideBySideBarSeriesLabel3;
             series6.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series6.LegendName = "Default Legend";
             series6.Name = "Rework";
             sideBySideBarSeriesView3.BarWidth = 0.4D;
             sideBySideBarSeriesView3.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
