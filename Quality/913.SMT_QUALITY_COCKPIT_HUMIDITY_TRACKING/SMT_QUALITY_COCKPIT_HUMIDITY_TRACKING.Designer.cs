@@ -65,6 +65,8 @@
             this.btnLocation_B = new FORM.AdvancedPanel();
             this.btnLocation_D = new FORM.AdvancedPanel();
             this.btnLocation_C = new FORM.AdvancedPanel();
+            this.btnLocation_JIT = new FORM.AdvancedPanel();
+            this.btnLocation_0W1 = new FORM.AdvancedPanel();
             this.btnLocation_M = new FORM.AdvancedPanel();
             this.btnLocation_L = new FORM.AdvancedPanel();
             this.pnRight = new System.Windows.Forms.Panel();
@@ -262,13 +264,14 @@
             this.tabControl.AppearancePage.Header.Options.UseFont = true;
             this.tabControl.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Calibri", 22F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.tabControl.AppearancePage.HeaderActive.Options.UseFont = true;
-            this.tabControl.Location = new System.Drawing.Point(0, 62);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.LookAndFeel.SkinName = "VS2010";
             this.tabControl.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tabControl.Name = "tabControl";
             this.tabControl.PaintStyleName = "PropertyView";
             this.tabControl.SelectedTabPage = this.tabVC;
-            this.tabControl.Size = new System.Drawing.Size(1824, 868);
+            this.tabControl.Size = new System.Drawing.Size(1920, 930);
             this.tabControl.TabIndex = 58;
             this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabVC,
@@ -283,7 +286,7 @@
             this.tabVC.Appearance.HeaderActive.Options.UseFont = true;
             this.tabVC.Controls.Add(this.pnVinhCuu);
             this.tabVC.Name = "tabVC";
-            this.tabVC.Size = new System.Drawing.Size(1822, 797);
+            this.tabVC.Size = new System.Drawing.Size(1918, 859);
             this.tabVC.Text = "     Vinh Cuu      ";
             // 
             // pnVinhCuu
@@ -292,7 +295,7 @@
             this.pnVinhCuu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnVinhCuu.Location = new System.Drawing.Point(0, 0);
             this.pnVinhCuu.Name = "pnVinhCuu";
-            this.pnVinhCuu.Size = new System.Drawing.Size(1822, 797);
+            this.pnVinhCuu.Size = new System.Drawing.Size(1918, 859);
             this.pnVinhCuu.TabIndex = 3;
             // 
             // tblBody
@@ -308,7 +311,7 @@
             this.tblBody.Name = "tblBody";
             this.tblBody.RowCount = 1;
             this.tblBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblBody.Size = new System.Drawing.Size(1822, 797);
+            this.tblBody.Size = new System.Drawing.Size(1918, 859);
             this.tblBody.TabIndex = 1;
             // 
             // pnLeft
@@ -327,12 +330,14 @@
             this.pnLeft.Controls.Add(this.btnLocation_B);
             this.pnLeft.Controls.Add(this.btnLocation_D);
             this.pnLeft.Controls.Add(this.btnLocation_C);
+            this.pnLeft.Controls.Add(this.btnLocation_JIT);
+            this.pnLeft.Controls.Add(this.btnLocation_0W1);
             this.pnLeft.Controls.Add(this.btnLocation_M);
             this.pnLeft.Controls.Add(this.btnLocation_L);
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnLeft.Location = new System.Drawing.Point(3, 3);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(1178, 791);
+            this.pnLeft.Size = new System.Drawing.Size(1240, 853);
             this.pnLeft.TabIndex = 0;
             // 
             // btnLocation_N
@@ -344,7 +349,7 @@
             this.btnLocation_N.EdgeWidth = 2;
             this.btnLocation_N.EndColor = System.Drawing.Color.LightGray;
             this.btnLocation_N.FlatBorderColor = System.Drawing.Color.Gray;
-            this.btnLocation_N.Location = new System.Drawing.Point(767, 352);
+            this.btnLocation_N.Location = new System.Drawing.Point(689, 331);
             this.btnLocation_N.Name = "btnLocation_N";
             this.btnLocation_N.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnLocation_N.RectRadius = 17;
@@ -367,7 +372,7 @@
             this.btnLocation_F.EdgeWidth = 2;
             this.btnLocation_F.EndColor = System.Drawing.Color.LightGray;
             this.btnLocation_F.FlatBorderColor = System.Drawing.Color.Gray;
-            this.btnLocation_F.Location = new System.Drawing.Point(721, 435);
+            this.btnLocation_F.Location = new System.Drawing.Point(657, 423);
             this.btnLocation_F.Name = "btnLocation_F";
             this.btnLocation_F.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnLocation_F.RectRadius = 17;
@@ -390,7 +395,7 @@
             this.btnLocation_E.EdgeWidth = 2;
             this.btnLocation_E.EndColor = System.Drawing.Color.LightGray;
             this.btnLocation_E.FlatBorderColor = System.Drawing.Color.Gray;
-            this.btnLocation_E.Location = new System.Drawing.Point(737, 396);
+            this.btnLocation_E.Location = new System.Drawing.Point(675, 372);
             this.btnLocation_E.Name = "btnLocation_E";
             this.btnLocation_E.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnLocation_E.RectRadius = 17;
@@ -528,7 +533,7 @@
             this.btnLocation_FTY1.EdgeWidth = 2;
             this.btnLocation_FTY1.EndColor = System.Drawing.Color.LightGray;
             this.btnLocation_FTY1.FlatBorderColor = System.Drawing.Color.Gray;
-            this.btnLocation_FTY1.Location = new System.Drawing.Point(503, 305);
+            this.btnLocation_FTY1.Location = new System.Drawing.Point(501, 307);
             this.btnLocation_FTY1.Name = "btnLocation_FTY1";
             this.btnLocation_FTY1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnLocation_FTY1.RectRadius = 12;
@@ -611,6 +616,52 @@
             this.btnLocation_C.Tag = "008";
             this.btnLocation_C.Click += new System.EventHandler(this.btnLocation_Click);
             // 
+            // btnLocation_JIT
+            // 
+            this.btnLocation_JIT.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_JIT.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_JIT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_JIT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_JIT.EdgeWidth = 2;
+            this.btnLocation_JIT.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_JIT.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_JIT.Location = new System.Drawing.Point(607, 411);
+            this.btnLocation_JIT.Name = "btnLocation_JIT";
+            this.btnLocation_JIT.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_JIT.RectRadius = 17;
+            this.btnLocation_JIT.ShadowColor = System.Drawing.Color.Transparent;
+            this.btnLocation_JIT.ShadowShift = 1;
+            this.btnLocation_JIT.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_JIT.Size = new System.Drawing.Size(37, 35);
+            this.btnLocation_JIT.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_JIT.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_JIT.TabIndex = 0;
+            this.btnLocation_JIT.Tag = "JIT";
+            this.btnLocation_JIT.Click += new System.EventHandler(this.btnLocation_Click);
+            // 
+            // btnLocation_0W1
+            // 
+            this.btnLocation_0W1.BackColor = System.Drawing.Color.Transparent;
+            this.btnLocation_0W1.BackgroundGradientMode = FORM.AdvancedPanel.PanelGradientMode.ForwardDiagonal;
+            this.btnLocation_0W1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLocation_0W1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLocation_0W1.EdgeWidth = 2;
+            this.btnLocation_0W1.EndColor = System.Drawing.Color.LightGray;
+            this.btnLocation_0W1.FlatBorderColor = System.Drawing.Color.Gray;
+            this.btnLocation_0W1.Location = new System.Drawing.Point(493, 485);
+            this.btnLocation_0W1.Name = "btnLocation_0W1";
+            this.btnLocation_0W1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnLocation_0W1.RectRadius = 17;
+            this.btnLocation_0W1.ShadowColor = System.Drawing.Color.Transparent;
+            this.btnLocation_0W1.ShadowShift = 1;
+            this.btnLocation_0W1.ShadowStyle = FORM.AdvancedPanel.ShadowMode.Dropped;
+            this.btnLocation_0W1.Size = new System.Drawing.Size(37, 35);
+            this.btnLocation_0W1.StartColor = System.Drawing.Color.Gray;
+            this.btnLocation_0W1.Style = FORM.AdvancedPanel.BevelStyle.Flat;
+            this.btnLocation_0W1.TabIndex = 0;
+            this.btnLocation_0W1.Tag = "0W1";
+            this.btnLocation_0W1.Click += new System.EventHandler(this.btnLocation_Click);
+            // 
             // btnLocation_M
             // 
             this.btnLocation_M.BackColor = System.Drawing.Color.Transparent;
@@ -620,7 +671,7 @@
             this.btnLocation_M.EdgeWidth = 2;
             this.btnLocation_M.EndColor = System.Drawing.Color.LightGray;
             this.btnLocation_M.FlatBorderColor = System.Drawing.Color.Gray;
-            this.btnLocation_M.Location = new System.Drawing.Point(673, 492);
+            this.btnLocation_M.Location = new System.Drawing.Point(682, 485);
             this.btnLocation_M.Name = "btnLocation_M";
             this.btnLocation_M.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnLocation_M.RectRadius = 17;
@@ -643,7 +694,7 @@
             this.btnLocation_L.EdgeWidth = 2;
             this.btnLocation_L.EndColor = System.Drawing.Color.LightGray;
             this.btnLocation_L.FlatBorderColor = System.Drawing.Color.Gray;
-            this.btnLocation_L.Location = new System.Drawing.Point(728, 521);
+            this.btnLocation_L.Location = new System.Drawing.Point(737, 501);
             this.btnLocation_L.Name = "btnLocation_L";
             this.btnLocation_L.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnLocation_L.RectRadius = 17;
@@ -661,9 +712,9 @@
             // 
             this.pnRight.Controls.Add(this.tblRight);
             this.pnRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnRight.Location = new System.Drawing.Point(1187, 3);
+            this.pnRight.Location = new System.Drawing.Point(1249, 3);
             this.pnRight.Name = "pnRight";
-            this.pnRight.Size = new System.Drawing.Size(632, 791);
+            this.pnRight.Size = new System.Drawing.Size(666, 853);
             this.pnRight.TabIndex = 1;
             // 
             // tblRight
@@ -680,7 +731,7 @@
             this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblRight.Size = new System.Drawing.Size(632, 791);
+            this.tblRight.Size = new System.Drawing.Size(666, 853);
             this.tblRight.TabIndex = 0;
             // 
             // lbl_title
@@ -691,7 +742,7 @@
             this.lbl_title.ForeColor = System.Drawing.Color.Transparent;
             this.lbl_title.Location = new System.Drawing.Point(3, 0);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(626, 30);
+            this.lbl_title.Size = new System.Drawing.Size(660, 30);
             this.lbl_title.TabIndex = 11;
             this.lbl_title.Text = "Humidity Average By Line";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -708,11 +759,11 @@
             this.tblLine.Name = "tblLine";
             this.tblLine.RowCount = 3;
             this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 448F));
+            this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 421F));
             this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 231F));
             this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblLine.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblLine.Size = new System.Drawing.Size(626, 755);
+            this.tblLine.Size = new System.Drawing.Size(660, 817);
             this.tblLine.TabIndex = 13;
             // 
             // pnGrid
@@ -720,9 +771,9 @@
             this.pnGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnGrid.Controls.Add(this.grdMain);
             this.pnGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnGrid.Location = new System.Drawing.Point(3, 527);
+            this.pnGrid.Location = new System.Drawing.Point(3, 589);
             this.pnGrid.Name = "pnGrid";
-            this.pnGrid.Size = new System.Drawing.Size(620, 225);
+            this.pnGrid.Size = new System.Drawing.Size(654, 225);
             this.pnGrid.TabIndex = 13;
             // 
             // grdMain
@@ -735,7 +786,7 @@
             this.grdMain.MainView = this.gvwMain;
             this.grdMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grdMain.Name = "grdMain";
-            this.grdMain.Size = new System.Drawing.Size(618, 223);
+            this.grdMain.Size = new System.Drawing.Size(652, 223);
             this.grdMain.TabIndex = 92;
             this.grdMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvwMain,
@@ -842,9 +893,9 @@
             this.pnChart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnChart.Controls.Add(this.a1Panel1);
             this.pnChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnChart.Location = new System.Drawing.Point(3, 79);
+            this.pnChart.Location = new System.Drawing.Point(3, 168);
             this.pnChart.Name = "pnChart";
-            this.pnChart.Size = new System.Drawing.Size(620, 442);
+            this.pnChart.Size = new System.Drawing.Size(654, 415);
             this.pnChart.TabIndex = 0;
             // 
             // a1Panel1
@@ -858,7 +909,7 @@
             this.a1Panel1.ImageLocation = new System.Drawing.Point(4, 4);
             this.a1Panel1.Location = new System.Drawing.Point(0, 0);
             this.a1Panel1.Name = "a1Panel1";
-            this.a1Panel1.Size = new System.Drawing.Size(618, 440);
+            this.a1Panel1.Size = new System.Drawing.Size(652, 413);
             this.a1Panel1.TabIndex = 0;
             // 
             // chtHumi
@@ -912,9 +963,10 @@
             xyDiagram1.EnableAxisXScrolling = true;
             xyDiagram1.Rotated = true;
             this.chtHumi.Diagram = xyDiagram1;
+            this.chtHumi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chtHumi.Legend.Name = "Default Legend";
             this.chtHumi.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chtHumi.Location = new System.Drawing.Point(3, 3);
+            this.chtHumi.Location = new System.Drawing.Point(0, 0);
             this.chtHumi.Name = "chtHumi";
             this.chtHumi.PaletteName = "Metro";
             series1.CrosshairLabelPattern = "{V:#,#}";
@@ -927,7 +979,7 @@
             series1.View = sideBySideBarSeriesView1;
             this.chtHumi.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chtHumi.Size = new System.Drawing.Size(639, 428);
+            this.chtHumi.Size = new System.Drawing.Size(652, 413);
             this.chtHumi.TabIndex = 6;
             chartTitle1.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chtHumi.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
@@ -941,7 +993,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(620, 70);
+            this.panel1.Size = new System.Drawing.Size(654, 159);
             this.panel1.TabIndex = 14;
             // 
             // label5
@@ -965,7 +1017,7 @@
             this.advancedPanel1.EdgeWidth = 2;
             this.advancedPanel1.EndColor = System.Drawing.Color.White;
             this.advancedPanel1.FlatBorderColor = System.Drawing.Color.SandyBrown;
-            this.advancedPanel1.Location = new System.Drawing.Point(85, 40);
+            this.advancedPanel1.Location = new System.Drawing.Point(53, 40);
             this.advancedPanel1.Name = "advancedPanel1";
             this.advancedPanel1.RectRadius = 0;
             this.advancedPanel1.ShadowColor = System.Drawing.Color.Silver;
@@ -1252,7 +1304,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 448F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 414F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 231F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -1386,9 +1438,9 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.a1Panel2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 141);
+            this.panel5.Location = new System.Drawing.Point(3, 175);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(654, 442);
+            this.panel5.Size = new System.Drawing.Size(654, 408);
             this.panel5.TabIndex = 0;
             // 
             // a1Panel2
@@ -1402,7 +1454,7 @@
             this.a1Panel2.ImageLocation = new System.Drawing.Point(4, 4);
             this.a1Panel2.Location = new System.Drawing.Point(0, 0);
             this.a1Panel2.Name = "a1Panel2";
-            this.a1Panel2.Size = new System.Drawing.Size(652, 440);
+            this.a1Panel2.Size = new System.Drawing.Size(652, 406);
             this.a1Panel2.TabIndex = 0;
             // 
             // chtHuLT
@@ -1454,9 +1506,10 @@
             xyDiagram2.EnableAxisXScrolling = true;
             xyDiagram2.Rotated = true;
             this.chtHuLT.Diagram = xyDiagram2;
+            this.chtHuLT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chtHuLT.Legend.Name = "Default Legend";
             this.chtHuLT.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chtHuLT.Location = new System.Drawing.Point(3, 3);
+            this.chtHuLT.Location = new System.Drawing.Point(0, 0);
             this.chtHuLT.Name = "chtHuLT";
             this.chtHuLT.PaletteName = "Metro";
             series2.CrosshairLabelPattern = "{V:#,#}";
@@ -1468,7 +1521,7 @@
             series2.View = sideBySideBarSeriesView2;
             this.chtHuLT.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series2};
-            this.chtHuLT.Size = new System.Drawing.Size(639, 428);
+            this.chtHuLT.Size = new System.Drawing.Size(652, 406);
             this.chtHuLT.TabIndex = 6;
             chartTitle2.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chtHuLT.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
@@ -1482,7 +1535,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(654, 132);
+            this.panel6.Size = new System.Drawing.Size(654, 166);
             this.panel6.TabIndex = 14;
             // 
             // label2
@@ -1506,7 +1559,7 @@
             this.advancedPanel16.EdgeWidth = 2;
             this.advancedPanel16.EndColor = System.Drawing.Color.White;
             this.advancedPanel16.FlatBorderColor = System.Drawing.Color.SandyBrown;
-            this.advancedPanel16.Location = new System.Drawing.Point(85, 40);
+            this.advancedPanel16.Location = new System.Drawing.Point(53, 40);
             this.advancedPanel16.Name = "advancedPanel16";
             this.advancedPanel16.RectRadius = 0;
             this.advancedPanel16.ShadowColor = System.Drawing.Color.Silver;
@@ -1795,5 +1848,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label btnStatic;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private AdvancedPanel btnLocation_0W1;
+        private AdvancedPanel btnLocation_JIT;
     }
 }
