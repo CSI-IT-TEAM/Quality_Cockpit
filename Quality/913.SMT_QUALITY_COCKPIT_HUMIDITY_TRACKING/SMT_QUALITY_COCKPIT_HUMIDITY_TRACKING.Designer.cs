@@ -636,7 +636,7 @@
             this.btnLocation_JIT.StartColor = System.Drawing.Color.Gray;
             this.btnLocation_JIT.Style = FORM.AdvancedPanel.BevelStyle.Flat;
             this.btnLocation_JIT.TabIndex = 0;
-            this.btnLocation_JIT.Tag = "JIT";
+            this.btnLocation_JIT.Tag = "403";
             this.btnLocation_JIT.Click += new System.EventHandler(this.btnLocation_Click);
             // 
             // btnLocation_0W1
