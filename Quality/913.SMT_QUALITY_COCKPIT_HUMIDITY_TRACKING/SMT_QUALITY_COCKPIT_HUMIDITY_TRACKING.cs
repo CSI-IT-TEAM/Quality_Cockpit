@@ -321,7 +321,8 @@ namespace FORM
                     btnLocation_LE,
                     btnLocation_LD,
                     btnLocation_Clt,
-                    btnLocation_0W1
+                    btnLocation_0W1,
+                    btnLocation_JIT
                 };
                     foreach (var item in ButtonLst)
                     {
@@ -468,6 +469,10 @@ namespace FORM
                         break;
                     case "0W1":
                         ComVar.Var._Area = "0W1";
+                        CheckSeq(ComVar.Var._Area);
+                        break;
+                    case "JIT": //KHO JIT - JIT WH
+                        ComVar.Var._Area = "403";
                         CheckSeq(ComVar.Var._Area);
                         break;
                     default:
