@@ -501,7 +501,7 @@ namespace FORM
                         if (dtCheck.Rows[i]["LINE_CD"].ToString().Equals(strLine))
                         {
                             ComVar.Var._strValue1 = dtCheck.Rows[i]["RST_DATE"].ToString();
-                            ComVar.Var._strValue5 = dtCheck.Rows[i]["SEQ_ID"].ToString();
+                            ComVar.Var._strValue5 = string.Concat(strPlant, "_", dtCheck.Rows[i]["SEQ_ID"].ToString());
                         }
                     }
                     if (ComVar.Var._strValue1 != "" && ComVar.Var._strValue5 != "")

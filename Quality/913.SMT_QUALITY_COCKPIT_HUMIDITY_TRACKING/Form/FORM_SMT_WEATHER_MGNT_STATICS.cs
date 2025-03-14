@@ -24,7 +24,7 @@ namespace FORM
             {
                 /*Đổ dữ liệu cho Flow bên dưới*/
                 DataTable dt1 = null;
-                dt1 = SMT_MAT_WEATHER_MGNT_STATICS(argType, "ALL", ComVar.Var._strValue2, ComVar.Var._strValue4, ComVar.Var._strValue3);
+                dt1 = SMT_MAT_WEATHER_MGNT_STATICS(argType, ComVar.Var._strValue5.Split('_')[0].ToString(), ComVar.Var._strValue2, ComVar.Var._strValue4, ComVar.Var._strValue3);
                 if (dt1 != null && dt1.Rows.Count > 0)
                 {
                     this.Cursor = Cursors.WaitCursor;

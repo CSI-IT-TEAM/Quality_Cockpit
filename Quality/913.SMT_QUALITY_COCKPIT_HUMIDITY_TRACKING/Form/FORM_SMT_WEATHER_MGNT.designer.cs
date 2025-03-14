@@ -235,7 +235,7 @@ namespace FORM
             // 
             this.cmdBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cmdBack.BackgroundImage")));
             this.cmdBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cmdBack.Location = new System.Drawing.Point(1513, 2);
+            this.cmdBack.Location = new System.Drawing.Point(1535, 5);
             this.cmdBack.Name = "cmdBack";
             this.cmdBack.Size = new System.Drawing.Size(108, 101);
             this.cmdBack.TabIndex = 760;
