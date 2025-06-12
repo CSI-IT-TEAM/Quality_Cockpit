@@ -100,14 +100,22 @@ namespace FORM
                 {
                     tmrTick.Stop();
                     dtp_Ym.EditValue = DateTime.Now.ToString("yyyy-MM");
-                    btnMonth.Enabled = true;
-                    btnYear.Enabled = false;
-                    lblMonth.Visible = false;
-                    dtp_Ym.Visible = false;
-                    lblTitle.Text = "Temperature And Humidity Trends by Year";
-                    navigationFrame1.SelectedPage = navigationPage1;
-                    ((XYDiagram)chtYear.Diagram).AxisX.Title.Text = "Month";
-                    BindingData("C_YYYY", chtYear);
+                    btnMonth.Enabled = false;
+                    btnYear.Enabled = true;
+                    lblMonth.Visible = true;
+                    dtp_Ym.Visible = true;
+                    lblTitle.Text = "Temperature And Humidity Trends by Month";
+                    navigationFrame1.SelectedPage = navigationPage2;
+                    ((XYDiagram)chtMonth.Diagram).AxisX.Title.Text = "Days";
+                    BindingData("C_GETDATE", chtMonth);
+                    //btnMonth.Enabled = true;
+                    //btnYear.Enabled = false;
+                    //lblMonth.Visible = false;
+                    //dtp_Ym.Visible = false;
+                    //lblTitle.Text = "Temperature And Humidity Trends by Year";
+                    //navigationFrame1.SelectedPage = navigationPage1;
+                    //((XYDiagram)chtYear.Diagram).AxisX.Title.Text = "Month";
+                    //BindingData("C_YYYY", chtYear);
                     _time = 0;
                     tmrTick.Start();
                 }
