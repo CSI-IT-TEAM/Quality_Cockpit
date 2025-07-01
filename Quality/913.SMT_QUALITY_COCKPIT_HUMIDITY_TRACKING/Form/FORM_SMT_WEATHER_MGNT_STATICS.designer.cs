@@ -528,6 +528,7 @@ namespace FORM
             this.dtp_Ym.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtp_Ym.Properties.Mask.EditMask = "yyyy-MM";
             this.dtp_Ym.Properties.ShowNullValuePromptWhenFocused = true;
+            this.dtp_Ym.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dtp_Ym.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
             this.dtp_Ym.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dtp_Ym.Size = new System.Drawing.Size(188, 41);
